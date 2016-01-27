@@ -1,0 +1,119 @@
+<div class='quest-image-holder'>
+	<img class='quest-image-background' src='img/tier-{{quest.region}}-background.png'>
+	<img class='quest-image-monster' ng-src="assets/{{quest.enemyImage}}">
+</div>
+
+<table class='quest-table'>
+  <thead>
+  <tr>
+    <td colspan=4 class='quest-name'><h3>{{quest.name}}</h3></td>
+  </tr>
+  <tr>
+    <td colspan=2 class='quest-type'>{{quest.title}}</td>
+    <td colspan=2 class='quest-cost'>
+      Cost: <img class='coin-img' src='img/coin.png'>
+      {{quest.gold}}
+    </td>
+  </tr>
+  <tr>
+    <td colspan=2 class='quest-level'>Level {{quest.levelReq}}</td>
+    <td colspan=2 class='quest-zone'><a href="#/regios/{{quest.region2}}">{{quest.region2}}</a></td>
+  </tr>
+  <tr>
+    <td colspan=4>Max Party Size: {{quest.questSize}}</td>
+  </tr>
+  <tr class='quest-spacer'>
+    <td colspan=4>
+  </tr>
+  </thead>
+	<tbody>
+	<tr class='quest-stat-label'>
+		<td>HP</td>
+		<td>EXP</td>
+		<td>Time</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>{{quest.enemyHp}}</td>
+		<td>{{quest.exp}}</td>
+		<td>{{quest.time}}</td>
+		<td></td>
+	</tr>
+	<tr class='quest-stat-label'>
+		<td>P.Atk</td>
+		<td>M.Atk</td>
+		<td>P.Def</td>
+		<td>M.Def</td>
+	</tr>
+	<tr>
+		<td>{{quest.enemyAtk}}</td>
+		<td>{{quest.enemyMatk}}</td>
+		<td>{{quest.enemyDef}}</td>
+		<td>{{quest.enemyMdef}}</td>
+	</tr>
+	<tr class='quest-stat-label'>
+		<td>Eva</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>{{quest.enemyEva}}</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</tbody>
+</table>
+<div class='clear'></div>
+
+
+<table class='quest-loot-drops-table'>
+	<caption>Dropped by {{quest.name}}</caption>
+	<thead>
+		<tr>
+			<th class='center'></th>
+			<th>Item Name</th>
+			<th class='center'>Amount</th>
+			<th class='center'>Drop Rate</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan='4'>
+				Item drops information for {{quest.name}}.
+			</td>
+		</tr>
+	</tfoot>
+	<tr ng-show="quest.reward1[0]">
+		<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
+		<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
+		<td>{{quest.reward1[2]}}<span ng-if="quest.reward1[3] > 1">-{{quest.reward1[3]}}</span></td>
+		<td>{{quest.reward1[1]}}%</td>
+	</tr>
+	<tr ng-show="quest.reward2[0]">
+		<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
+		<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
+		<td>{{quest.reward2[2]}}<span ng-if="quest.reward2[3] > 1">-{{quest.reward2[3]}}</span></td>
+		<td>{{quest.reward2[1]}}%</td>
+	</tr>
+	<tr ng-show="quest.reward3[0]">
+		<td class="center"><img ng-src="assets/{{mats[quest.reward3[0]-1].image}}"></td>
+		<td><a class="quality-{{mats[quest.reward3[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward3[0]-1].name}}">{{mats[quest.reward3[0]-1].name}}</a></td>
+		<td>{{quest.reward3[2]}}<span ng-if="quest.reward3[3] > 1">-{{quest.reward3[3]}}</span></td>
+		<td>{{quest.reward3[1]}}%</td>
+	</tr>
+	<tr ng-show="quest.reward4[0]">
+		<td class="center"><img ng-src="assets/{{mats[quest.reward4[0]-1].image}}"></td>
+		<td><a class="quality-{{mats[quest.reward4[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward4[0]-1].name}}">{{mats[quest.reward4[0]-1].name}}</a></td>
+		<td>{{quest.reward4[2]}}<span ng-if="quest.reward4[3] > 1">-{{quest.reward4[3]}}</span></td>
+		<td>{{quest.reward4[1]}}%</td>
+	</tr>
+	<tr ng-show="quest.trinket[0]">
+		<td class="center"><img ng-src="assets/{{eq[quest.trinket[0]-1].image}}"></td>
+		<td><a class="quality-{{eq[quest.trinket[0]-1].rarity}}" href="#!/items/trinket/{{eq[quest.trinket[0]-1].name}}">{{eq[quest.trinket[0]-1].name}}</a></td>
+		<td>1</td>
+		<td>{{quest.trinket[1]}}%</td>
+	</tr>
+</table>
+<!-- <pre>{{quest}}</pre> -->

@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="mainApp">
+  <head>
+	<title>MerchantDB</title>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+	   <!-- Javascripts -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  	<script src="js/snap.js"></script>
+  	<script src="js/angular-snap.js"></script>
+  	<script src="js/angucomplete-alt.js"></script>
+  	<script src="js/angular-route.min.js"></script>
+    <script src="js/reddit-widget.js"></script>
+    <script src="js/gear-filter-controller.js"></script>
+  	<script type="text/javascript">
+		  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+	  </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/angular-snap.css">
+    <link rel="stylesheet" href="css/angucomplete-alt.css">
+  </head>
+  <body ng-controller="bodyCtrl">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id='mobile-menu' snap-drawer="right" snap-drawer ng-controller="mobileMenuController" ng-cloak>
+      <ul>
+        <li><a href='../index.html'>Home</a></li>
+        <li><a href=''>Heroes</a>
+          <ul>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Warrior'><img src='img/Icn_Hero_Warrior.png'>Warrior</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Rogue'><img src='img/Icn_Hero_Rogue.png'>Rogue</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Mage'><img src='img/Icn_Hero_Mage.png'>Mage</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Berserker'><img src='img/Icn_Hero_Berserker.png'>Berserker</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Cleric'><img src='img/Icn_Hero_Cleric.png'>Cleric</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Assassin'><img src='img/Icn_Hero_Assassin.png'>Assassin</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Paladin'><img src='img/Icn_Hero_Paladin.png'>Paladin</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/heroes/Dark Knight'><img src='img/Icn_Hero_Dark_Knight.png'>Dark Knight</a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href=''>Items</a>
+          <ul>
+            <li>
+              <a snap-toggle="right" href='#!/items/weapons'><img src='img/Onis_Decapitator.png'>Weapons</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/items/armors'><img src='img/Titans_Guard.png'>Armors</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/items/trinkets'><img src='img/Seastone_Pendant.png'>Trinkets</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/items/potions'><img src='img/Seastone_Pendant.png'>Potions</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/items/materials'><img src='img/Seastone_Pendant.png'>Materials</a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href=''>Regions</a>
+          <ul>
+            <li>
+              <a snap-toggle="right" href='#!/regios/Tuvale Forest'><img src='img/Icn_Maexna.png'>Tuvale Forest</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/regios/Yarsol Cove'><img src='img/Icn_Basamus.png'>Yarsol Cove</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/regios/Aldur Highlands'><img src='img/Icn_Ares.png'>Aldur Highlands</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/regios/Vulkrum Badlands'><img src='img/Icn_Lich_King.png'>Vulkrum Badlands</a>
+            </li>
+            <li>
+              <a snap-toggle="right" href='#!/regios/Grimhal Volcano'><img src='img/Icn_Cerberus.png'>Grimhal Volcano</a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href=''>Tools</a>
+          <ul>
+            <li>Coming Soon!</li>
+          </ul>
+        </li>
+
+        <li><a href=''>Guides</a>
+          <ul>
+            <li>Coming Soon!</li>
+          </ul>
+        </li>
+
+        <li><a href='#'>Community</a>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <snap-content class="scrollable" autoscroll="true" snap-content snap-options="snapOpts">
+    <!-- Site/App Content Below -->
+
+      <header id="top-bar" class="container-fluid">
+        <div id="logo-search-hold" class="row">
+          <!-- LOGO - SEARCH - NAVIGATION -->
+          <div id="logo-hold" class="col-xs-9 col-sm-7 col-md-8">
+            <a href="#!/">
+				<img src="img/logo.png" alt="MerchantDB">
+				<span>Merchant<span class="db">[DB]</span></span>
+			</a>
+          </div>
+          <div id="search-hold" class="col-xs-3 col-sm-5 col-md-4">
+            <div id="desktop-searchbar" ng-controller="searchController">
+              <div  angucomplete-alt
+                    id="ac-search"
+                    placeholder="Search Database"
+                    pause="200"
+                    selected-object="itemSelected"
+                    local-data="gameObjects"
+                    search-fields="name"
+                    title-field="name"
+					          titleclass-field="rarity"
+                    description-field="subType"
+                    image-field="icon"
+					          clear-selected="true"
+                    minlength="2"
+                    input-class="form-control form-control-small"
+                    match-class="highlight" />
+              </div>
+            </div>
+          </div>
+          <div id="mobile-menu-toggle" class="col-xs-3">
+            <a href='' snap-toggle="right"><span class='glyphicon glyphicon-menu-hamburger'></span></a>
+          </div>
+        </div>
+
+        <div id="mobile-search" class="row">
+            <div id="mobile-searchbar" ng-controller="searchController">
+              <div  angucomplete-alt
+                    id="ac-search"
+                    placeholder="Search Database"
+                    pause="200"
+                    selected-object="itemSelected"
+                    local-data="gameObjects"
+                    search-fields="name"
+                    title-field="name"
+					          titleclass-field="rarity"
+                    description-field="subType"
+                    image-field="icon"
+					          clear-selected="true"
+                    minlength="2"
+                    input-class="form-control form-control-small"
+                    match-class="highlight" />
+              </div>
+            </div>
+        </div>
+
+        <div id="navigation">
+          <div id="navi-hold">
+            <ul>
+              <li><a id="hero-link" href="#!/">Heroes <span class='glyphicon glyphicon-chevron-down'></span></li></a>
+              <li><a id="item-link" href="#!/">Items <span class='glyphicon glyphicon-chevron-down'></span></li></a>
+              <li><a id="region-link" href="#!/">Regions <span class='glyphicon glyphicon-chevron-down'></span></li></a>
+              <li><a id="tool-link" href="#!/tools">Tools</li></a>
+              <li><a id="guide-link" href="#!/guides">Guides</li></a>
+              <li class='menu-community'><a href="#!/"><img src="img/Icn_Hero_Party.png" alt="Join the Community!">Community</li></a>
+            </ul>
+            <div id='sub-menu-hold'>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="content-hold">
+        <div class="row">
+          <div id="main-content" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+			<div ng-view autoscroll></div>
+			<br>
+			<div id="disqus_thread"></div>
+				<script>
+				function initDisqus() {
+				window.disqus_shortname = 'merchantdb';
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+				$.getScript(dsq.src)
+						.done(function () {
+							DISQUS.reset({
+								reload: true,
+								config: function () {
+									var href = window.location.href.split("/");
+									//get the text after last /, replace %20 with space
+									href = href[href.length-1].replace("%20", " ");
+									//if we are on main site
+									if(href.length == 0){href = "Merchant[DB]"}
+									//attributums after ?
+									var baseName = href.split("?")[0];
+
+									this.page.identifier = "http://merchantgamedb.com/V2/#!/"+baseName;
+									this.page.url = "http://merchantgamedb.com/V2/#!/"+baseName;
+								}
+							});
+						});
+
+				}
+				</script>
+          </div>
+
+          <aside id="side-bar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="row">
+              <div class="aside-block col-xs-4 col-sm-12 col-md-12 col-lg-12">
+                <div class="side-content">
+                  <section id="reddit" class='reddit single'>
+                    <h4>From /r/Merchant</h4>
+                    <ul class="posts"></ul>
+                  </section>
+                </div>
+              </div>
+
+            </div><!-- END SIDEBAR ROW -->
+          </aside>
+        </div>
+      </section>
+
+      <footer class="container-fluid">
+        <div class="row">
+          <div class="col-xs-6 col-sm-3">
+            <div id="download-merchant" class="footer-col">
+              <h3>Download Merchant</h3>
+              <a href="https://play.google.com/store/apps/details?id=bearface.games.merchant&hl=en"><img src="img/button-gp.png" alt="Download Merchant from Google Play"></a>
+              <a href="https://www.reddit.com/r/MerchantRPG/comments/3sbv5w/ios_version_is_coming_soon/"><img src="img/app-store.png" alt="Download Merchant from Apple App Store"></a>
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-sm-3">
+            <div class="footer-col">
+              <h3>Contribute</h3>
+              <p>MerchantDB is an OpenSource project.</p>
+              <p>Want to contribute?</p>
+              <a href="https://github.com/Chirpizard/MerchantDB"><div id="github-button">View on Github</div></a>
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-sm-3">
+            <div class="footer-col">
+              <h3>Community</h3>
+              <p>Have questions?<p>
+              <p>Get answers on the Merchant Reddit.</p>
+              <a href="https://www.reddit.com/r/MerchantRPG/"><div id="reddit-button">Go to Reddit</div></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p>MerchantDB Copyright 2015</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  	<script src="https://www.google-analytics.com/analytics.js"></script>
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-40909071-3','auto');ga('send','pageview');
+      </script>
+
+      <script src="js/desktop-menu.js"></script>
+    </snap-content>
+  </body>
+</html>

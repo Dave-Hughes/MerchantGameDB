@@ -1,0 +1,102 @@
+<div class='hero-page'>
+  <img class='hero-page-avatar' ng-src="img/Img_{{hero.name | spaceless}}.png">
+  <h2>The {{hero.name}}</h2>
+  <p>{{hero.desc1}} {{hero.desc2}}.</p>
+
+  <hr>
+
+  <h3>The Role of the {{hero.name}}</h3>
+  <p ng-include src="heroRole"></p>
+
+
+  <h3>How to unlock</h3>
+  <p ng-include src="heroUnlock"></p>
+
+  <h3>Starting / Level 50 Stats</h3>
+  <table>
+    <thead>
+      <tr>
+        <th scope='col'>Stat</th>
+        <th scope='col'>Starting</th>
+        <th scope='col'>Per Level</th>
+        <th scope='col'>Level 50</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan='4'>
+          Shown: Warrior stats data.
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <th scope='row'>Health</th>
+        <td>{{hero.hp}}</td>
+        <td>{{hero.hpPlv[0]}}</td>
+        <td>{{hero.hp + hero.hpPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Physical Attack</th>
+        <td>{{hero.atk}}</td>
+        <td>{{hero.atkPlv[0]}}</td>
+        <td>{{hero.atk + hero.atkPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Magical Attack</th>
+        <td>{{hero.matk}}</td>
+        <td>{{hero.matkPlv[0]}}</td>
+        <td>{{hero.matk + hero.matkPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Accuracy</th>
+        <td>{{hero.acc}}</td>
+        <td>{{hero.accPlv[0]}}</td>
+        <td>{{hero.acc + hero.accPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Crit</th>
+        <td>{{hero.crit}}</td>
+        <td>{{hero.critPlv[0]}}</td>
+        <td>{{hero.crit + hero.critPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Physical Defense</th>
+        <td>{{hero.def}}</td>
+        <td>{{hero.defPlv[0]}}</td>
+        <td>{{hero.def + hero.defPlv[0]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Magical Defense</th>
+        <td>{{hero.mdef}}</td>
+        <td>{{hero.mdefPlv[0]}}</td>
+        <td>{{hero.mdef + hero.mdefPlv[0]*50}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Stat Scaling</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Physical Attack</th>
+        <th>Magical Attack</th>
+        <th>Accuracy</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan='3'>
+          Stat increase for 1 (STR / INT / DEX).
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>{{hero.strMod[0]}} Per 1 Str</td>
+        <td>{{hero.intMod[0]}} Per 1 Int</td>
+        <td>{{hero.dexMod[0]}} Per 1 Dex</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
