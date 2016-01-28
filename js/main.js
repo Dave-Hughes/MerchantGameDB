@@ -129,7 +129,7 @@
 			window.scrollTo(0, 0);
 
 			/** RELOAD DISQUS ON ROUTE CHANGE **/
-			// initDisqus();
+			initDisqus();
 		});
 	}])
 
