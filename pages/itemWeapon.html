@@ -1,6 +1,3 @@
-<div ng-controller="gearFilterCtrl">
-
-
 <h1>The Weapons of Merchant</h1>
 <p>Looking for a new weapon? You've come to the place.</p>
 
@@ -26,55 +23,49 @@
   </div>
 
   <div class="weapons-subtype-options col-xs-12 col-sm-12">
-    <h3>Subtype</h3>
+    <h3>Blacksmith Subtype</h3>
 
-      <span id="bs-weapons-subtypes" class="hide">
+      <span id="bs-weapons-subtypes" class="">
         <input id = "weaponType-Dagger"
         type = "checkbox"
         value = "Dagger"
         ng-model = "Filter.Dagger"
-        [ng-true-value = "Dagger"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Dagger'"/>
         <label for = "weaponType-Dagger">Dagger</label>
 
         <input id = "weaponType-Sword"
         type = "checkbox"
         value = "Sword"
         ng-model = "Filter.Sword"
-        [ng-true-value = "Sword"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Sword'"/>
         <label for = "weaponType-Sword">Sword</label>
 
         <input id = "weaponType-Hatchet"
         type = "checkbox"
         value = "Hatchet"
         ng-model = "Filter.Hatchet"
-        [ng-true-value = "Hatchet"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Hatchet'"/>
         <label for = "weaponType-Hatchet">Hatchet</label>
 
         <input id = "weaponType-Knife"
         type = "checkbox"
         value = "Knife"
         ng-model = "Filter.Knife"
-        [ng-true-value = "Knife"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Knife'"/>
         <label for = "weaponType-Knife">Knife</label>
 
         <input id = "weaponType-Longsword"
         type = "checkbox"
         value = "Longsword"
         ng-model = "Filter.Longsword"
-        [ng-true-value = "Longsword"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Longsword'"/>
         <label for = "weaponType-Longsword">Longsword</label>
 
         <input id = "weaponType-Axe"
         type = "checkbox"
         value = "Axe"
         ng-model = "Filter.Axe"
-        [ng-true-value = "Axe"]
-        [data-ng-false-value = ""] />
+        ng-true-value = "'Axe'"/>
         <label for = "weaponType-Axe">Axe</label>
       </span>
 
@@ -82,6 +73,4 @@
 </div>
 
 
-<div ng-repeat="item in equipment | orderBy : 'level' | filter:showWeaponsByTier | filter:showWeaponsByType:true">{{item.name}}</div>
-
-</div><!-- End of gearFilterCtrl controller -->
+<div ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType:true | filter:showWeaponsByTier">{{item.name}}</div>

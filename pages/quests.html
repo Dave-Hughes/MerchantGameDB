@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td colspan=2 class='quest-level'>Level {{quest.levelReq}}</td>
-    <td colspan=2 class='quest-zone'><a href="#/regios/{{quest.region2}}">{{quest.region2}}</a></td>
+    <td colspan=2 class='quest-zone'><a href="#!/regios/{{quest.region2}}">{{quest.region2}}</a></td>
   </tr>
   <tr>
     <td colspan=4>Max Party Size: {{quest.questSize}}</td>
@@ -87,7 +87,7 @@
 	</tfoot>
 	<tr ng-show="quest.reward1[0]">
 		<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
-		<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
+		<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
 		<td>{{quest.reward1[2]}}<span ng-if="quest.reward1[3] > 1">-{{quest.reward1[3]}}</span></td>
 		<td>{{quest.reward1[1]}}%</td>
 	</tr>
