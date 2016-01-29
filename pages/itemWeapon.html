@@ -5,6 +5,8 @@
 <div class="weapons-page-filters row">
   <h2>Filtering Options</h2>
 
+  <div class="clear"></div>
+
   <div class="weapons-tier-options col-xs-6 col-sm-4">
     <h3>Tier</h3>
     <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
@@ -16,61 +18,116 @@
 
   <div class="weapons-type-options col-xs-6 col-sm-8">
     <h3>Type</h3>
-    <ul>
-      <li id="blacksmith-option" value="1">Blacksmith</li>
-      <li id="woodworker-option" value="3">Woodworker</li>
-    </ul>
+    <input id="blacksmith-option" type="checkbox" value="blacksmith"><label for="blacksmith-option">Blacksmith</label>
+    <input id="woodworker-option" type="checkbox" value="woodworker"><label for="woodworker-option">Woodworker</label>
   </div>
 
   <div class="weapons-subtype-options col-xs-12 col-sm-12">
-    <h3>Blacksmith Subtype</h3>
+    <h3>Weapon Subtype</h3>
 
-      <span id="bs-weapons-subtypes" class="">
-        <input id = "weaponType-Dagger"
-        type = "checkbox"
-        value = "Dagger"
-        ng-model = "Filter.Dagger"
-        ng-true-value = "'Dagger'"/>
-        <label for = "weaponType-Dagger">Dagger</label>
+    <span id="bs-weapons-subtypes" class="hide">
+      <input id = "weaponType-Dagger"
+      type = "checkbox"
+      value = "Dagger"
+      ng-model = "Filter.Dagger"
+      ng-true-value = "'Dagger'"/>
+      <label for = "weaponType-Dagger">Dagger</label>
 
-        <input id = "weaponType-Sword"
-        type = "checkbox"
-        value = "Sword"
-        ng-model = "Filter.Sword"
-        ng-true-value = "'Sword'"/>
-        <label for = "weaponType-Sword">Sword</label>
+      <input id = "weaponType-Sword"
+      type = "checkbox"
+      value = "Sword"
+      ng-model = "Filter.Sword"
+      ng-true-value = "'Sword'"/>
+      <label for = "weaponType-Sword">Sword</label>
 
-        <input id = "weaponType-Hatchet"
-        type = "checkbox"
-        value = "Hatchet"
-        ng-model = "Filter.Hatchet"
-        ng-true-value = "'Hatchet'"/>
-        <label for = "weaponType-Hatchet">Hatchet</label>
+      <input id = "weaponType-Hatchet"
+      type = "checkbox"
+      value = "Hatchet"
+      ng-model = "Filter.Hatchet"
+      ng-true-value = "'Hatchet'"/>
+      <label for = "weaponType-Hatchet">Hatchet</label>
 
-        <input id = "weaponType-Knife"
-        type = "checkbox"
-        value = "Knife"
-        ng-model = "Filter.Knife"
-        ng-true-value = "'Knife'"/>
-        <label for = "weaponType-Knife">Knife</label>
+      <input id = "weaponType-Knife"
+      type = "checkbox"
+      value = "Knife"
+      ng-model = "Filter.Knife"
+      ng-true-value = "'Knife'"/>
+      <label for = "weaponType-Knife">Knife</label>
 
-        <input id = "weaponType-Longsword"
-        type = "checkbox"
-        value = "Longsword"
-        ng-model = "Filter.Longsword"
-        ng-true-value = "'Longsword'"/>
-        <label for = "weaponType-Longsword">Longsword</label>
+      <input id = "weaponType-Longsword"
+      type = "checkbox"
+      value = "Longsword"
+      ng-model = "Filter.Longsword"
+      ng-true-value = "'Longsword'"/>
+      <label for = "weaponType-Longsword">Longsword</label>
 
-        <input id = "weaponType-Axe"
-        type = "checkbox"
-        value = "Axe"
-        ng-model = "Filter.Axe"
-        ng-true-value = "'Axe'"/>
-        <label for = "weaponType-Axe">Axe</label>
-      </span>
+      <input id = "weaponType-Axe"
+      type = "checkbox"
+      value = "Axe"
+      ng-model = "Filter.Axe"
+      ng-true-value = "'Axe'"/>
+      <label for = "weaponType-Axe">Axe</label>
+    </span>
 
+    <span id="ww-weapons-subtypes" class="hide">
+      <input id = "weaponType-Wand"
+      type = "checkbox"
+      value = "Wand"
+      ng-model = "Filter.Wand"
+      ng-true-value = "'Wand'"/>
+      <label for = "weaponType-Wand">Wand</label>
+
+      <input id = "weaponType-MysticWand"
+      type = "checkbox"
+      value = "Mystic Wand"
+      ng-model = "Filter.MysticWand"
+      ng-true-value = "'Mystic Wand'"/>
+      <label for = "weaponType-MysticWand">Mystic Wand</label>
+
+      <input id = "weaponType-Stave"
+      type = "checkbox"
+      value = "Stave"
+      ng-model = "Filter.Stave"
+      ng-true-value = "'Stave'"/>
+      <label for = "weaponType-Stave">Stave</label>
+
+      <input id = "weaponType-MysticStave"
+      type = "checkbox"
+      value = "Mystic Stave"
+      ng-model = "Filter.MysticStave"
+      ng-true-value = "'Mystic Stave'"/>
+      <label for = "weaponType-MysticStave">Mystic Stave</label>
+
+      <input id = "weaponType-Cudgel"
+      type = "checkbox"
+      value = "Cudgel"
+      ng-model = "Filter.Cudgel"
+      ng-true-value = "'Cudgel'"/>
+      <label for = "weaponType-Cudgel">Cudgel</label>
+
+      <input id = "weaponType-Club"
+      type = "checkbox"
+      value = "Club"
+      ng-model = "Filter.Club"
+      ng-true-value = "'Club'"/>
+      <label for = "weaponType-Club">Club</label>
+    </span>
   </div>
 </div>
 
-
-<div ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType:true | filter:showWeaponsByTier">{{item.name}}</div>
+<table class="filtered-gear-table">
+  <thead>
+    <tr colspan='3'>
+      <th class="center"></th>
+      <th>Name</th>
+      <th class="center">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType:true | filter:showWeaponsByTier" colspan='3'>
+      <td class="center"><img ng-src="assets/{{item.image}}"></td>
+      <td><a class='quality-{{item.rarity}}' href="#!/items/weapon/{{item.name}}">{{item.name}}</a></td>
+      <td class="center">{{item.itemLevel}}</td>
+    </tr>
+  </tbody>
+</table>
