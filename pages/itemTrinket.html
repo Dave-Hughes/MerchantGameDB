@@ -1,1 +1,37 @@
-Trinkets
+<h1>The Trinkets of Merchant</h1>
+<p>Looking for a trinket? You've come to the place.</p>
+
+
+<div class="trinkets-page-filters row">
+  <h2>Filtering Options</h2>
+  <div class="trinkets-tier-options col-xs-12 col-sm-12">
+    <h3>Tier</h3>
+    <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
+    <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
+    <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
+    <input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
+    <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
+  </div>
+</div>
+
+<div class="filters-reset-button">Reset</div>
+<table class="filtered-gear-table">
+  <thead>
+    <tr>
+      <th class="center"></th>
+      <th>Name</th>
+      <th class="center">Cost/<br>Level</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:6} | filter:showTrinketsByTier">
+    <tr>
+		<td rowspan="2" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td><a class='quality-{{item.rarity}}' href="#!/items/trinket/{{item.name}}">{{item.name}}</a><br>{{item.desc1}}</td>
+		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
+    </tr>
+	<tr>
+		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | number:0}} </span></td>
+		<td class="center">Lv. {{item.itemLevel}}</td>
+	</tr>	
+  </tbody>
+</table>
