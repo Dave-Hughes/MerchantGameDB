@@ -1,1 +1,163 @@
-Armors
+<h1>The Armors of Merchant</h1>
+<p>Looking for a new armor? You've come to the place.</p>
+
+
+<div class="armors-page-filters row">
+  <h2>Filtering Options</h2>
+  <div class="armors-tier-options col-xs-12 col-sm-12">
+    <h3>Tier</h3>
+    <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
+    <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
+    <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
+    <input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
+    <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
+  </div>
+
+  <div class="armors-subtype-options col-xs-12 col-sm-12">
+    <h3>Armorsmith Subtype</h3>
+      <span id="as-armors-subtype" class="">
+        <input id = "armorType-Bracers"
+        type = "checkbox"
+        value = "Bracers"
+        ng-model = "Filter.Bracers"
+        ng-true-value = "'Bracers'"/>
+        <label for = "armorType-Bracers">Bracers</label>
+		
+        <input id = "armorType-Greaves"
+        type = "checkbox"
+        value = "Greaves"
+        ng-model = "Filter.Greaves"
+        ng-true-value = "'Greaves'"/>
+        <label for = "armorType-Greaves">Greaves</label>
+		
+        <input id = "armorType-Helm"
+        type = "checkbox"
+        value = "Helm"
+        ng-model = "Filter.Helm"
+        ng-true-value = "'Helm'"/>
+        <label for = "armorType-Helm">Helm</label>
+		
+		<input id = "armorType-Chainmail"
+        type = "checkbox"
+        value = "Chainmail"
+        ng-model = "Filter.Chainmail"
+        ng-true-value = "'Chainmail'"/>
+        <label for = "armorType-Chainmail">Chainmail</label>
+		<br>
+		<input id = "armorType-Gauntlets"
+        type = "checkbox"
+        value = "Gauntlets"
+        ng-model = "Filter.Gauntlets"
+        ng-true-value = "'Gauntlets'"/>
+        <label for = "armorType-Gauntlets">Gauntlets</label>
+		
+		<input id = "armorType-Sabatons"
+        type = "checkbox"
+        value = "Sabatons"
+        ng-model = "Filter.Sabatons"
+        ng-true-value = "'Sabatons'"/>
+        <label for = "armorType-Sabatons">Sabatons</label>
+		
+		<input id = "armorType-GreatHelm"
+        type = "checkbox"
+        value = "Great Helm"
+        ng-model = "Filter.GreatHelm"
+        ng-true-value = "'Great Helm'"/>
+        <label for = "armorType-GreatHelm">Great Helm</label>
+		
+		<input id = "armorType-Platemail"
+        type = "checkbox"
+        value = "Platemail"
+        ng-model = "Filter.Platemail"
+        ng-true-value = "'Platemail'"/>
+        <label for = "armorType-Platemail">Platemail</label>
+      </span>
+	  
+    <h3>ClothWorker Subtype</h3>
+      <span id="cw-armors-subtypes" class="">
+        <input id = "armorType-Gloves"
+        type = "checkbox"
+        value = "Gloves"
+        ng-model = "Filter.Gloves"
+        ng-true-value = "'Gloves'"/>
+        <label for = "armorType-Gloves">Gloves</label>
+		
+        <input id = "armorType-Boots"
+        type = "checkbox"
+        value = "Boots"
+        ng-model = "Filter.Boots"
+        ng-true-value = "'Boots'"/>
+        <label for = "armorType-Boots">Boots</label>
+		
+        <input id = "armorType-Hood"
+        type = "checkbox"
+        value = "Hood"
+        ng-model = "Filter.Hood"
+        ng-true-value = "'Hood'"/>
+        <label for = "armorType-Hood">Hood</label>
+		
+		<input id = "armorType-Tunic"
+        type = "checkbox"
+        value = "Tunic"
+        ng-model = "Filter.Tunic"
+        ng-true-value = "'Tunic'"/>
+        <label for = "armorType-Tunic">Tunic</label>
+		<br>
+		<input id = "armorType-Mitts"
+        type = "checkbox"
+        value = "Mitts"
+        ng-model = "Filter.Mitts"
+        ng-true-value = "'Mitts'"/>
+        <label for = "armorType-Mitts">Mitts</label>
+		
+		<input id = "armorType-Crakows"
+        type = "checkbox"
+        value = "Crakows"
+        ng-model = "Filter.Crakows"
+        ng-true-value = "'Crakows'"/>
+        <label for = "armorType-Crakows">Crakows</label>
+		
+		<input id = "armorType-Hat"
+        type = "checkbox"
+        value = "Hat"
+        ng-model = "Filter.Hat"
+        ng-true-value = "'Hat'"/>
+        <label for = "armorType-Hat">Hat</label>
+		
+		<input id = "armorType-Robe"
+        type = "checkbox"
+        value = "Robe"
+        ng-model = "Filter.Robe"
+        ng-true-value = "'Robe'"/>
+        <label for = "armorType-Robe">Robe</label>
+      </span>	  
+  </div>
+</div>
+
+<div class="filters-reset-button">Reset</div>
+
+<table class="filtered-gear-table">
+  <thead>
+    <tr>
+      <th class="center"></th>
+      <th>Name</th>
+      <th class="center">Cost/<br>Level</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:itemSlot | filter:showArmorsByType:true | filter:showArmorsByTier">
+    <tr>
+		<td rowspan="3" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td><a class='quality-{{item.rarity}}' href="#!/items/armor/{{item.name}}">{{item.name}}</a></td>
+		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
+    </tr>
+	<tr>
+		<td>Def: ~{{formula[item.subType].defBase + formula[item.subType].defLvl*item.itemLevel | number:0}} 
+			mDef: ~{{formula[item.subType].mdefBase + formula[item.subType].mdefLvl*item.itemLevel | number:0}}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | number:0}} </span></td>
+		<td class="center">Lv. {{item.itemLevel}}</td>
+	</tr>	
+  </tbody>
+</table>
