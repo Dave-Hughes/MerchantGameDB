@@ -1249,6 +1249,7 @@ footer .row {
 
 
 
+.armors-page-filters,
 .weapons-page-filters {
   margin: 30px 0 0 0;
   background: #e9e9e9;
@@ -1257,6 +1258,7 @@ footer .row {
   border-radius: 2px;
 }
 
+.armors-page-filters h2,
 .weapons-page-filters h2 {
   font-size: 1.6em;
   text-transform: uppercase;
@@ -1285,6 +1287,7 @@ footer .row {
   border: 1px solid #333;
 }
 
+.armors-page-filters h3,
 .weapons-page-filters h3 {
   font-size: 1em;
   text-transform: uppercase;
@@ -1292,17 +1295,22 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
+.armors-tier-options,
 .weapons-tier-options {
 }
 
+.armors-page-filters input[type=checkbox],
 .weapons-page-filters input[type=checkbox]{
 	display: none;
 }
 
+.armors-page-filters,
 .weapons-page-filters {
 }
 
-.weapons-tier-options label, .weapons-type-options label, .weapons-subtype-options label, .filters-reset-button {
+.armors-tier-options label, .armors-type-options label, .armors-subtype-options label,
+.weapons-tier-options label, .weapons-type-options label, .weapons-subtype-options label,
+.filters-reset-button {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -1311,6 +1319,7 @@ footer .row {
   user-select: none;
 }
 
+.armors-tier-options label,
 .weapons-tier-options label {
   color: #bbb;
   transition: all 0.2s ease;
@@ -1321,9 +1330,13 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
+.armors-type-options
 .weapons-type-options {
 }
 
+.armors-type-options label,
+.armors-subtype-options label,
+.weapons-subtype-options label,
 .weapons-type-options label {
   color: #bbb;
   transition: all 0.2s ease;
@@ -1334,10 +1347,12 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
+.armors-subtype-options,
 .weapons-subtype-options {
   margin: 10px 0 0 0;
 }
 
+.armors-subtype-options label
 .weapons-subtype-options label {
   color: #bbb;
   transition: all 0.2s ease;
