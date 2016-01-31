@@ -1387,17 +1387,13 @@ footer .row {
   font-weight: bold;
 }
 
-.filtered-gear-table tbody tr {
-  border-bottom: 1px solid #bbb;
+.filtered-gear-table tbody tr:nth-child(1) {
+  border-top: 1px solid #bbb;
 }
 
 .filtered-gear-table tbody tr td img {
   image-rendering: pixelated;
   width: 35px;
-}
-
-.filtered-gear-table tbody tr:nth-child(even) {
-  background: #ccc;
 }
 
 .filtered-gear-table tfoot td {
