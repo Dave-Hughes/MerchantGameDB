@@ -1,1 +1,147 @@
-Materials
+<h1>The Materials of Merchant</h1>
+<p>Looking for a material? You've come to the place.</p>
+
+
+<div class="materials-page-filters row">
+  <h2>Filtering Options</h2>
+  <div class="materials-tier-options col-xs-12 col-sm-12">
+    <h3>Tier</h3>
+    <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
+    <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
+    <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
+    <input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
+    <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
+  </div>
+
+  <div class="materials-subtype-options col-xs-12 col-sm-12">
+    <h3>Subtype</h3>
+      <span id="materials-subtype" class="">
+        <input id = "materialType-ore"
+        type = "checkbox"
+        value = "ore"
+        ng-model = "Filter.ore"
+        ng-true-value = "'ore'"/>
+        <label for = "materialType-ore">Ore</label>
+        <input id = "materialType-metal"
+        type = "checkbox"
+        value = "metal"
+        ng-model = "Filter.metal"
+        ng-true-value = "'metal'"/>
+        <label for = "materialType-metal">Metal</label>
+        <input id = "materialType-log"
+        type = "checkbox"
+        value = "log"
+        ng-model = "Filter.log"
+        ng-true-value = "'log'"/>
+        <label for = "materialType-log">Log</label>
+        <input id = "materialType-cloth"
+        type = "checkbox"
+        value = "cloth"
+        ng-model = "Filter.cloth"
+        ng-true-value = "'cloth'"/>
+        <label for = "materialType-cloth">Cloth</label>
+        <input id = "materialType-herb"
+        type = "checkbox"
+        value = "herb"
+        ng-model = "Filter.herb"
+        ng-true-value = "'herb'"/>
+        <label for = "materialType-herb">Herb</label>
+        <input id = "materialType-limb"
+        type = "checkbox"
+        value = "limb"
+        ng-model = "Filter.limb"
+        ng-true-value = "'limb'"/>
+        <label for = "materialType-limb">Limb</label>
+        <input id = "materialType-scale"
+        type = "checkbox"
+        value = "scale"
+        ng-model = "Filter.scale"
+        ng-true-value = "'scale'"/>
+        <label for = "materialType-scale">Scale</label>
+        <input id = "materialType-tooth"
+        type = "checkbox"
+        value = "tooth"
+        ng-model = "Filter.tooth"
+        ng-true-value = "'tooth'"/>
+        <label for = "materialType-tooth">Tooth</label>
+        <input id = "materialType-fur"
+        type = "checkbox"
+        value = "fur"
+        ng-model = "Filter.fur"
+        ng-true-value = "'fur'"/>
+        <label for = "materialType-fur">Fur</label>
+        <input id = "materialType-plate"
+        type = "checkbox"
+        value = "plate"
+        ng-model = "Filter.plate"
+        ng-true-value = "'plate'"/>
+        <label for = "materialType-plate">Plate</label>
+        <input id = "materialType-blade"
+        type = "checkbox"
+        value = "blade"
+        ng-model = "Filter.blade"
+        ng-true-value = "'blade'"/>
+        <label for = "materialType-blade">Blade</label>
+        <input id = "materialType-hilt"
+        type = "checkbox"
+        value = "hilt"
+        ng-model = "Filter.hilt"
+        ng-true-value = "'hilt'"/>
+        <label for = "materialType-hilt">Hilt</label>
+        <input id = "materialType-crystal"
+        type = "checkbox"
+        value = "crystal"
+        ng-model = "Filter.crystal"
+        ng-true-value = "'crystal'"/>
+        <label for = "materialType-crystal">Crystal</label>
+        <input id = "materialType-shell"
+        type = "checkbox"
+        value = "shell"
+        ng-model = "Filter.shell"
+        ng-true-value = "'shell'"/>
+        <label for = "materialType-shell">Shell</label>
+        <input id = "materialType-claw"
+        type = "checkbox"
+        value = "claw"
+        ng-model = "Filter.claw"
+        ng-true-value = "'claw'"/>
+        <label for = "materialType-claw">Claw</label>
+        <input id = "materialType-horn"
+        type = "checkbox"
+        value = "horn"
+        ng-model = "Filter.horn"
+        ng-true-value = "'horn'"/>
+        <label for = "materialType-horn">Horn</label>
+        <input id = "materialType-misc"
+        type = "checkbox"
+        value = "misc"
+        ng-model = "Filter.misc"
+        ng-true-value = "'misc'"/>
+        <label for = "materialType-misc">Misc</label>
+      </span>	  
+  </div>
+</div>
+
+<div class="filters-reset-button col-xs-6 col-sm-6">Reset</div>
+<div class="filters-allType-button hide col-xs-6 col-sm-6">All Type</div>
+<br><br>
+<table class="filtered-gear-table">
+  <thead>
+    <tr>
+      <th class="center"></th>
+      <th>Name</th>
+      <th class="center">Cost/<br>Level</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="item in material | orderBy : 'itemLevel' | filter:showMaterialsByType:true | filter:showMaterialsByTier">
+    <tr>
+		<td rowspan="3" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td><a class='quality-{{item.rarity}}' href="#!/items/material/{{item.name}}">{{item.name}}</a></td>
+		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
+    </tr>
+	<tr>
+		<td>{{item.desc1}} {{item.desc2}}</td>
+		<td class="center">Lv. {{item.itemLevel}}</td>
+	</tr>	
+  </tbody>
+</table>

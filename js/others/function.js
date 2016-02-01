@@ -19,6 +19,16 @@ function lvToTier(lv)
 	return Math.floor(((lv-0.1)/10)+1);
 	}
 	
+function lvToTierAtPotion(lv)
+	{
+	return Math.floor(((lv)/10)+1);
+	}
+	
+function lvToTierAtMaterials(lv)
+	{
+	return Math.floor(((lv)/10)+1);
+	}
+	
 function getEquipmentByName(name) {
 	var item = "";
 	$.each(jsonEquipments, function(index, val) {

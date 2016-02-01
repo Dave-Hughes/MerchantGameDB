@@ -1249,8 +1249,10 @@ footer .row {
 
 
 
-.armors-page-filters,
+.materials-page-filters,
 .trinkets-page-filters,
+.armors-page-filters,
+.potions-page-filters,
 .weapons-page-filters {
   margin: 30px 0 0 0;
   background: #e9e9e9;
@@ -1259,8 +1261,10 @@ footer .row {
   border-radius: 2px;
 }
 
-.armors-page-filters h2,
+.materials-page-filters h2,
 .trinkets-page-filters h2,
+.armors-page-filters h2,
+.potions-page-filters h2,
 .weapons-page-filters h2 {
   font-size: 1.6em;
   text-transform: uppercase;
@@ -1269,6 +1273,7 @@ footer .row {
   float: left;
 }
 
+.filters-allType-button,
 .filters-reset-button {
   text-align: center;
   margin: 10px 15px 0 0;
@@ -1283,14 +1288,17 @@ footer .row {
   transition: all 0.2s ease;
 }
 
+.filters-allType-button:hover,
 .filters-reset-button:hover {
   background: #333;
   color: #eee;
   border: 1px solid #333;
 }
 
-.armors-page-filters h3,
+.materials-page-filters h3,
 .trinkets-page-filters h3,
+.armors-page-filters h3,
+.potions-page-filters h3,
 .weapons-page-filters h3 {
   font-size: 1em;
   text-transform: uppercase;
@@ -1298,19 +1306,32 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
-.armors-tier-options,
+.materials-tier-options,
 .trinkets-tier-options,
+.armors-tier-options,
+.potions-tier-options,
 .weapons-tier-options {
 }
 
-.armors-page-filters input[type=checkbox],
+.materials-page-filters input[type=checkbox],
 .trinkets-page-filters input[type=checkbox],
+.armors-page-filters input[type=checkbox],
+.potions-page-filters input[type=checkbox],
 .weapons-page-filters input[type=checkbox]{
 	display: none;
 }
 
+.materials-page-filters,
+.trinkets-page-filters,
+.armors-page-filters,
+.potions-page-filters,
+.weapons-page-filters {
+}
+
+.materials-tier-options label, .materials-type-options label, .materials-subtype-options label,
+.trinkets-tier-options label, .trinkets-type-options label,
+.potions-tier-options label, .potions-type-options label, .potions-subtype-options label,
 .armors-tier-options label, .armors-type-options label, .armors-subtype-options label,
-.trinkets-tier-options label,
 .weapons-tier-options label, .weapons-type-options label, .weapons-subtype-options label,
 .filters-reset-button {
   -webkit-touch-callout: none;
@@ -1321,8 +1342,10 @@ footer .row {
   user-select: none;
 }
 
-.armors-tier-options label,
+.materials-tier-options label,
 .trinkets-tier-options label,
+.potions-tier-options label,
+.armors-tier-options label,
 .weapons-tier-options label {
   color: #bbb;
   transition: all 0.2s ease;
@@ -1333,10 +1356,18 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
-.armors-type-options
+.materials-type-options,
+.trinkets-type-options,
+.potions-type-options,
+.armors-type-options,
 .weapons-type-options {
 }
 
+.materials-type-options label,
+.materials-subtype-options label,
+.trinkets-type-options label,
+.potions-type-options label,
+.potions-subtype-options label,
 .armors-type-options label,
 .armors-subtype-options label,
 .weapons-subtype-options label,
@@ -1350,12 +1381,16 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
+.materials-subtype-options,
+.potions-subtype-options,
 .armors-subtype-options,
 .weapons-subtype-options {
   margin: 10px 0 0 0;
 }
 
-.armors-subtype-options label
+.materials-subtype-options label,
+.potions-subtype-options label,
+.armors-subtype-options label,
 .weapons-subtype-options label {
   color: #bbb;
   transition: all 0.2s ease;
