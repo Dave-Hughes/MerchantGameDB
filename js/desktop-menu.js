@@ -3,7 +3,7 @@ $(document).ready(function()  {
   var $itemMenu           = "";
   var $regionMenu         = "";
   var $toolMenu           = "";
-  var $guideMenu         = "";
+  var $guideMenu          = "";
   var $communityMenu      = "";
 
   $heroMenu = [
@@ -15,7 +15,7 @@ $(document).ready(function()  {
       "<li><a href='#!/heroes/Cleric'>Cleric</a></li>",
       "<li><a href='#!/heroes/Assassin'>Assassin</a></li>",
       "<li><a href='#!/heroes/Paladin'>Paladin</a></li>",
-      "<li><a href='#!/heroes/Dark Knight'>DK</a></li>",
+      "<li><a href='#!/heroes/Dark Knight'>Dark Knight</a></li>",
     "</ul>"
   ].join("");
 
