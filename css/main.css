@@ -1267,6 +1267,11 @@ footer .row {
   border-radius: 2px;
 }
 
+.armors-page-filters table td,
+.armors-page-filters table th{
+padding:10px !important;
+}
+
 .materials-page-filters h2,
 .trinkets-page-filters h2,
 .armors-page-filters h2,
@@ -1352,7 +1357,8 @@ footer .row {
 .trinkets-tier-options label,
 .potions-tier-options label,
 .armors-tier-options label,
-.weapons-tier-options label {
+.weapons-tier-options label,
+.selectButton{
   color: #bbb;
   transition: all 0.2s ease;
   display: inline-block;
