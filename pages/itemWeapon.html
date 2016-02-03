@@ -7,69 +7,67 @@
 
   <div class="clear"></div>
 
-  <div class="weapons-tier-options col-xs-6 col-sm-4">
+  <div class="weapons-tier-options col-xs-12 col-sm-12">
     <h3>Tier</h3>
+    <span class="selectButton" ng-click="selectTier()">!ALL!</span>
     <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
     <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
     <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
     <input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
     <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
   </div>
-
-  <div class="weapons-type-options col-xs-6 col-sm-8">
-    <h3>Type</h3>
-    <input id="blacksmith-option" type="checkbox" value="blacksmith"><label for="blacksmith-option">Blacksmith</label>
-    <input id="woodworker-option" type="checkbox" value="woodworker"><label for="woodworker-option">Woodworker</label>
-  </div>
-
+	
   <div class="weapons-subtype-options col-xs-12 col-sm-12">
-    <h3>Weapon Subtype</h3>
+    <h3>Blacksmith Subtype</h3>
+    <span id="bs-weapons-subtypes">
+				<span class="selectButton" ng-click="selectWeaponBs()">!ALL!</span>
+				<input id = "weaponType-Dagger"
+				type = "checkbox"
+				value = "Dagger"
+				ng-model = "Filter.Dagger"
+				ng-true-value = "'Dagger'"/>
+				<label for = "weaponType-Dagger">Dagger</label>
 
-    <span id="bs-weapons-subtypes" class="hide">
-      <input id = "weaponType-Dagger"
-      type = "checkbox"
-      value = "Dagger"
-      ng-model = "Filter.Dagger"
-      ng-true-value = "'Dagger'"/>
-      <label for = "weaponType-Dagger">Dagger</label>
+				<input id = "weaponType-Sword"
+				type = "checkbox"
+				value = "Sword"
+				ng-model = "Filter.Sword"
+				ng-true-value = "'Sword'"/>
+				<label for = "weaponType-Sword">Sword</label>
 
-      <input id = "weaponType-Sword"
-      type = "checkbox"
-      value = "Sword"
-      ng-model = "Filter.Sword"
-      ng-true-value = "'Sword'"/>
-      <label for = "weaponType-Sword">Sword</label>
+				<input id = "weaponType-Hatchet"
+				type = "checkbox"
+				value = "Hatchet"
+				ng-model = "Filter.Hatchet"
+				ng-true-value = "'Hatchet'"/>
+				<label for = "weaponType-Hatchet">Hatchet</label>
 
-      <input id = "weaponType-Hatchet"
-      type = "checkbox"
-      value = "Hatchet"
-      ng-model = "Filter.Hatchet"
-      ng-true-value = "'Hatchet'"/>
-      <label for = "weaponType-Hatchet">Hatchet</label>
+				<input id = "weaponType-Knife"
+				type = "checkbox"
+				value = "Knife"
+				ng-model = "Filter.Knife"
+				ng-true-value = "'Knife'"/>
+				<label for = "weaponType-Knife">Knife</label>
 
-      <input id = "weaponType-Knife"
-      type = "checkbox"
-      value = "Knife"
-      ng-model = "Filter.Knife"
-      ng-true-value = "'Knife'"/>
-      <label for = "weaponType-Knife">Knife</label>
+				<input id = "weaponType-Longsword"
+				type = "checkbox"
+				value = "Longsword"
+				ng-model = "Filter.Longsword"
+				ng-true-value = "'Longsword'"/>
+				<label for = "weaponType-Longsword">Longsword</label>
 
-      <input id = "weaponType-Longsword"
-      type = "checkbox"
-      value = "Longsword"
-      ng-model = "Filter.Longsword"
-      ng-true-value = "'Longsword'"/>
-      <label for = "weaponType-Longsword">Longsword</label>
-
-      <input id = "weaponType-Axe"
-      type = "checkbox"
-      value = "Axe"
-      ng-model = "Filter.Axe"
-      ng-true-value = "'Axe'"/>
-      <label for = "weaponType-Axe">Axe</label>
+				<input id = "weaponType-Axe"
+				type = "checkbox"
+				value = "Axe"
+				ng-model = "Filter.Axe"
+				ng-true-value = "'Axe'"/>
+				<label for = "weaponType-Axe">Axe</label>
     </span>
-
-    <span id="ww-weapons-subtypes" class="hide">
+	</div>
+	<div class="weapons-subtype-options col-xs-12 col-sm-12">
+		<h3>Woodworker Subtype</h3>
+    <span id="ww-weapons-subtypes">
+			<span class="selectButton" ng-click="selectWeaponWw()">!ALL!</span>
       <input id = "weaponType-Wand"
       type = "checkbox"
       value = "Wand"
@@ -114,8 +112,6 @@
     </span>
   </div>
 </div>
-
-<div class="filters-reset-button">Reset</div>
 
 <table class="filtered-gear-table">
   <thead>
