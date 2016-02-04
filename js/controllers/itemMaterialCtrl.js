@@ -3,9 +3,11 @@ angular.module('mainApp')
 	.controller('itemMaterialCtrl', function($scope, $routeParams) {
 	  // Apply/Remove "filter-selected" class on click of option
 	  $(".materials-page-filters label").on("click", function() {
-		$(this).toggleClass( "filter-selected" )
-		$(".filters-allType-button").removeClass("hide");
+		$(this).toggleClass( "filter-selected" );
 	  })
+		
+		$scope.material = jsonMaterials;
+	  $scope.Filter = {};
 	  
 	  $scope.itemSlot = function(item){
 			return 	item.itemSlot == 2 ||
@@ -14,8 +16,6 @@ angular.module('mainApp')
 					item.itemSlot == 5;
 		};
 
-	  $scope.material = jsonMaterials;
-	  $scope.Filter = "";
 	  $scope.showMaterialsByType = function(item){
 		return 		item.subType === $scope.Filter.ore ||
 					item.subType === $scope.Filter.metal ||
@@ -44,53 +44,77 @@ angular.module('mainApp')
 					  lvToTierAtMaterials(item.itemLevel) == $scope.Filter.Tier5;
 	  };
 	  
-		$(".filters-reset-button").on("click", function(item) {
-			$scope.Filter.Tier1		= false;
-			$scope.Filter.Tier2		= false;
-			$scope.Filter.Tier3		= false;
-			$scope.Filter.Tier4		= false;
-			$scope.Filter.Tier5		= false;
-			$scope.Filter.ore		= false;
-			$scope.Filter.metal		= false;
-			$scope.Filter.log		= false;
-			$scope.Filter.cloth		= false;
-			$scope.Filter.herb		= false;
-			$scope.Filter.limb		= false;
-			$scope.Filter.scale		= false;
-			$scope.Filter.tooth		= false;
-			$scope.Filter.fur		= false;
-			$scope.Filter.plate		= false;
-			$scope.Filter.blade		= false;
-			$scope.Filter.hilt		= false;
-			$scope.Filter.crystal	= false;
-			$scope.Filter.shell		= false;
-			$scope.Filter.claw		= false;
-			$scope.Filter.horn		= false;
-			$scope.Filter.misc		= false;
-			$scope.$apply();
-			$(".filter-selected").removeClass("filter-selected");
-	  })
-	  
-		$(".filters-allType-button").on("click", function(item) {
-			$scope.Filter.ore		= "ore";
-			$scope.Filter.metal		= "metal";
-			$scope.Filter.log		= "log";
-			$scope.Filter.cloth		= "cloth";
-			$scope.Filter.herb		= "herb";
-			$scope.Filter.limb		= "limb";
-			$scope.Filter.scale		= "scale";
-			$scope.Filter.tooth		= "tooth";
-			$scope.Filter.fur		= "fur";
-			$scope.Filter.plate		= "plate";
-			$scope.Filter.blade		= "blade";
-			$scope.Filter.hilt		= "hilt";
-			$scope.Filter.crystal	= "crystal";
-			$scope.Filter.shell		= "shell";
-			$scope.Filter.claw		= "claw";
-			$scope.Filter.horn		= "horn";
-			$scope.Filter.misc		= "misc";
-			$("#materials-subtype label").addClass("filter-selected");
-			$scope.$apply();
-	  })	  
-	  
+		//toggle select all tier
+		var isAllTierOn = false;
+		$scope.selectTier = function(){
+			if(isAllTierOn)
+				{
+				isAllTierOn = false;
+				$scope.Filter.Tier1			= false;
+				$scope.Filter.Tier2			= false;
+				$scope.Filter.Tier3			= false;
+				$scope.Filter.Tier4			= false;
+				$scope.Filter.Tier5			= false;
+				$(".materials-tier-options label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllTierOn = true;
+				$scope.Filter.Tier1			= 1;
+				$scope.Filter.Tier2			= 2;
+				$scope.Filter.Tier3			= 3;
+				$scope.Filter.Tier4			= 4;
+				$scope.Filter.Tier5			= 5;
+				$(".materials-tier-options label").each(function(){$(this).addClass("filter-selected");});
+				}
+		};
+		
+		//toggle select all material
+		var isAllMatOn = false;
+		$scope.selectMaterials = function(){
+			if(isAllMatOn)
+				{
+				isAllMatOn = false;
+				$scope.Filter.ore		= false;
+				$scope.Filter.metal		= false;
+				$scope.Filter.log		= false;
+				$scope.Filter.cloth		= false;
+				$scope.Filter.herb		= false;
+				$scope.Filter.limb		= false;
+				$scope.Filter.scale		= false;
+				$scope.Filter.tooth		= false;
+				$scope.Filter.fur		= false;
+				$scope.Filter.plate		= false;
+				$scope.Filter.blade		= false;
+				$scope.Filter.hilt		= false;
+				$scope.Filter.crystal	= false;
+				$scope.Filter.shell		= false;
+				$scope.Filter.claw		= false;
+				$scope.Filter.horn		= false;
+				$scope.Filter.misc		= false;
+				$("#materials-subtype label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllMatOn = true;
+				$scope.Filter.ore		= "ore";
+				$scope.Filter.metal		= "metal";
+				$scope.Filter.log		= "log";
+				$scope.Filter.cloth		= "cloth";
+				$scope.Filter.herb		= "herb";
+				$scope.Filter.limb		= "limb";
+				$scope.Filter.scale		= "scale";
+				$scope.Filter.tooth		= "tooth";
+				$scope.Filter.fur		= "fur";
+				$scope.Filter.plate		= "plate";
+				$scope.Filter.blade		= "blade";
+				$scope.Filter.hilt		= "hilt";
+				$scope.Filter.crystal	= "crystal";
+				$scope.Filter.shell		= "shell";
+				$scope.Filter.claw		= "claw";
+				$scope.Filter.horn		= "horn";
+				$scope.Filter.misc		= "misc";
+				$("#materials-subtype label").each(function(){$(this).addClass("filter-selected");});
+				}
+		}; 
 	})
