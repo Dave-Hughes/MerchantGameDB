@@ -7,7 +7,7 @@ angular.module('mainApp')
 	  })
 
 	  $scope.potion = jsonPotions;
-	  $scope.Filter = "";
+	  $scope.Filter = {};
 
 	  $scope.showPotionsByTier = function(item) {
 		return  	  lvToTierAtPotion(item.itemLevel) == $scope.Filter.Tier1 ||
@@ -23,14 +23,50 @@ angular.module('mainApp')
 					item.subType === $scope.Filter.Enchant;
 	  };	  
 	  
-		$(".filters-reset-button").on("click", function(item) {
-			$scope.Filter.Tier1		= false;
-			$scope.Filter.Tier2		= false;
-			$scope.Filter.Tier3		= false;
-			$scope.Filter.Tier4		= false;
-			$scope.Filter.Tier5		= false;
-			$scope.$apply();
-			$(".filter-selected").removeClass("filter-selected");
-	  })
+		//toggle select all tier
+		var isAllTierOn = false;
+		$scope.selectTier = function(){
+			if(isAllTierOn)
+				{
+				isAllTierOn = false;
+				$scope.Filter.Tier1			= false;
+				$scope.Filter.Tier2			= false;
+				$scope.Filter.Tier3			= false;
+				$scope.Filter.Tier4			= false;
+				$scope.Filter.Tier5			= false;
+				$(".potions-tier-options label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllTierOn = true;
+				$scope.Filter.Tier1			= 1;
+				$scope.Filter.Tier2			= 2;
+				$scope.Filter.Tier3			= 3;
+				$scope.Filter.Tier4			= 4;
+				$scope.Filter.Tier5			= 5;
+				$(".potions-tier-options label").each(function(){$(this).addClass("filter-selected");});
+				}
+		};
+		
+		//toggle select all potion
+		var isAllPotOn = false;
+		$scope.selectPotion = function(){
+			if(isAllPotOn)
+				{
+				isAllPotOn = false;
+				$scope.Filter.Health	= false;
+				$scope.Filter.Boost		= false;
+				$scope.Filter.Enchant	= false;
+				$("#potions-subtype label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllPotOn = true;
+				$scope.Filter.Health	= "Health";
+				$scope.Filter.Boost		= "Boost";
+				$scope.Filter.Enchant	= "Enchant";
+				$("#potions-subtype label").each(function(){$(this).addClass("filter-selected");});
+				}
+		};
 	  
 	})
