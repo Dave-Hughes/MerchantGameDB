@@ -679,6 +679,7 @@ footer .row {
 
 #urls-popup {
   width: 70%;
+  max-width: 500px;
   height: 200px;
   display: block;
   position: absolute;
@@ -694,7 +695,7 @@ footer .row {
 }
 
 .url-box-close-button {
-  background: red;
+  background: #FED000;
   border-radius: 0px 0px 0px 200px;
   -moz-border-radius: 0px 0px 0px 200px;
   -webkit-border-radius: 0px 0px 0px 200px;
@@ -703,30 +704,53 @@ footer .row {
   width: 30px;
   height: 30px;
   float: right;
-  color: #eee;
+  color: #222;
   padding-top: 3px;
   padding-left: -3px;
 }
 
 #urls-popup ul {
   list-style: none;
-  margin: 40px 0 0 0;
+  margin: 0;
   padding: 0;
+}
+
+#urls-popup h3 {
+  display: block;
+  padding: 0;
+  margin: 25px auto 15px auto;
+  color: #eee;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#urls-popup h3 span {
+  font-size: .8em;
+  margin: 0 5px 0 0;
 }
 
 #urls-popup ul li {
   display: inline-block;
   margin: 0 10px 0 10px;
   width: 145px;
+  height: 115px;
   padding: 25px 0 20px 0;
+  overflow: hidden;
 }
 
-#urls-popup ul li:hover {
+#urls-popup ul li:hover, .url-box-close-button:hover {
   cursor: pointer;
 }
 
 #urls-popup ul li span {
   font-size: 3em;
+  color: #333;
+}
+
+#urls-popup ul li img {
+  max-width: 50px;
+  margin-bottom: 2px;
 }
 
 #urls-popup p {
@@ -1529,7 +1553,7 @@ footer .row {
 }
 
 .filtered-gear-table td, th {
-  
+
 }
 
 .filtered-gear-table thead {
@@ -1678,7 +1702,14 @@ footer .row {
 
 
 @media only screen and (max-width : 625px) {
+  #urls-popup {
+    width: 90%;
+  }
 
+  #urls-popup ul li {
+    margin: 0 5px 0 5px;
+    width: 130px;
+  }
 }
 
 /* Extra Small Devices, Phones */

@@ -6,20 +6,56 @@ $(document).ready(function()
 		})
 	});
 
-	$("#urls-popup").on("click", "#copy-standard-link-button", function() {
+	//Copy standard page link button
+	$(document).on("click", ".copy-standard-link-button", function() {
 		console.log("check");
 		fadeOutBlackBG();
 		fadeOutUrlBox();
+
+		$("#generatedLink").show();
+		$("#generatedLink-reddit").addClass("hide");
+
 		var copyTextarea = document.querySelector('#generatedLink');
 		copyTextarea.select();
+
+		try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Copying text command was ' + msg);
+      $("#copy-message").css("display", "block").append("Copied to clipboard!");
+    } catch (err) {
+      console.log('Oops, unable to copy');
+      $("#copy-message").css("display", "block").append("Oops! Unable to copy.");
+    }
 	})
 
-	$("body").on("click", "#copy-reddit-link-button", function() {
+	//Copy reddit page link button
+	$(document).on("click", ".copy-reddit-link-button", function() {
 		console.log("check");
 		fadeOutBlackBG();
 		fadeOutUrlBox();
+
+		$("#generatedLink").hide();
+		$("#generatedLink-reddit").removeClass("hide");
+
 		var copyTextarea = document.querySelector('#generatedLink-reddit');
 		copyTextarea.select();
+
+		try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Copying text command was ' + msg);
+      $("#copy-message").css("display", "block").append("Copied to clipboard!");
+    } catch (err) {
+      console.log('Oops, unable to copy');
+      $("#copy-message").css("display", "block").append("Oops! Unable to copy.");
+    }
+	})
+
+	//Close urls popup on X button click
+	$(document).on("click", ".url-box-close-button", function() {
+		fadeOutBlackBG();
+		fadeOutUrlBox();
 	})
 
 	function fadeInBlackBG() {
