@@ -234,33 +234,33 @@
 
              <div class="clear"></div>
 
-			<div id="disqus_thread"></div>
-				<script>
-				function initDisqus() {
-				window.disqus_shortname = 'merchantdb';
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
-				$.getScript(dsq.src)
-						.done(function () {
-							DISQUS.reset({
-								reload: true,
-								config: function () {
-									var href = window.location.href.split("/");
-									//get the text after last /, replace %20 with space
-									href = href[href.length-1].replace("%20", " ");
-									//if we are on main site
-									if(href.length == 0){href = "Merchant[DB]"}
-									//attributums after ?
-									var baseName = href.split("?")[0];
+        			<div id="disqus_thread"></div>
+        				<script>
+        				function initDisqus() {
+        				window.disqus_shortname = 'merchantdb';
+        				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        				dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+        				$.getScript(dsq.src)
+        						.done(function () {
+        							DISQUS.reset({
+        								reload: true,
+        								config: function () {
+        									var href = window.location.href.split("/");
+        									//get the text after last /, replace %20 with space
+        									href = href[href.length-1].replace("%20", " ");
+        									//if we are on main site
+        									if(href.length == 0){href = "Merchant[DB]"}
+        									//attributums after ?
+        									var baseName = href.split("?")[0];
 
-									this.page.identifier = "http://merchantgamedb.com/V2/#!/"+baseName;
-									this.page.url = "http://merchantgamedb.com/V2/#!/"+baseName;
-								}
-							});
-						});
+        									this.page.identifier = "http://merchantgamedb.com/V2/#!/"+baseName;
+        									this.page.url = "http://merchantgamedb.com/V2/#!/"+baseName;
+        								}
+        							});
+        						});
 
-				}
-				</script>
+        				}
+        				</script>
           </div>
 
           <aside id="side-bar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -327,6 +327,27 @@
       </script>
 
       <script src="js/desktop-menu.js"></script>
+
+      <div id='black-overlay' class="hide"></div>
+      <div id="urls-popup" class="hide">
+        <div class="url-box-close-button">
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
+        <h3><span class="glyphicon glyphicon-chevron-right"></span>Link Format</h3>
+        <ul>
+          <li class="copy-standard-link-button well">
+            <span class="glyphicon glyphicon-link"></span>
+            <p>Standard</p>
+          </li>
+
+          <li class="copy-reddit-link-button well">
+            <img src="img/icon-reddit.png">
+            <p>Reddit</p>
+          </li>
+        </ul>
+      </div>
+
     </snap-content>
+
   </body>
 </html>

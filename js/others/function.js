@@ -1,34 +1,98 @@
 $(document).ready(function()
 	{
-	$("#main-content").on("click", ".copy-item-url", function() {
+		$("#main-content").on("click", ".copy-item-url", function() {
+			fadeInBlackBG();
+			fadeInUrlBox();
+		})
+	});
+
+	//Copy standard page link button
+	$(document).on("click", ".copy-standard-link-button", function() {
+		console.log("check");
+		fadeOutBlackBG();
+		fadeOutUrlBox();
+
+		$("#generatedLink").show();
+		$("#generatedLink-reddit").addClass("hide");
+
 		var copyTextarea = document.querySelector('#generatedLink');
 		copyTextarea.select();
 
-			try {
-			var successful = document.execCommand('copy');
-			var msg = successful ? 'successful' : 'unsuccessful';
-			console.log('Copying text command was ' + msg);
-		  } catch (err) {
-			console.log('Oops, unable to copy');
-		  }
+		try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Copying text command was ' + msg);
+      $("#copy-message").css("display", "block").append("Copied to clipboard!");
+    } catch (err) {
+      console.log('Oops, unable to copy');
+      $("#copy-message").css("display", "block").append("Oops! Unable to copy.");
+    }
 	})
-	});
+
+	//Copy reddit page link button
+	$(document).on("click", ".copy-reddit-link-button", function() {
+		console.log("check");
+		fadeOutBlackBG();
+		fadeOutUrlBox();
+
+		$("#generatedLink").hide();
+		$("#generatedLink-reddit").removeClass("hide");
+
+		var copyTextarea = document.querySelector('#generatedLink-reddit');
+		copyTextarea.select();
+
+		try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Copying text command was ' + msg);
+      $("#copy-message").css("display", "block").append("Copied to clipboard!");
+    } catch (err) {
+      console.log('Oops, unable to copy');
+      $("#copy-message").css("display", "block").append("Oops! Unable to copy.");
+    }
+	})
+
+	//Close urls popup on X button click
+	$(document).on("click", ".url-box-close-button", function() {
+		fadeOutBlackBG();
+		fadeOutUrlBox();
+	})
+
+	function fadeInBlackBG() {
+		//Fade background to black
+		$("#black-overlay").removeClass("hide");
+	}
+
+	function fadeOutBlackBG() {
+		//Fade out background to black
+		$("#black-overlay").addClass("hide");
+	}
+
+	function fadeInUrlBox() {
+		//Fade in URL-BOX
+		$("#urls-popup").removeClass("hide");
+	}
+
+	function fadeOutUrlBox() {
+		//Fade out URL-BOX
+		$("#urls-popup").addClass("hide");
+	}
 
 function lvToTier(lv)
 	{
 	return Math.floor(((lv-0.1)/10)+1);
 	}
-	
+
 function lvToTierAtPotion(lv)
 	{
 	return Math.floor(((lv)/10)+1);
 	}
-	
+
 function lvToTierAtMaterials(lv)
 	{
 	return Math.floor(((lv)/10)+1);
 	}
-	
+
 function getEquipmentByName(name) {
 	var item = "";
 	$.each(jsonEquipments, function(index, val) {
