@@ -9,13 +9,9 @@
 
   <div class="weapons-tier-options col-xs-12 col-sm-12">
     <h3>Tier</h3>
-<<<<<<< HEAD
-    <span class="selectButton" ng-click="selectTier()">!ALL!</span>
-=======
 		<table><tr><td>
     <span class="selectButton" ng-click="selectTier()">!ALL!</span>
 		</td><td>
->>>>>>> c7aa3a32ff13093a63f60bea5c32501069189d02
     <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
     <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
     <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
@@ -23,17 +19,14 @@
     <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
 		</td></tr></table>
   </div>
-	
+
   <div class="weapons-subtype-options col-xs-12 col-sm-12">
     <h3>Blacksmith Subtype</h3>
     <span id="bs-weapons-subtypes">
-<<<<<<< HEAD
-				<span class="selectButton" ng-click="selectWeaponBs()">!ALL!</span>
-=======
 				<table><tr><td>
 				<span class="selectButton" ng-click="selectWeaponBs()">!ALL!</span>
 				</td><td>
->>>>>>> c7aa3a32ff13093a63f60bea5c32501069189d02
+
 				<input id = "weaponType-Dagger"
 				type = "checkbox"
 				value = "Dagger"
@@ -75,22 +68,18 @@
 				ng-model = "Filter.Axe"
 				ng-true-value = "'Axe'"/>
 				<label for = "weaponType-Axe">Axe</label>
-<<<<<<< HEAD
-=======
+
 				</td></tr></table>
->>>>>>> c7aa3a32ff13093a63f60bea5c32501069189d02
+
     </span>
 	</div>
 	<div class="weapons-subtype-options col-xs-12 col-sm-12">
 		<h3>Woodworker Subtype</h3>
     <span id="ww-weapons-subtypes">
-<<<<<<< HEAD
-			<span class="selectButton" ng-click="selectWeaponWw()">!ALL!</span>
-=======
 			<table><tr><td>
 			<span class="selectButton" ng-click="selectWeaponWw()">!ALL!</span>
 			</td><td>
->>>>>>> c7aa3a32ff13093a63f60bea5c32501069189d02
+
       <input id = "weaponType-Wand"
       type = "checkbox"
       value = "Wand"
@@ -152,7 +141,7 @@
 		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
     </tr>
 	<tr>
-		<td>Atk: ~{{formula[item.subType].atkBase + formula[item.subType].atkLvl*item.itemLevel | number:0}} 
+		<td>Atk: ~{{formula[item.subType].atkBase + formula[item.subType].atkLvl*item.itemLevel | number:0}}
 			mAtk: ~{{formula[item.subType].matkBase + formula[item.subType].matkLvl*item.itemLevel | number:0}}
 			Acc: ~{{formula[item.subType].accBase + formula[item.subType].accLvl*item.itemLevel | number:0}}</td>
 		<td></td>
@@ -160,6 +149,6 @@
 	<tr>
 		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | number:0}} </span></td>
 		<td class="center">Lv. {{item.itemLevel}}</td>
-	</tr>	
+	</tr>
   </tbody>
 </table>
