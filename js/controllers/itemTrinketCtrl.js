@@ -7,7 +7,7 @@ angular.module('mainApp')
 	  })
 
 	  $scope.equipment = jsonEquipments;
-	  $scope.Filter = "";
+	  $scope.Filter = {};
 
 	  $scope.showTrinketsByTier = function(item) {
 		return  	  lvToTier(item.itemLevel) == $scope.Filter.Tier1 ||
@@ -17,14 +17,29 @@ angular.module('mainApp')
 					  lvToTier(item.itemLevel) == $scope.Filter.Tier5;
 	  };
 	  
-		$(".filters-reset-button").on("click", function(item) {
-			$scope.Filter.Tier1		= false;
-			$scope.Filter.Tier2		= false;
-			$scope.Filter.Tier3		= false;
-			$scope.Filter.Tier4		= false;
-			$scope.Filter.Tier5		= false;
-			$scope.$apply();
-			$(".filter-selected").removeClass("filter-selected");
-	  })
+		//toggle select all tier
+		var isAllTierOn = false;
+		$scope.selectTier = function(){
+			if(isAllTierOn)
+				{
+				isAllTierOn = false;
+				$scope.Filter.Tier1			= false;
+				$scope.Filter.Tier2			= false;
+				$scope.Filter.Tier3			= false;
+				$scope.Filter.Tier4			= false;
+				$scope.Filter.Tier5			= false;
+				$(".trinkets-tier-options label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllTierOn = true;
+				$scope.Filter.Tier1			= 1;
+				$scope.Filter.Tier2			= 2;
+				$scope.Filter.Tier3			= 3;
+				$scope.Filter.Tier4			= 4;
+				$scope.Filter.Tier5			= 5;
+				$(".trinkets-tier-options label").each(function(){$(this).addClass("filter-selected");});
+				}
+		};
 	  
 	})
