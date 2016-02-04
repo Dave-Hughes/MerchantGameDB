@@ -4,18 +4,24 @@
 
 <div class="potions-page-filters row">
   <h2>Filtering Options</h2>
-  <div class="potions-tier-options col-xs-12 col-sm-12">
-    <h3>Tier</h3>
-    <input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
-    <input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
-    <input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
-    <input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
-    <input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
-  </div>
-
-  <div class="potions-subtype-options col-xs-12 col-sm-12">
-    <h3>Subtype</h3>
+		<div class="potions-tier-options col-xs-12 col-sm-12">
+			<h3>Tier</h3>
+			<table><tr><td>
+			<span class="selectButton" ng-click="selectTier()">!ALL!</span>
+			</td><td>
+			<input id="selectTier-1" type="checkbox" value="1" ng-model="Filter.Tier1" ng-true-value="1" data-ng-false-value=""><label for="selectTier-1">1</label>
+			<input id="selectTier-2" type="checkbox" value="2" ng-model="Filter.Tier2" ng-true-value="2" data-ng-false-value=""><label for="selectTier-2">2</label>
+			<input id="selectTier-3" type="checkbox" value="3" ng-model="Filter.Tier3" ng-true-value="3" data-ng-false-value=""><label for="selectTier-3">3</label>
+			<input id="selectTier-4" type="checkbox" value="4" ng-model="Filter.Tier4" ng-true-value="4" data-ng-false-value=""><label for="selectTier-4">4</label>
+			<input id="selectTier-5" type="checkbox" value="5" ng-model="Filter.Tier5" ng-true-value="5" data-ng-false-value=""><label for="selectTier-5">5</label>
+			</td></tr></table>
+		</div>
+		<div class="potions-subtype-options col-xs-12 col-sm-12">
+			<h3>Subtype</h3>
       <span id="potions-subtype" class="">
+				<table><tr><td>
+				<span class="selectButton" ng-click="selectPotion()">!ALL!</span>
+				</td><td>
         <input id = "potionType-Health"
         type = "checkbox"
         value = "Health"
@@ -36,10 +42,10 @@
         ng-model = "Filter.Enchant"
         ng-true-value = "'Enchant'"/>
         <label for = "potionType-Enchant">Enchant</label>
-  </div>
+				</td></tr></table>
+			</span>
+		</div>
 </div>
-
-<div class="filters-reset-button">Reset</div>
 
 <table class="filtered-gear-table">
   <thead>
