@@ -30,6 +30,7 @@
         </select>
       </div>
 
+      <!-- Copy URL Button -->
       <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
 
       <table class='gear-table'>
@@ -58,7 +59,7 @@
           <td colspan=2>{{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel)*0.9 * percentMod | number:0}} - {{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel)*1.1 * percentMod | number:0}} Accuracy</td>
         </tr>
 
-	  <!-- If the weapon has bonus stats -->
+	       <!-- If the weapon has bonus stats -->
         <tr class='bonus-stat-row'>
           <td colspan=2 class='bonus-stats'>Additional Stats</td>
         </tr>

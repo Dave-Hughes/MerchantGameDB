@@ -12,6 +12,8 @@ angular.module('mainApp')
 		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7};
 		$scope.listOfArmorPrefix = ["", "Tenacious", "Vigorous", "Robust", "Resilient", "Titan's", "Solid", "Hard", "Tough", "Sturdy", "Defender's", "Focused", "Resolute", "Centered", "Mindful", "Protector's"];
 
+		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
+
 		//If there is a ?suffix=x in the URL
 		if ($routeParams.suffix) {
 			//Suffix = the suffix in the URL (converted to number from string)
@@ -60,7 +62,18 @@ angular.module('mainApp')
 			}
 		}
 
+		$("#raw-url-link").click(function() {
+			$("#generatedLink").show();
+			$("#generatedLink-reddit").addClass("hide");
+		})
+
+		$("#reddit-url-link").click(function() {
+			$("#generatedLink").hide();
+			$("#generatedLink-reddit").removeClass("hide");
+		})
+
 		$("#generatedLink").val(window.location.href);
+		$("#generatedLink-reddit").val(redditLink);
 		prefixChange();
 		suffixChange();
 	})

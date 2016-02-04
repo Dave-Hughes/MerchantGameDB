@@ -731,15 +731,23 @@ footer .row {
 }
 
 #urls-popup ul li {
+  transition: all 0.3s ease;
   display: inline-block;
   margin: 0 10px 0 10px;
   width: 145px;
   height: 115px;
   padding: 25px 0 20px 0;
   overflow: hidden;
+  background: #ddd;
 }
 
-#urls-popup ul li:hover, .url-box-close-button:hover {
+#urls-popup ul li:hover {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #fff;
+}
+
+.url-box-close-button:hover {
   cursor: pointer;
 }
 
@@ -919,35 +927,14 @@ footer .row {
   background: url("../img/item-quality-4-bg.png");
 }
 
-.item-quality-5-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-6-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-7-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-8-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-9-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-10-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-11-bg {
-  background: url("../img/item-quality-5-bg.png");
-}
-
-.item-quality-12-bg {
+.item-quality-5-bg,
+.item-quality-6-bg,
+.item-quality-7-bg,
+.item-quality-8-bg,
+.item-quality-9-bg,
+.item-quality-10-bg,
+.item-quality-11-bg,
+.item-quality-12-bg{
   background: url("../img/item-quality-5-bg.png");
 }
 
@@ -971,47 +958,17 @@ footer .row {
   font-weight: bold;
 }
 
-.quality-5 {
+.quality-5,
+.quality-6,
+.quality-7,
+.quality-8,
+.quality-9,
+.quality-10,
+.quality-11,
+.quality-12{
   color: #C06D2C;
   font-weight: bold;
 }
-
-.quality-6 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-7 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-8 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-9 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-10 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-11 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-.quality-12 {
-  color: #C06D2C;
-  font-weight: bold;
-}
-
-
 
 
 .object-image {
@@ -1134,7 +1091,7 @@ footer .row {
 }
 
 .region-table tbody tr td {
-  padding: 15px 2px;
+  padding: 1px 2px;
 }
 
 .region-quest-icon {
@@ -1408,6 +1365,14 @@ footer .row {
   border-radius: 2px;
 }
 
+.materials-page-filters td,
+.trinkets-page-filters td,
+.armors-page-filters td,
+.potions-page-filters td,
+.weapons-page-filters td {
+	padding:10px;
+}
+
 .materials-page-filters h2,
 .trinkets-page-filters h2,
 .armors-page-filters h2,
@@ -1453,40 +1418,12 @@ footer .row {
   margin: 0 0 5px 0;
 }
 
-.materials-tier-options,
-.trinkets-tier-options,
-.armors-tier-options,
-.potions-tier-options,
-.weapons-tier-options {
-}
-
 .materials-page-filters input[type=checkbox],
 .trinkets-page-filters input[type=checkbox],
 .armors-page-filters input[type=checkbox],
 .potions-page-filters input[type=checkbox],
 .weapons-page-filters input[type=checkbox]{
 	display: none;
-}
-
-.materials-page-filters,
-.trinkets-page-filters,
-.armors-page-filters,
-.potions-page-filters,
-.weapons-page-filters {
-}
-
-.materials-tier-options label, .materials-type-options label, .materials-subtype-options label,
-.trinkets-tier-options label, .trinkets-type-options label,
-.potions-tier-options label, .potions-type-options label, .potions-subtype-options label,
-.armors-tier-options label, .armors-type-options label, .armors-subtype-options label,
-.weapons-tier-options label, .weapons-type-options label, .weapons-subtype-options label,
-.filters-reset-button {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .materials-tier-options label,
@@ -1511,6 +1448,12 @@ footer .row {
   border: 1px solid #bbb;
   cursor: pointer;
   margin: 0 0 5px 0;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .materials-type-options,
@@ -1553,7 +1496,11 @@ footer .row {
 }
 
 .filtered-gear-table td, th {
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> c7aa3a32ff13093a63f60bea5c32501069189d02
 }
 
 .filtered-gear-table thead {
