@@ -4,6 +4,39 @@ $(document).ready(function()
 			fadeInBlackBG();
 			fadeInUrlBox();
 		})
+
+		//Compare button click handler
+		$("#main-content").on("click", ".eqpage-compare-button", function() {
+
+			//If there is no item in comparison table
+			if ($("#item1-compare").text().length == 0) {
+				//Call function that displays single item in prompt
+				displayFirstCompareItem();
+				fadeInBlackBG();
+				fadeInComparePrompt();
+				if (!$("#comparison-prompt-second-row").hasClass("hide")) {
+					$("#comparison-prompt-second-row").addClass("hide");
+				}
+			}
+			//Else if there is an item in the comparison table
+			else if ($("#item1-compare").text().length > 0) {
+				//If conflicting item types
+				if ($("#primary-type").text() != $("#item1-type").text()) {
+					console.log("these types don't match!")
+					var comparisonError = true;
+					displayBothCompareItems(comparisonError);
+					fadeInBlackBG();
+					fadeInComparePrompt();
+				}
+				else {
+					//Call function that displays prompt for 2 items
+					displayBothCompareItems();
+					fadeInBlackBG();
+					fadeInComparePrompt();
+				}
+			}
+
+		})
 	});
 
 	//Copy standard page link button
@@ -58,6 +91,12 @@ $(document).ready(function()
 		fadeOutUrlBox();
 	})
 
+	//Close comparison prompt on X button click
+	$(document).on("click", ".prompt-close-button", function() {
+		fadeOutBlackBG();
+		fadeOutComparePrompt();
+	})
+
 	function fadeInBlackBG() {
 		//Fade background to black
 		$("#black-overlay").removeClass("hide");
@@ -76,6 +115,196 @@ $(document).ready(function()
 	function fadeOutUrlBox() {
 		//Fade out URL-BOX
 		$("#urls-popup").addClass("hide");
+	}
+
+	function displayFirstCompareItem() {
+		//Set item 1's name and icon
+		var item1Name 	= $(".item-name").text();
+		var item1Icon 	= "<img src="+$(".object-image img").attr('src')+">";
+		var item1Prefix =	$("#prefix-hold").text();
+		var item1Suffix = $("#suffix-alone").text();
+		var item1Type		= $("#primary-type").text();
+
+		//Transfer gear name to the temp-comparison div with a space to separate
+		//This is so that the comparison page can get the items needed to compare
+		$("#item1-compare").text(item1Name + " ");
+		$("#item1-type").text(item1Type);
+		$("#item1-prefix").text(item1Prefix);
+		$("#item1-suffix").text(item1Suffix);
+
+		//Update the prompt
+		$("#comparison-error-hold").addClass("hide");
+		$("#comparison-prompt h3").text("Item Comparison");
+		$("#comparison-prompt p").text(item1Name + " added to comparsion table.");
+		$("#comparison-prompt-item1-icon").html(item1Icon);
+		$("#comparison-prompt-item1-name").text(item1Prefix + " " + item1Name + " +" + item1Suffix);
+		$("#comparison-prompt-remove1").html("<span class='glyphicon glyphicon-remove'></span>");
+
+		//Remove item1 "X" click handler
+		$(document).on("click", "#comparison-prompt-remove1", function() {
+			//Reset item1 variables
+			$("#item1-compare").empty();
+			$("#item1-prefix").empty();
+			$("#item1-suffix").empty();
+			$("#item1-type").empty();
+			item1Name = "";
+			item1Icon = "";
+			item1Prefix = "";
+			item1Suffix = "";
+			$("#comparison-prompt-item1-icon").text("");
+			$("#comparison-prompt-item1-name").text(" Item Removed");
+			$("#comparison-prompt-remove1").text("");
+		})
+	}
+
+	function displayBothCompareItems(hasError) {
+		//Set item 2's name and icon
+		var item2Name = $(".item-name").text();
+		var item2Icon = "<img src="+$(".object-image img").attr('src')+">";
+		var item2Prefix =	$("#prefix-hold").text();
+		var item2Suffix = $("#suffix-alone").text();
+
+		//If item types do not match
+		if (hasError == true) {
+			//Update the prompt
+			$("#comparison-error-hold").removeClass("hide");
+			$("#comparison-prompt h3").text("Item Comparison");
+			$("#comparison-prompt p").text("Did not add " + item2Name + " to comparsion table.");
+		}
+		else {
+			//Transfer gear name to the temp-comparison di
+			//This is so that the comparison page can get the items needed to compare
+			$("#item2-compare").text(item2Name);
+			$("#item2-prefix").text(item2Prefix);
+			$("#item2-suffix").text(item2Suffix);
+
+			//Update the prompt
+			$("#comparison-error-hold").addClass("hide");
+			$("#comparison-prompt-second-row").removeClass("hide");
+			$("#comparison-prompt h3").text("Item Comparison");
+			$("#comparison-prompt p").text(item2Name + " added to comparsion table.");
+			$("#comparison-prompt-item2-icon").html(item2Icon);
+			$("#comparison-prompt-item2-name").text(item2Prefix + " " + item2Name + " +" + item2Suffix);
+			$("#comparison-prompt-remove2").html("<span class='glyphicon glyphicon-remove'></span>");
+
+			//Switch buttons
+			$("#comparison-prompt-confirm-button").addClass("hide");
+			$("#comparison-prompt-final-button").removeClass("hide");
+
+			//Remove item1 "X" click handler
+			$(document).on("click", "#comparison-prompt-remove1", function() {
+				//Transfer item2 info over to item1
+				$("#item1-compare").text(item2Name);
+				$("#item1-prefix").text(item2Prefix);
+				$("#item1-suffix").text(item2Suffix);
+				var item1Type	= $("#primary-type").text();
+				$("#item1-type").text(item1Type);
+				item1Name = item2Name;
+				item1Icon = item2Icon;
+				item1Prefix = item2Prefix;
+				item1Suffix = item2Suffix;
+				$("#comparison-prompt-item1-icon").html(item1Icon);
+				$("#comparison-prompt-item1-name").text(item1Prefix + " " + item1Name + " +" + item1Suffix);
+				$("#comparison-prompt-remove1").html("<span class='glyphicon glyphicon-remove'></span>");
+
+				//Reset item2 fields and variables
+				$("#item2-compare").empty();
+				$("#item2-prefix").empty();
+				$("#item2-suffix").empty();
+				item2Name = "";
+				item2Icon = "";
+				item2Prefix = "";
+				item2Suffix = "";
+				$("#comparison-prompt-item2-icon").text("");
+				$("#comparison-prompt-item2-name").text(" Item Removed");
+				$("#comparison-prompt-remove2").text("");
+
+				//Hide second row
+				$("#comparison-prompt-second-row").addClass("hide");
+
+				//Switch buttons
+				$("#comparison-prompt-confirm-button").removeClass("hide");
+				$("#comparison-prompt-final-button").addClass("hide");
+			})
+
+			//Remove item2 "X" click handler
+			$(document).on("click", "#comparison-prompt-remove2", function() {
+				//Reset item2 variables
+				$("#item2-compare").empty();
+				$("#item2-prefix").empty();
+				$("#item2-suffix").empty();
+				item2Name = "";
+				item2Icon = "";
+				item2Prefix = "";
+				item2Suffix = "";
+				$("#comparison-prompt-item2-icon").text("");
+				$("#comparison-prompt-item2-name").text(" Item Removed");
+				$("#comparison-prompt-remove2").text("");
+
+				//Hide second row
+				$("#comparison-prompt-second-row").addClass("hide");
+
+				//Switch buttons
+				$("#comparison-prompt-confirm-button").removeClass("hide");
+				$("#comparison-prompt-final-button").addClass("hide");
+			})
+
+			//"View Comparison" button click handler
+			$(document).on("click", "#comparison-prompt-final-button", function() {
+
+				//Get items from DOM
+				var item1ID					= $("#item1-compare").text();
+				var item1PrefixID		= $("#item1-prefix").text();
+				var item1SuffixID		= $("#item1-suffix").text();
+				var item2ID					= $("#item2-compare").text();
+				var item2PrefixID		= $("#item2-prefix").text();
+				var item2SuffixID		= $("#item2-suffix").text();
+
+				//Convert item names, suffix, and prefix to IDs
+				item1ID = getEquipmentIdByName($.trim(item1ID));
+				item1PrefixID = getPrefixIdByName($.trim(item1PrefixID));
+
+				item2ID = getEquipmentIdByName($.trim(item2ID));
+				item2PrefixID = getPrefixIdByName($.trim(item2PrefixID));
+
+				//Go to URL passing in the ID numbers as link params
+				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + "-" + item2ID + "," + item2PrefixID + "," + item2SuffixID;
+				console.log(comparisonURL);
+
+				//Reset all comparison related html fields
+				$("#item1-compare").empty();
+				$("#item1-prefix").empty();
+				$("#item1-suffix").empty();
+				$("#item1-type").empty();
+				$("#item2-compare").empty();
+				$("#item2-prefix").empty();
+				$("#item2-suffix").empty();
+
+				$("#comparison-prompt-confirm-button").removeClass("hide");
+				$("#comparison-prompt-final-button").addClass("hide");
+
+				//Close prompt
+				fadeOutComparePrompt();
+				fadeOutBlackBG();
+
+
+			})
+
+		}//End if/else
+	}
+
+	//Close urls popup on X button click
+	$(document).on("click", "#comparison-prompt-confirm-button", function() {
+		fadeOutBlackBG();
+		fadeOutComparePrompt();
+	})
+
+	function fadeInComparePrompt() {
+		$("#comparison-prompt").removeClass("hide");
+	}
+
+	function fadeOutComparePrompt() {
+		$("#comparison-prompt").addClass("hide");
 	}
 
 function lvToTier(lv)
@@ -113,6 +342,17 @@ function getEquipmentNameById(id)
 function getEquipmentIdByName(name) {
 	var variable= "";
 	$.each(jsonEquipments, function(index, val) {
+		if(val.name == name) {
+			variable = index;
+			return false; //this is the break
+		}
+	})
+	return variable;
+}
+
+function getPrefixIdByName(name) {
+	var variable= "";
+	$.each(jsonPrefixes, function(index, val) {
 		if(val.name == name) {
 			variable = index;
 			return false; //this is the break

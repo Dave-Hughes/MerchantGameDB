@@ -328,6 +328,10 @@
 
       <script src="js/desktop-menu.js"></script>
 
+      <!--
+        black-overlay is for darkening background
+        urls-popup is for the share button urls
+      -->
       <div id='black-overlay' class="hide"></div>
       <div id="urls-popup" class="hide">
         <div class="url-box-close-button">
@@ -345,6 +349,52 @@
             <p>Reddit</p>
           </li>
         </ul>
+      </div>
+
+      <!-- Comparison Prompt -->
+      <div id="comparison-prompt" class="hide">
+        <div class="prompt-close-button">
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
+
+        <div id="comparison-prompt-content">
+          <h3>Text</h3>
+          <p>Lots more text that is larger than the H3</p>
+
+          <div id="comparison-error-hold" class="alert alert-danger hide" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Not possible to compare items of 2 different types.
+            <span id="comparison-error-message">Remove existing item from table and try again.</span>
+          </div>
+
+          <table>
+            <tr id="comparison-prompt-first-row">
+              <td id="comparison-prompt-item1-icon"></td>
+              <td id="comparison-prompt-item1-name"></td>
+              <td id="comparison-prompt-remove1"></td>
+            </tr>
+            <tr id="comparison-prompt-second-row" class="hide">
+              <td id="comparison-prompt-item2-icon"></td>
+              <td id="comparison-prompt-item2-name"></td>
+              <td id="comparison-prompt-remove2"></td>
+            </tr>
+          </table>
+
+          <button id="comparison-prompt-confirm-button" class="btn btn-primary">Confirm Change</button>
+          <button id="comparison-prompt-final-button" class="btn btn-success hide">View Comparison</button>
+        </div>
+      </div>
+
+      <!-- To hold comparison data -->
+      <div id="temp-comparison-items">
+        <span id="item1-compare"></span>
+        <span id="item1-suffix"></span>
+        <span id="item1-prefix"></span>
+        <span id="item1-type"></span>
+        <span id="item2-compare"></span>
+        <span id="item2-suffix"></span>
+        <span id="item2-prefix"></span>
       </div>
 
     </snap-content>
