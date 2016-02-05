@@ -78,6 +78,11 @@
 			templateUrl: 'pages/tools.html',
 			controller: 'toolCtrl'
 		})
+			//if compare tool
+			.when('/tools/compare', {
+				templateUrl: 'pages/toolCompare.html',
+				controller: 'toolCompareCtrl'
+			})
 		//if guide
 		.when('/guides', {
 			templateUrl: 'pages/guides.html',
