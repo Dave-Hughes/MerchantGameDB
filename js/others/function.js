@@ -97,26 +97,6 @@ $(document).ready(function()
 		fadeOutComparePrompt();
 	})
 
-	function fadeInBlackBG() {
-		//Fade background to black
-		$("#black-overlay").removeClass("hide");
-	}
-
-	function fadeOutBlackBG() {
-		//Fade out background to black
-		$("#black-overlay").addClass("hide");
-	}
-
-	function fadeInUrlBox() {
-		//Fade in URL-BOX
-		$("#urls-popup").removeClass("hide");
-	}
-
-	function fadeOutUrlBox() {
-		//Fade out URL-BOX
-		$("#urls-popup").addClass("hide");
-	}
-
 	function displayFirstCompareItem() {
 		//Set item 1's name and icon
 		var item1Name 	= $(".item-name").text();
@@ -286,8 +266,6 @@ $(document).ready(function()
 				//Close prompt
 				fadeOutComparePrompt();
 				fadeOutBlackBG();
-
-
 			})
 
 		}//End if/else
@@ -298,6 +276,26 @@ $(document).ready(function()
 		fadeOutBlackBG();
 		fadeOutComparePrompt();
 	})
+
+	function fadeInBlackBG() {
+		//Fade background to black
+		$("#black-overlay").removeClass("hide");
+	}
+
+	function fadeOutBlackBG() {
+		//Fade out background to black
+		$("#black-overlay").addClass("hide");
+	}
+
+	function fadeInUrlBox() {
+		//Fade in URL-BOX
+		$("#urls-popup").removeClass("hide");
+	}
+
+	function fadeOutUrlBox() {
+		//Fade out URL-BOX
+		$("#urls-popup").addClass("hide");
+	}
 
 	function fadeInComparePrompt() {
 		$("#comparison-prompt").removeClass("hide");
