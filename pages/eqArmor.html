@@ -33,17 +33,20 @@
       <!-- Copy URL Button -->
       <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
 
+      <!-- Compare Button -->
+      <div class="eqpage-compare-button btn btn-success"><span class="glyphicon glyphicon glyphicon-stats"></span> Compare</div>
+
       <table class='gear-table'>
         <tr>
           <td class='gear-name'>
-            <h3 class="quality-{{item.rarity + suffixNum + prefixNum}}"><span id="prefix-hold"></span>{{item.name}} <span class="hide" id="add-suffix">+{{suffix}}</span></h3>
+            <h3 class="quality-{{item.rarity + suffixNum + prefixNum}}"><span id="prefix-hold"></span><span class="item-name">{{item.name}}</span> <span class="hide" id="add-suffix">+<span id="suffix-alone">{{suffix}}</span></span></h3>
           </td>
           <td class='gear-cost'>Cost:
             <img class='coin-img' ng-src="img/coin.png">{{item.cost}}
           </td>
         </tr>
         <tr>
-          <td colspan=2 class='gear-type'>Armor - {{item.subType}}</td>
+          <td colspan=2 class='gear-type'><span id="primary-type">Armor</span> - {{item.subType}}</td>
         </tr>
         <tr>
           <td>Level {{item.itemLevel}}</td>
