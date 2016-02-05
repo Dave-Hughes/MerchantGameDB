@@ -1616,6 +1616,11 @@ footer .row {
   margin: 8px auto;
 }
 
+.compared-item-name {
+  clear: both;
+  margin: 10px 0 0 0;
+}
+
 .comparison-page-item-image img {
   width: 95%;
   padding-top: 2px;
@@ -1661,11 +1666,6 @@ footer .row {
   margin: 0;
   font-size: .8em;
   font-weight: normal;
-}
-
-.compared-item-name {
-  clear: both;
-  margin: 10px 0 0 0;
 }
 
 .comparison-copy-item-url, .comparison-help-button {

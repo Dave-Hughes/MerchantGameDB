@@ -51,9 +51,18 @@
 
 .compareTable tbody tr:nth-child(1) td,
 .compareTable tbody tr:nth-child(1) th {
-	background: #F5F5F5;
 	color: #666;
 	border: 0;
+	border-top: 2px solid #ccc;
+}
+
+.compareTable tbody tr:nth-child(3) td,
+.compareTable tbody tr:nth-child(3) th {
+	border-bottom: 2px solid #ccc;
+}
+
+.compareTable tbody tr:hover {
+	background: #ddd;
 }
 
 .compareTable tfoot tr td {
@@ -77,6 +86,10 @@
 	display: inline;
 }
 
+.comparison-page-options ul li a {
+	color: #fff;
+}
+
 </style>
 <h1>Item Comparison</h1>
 <p>Two items battle it out! Which is better? YOU DECIDE!</p>
@@ -89,7 +102,7 @@
 		</li>
 		<li>
 			<!-- Help Button -->
-			<div class="comparison-help-button btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span> Help</div>
+			<a href="#!/tools/comparison-help"><div class="comparison-help-button btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span> Help</a></div>
 		</li>
 	</ul>
 </div>
@@ -106,7 +119,7 @@
 					<a ng-if="itsTrinket" href="#!/items/trinket/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
 				</div>
 
-				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity}}-bg'>
+				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity + suffixNum + prefixNu}}-bg'>
 					<img ng-src="assets/{{item1Stat.image}}">
 				</div>
 
@@ -182,7 +195,7 @@
 	<tr>
 		<th>Level</th>
 		<td>{{item1Stat.itemLevel}}</td>
-		<td class="compareThis low no-border"></td>
+		<td></td>
 		<td>{{item2Stat.itemLevel}}</td>
 	</tr>
 
@@ -190,7 +203,7 @@
 	<tr>
 		<th>Cost</th>
 		<td>{{item1Stat.cost}}</td>
-		<td class="compareThis low"></td>
+		<td></td>
 		<td>{{item2Stat.cost}}</td>
 	</tr>
 

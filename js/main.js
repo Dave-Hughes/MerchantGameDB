@@ -83,6 +83,11 @@
 				templateUrl: 'pages/toolCompare.html',
 				controller: 'toolCompareCtrl'
 			})
+      //if compare help
+			.when('/tools/comparison-help', {
+				templateUrl: 'pages/comparison-help.html',
+				controller: 'toolCtrl'
+			})
 		//if guide
 		.when('/guides', {
 			templateUrl: 'pages/guides.html',
