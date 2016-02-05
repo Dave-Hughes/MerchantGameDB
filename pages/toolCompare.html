@@ -1,7 +1,25 @@
 <style>
+.compareTable {
+	width: 100%;
+	border: 2px solid #ccc;
+}
+
 .compareTable th,
 .compareTable td{
 	text-align:center;
+}
+
+.compareTable tr {
+	border: 1px solid #ddd;
+}
+
+.no-border {
+	border: 0;
+}
+
+.no-border td,
+.no-border th {
+	border: 0;
 }
 
 .compareThis {
@@ -19,49 +37,139 @@
 .compareTie {
 	color:blue;
 }
+
+.compareTable tr td:nth-child(3) {
+	color: #555;
+	padding: 5px;
+	font-size: .8em;
+	font-weight: bold;
+}
+
+.compareTable thead tr:nth-child(1) th {
+	background: #ddd;
+}
+
+.compareTable tbody tr:nth-child(1) td,
+.compareTable tbody tr:nth-child(1) th {
+	background: #F5F5F5;
+	color: #666;
+	border: 0;
+}
+
+.compareTable tfoot tr td {
+	font-size: .8em;
+	text-align: left;
+	padding: 15px 10px;
+}
+
+.comparison-page-options {
+	float: right;
+	margin: 15px 0 0 0;
+}
+
+.comparison-page-options ul {
+	list-style: none;
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+.comparison-page-options ul li {
+	display: inline;
+}
+
 </style>
-<h1>Compare items</h1>
+<h1>Item Comparison</h1>
+<p>Two items battle it out! Which is better? YOU DECIDE!</p>
+
+<div class="comparison-page-options">
+	<ul>
+		<li>
+			<!-- Copy URL Button -->
+			<div class="comparison-copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+		</li>
+		<li>
+			<!-- Help Button -->
+			<div class="comparison-help-button btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span> Help</div>
+		</li>
+	</ul>
+</div>
 <table class="compareTable">
 	<!--1.row: image, prefix, name, suffix -->
-	<tr>
-		<td></td>
-		<th>
-				<img ng-src="assets/{{item1Stat.image}}"><br>
-				<select class="prefix-select"
-        ng-model="item1Prefix.id"
-        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
-			  ng-options="name for (name, value) in listOfPrefix">
-        </select><br>
-				<a ng-if="itsWeapon" href="#!/items/weapon/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
-				<a ng-if="itsArmor" href="#!/items/armor/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
-				<a ng-if="itsTrinket" href="#!/items/trinket/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
-				<br>
-				<select class="suffix-select"
-        ng-model="item1Suffix.id"
-        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
-			  ng-options="name for (name, value) in listOfSuffix">
-        </select>
-		</th>
-		<td></td>
-		<th>
-				<img ng-src="assets/{{item2Stat.image}}"><br>
-				<select class="prefix-select"
-        ng-model="item2Prefix.id"
-        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
-			  ng-options="name for (name, value) in listOfPrefix">
-        </select><br>
-				<a ng-if="itsWeapon" href="#!/items/weapon/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
-				<a ng-if="itsArmor" href="#!/items/armor/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
-				<a ng-if="itsTrinket" href="#!/items/trinket/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
-				<br>
-				<select class="suffix-select"
-        ng-model="item2Suffix.id"
-        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
-			  ng-options="name for (name, value) in listOfSuffix">
-        </select>
-		</th>
-	</tr>
-	
+	<thead>
+		<tr class="no-border">
+			<th>
+			</th>
+			<th class="compare-table-item-1">
+				<div class="compared-item-name">
+					<a ng-if="itsWeapon" href="#!/items/weapon/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
+					<a ng-if="itsArmor" href="#!/items/armor/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
+					<a ng-if="itsTrinket" href="#!/items/trinket/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
+				</div>
+
+				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity}}-bg'>
+					<img ng-src="assets/{{item1Stat.image}}">
+				</div>
+
+				<div class="comparison-adjustments-hold">
+					<div class="comparison-page-prefix-hold">
+		        <label>Prefix</label>
+						<select class="prefix-select"
+		        ng-model="item1Prefix.id"
+		        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
+					  ng-options="name for (name, value) in listOfPrefix">
+		        </select>
+					</div>
+
+						<div class="comparison-page-suffix-hold">
+							<label>Suffix</label>
+							<select class="suffix-select"
+			        ng-model="item1Suffix.id"
+			        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
+						  ng-options="name for (name, value) in listOfSuffix">
+			        </select>
+						</div>
+					</div>
+			</th>
+			<th></th>
+			<th>
+				<div class="compared-item-name">
+					<a ng-if="itsWeapon" href="#!/items/weapon/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
+					<a ng-if="itsArmor" href="#!/items/armor/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
+					<a ng-if="itsTrinket" href="#!/items/trinket/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
+				</div>
+
+				<div class='comparison-page-item-image item-quality-{{item2Stat.rarity}}-bg'>
+					<img ng-src="assets/{{item2Stat.image}}">
+				</div>
+
+				<div class="comparison-adjustments-hold">
+					<div class="comparison-page-prefix-hold">
+						<label>Prefix</label>
+						<select class="prefix-select"
+		        ng-model="item2Prefix.id"
+		        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
+					  ng-options="name for (name, value) in listOfPrefix">
+		        </select>
+					</div>
+
+					<div class="comparison-page-suffix-hold">
+						<label>Suffix</label>
+						<select class="suffix-select"
+		        ng-model="item2Suffix.id"
+		        ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item2Prefix.id, item2Suffix.id)"
+					  ng-options="name for (name, value) in listOfSuffix">
+		        </select>
+					</div>
+				</div>
+			</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="4">Comparsion data for: <strong>{{item1Stat.name}}</strong> and <strong>{{item2Stat.name}}</strong>.
+		</tr>
+	</tfoot>
+
 	<!--2.row: type -->
 	<tr>
 		<th>Type</th>
@@ -69,15 +177,15 @@
 		<td></td>
 		<td>{{item2Stat.subType}}</td>
 	</tr>
-	
+
 	<!--3.row: level -->
 	<tr>
 		<th>Level</th>
 		<td>{{item1Stat.itemLevel}}</td>
-		<td class="compareThis low"></td>
+		<td class="compareThis low no-border"></td>
 		<td>{{item2Stat.itemLevel}}</td>
 	</tr>
-	
+
 	<!--4.row: cost -->
 	<tr>
 		<th>Cost</th>
@@ -85,7 +193,7 @@
 		<td class="compareThis low"></td>
 		<td>{{item2Stat.cost}}</td>
 	</tr>
-	
+
 	<!--5.row: Atk -->
 	<tr ng-if="itsWeapon">
 		<th>Atk</th>
@@ -95,7 +203,7 @@
 					+ item1Stat.bonusStat.atkBns[0]
 					+ item1Prefix.stat.atkBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.atkBns[1]
@@ -109,7 +217,7 @@
 					+ item2Stat.bonusStat.atkBns[0]
 					+ item2Prefix.stat.atkBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.atkBns[1]
@@ -117,7 +225,7 @@
 					| number:0}}
 		</td>
 	</tr>
-	
+
 	<!--6.row: mAtk -->
 	<tr ng-if="itsWeapon">
 		<th>mAtk</th>
@@ -127,7 +235,7 @@
 					+ item1Stat.bonusStat.matkBns[0]
 					+ item1Prefix.stat.matkBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.matkBns[1]
@@ -141,7 +249,7 @@
 					+ item2Stat.bonusStat.matkBns[0]
 					+ item2Prefix.stat.matkBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.matkBns[1]
@@ -149,10 +257,10 @@
 					| number:0}}
 		</td>
 	</tr>
-	
+
 	<!--7.row: total Atk -->
 	<tr ng-if="itsWeapon">
-		<th>totAtk</th>
+		<th>Total Attack</th>
 		<td>
 			{{((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 0.9
 					* (1+item1Suffix.modif)
@@ -164,7 +272,7 @@
 					+ item1Stat.bonusStat.matkBns[0]
 					+ item1Prefix.stat.matkBns)
 					| number:0}}
-			- 
+			-
 			{{((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.atkBns[1]
@@ -188,7 +296,7 @@
 					+ item2Stat.bonusStat.matkBns[0]
 					+ item2Prefix.stat.matkBns)
 					| number:0}}
-			- 
+			-
 			{{((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.atkBns[1]
@@ -201,7 +309,7 @@
 					| number:0}}
 		</td>
 	</tr>
-	
+
 	<!--8.row: Acc -->
 	<tr ng-if="itsWeapon">
 		<th>Acc</th>
@@ -211,7 +319,7 @@
 					+ item1Stat.bonusStat.accBns[0]
 					+ item1Prefix.stat.accBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.accBns[1]
@@ -225,7 +333,7 @@
 					+ item2Stat.bonusStat.accBns[0]
 					+ item2Prefix.stat.accBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.accBns[1]
@@ -233,7 +341,7 @@
 					| number:0}}
 		</td>
 	</tr>
-	
+
 	<!--9.row: Def -->
 	<tr ng-if="itsArmor || item1Prefix.stat.defBns || item2Prefix.stat.defBns">
 		<th>Def</th>
@@ -243,7 +351,7 @@
 					+ item1Stat.bonusStat.defBns[0]
 					+ item1Prefix.stat.defBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.defBns[1]
@@ -257,7 +365,7 @@
 					+ item2Stat.bonusStat.defBns[0]
 					+ item2Prefix.stat.defBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.defBns[1]
@@ -265,7 +373,7 @@
 					| number:0}}
 		</td>
 	</tr>
-	
+
 	<!--10.row: mDef -->
 	<tr ng-if="itsArmor || item1Prefix.stat.mdefBns || item2Prefix.stat.mdefBns">
 		<th>mDef</th>
@@ -275,7 +383,7 @@
 					+ item1Stat.bonusStat.mdefBns[0]
 					+ item1Prefix.stat.mdefBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * 1.1
 					* (1+item1Suffix.modif)
 					+ item1Stat.bonusStat.mdefBns[1]
@@ -289,14 +397,14 @@
 					+ item2Stat.bonusStat.mdefBns[0]
 					+ item2Prefix.stat.mdefBns
 					| number:0}}
-			- 
+			-
 			{{ (formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * 1.1
 					* (1+item2Suffix.modif)
 					+ item2Stat.bonusStat.mdefBns[1]
 					+ item2Prefix.stat.mdefBns
 					| number:0}}</td>
 	</tr>
-	
+
 	<!--11.row: HP -->
 	<tr ng-if="item1Stat.bonusStat.hpBns || item2Stat.bonusStat.hpBns || item1Prefix.stat.hpBns || item2Prefix.stat.hpBns">
 		<th>HP</th>
@@ -304,7 +412,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.hpBns[0] + item2Prefix.stat.hpBns}}-{{item2Stat.bonusStat.hpBns[1] + item2Prefix.stat.hpBns}}</td>
 	</tr>
-	
+
 	<!--12.row: Crit -->
 	<tr ng-if="item1Stat.bonusStat.critBns || item2Stat.bonusStat.critBns">
 		<th>Crit</th>
@@ -312,7 +420,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.critBns[0]}}-{{item2Stat.bonusStat.critBns[1]}}</td>
 	</tr>
-	
+
 	<!--13.row: dex -->
 	<tr ng-if="item1Stat.bonusStat.dex || item2Stat.bonusStat.dex">
 		<th>Dex</th>
@@ -320,7 +428,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.dex[0]}}-{{item2Stat.bonusStat.dex[1]}}</td>
 	</tr>
-	
+
 	<!--14.row: int -->
 	<tr ng-if="item1Stat.bonusStat.int || item2Stat.bonusStat.int">
 		<th>Int</th>
@@ -328,7 +436,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.int[0]}}-{{item2Stat.bonusStat.int[1]}}</td>
 	</tr>
-	
+
 	<!--15.row: str -->
 	<tr ng-if="item1Stat.bonusStat.str || item2Stat.bonusStat.str">
 		<th>Str</th>
@@ -336,7 +444,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.str[0]}}-{{item2Stat.bonusStat.str[1]}}</td>
 	</tr>
-	
+
 	<!--16.row: luck -->
 	<tr ng-if="item1Stat.bonusStat.lckMod || item2Stat.bonusStat.lckMod">
 		<th>Luck</th>
@@ -344,7 +452,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.lckMod[0]}}-{{item2Stat.bonusStat.lckMod[1]}}</td>
 	</tr>
-	
+
 	<!--17.row: gold -->
 	<tr ng-if="item1Stat.bonusStat.gldMod || item2Stat.bonusStat.gldMod">
 		<th>Gold</th>
@@ -352,7 +460,7 @@
 		<td class="compareThis high"></td>
 		<td>{{item2Stat.bonusStat.gldMod[0]}}-{{item2Stat.bonusStat.gldMod[1]}}</td>
 	</tr>
-	
+
 	<!--18.row: exp -->
 	<tr ng-if="item1Stat.bonusStat.expMod || item2Stat.bonusStat.expMod">
 		<th>Exp</th>
@@ -361,3 +469,13 @@
 		<td>{{item2Stat.bonusStat.expMod[0]}}-{{item2Stat.bonusStat.expMod[1]}}</td>
 	</tr>
 </table>
+
+<div class="item-url-hold">
+	<label>Comparison URL:</label>
+	<ul class="url-tabs">
+		<li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+		<li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+	</ul>
+	<input id="generatedLink" readonly>
+	<input class="hide" id="generatedLink-reddit" readonly>
+</div>

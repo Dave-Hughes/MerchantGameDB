@@ -5,11 +5,11 @@ angular.module('mainApp')
 		$scope.suffix = jsonSuffixes;
 		$scope.prefix = jsonPrefixes;
 		$scope.getItems = $routeParams.c;
-		
+
 		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6};
 		var listOfWeaponPrefix = {"":0, "Burning":1, "Fiery":2, "Flaming":3, "Smoldering":4, "Blazing":5, "Cold":6, "Chilled":7, "Icy":8, "Frozen":9, "Glacial":10, "Keen":11, "Accurate":12, "Sharp":13, "Fatal":14, "Deadly":15};
 		var listOfArmorPrefix = {"":0, "Tenacious":16, "Vigorous":17, "Robust":18, "Resilient":19, "Titan's":20, "Solid":21, "Hard":22, "Tough":23, "Sturdy":24, "Defender's":25, "Focused":26, "Resolute":27, "Centered":28, "Mindful":29, "Protector's":30};
-		
+
 		//decide if use Weapon or Armor prefixes
 		if($scope.equipment[$routeParams.c.split("-")[0].split(",")[0]].itemSlot == 1)
 			{ //Weapon
@@ -26,16 +26,16 @@ angular.module('mainApp')
 			$scope.listOfPrefix = listOfArmorPrefix;
 			$scope.itsArmor = true;
 			}
-		
+
 		//Item 1
 			//get item1 from url
 			var item1 = $routeParams.c.split("-")[0];
-			
+
 			//first number (Equipment)
 			var item1Stat = item1.split(",")[0];
 			item1Stat = $scope.equipment[item1Stat];
 			$scope.item1Stat = item1Stat;
-			
+
 			//second number (Prefix)
 			var item1Prefix = {};
 			item1Prefix.id = parseInt(item1.split(",")[1]);
@@ -43,7 +43,7 @@ angular.module('mainApp')
 			item1Prefix.stat = $scope.prefix[item1Prefix.id].stats;
 			$scope.item1Prefix = item1Prefix;
 			if(item1Prefix.id != 0){$scope.item1PrefixNum = 1}
-			
+
 			//third nuber (Suffix)
 			var item1Suffix = {};
 			item1Suffix.id = parseInt(item1.split(",")[2]);
@@ -58,16 +58,16 @@ angular.module('mainApp')
 				item1Suffix.modif = 0;
 				}
 			$scope.item1Suffix = item1Suffix;
-			
+
 		//Item 2
 			//get item2 from url
 			var item2 = $routeParams.c.split("-")[1];
-			
+
 			//first number (Equipment)
 			var item2Stat = item2.split(",")[0];
 			item2Stat = $scope.equipment[item2Stat];
 			$scope.item2Stat = item2Stat;
-			
+
 			//second number (Prefix)
 			var item2Prefix = {};
 			item2Prefix.id = parseInt(item2.split(",")[1]);
@@ -75,7 +75,7 @@ angular.module('mainApp')
 			item2Prefix.stat = $scope.prefix[item2Prefix.id].stats;
 			$scope.item2Prefix = item2Prefix;
 			if(item2Prefix.id != 0){$scope.item2PrefixNum = 1}
-			
+
 			//third nuber (Suffix)
 			var item2Suffix = {};
 			item2Suffix.id = parseInt(item2.split(",")[2]);
@@ -90,7 +90,7 @@ angular.module('mainApp')
 				item2Suffix.modif = 0;
 				}
 			$scope.item2Suffix = item2Suffix;
-			
+
 		$scope.suffixPrefixChange = function(i1p, i1s, i2p, i2s) {
 			var objectURL = "#!/tools/compare?c=";
 			objectURL += $routeParams.c.split("-")[0].split(",")[0]+",";
@@ -102,7 +102,7 @@ angular.module('mainApp')
 			objectURL += i2s;
 			$(location).attr('href', objectURL);
 		}
-	
+
 setTimeout(function()
 	{
 	$.each($(".compareThis"), function()
@@ -155,5 +155,22 @@ setTimeout(function()
 			}
 		});
 	}, 0);
-	
+
+	//Get URL Functionality
+	var redditLink = "[Comparsion: "+$scope.item1Stat.name+ " and " +$scope.item2Stat.name+"]" + " (" + window.location.href + ")";
+	console.log(redditLink)
+
+	$("#raw-url-link").click(function() {
+		$("#generatedLink").show();
+		$("#generatedLink-reddit").addClass("hide");
+	})
+
+	$("#reddit-url-link").click(function() {
+		$("#generatedLink").hide();
+		$("#generatedLink-reddit").removeClass("hide");
+	})
+
+	$("#generatedLink").val(window.location.href);
+	$("#generatedLink-reddit").val(redditLink);
+
 });

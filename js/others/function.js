@@ -5,6 +5,11 @@ $(document).ready(function()
 			fadeInUrlBox();
 		})
 
+		$("#main-content").on("click", ".comparison-copy-item-url", function() {
+			fadeInBlackBG();
+			fadeInUrlBox();
+		})
+
 		//Compare button click handler
 		$("#main-content").on("click", ".eqpage-compare-button", function() {
 
@@ -230,7 +235,7 @@ $(document).ready(function()
 			})
 
 			//"View Comparison" button click handler
-			$(document).on("click", "#comparison-prompt-final-button", function() {
+			$("#comparison-prompt-final-button").unbind().click(function() {
 
 				//Get items from DOM
 				var item1ID					= $("#item1-compare").text();
@@ -247,9 +252,7 @@ $(document).ready(function()
 				item2ID = getEquipmentIdByName($.trim(item2ID));
 				item2PrefixID = getPrefixIdByName($.trim(item2PrefixID));
 
-				//Go to URL passing in the ID numbers as link params
-				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + "-" + item2ID + "," + item2PrefixID + "," + item2SuffixID;
-				console.log(comparisonURL);
+
 
 				//Reset all comparison related html fields
 				$("#item1-compare").empty();
@@ -262,6 +265,15 @@ $(document).ready(function()
 
 				$("#comparison-prompt-confirm-button").removeClass("hide");
 				$("#comparison-prompt-final-button").addClass("hide");
+
+
+
+				//Go to URL passing in the ID numbers as link params
+				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + "-" + item2ID + "," + item2PrefixID + "," + item2SuffixID;
+				console.log(comparisonURL);
+				$(location).attr('href', comparisonURL);
+
+
 
 				//Close prompt
 				fadeOutComparePrompt();
