@@ -1898,6 +1898,19 @@ footer .row {
     margin: 0 5px 0 5px;
     width: 130px;
   }
+
+  #comparison-prompt {
+    width: 95%;
+    max-width: 1000px;
+  }
+
+  #comparison-prompt-content {
+    margin: 20px 25px;
+  }
+
+  #comparison-prompt-content table {
+    font-size: .9em;
+  }
 }
 
 /* Extra Small Devices, Phones */
