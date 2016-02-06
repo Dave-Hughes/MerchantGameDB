@@ -1149,8 +1149,6 @@ footer .row {
   padding: 8px;
 }
 
-
-
 .region-table {
   width: 100%;
   margin: 30px 0 0 0;
@@ -1256,8 +1254,6 @@ footer .row {
 }
 
 
-
-
 .quest-image-holder {
   float: left;
   width: 35%;
@@ -1266,6 +1262,7 @@ footer .row {
   display: block;
   position: relative;
   margin: 0 20px 0 0;
+	image-rendering: pixelated;
 }
 
 .quest-image-holder img {
