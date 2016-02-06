@@ -42,7 +42,7 @@ angular.module('mainApp')
 			item1Prefix.name = $scope.prefix[item1Prefix.id].name;
 			item1Prefix.stat = $scope.prefix[item1Prefix.id].stats;
 			$scope.item1Prefix = item1Prefix;
-			if(item1Prefix.id != 0){$scope.item1PrefixNum = 1}
+			if(item1Prefix.id != 0){$scope.item1PrefixNum = 1;}
 
 			//third nuber (Suffix)
 			var item1Suffix = {};
@@ -158,7 +158,6 @@ setTimeout(function()
 
 	//Get URL Functionality
 	var redditLink = "[Comparsion: "+$scope.item1Stat.name+ " and " +$scope.item2Stat.name+"]" + " (" + window.location.href + ")";
-	console.log(redditLink)
 
 	$("#raw-url-link").click(function() {
 		$("#generatedLink").show();

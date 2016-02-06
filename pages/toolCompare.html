@@ -26,7 +26,7 @@
 					<a ng-if="itsTrinket" href="#!/items/trinket/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
 				</div>
 
-				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity + suffixNum + prefixNu}}-bg'>
+				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}-bg'>
 					<img ng-src="assets/{{item1Stat.image}}">
 				</div>
 
@@ -58,7 +58,7 @@
 					<a ng-if="itsTrinket" href="#!/items/trinket/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
 				</div>
 
-				<div class='comparison-page-item-image item-quality-{{item2Stat.rarity}}-bg'>
+				<div class='comparison-page-item-image item-quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}-bg'>
 					<img ng-src="assets/{{item2Stat.image}}">
 				</div>
 
