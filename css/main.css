@@ -237,6 +237,29 @@ h2 {
   color: #eee;
 }
 
+#commentsButton {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-radius: 1px;
+  background: #eee;
+  margin: 100px 0 0 0;
+  color: #666;
+}
+
+#comment-icon {
+  font-size: .8em;
+  margin: 0 0 0 3px;
+}
+
+.load-discussion {
+  font-size: .9em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 #mobile-menu-toggle {
   display: none;
 }
