@@ -214,6 +214,7 @@ h2 {
 .live-button a,
 .beta-button a {
   display: block;
+  height: 100%;
   color: #eee;
 }
 
