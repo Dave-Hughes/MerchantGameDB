@@ -1,5 +1,5 @@
 $(document).ready(function()
-	{
+	{	
 		$("#main-content").on("click", ".copy-item-url", function() {
 			fadeInBlackBG();
 			fadeInUrlBox();
@@ -43,9 +43,16 @@ $(document).ready(function()
 
 		})
 	});
-
-	//Copy standard page link button
-	$(document).on("click", ".copy-standard-link-button", function() {
+	
+//show comments
+$(document).on("click", "#commentsButton", function(){
+		$("#comments").show();
+		initDisqus();
+		$("#commentsButton").hide();
+	});
+	
+//Copy standard page link button
+$(document).on("click", ".copy-standard-link-button", function() {
 		console.log("check");
 		fadeOutBlackBG();
 		fadeOutUrlBox();
@@ -67,8 +74,8 @@ $(document).ready(function()
     }
 	})
 
-	//Copy reddit page link button
-	$(document).on("click", ".copy-reddit-link-button", function() {
+//Copy reddit page link button
+$(document).on("click", ".copy-reddit-link-button", function() {
 		console.log("check");
 		fadeOutBlackBG();
 		fadeOutUrlBox();
@@ -90,19 +97,19 @@ $(document).ready(function()
     }
 	})
 
-	//Close urls popup on X button click
-	$(document).on("click", ".url-box-close-button", function() {
+//Close urls popup on X button click
+$(document).on("click", ".url-box-close-button", function() {
 		fadeOutBlackBG();
 		fadeOutUrlBox();
 	})
 
-	//Close comparison prompt on X button click
-	$(document).on("click", ".prompt-close-button", function() {
+//Close comparison prompt on X button click
+$(document).on("click", ".prompt-close-button", function() {
 		fadeOutBlackBG();
 		fadeOutComparePrompt();
 	})
 
-	function displayFirstCompareItem() {
+function displayFirstCompareItem() {
 		//Set item 1's name and icon
 		var item1Name 	= $(".item-name").text();
 		var item1Icon 	= "<img src="+$(".object-image img").attr('src')+">";
@@ -142,7 +149,7 @@ $(document).ready(function()
 		})
 	}
 
-	function displayBothCompareItems(hasError) {
+function displayBothCompareItems(hasError) {
 		//Set item 2's name and icon
 		var item2Name = $(".item-name").text();
 		var item2Icon = "<img src="+$(".object-image img").attr('src')+">";
@@ -270,7 +277,6 @@ $(document).ready(function()
 
 				//Go to URL passing in the ID numbers as link params
 				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + "-" + item2ID + "," + item2PrefixID + "," + item2SuffixID;
-				console.log(comparisonURL);
 				$(location).attr('href', comparisonURL);
 
 
@@ -283,54 +289,51 @@ $(document).ready(function()
 		}//End if/else
 	}
 
-	//Close urls popup on X button click
-	$(document).on("click", "#comparison-prompt-confirm-button", function() {
+//Close urls popup on X button click
+$(document).on("click", "#comparison-prompt-confirm-button", function() {
 		fadeOutBlackBG();
 		fadeOutComparePrompt();
 	})
 
-	function fadeInBlackBG() {
+function fadeInBlackBG() {
 		//Fade background to black
 		$("#black-overlay").removeClass("hide");
 	}
 
-	function fadeOutBlackBG() {
+function fadeOutBlackBG() {
 		//Fade out background to black
 		$("#black-overlay").addClass("hide");
 	}
 
-	function fadeInUrlBox() {
+function fadeInUrlBox() {
 		//Fade in URL-BOX
 		$("#urls-popup").removeClass("hide");
 	}
 
-	function fadeOutUrlBox() {
+function fadeOutUrlBox() {
 		//Fade out URL-BOX
 		$("#urls-popup").addClass("hide");
 	}
 
-	function fadeInComparePrompt() {
+function fadeInComparePrompt() {
 		$("#comparison-prompt").removeClass("hide");
 	}
 
-	function fadeOutComparePrompt() {
+function fadeOutComparePrompt() {
 		$("#comparison-prompt").addClass("hide");
 	}
 
-function lvToTier(lv)
-	{
+function lvToTier(lv) {
 	return Math.floor(((lv-0.1)/10)+1);
-	}
+}
 
-function lvToTierAtPotion(lv)
-	{
+function lvToTierAtPotion(lv) {
 	return Math.floor(((lv)/10)+1);
-	}
+}
 
-function lvToTierAtMaterials(lv)
-	{
+function lvToTierAtMaterials(lv) {
 	return Math.floor(((lv)/10)+1);
-	}
+}
 
 function getEquipmentByName(name) {
 	var item = "";
@@ -343,11 +346,9 @@ function getEquipmentByName(name) {
 	return item;
 }
 
-function getEquipmentNameById(id)
-	{
+function getEquipmentNameById(id) {
 	return jsonEquipments[id-1].name;
-	}
-
+}
 
 function getEquipmentIdByName(name) {
 	var variable= "";
@@ -371,8 +372,7 @@ function getPrefixIdByName(name) {
 	return variable;
 }
 
-function getPotionIdByName(name)
-	{
+function getPotionIdByName(name) {
 	var variable= "";
 	$.each(jsonPotions, function(index, val) {
 		if(val.name == name) {
@@ -381,15 +381,13 @@ function getPotionIdByName(name)
 		}
 	})
 	return variable;
-	}
+}
 
-function getBaseStatByType(type)
-	{
+function getBaseStatByType(type) {
 	return jsonFormulas[type];
-	}
+}
 
-function getMaterialById(materials, amount)
-	{
+function getMaterialById(materials, amount) {
 	var mats = [];
 	$.each(materials, function(index, val) {
 			var search = jsonMaterials[val-1];
@@ -397,16 +395,38 @@ function getMaterialById(materials, amount)
 			mats.push(matInfo);
 	})
 	return mats;
-	}
+}
 
-function getMaterialByIdPotion(materials, amount)
-	{ //fuckPotions (if it's a spec potion then first material is a potion instead of material)
+function getMaterialByIdSpec(materials, amount, types) {
 	var mats = [];
 	$.each(materials, function(index, val) {
-		if(index == 0)
+		if(types[index])
 			{
-			var search = jsonPotions[val-1];
-			var matInfo = {name: search.name, amount: amount[index], rarity: search.rarity, icon: search.image, what:"potion"};
+			var search = "";
+			var what = "";
+			if(types[index] == "consumable")
+				{
+				var search = jsonPotions[val-1];
+				what = "potion";
+				}
+			else if(types[index] == "equipment")
+				{
+				var search = jsonEquipments[val-1];
+				if(jsonEquipments[val-1].itemSlot == 1)
+					{
+					what = "weapon";
+					}
+				else if(jsonEquipments[val-1].itemSlot == 6)
+					{
+					what = "trinket";
+					}
+				else
+					{
+					what = "armor";
+					}
+				}
+			
+			var matInfo = {name: search.name, amount: amount[index], rarity: search.rarity, icon: search.image, what:what};
 			mats.push(matInfo);
 			}
 		else
@@ -417,15 +437,13 @@ function getMaterialByIdPotion(materials, amount)
 			}
 	})
 	return mats;
-	}
+}
 
-function getMaterialNameById(id)
-	{
+function getMaterialNameById(id) {
 	return jsonMaterials[id-1].name;
-	}
+}
 
-function getMaterialByName(name)
-	{
+function getMaterialByName(name) {
 	var mat = "";
 	$.each(jsonMaterials, function(index, val) {
 		if(name == val.name){
@@ -434,7 +452,7 @@ function getMaterialByName(name)
 		}
 	})
 	return mat;
-	}
+}
 
 function getMaterialIdByName(name) {
 	var mat= "";
@@ -446,7 +464,6 @@ function getMaterialIdByName(name) {
 	})
 	return mat;
 }
-
 
 function getMonsterByTrinketId(id) {
 	var monsters = [];
@@ -471,8 +488,7 @@ function getMonsterByTrinketId(id) {
 	return monsters;
 }
 
-function regionById(id)
-	{
+function regionById(id) {
 	var region = "";
 	if (id == 1) { region = "Tuvale Forest"}
 	else if (id == 2) { region = "Yarsol Cove"}
@@ -480,7 +496,7 @@ function regionById(id)
 	else if (id == 4) { region = "Vulkrum Badlands"}
 	else if (id == 5) { region = "Grimhal Volcano"}
 	return region;
-	}
+}
 
 function getMonsterByMaterialId(id) {
 	var monsters = [];
@@ -527,8 +543,7 @@ function getMonsterByMaterialId(id) {
 	return monsters;
 }
 
-function getHeroByName(name)
-	{
+function getHeroByName(name) {
 	var hero = "";
 	$.each(jsonHeroes, function(index, val) {
 		if(val.name == name)
@@ -538,10 +553,9 @@ function getHeroByName(name)
 			}
 	})
 	return hero;
-	}
+}
 
-function getPotionByName(name)
-	{
+function getPotionByName(name) {
 	var pot = "";
 	$.each(jsonPotions, function(index, val) {
 		if(val.name == name)
@@ -551,10 +565,9 @@ function getPotionByName(name)
 			}
 	})
 	return pot;
-	}
+}
 
-function getQuestByName(name)
-	{
+function getQuestByName(name) {
 	var quest = "";
 	$.each(jsonQuests, function(index, val) {
 		if(val.name == name)
@@ -638,15 +651,14 @@ function getQuestByName(name)
 			}
 	})
 	return quest;
-	}
+}
 
-function usedToCraftFromMaterial(id)
-	{
+function usedToCraftFromMaterial(id) {
 	var crafted = [];
 	$.each(jsonEquipments, function(index, val) {
 		$.each(val.materialID, function(index, value)
 			{
-			if(value-1 == id)
+			if(value-1 == id && (val.hasOwnProperty("materialType") && val.materialType[index] != "equipment") || value-1 == id && !val.hasOwnProperty("materialType"))
 				{
 				var type ="";
 				if(val.itemSlot == 1)
@@ -690,27 +702,47 @@ function usedToCraftFromMaterial(id)
 			})
 	})
 	return crafted;
-	}
+}
 
-function usedToCraftFromPotion(id)
-	{
+function usedToCraftFromPotion(id) {
 	var crafted = [];
 	$.each(jsonPotions, function(index, val) {
 		$.each(val.materialID, function(index, value)
 			{
-			if(value-1 == id)
+			if(val.hasOwnProperty("materialType"))
 				{
-				var eq = {name: val.name, image: val.image, rarity: val.rarity, type:"potion", amount:val.materialAmount[index]};
-				crafted.push(eq);
-				return false;
+				if(value-1 == id && val.materialType[index] == "consumable")
+					{
+					var eq = {name: val.name, image: val.image, rarity: val.rarity, type:"potion", amount:val.materialAmount[index]};
+					crafted.push(eq);
+					return false;
+					}
 				}
 			})
 	})
 	return crafted;
 	}
+	
+function usedToCraftFromEquipment(id) {
+	var crafted = [];
+	$.each(jsonEquipments, function(index, val) {
+		$.each(val.materialID, function(index, value)
+			{
+			if(val.hasOwnProperty("materialType"))
+				{
+				if(value-1 == id && val.materialType[index] == "equipment")
+					{
+					var eq = {name: val.name, image: val.image, rarity: val.rarity, type:"weapon", amount:val.materialAmount[index]};
+					crafted.push(eq);
+					return false;
+					}
+				}
+			})
+	})
+	return crafted;
+}
 
-function getQuestNamesByRegioName(name)
-	{
+function getQuestNamesByRegioName(name) {
 	var regio = 0;
 	if(name == "Tuvale Forest"){regio = 1}
 	else if(name == "Yarsol Cove"){regio = 2}
@@ -731,10 +763,9 @@ function getQuestNamesByRegioName(name)
 			}
 		});
 	return names;
-	}
+}
 
-function getPrefixStatByName(name)
-	{
+function getPrefixStatByName(name) {
 	var stat = "";
 	$.each(jsonPrefixes, function(index, val)
 		{
@@ -745,4 +776,4 @@ function getPrefixStatByName(name)
 			}
 		});
 	return stat;
-	}
+}

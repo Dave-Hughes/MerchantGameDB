@@ -100,11 +100,27 @@
       <tbody class='crafting-reagents-table-body'>
         <tr ng-repeat="mat in material" class='row-poop'>
           <td class='center'><img ng-src='assets/{{mat.icon}}'></td>
-          <td><a class='quality-{{mat.rarity}}' href="#!/items/material/{{mat.name}}">{{mat.name}}</a></td>
+          <td><a class='quality-{{mat.rarity}}' href="#!/items/{{mat.what}}/{{mat.name}}">{{mat.name}}</a></td>
           <td class='center'>{{mat.amount}}</td>
 		    </tr>
 	    </tbody>
 	  </table>
+		
+		<table ng-show="{{craft != ''}}" class='crafting-reagents-table'>
+			<caption>Used to Craft</caption>
+			<thead>
+				<tr>
+					<th></th>
+					<th>Item Name</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="craf in craft">
+				<td><img ng-src="assets/{{craf.image}}"></td>
+				<td><a class="quality-{{craf.rarity}}" href="#!/items/weapon/{{craf.name}}">{{craf.name}}</a></td>
+				<td>{{craf.amount}}</td>
+			</tr>
+		</table>
 
     <div class="item-url-hold">
       <label>Unique Item URL:</label>

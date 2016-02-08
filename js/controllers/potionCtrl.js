@@ -5,7 +5,7 @@ angular.module('mainApp')
 		$scope.potionID = getPotionIdByName($routeParams.id);
 		if($scope.potion.hasOwnProperty("materialType"))
 			{
-			$scope.craftedBy = getMaterialByIdPotion($scope.potion.materialID, $scope.potion.materialAmount);
+			$scope.craftedBy = getMaterialByIdSpec($scope.potion.materialID, $scope.potion.materialAmount, $scope.potion.materialType);
 			}
 		else
 			{

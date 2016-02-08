@@ -2,9 +2,18 @@
 angular.module('mainApp')
 	.controller('eqWeaponCtrl', function($scope, $routeParams) {
 		$scope.Math = Math;
-		$scope.item = getEquipmentByName($routeParams.id);
+		$scope.itemID = getEquipmentIdByName($routeParams.id);
+		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
-		$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+		if($scope.item.hasOwnProperty("materialType"))
+			{
+			$scope.material = getMaterialByIdSpec($scope.item.materialID, $scope.item.materialAmount, $scope.item.materialType);
+			}
+		else
+			{
+			$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+			}
+		$scope.craft=usedToCraftFromEquipment($scope.itemID);
 		$scope.suffix = 0;
 		$scope.prefix = "";
 		$scope.suffixNum = 0;

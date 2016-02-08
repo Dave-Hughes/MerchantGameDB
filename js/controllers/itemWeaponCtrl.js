@@ -90,9 +90,27 @@ angular.module('mainApp')
 				}
 		};
 		
-		//deselect all woodworker
-		$scope.deselectWeaponWw = function(){
-
+		//toggle select all special
+		var isAllSpOn = false;
+		$scope.selectWeaponSp = function(){
+			if(isAllSpOn)
+				{
+				isAllSpOn = false;
+				$scope.Filter.Rod					= false;
+				$scope.Filter.Pole				= false;
+				$scope.Filter.Trident			= false;
+				$scope.Filter.SpellSword	= false;
+				$("#sp-weapons-subtypes label").each(function(){$(this).removeClass("filter-selected");});
+				}
+			else
+				{
+				isAllSpOn = true;
+				$scope.Filter.Rod					= "Rod";
+				$scope.Filter.Pole				= "Pole";
+				$scope.Filter.Trident			= "Trident";
+				$scope.Filter.SpellSword	= "Spellsword";
+				$("#sp-weapons-subtypes label").each(function(){$(this).addClass("filter-selected");});
+				}
 		};
 
 		//Filter by Type
@@ -108,7 +126,11 @@ angular.module('mainApp')
 						item.subType === $scope.Filter.Stave ||
 						item.subType === $scope.Filter.MysticStave ||
 						item.subType === $scope.Filter.Cudgel ||
-						item.subType === $scope.Filter.Club;
+						item.subType === $scope.Filter.Club ||
+						item.subType === $scope.Filter.Rod ||
+						item.subType === $scope.Filter.Pole ||
+						item.subType === $scope.Filter.Trident ||
+						item.subType === $scope.Filter.SpellSword;
 	  };
 
 	  $scope.showWeaponsByTier = function(item) {
