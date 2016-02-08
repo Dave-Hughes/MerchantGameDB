@@ -202,7 +202,6 @@ h2 {
 .beta-button {
   transition: all .5s ease;
   float: right;
-  padding: 4px;
   background: #C71D18;
   color: #eee;
 }
@@ -216,6 +215,7 @@ h2 {
   display: block;
   height: 100%;
   color: #eee;
+  padding: 4px;
 }
 
 .live-button:hover,
