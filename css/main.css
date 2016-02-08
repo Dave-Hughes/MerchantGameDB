@@ -171,6 +171,72 @@ h2 {
   border: 2px solid #3D5CAA;
 }
 
+#live-beta-button-hold-mobile {
+  width: 90%;
+  margin: 25px auto 0 auto;
+}
+
+#live-beta-button-hold-mobile .live-button,
+#live-beta-button-hold-mobile .beta-button {
+  float: none;
+  padding: 10px;
+  margin: 0 auto 0 auto;
+}
+
+#live-beta-button-hold {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  font-size: .8em;
+}
+
+#live-beta-button-hold span {
+  margin: 0 3px 0 0;
+}
+
+#live-beta-button-hold input {
+  margin: 0 5px 0 0;
+}
+
+.live-button,
+.beta-button {
+  transition: all .5s ease;
+  float: right;
+  padding: 4px;
+  background: #C71D18;
+  color: #eee;
+}
+
+.beta-button {
+  margin: 0 10px 0 0;
+}
+
+.live-button a,
+.beta-button a {
+  display: block;
+  color: #eee;
+}
+
+.live-button:hover,
+.beta-button:hover {
+  cursor: pointer;
+  background: #C71D18;
+  color: #eee;
+}
+
+.version-inactive {
+  background: #851410;
+  color: #aaa;
+}
+
+.version-inactive a {
+  color: #aaa;
+}
+
+.version-inactive a:hover {
+  color: #eee;
+}
+
 #mobile-menu-toggle {
   display: none;
 }
@@ -1839,6 +1905,9 @@ footer .row {
 
 
 
+
+
+
 /* Extra small devices (phones, less than 450px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -1855,6 +1924,10 @@ footer .row {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
+
+  #live-beta-button-hold {
+    display: none;
+  }
 
   #side-bar {
     display: none;
