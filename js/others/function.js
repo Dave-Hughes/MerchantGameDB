@@ -47,7 +47,7 @@ $(document).ready(function()
 //show comments
 $(document).on("click", "#commentsButton", function(){
 		$("#comments").show();
-		initDisqus();
+		resetDisqus();
 		$("#commentsButton").hide();
 	});
 	
