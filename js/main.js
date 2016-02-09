@@ -88,9 +88,13 @@
 				templateUrl: 'pages/comparison-help.html',
 				controller: 'toolCtrl'
 			})
-		//if guide
+		//if guides
 		.when('/guides', {
 			templateUrl: 'pages/guides.html',
+			controller: 'guideCtrl'
+		})
+    .when('/guides/guide/:id', {
+			templateUrl: 'pages/guide.html',
 			controller: 'guideCtrl'
 		})
 		//else

@@ -6,4 +6,8 @@ angular.module('mainApp')
 		$scope.betaVersion = "1.832";
 		$scope.liveVersion = "1.82";
 
+		console.log(listOfGuides);
+		$scope.guidesList = listOfGuides;
+
+
 	})

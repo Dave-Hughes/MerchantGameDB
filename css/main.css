@@ -1512,6 +1512,25 @@ footer .row {
   margin: 20px 0 50px 0;
 }
 
+.sidebar-guides {
+
+}
+
+.sidebar-guides ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-guides ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.guides-list-sidebar {
+  list-style: none;
+}
 
 
 
