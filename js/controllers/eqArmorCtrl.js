@@ -5,13 +5,16 @@ angular.module('mainApp')
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
-		if($scope.item.hasOwnProperty("materialType"))
-			{
-			$scope.material = getMaterialByIdSpec($scope.item.materialID, $scope.item.materialAmount, $scope.item.materialType);
-			}
-		else
-			{
-			$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+		if($scope.item.crafterID != 0)
+			{ //if its craftable (worn items fix)
+			if($scope.item.hasOwnProperty("materialType"))
+				{
+				$scope.material = getMaterialByIdSpec($scope.item.materialID, $scope.item.materialAmount, $scope.item.materialType);
+				}
+			else
+				{
+				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+				}
 			}
 		$scope.craft=usedToCraftFromEquipment($scope.itemID);
 		$scope.suffix = 0;
