@@ -93,7 +93,7 @@
 			templateUrl: 'pages/guides.html',
 			controller: 'guideCtrl'
 		})
-    .when('/guides/guide/:id', {
+    .when('/guides/:id', {
 			templateUrl: 'pages/guide.html',
 			controller: 'guideCtrl'
 		})

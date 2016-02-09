@@ -274,7 +274,7 @@
         			window.disqus_shortname = 'merchantdb';
         			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         			dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
-							
+
 							function resetDisqus() {
 								DISQUS.reset({
         					reload: true,
@@ -286,7 +286,6 @@
         						if(href.length == 0){href = "Merchant[DB]"}
         						//cut attributums after ?
         						var baseName = href.split("?")[0];
-
         						this.page.identifier = "http://merchantgamedb.com/#!"+baseName;
         						this.page.url = "http://merchantgamedb.com/#!"+baseName;
         					}
@@ -311,6 +310,25 @@
             </div><!-- END SIDEBAR ROW -->
           </aside>
 
+          <aside id="side-bar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="row">
+              <div class="aside-block col-xs-4 col-sm-12 col-md-12 col-lg-12">
+                <div class="side-content">
+                  <section id='' class=''>
+                    <h4>Latest Guides</h4>
+                    <div class="sidebar-guides">
+                      <ul>
+                        <li ng-repeat="guide in guidesList">
+                          {{guide.title.rendered}}
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+            </div><!-- END SIDEBAR ROW -->
+          </aside>
         </div>
       </section>
 
@@ -433,5 +451,6 @@
       </div>
 
     </snap-content>
+
   </body>
 </html>
