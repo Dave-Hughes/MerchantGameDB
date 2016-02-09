@@ -271,31 +271,29 @@
 						 <div id="comments">
         			<div id="disqus_thread"></div>
         			<script>
-        			function initDisqus() {
         			window.disqus_shortname = 'merchantdb';
         			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         			dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
-        			$.getScript(dsq.src)
-        					.done(function () {
-        						DISQUS.reset({
-        							reload: true,
-        							config: function () {
-        								var href = window.location.href.split("/");
-        								//get the text after last /, replace %20 with space
-        								href = href[href.length-1].replace("%20", " ");
-        								//if we are on main site
-        								if(href.length == 0){href = "Merchant[DB]"}
-        								//attributums after ?
-        								var baseName = href.split("?")[0];
+							
+							function resetDisqus() {
+								DISQUS.reset({
+        					reload: true,
+        					config: function () {
+        						var href = window.location.href.split("#!");
+        						//get the text after last /, replace %20 with space
+        						href = href[1].replace("%20", " ");
+        						//if we are on main site
+        						if(href.length == 0){href = "Merchant[DB]"}
+        						//cut attributums after ?
+        						var baseName = href.split("?")[0];
 
-        								this.page.identifier = "http://merchantgamedb.com/V2/#!/"+baseName;
-        								this.page.url = "http://merchantgamedb.com/V2/#!/"+baseName;
-        							}
-        						});
-        					});
-
-        			}
+        						this.page.identifier = "http://merchantgamedb.com/#!"+baseName;
+        						this.page.url = "http://merchantgamedb.com/#!"+baseName;
+        					}
+        				});
+							}
         			</script>
+							<script src="//merchantdb.disqus.com/embed.js"></script>
 						</div>
           </div>
 
