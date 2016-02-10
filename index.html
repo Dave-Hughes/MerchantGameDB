@@ -16,6 +16,7 @@
 	   <!-- Javascripts -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="js/others/angular-sanitize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/plugins.js"></script>
 
@@ -265,7 +266,7 @@
              <div class="clear"></div>
 
 						 <div id="commentsButton" class="btn btn-info">
-              <span class="load-discussion">Load Discussion</span>
+              <span class="load-discussion">Join Discussion</span>
               <span id="comment-icon" class="glyphicon glyphicon-comment"></span>
              </div>
 						 <div id="comments">
@@ -319,9 +320,17 @@
                     <div class="sidebar-guides">
                       <ul>
                         <li ng-repeat="guide in guidesList">
-                          {{guide.title.rendered}}
+                          <a href="#!/guides/{{guide.title.rendered}}">{{guide.title.rendered}}</a>
+                          <span>By {{getAuthByID(guide.author)}}</span>
                         </li>
                       </ul>
+                    </div>
+
+                    <div class="view-more-guides">
+                      <a href="#!/guides/">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        View More Guides
+                      </a>
                     </div>
                   </section>
                 </div>

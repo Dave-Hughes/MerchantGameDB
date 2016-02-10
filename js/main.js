@@ -1,6 +1,6 @@
 (function(angular){
   'use strict';
-  angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute'])
+  angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute', 'ngSanitize'])
 	//REDIRECTION (ng-route)
 	.config(function($routeProvider, $locationProvider) {
 		$routeProvider
