@@ -24,6 +24,9 @@ angular.module('mainApp')
 			else if (id == 3) {
 				author = "EnzymSama";
 			}
+			else if (id == 4) {
+				author = "Kamighty";
+			}
 			return author;
 		}
 
