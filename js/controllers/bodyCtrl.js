@@ -3,8 +3,8 @@ angular.module('mainApp')
 	.controller('bodyCtrl', function($scope, $http) {
 
 		//Game Version Numbers
-		$scope.betaVersion = "1.832";
-		$scope.liveVersion = "1.82";
+		$scope.betaVersion = "1.838";
+		$scope.liveVersion = "1.83";
 
 		//Side bar latest guides
 		$scope.guidesList = listOfGuides;
