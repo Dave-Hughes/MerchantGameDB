@@ -805,3 +805,9 @@ function getAuthorByID(id) {
 	}
 	return author;
 }
+
+function trimDate(date) {
+	var length = 10;
+	var trimmedDate = date.substring(0, length);
+	return trimmedDate;
+}

@@ -3,8 +3,7 @@ angular.module('mainApp')
 	.controller('guideCtrl', function($scope, $routeParams) {
 
 		$scope.trimDate = function(date) {
-    	var length = 10;
-    	var trimmedDate = date.substring(0, length);
+    	var trimmedDate = trimDate(date);
     	return trimmedDate;
     }
 

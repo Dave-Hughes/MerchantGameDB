@@ -5,25 +5,12 @@ angular.module('mainApp')
     //Side bar latest guides
 		$scope.guidesList = listOfGuides;
 		$scope.getAuthByID = function(id) {
-			var author = "";
-			if (id == 1) {
-				author = "Chirp";
-			}
-			else if (id == 2) {
-				author = "Phaturia";
-			}
-			else if (id == 3) {
-				author = "EnzymSama";
-			}
-			else if (id == 4) {
-				author = "Kamighty";
-			}
+			var author = getAuthorByID(id);
 			return author;
 		}
 
     $scope.trimDate = function(date) {
-    	var length = 10;
-    	var trimmedDate = date.substring(0, length);
+    	var trimmedDate = trimDate(date);
     	return trimmedDate;
     }
 
