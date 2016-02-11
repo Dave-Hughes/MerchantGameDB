@@ -1516,6 +1516,14 @@ footer .row {
   width: 100%;
 }
 
+.guides-list th {
+  padding: 0;
+}
+
+.guides-list tbody tr td {
+  padding: 3px 0;
+}
+
 .sidebar-guides {
 
 }
