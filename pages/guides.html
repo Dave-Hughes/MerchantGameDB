@@ -4,22 +4,27 @@
 </p>
 
 <div class="guides-list">
-  <ul>
-    <li>
-      <a href="https://www.reddit.com/r/MerchantRPG/comments/423jjv/customershow_to_lvlup_game_ver181/">Leveling Up Customers</a>
-    </li>
-    <li>
-      <a href="https://www.reddit.com/r/MerchantRPG/comments/3bwi0e/stat_explanations_from_old_posts/">Damage Formula, Evasion, and Luck explained</a>
-    </li>
-    <li>
-      <a href="https://www.reddit.com/r/MerchantRPG/comments/3tpo2z/trying_to_unravel_the_battle_combat_round/">Understanding Combat Rounds</a>
-    </li>
-    <li>
-      <a href="https://www.reddit.com/r/MerchantRPG/comments/422fmn/which_heroes_should_be_prioritized/cz75ut0">Which Hero Should I Get?</a>
-    </li>
-  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="guide in guidesList">
+        <td><a href="#!/guides/{{guide.title.rendered}}">{{guide.title.rendered}}</a></td>
+        <td>{{getAuthByID(guide.author)}}</td>
+        <td>{{trimDate(guide.date)}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
 </div>
 
 <p>
-  Are we missing a guide? Leave a link to it in the comments below and we'll considering adding it.
+  Have a request for a guide? Leave a comment below and we'll add it to the list!
 </p>

@@ -1,0 +1,34 @@
+<div class="guide">
+
+  <div class="guide-options">
+    <!-- Copy URL Button -->
+    <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+  </div>
+
+  <h1>{{guideTitle}}</h1>
+
+  <div class="guide-author">
+    <span class="glyphicon glyphicon-user"></span>
+    <p>Written by:</p> {{guideAuthor}}
+  </div>
+
+  <div class="guide-date">
+    <span class="glyphicon glyphicon-calendar"></span>
+    <p>Posted on:</p> {{trimDate(guideDate)}}
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="guide-content" ng-bind-html="guideContent"></div>
+
+</div>
+
+<div class="item-url-hold">
+  <label>Guide URL:</label>
+  <ul class="url-tabs">
+    <li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+    <li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+  </ul>
+  <input id="generatedLink" readonly>
+  <input class="hide" id="generatedLink-reddit" readonly>
+</div>

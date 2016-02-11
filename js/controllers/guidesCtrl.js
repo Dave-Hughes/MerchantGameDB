@@ -1,12 +1,8 @@
-//Controller for the body
+//Controller for Guides
 angular.module('mainApp')
-	.controller('bodyCtrl', function($scope, $http) {
+	.controller('guidesCtrl', function($scope, $routeParams) {
 
-		//Game Version Numbers
-		$scope.betaVersion = "1.832";
-		$scope.liveVersion = "1.82";
-
-		//Side bar latest guides
+    //Side bar latest guides
 		$scope.guidesList = listOfGuides;
 		$scope.getAuthByID = function(id) {
 			var author = "";
@@ -21,5 +17,11 @@ angular.module('mainApp')
 			}
 			return author;
 		}
+
+    $scope.trimDate = function(date) {
+    	var length = 10;
+    	var trimmedDate = date.substring(0, length);
+    	return trimmedDate;
+    }
 
 	})

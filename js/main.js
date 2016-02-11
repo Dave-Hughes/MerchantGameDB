@@ -1,6 +1,6 @@
 (function(angular){
   'use strict';
-  angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute'])
+  angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute', 'ngSanitize'])
 	//REDIRECTION (ng-route)
 	.config(function($routeProvider, $locationProvider) {
 		$routeProvider
@@ -88,9 +88,13 @@
 				templateUrl: 'pages/comparison-help.html',
 				controller: 'toolCtrl'
 			})
-		//if guide
+		//if guides
 		.when('/guides', {
 			templateUrl: 'pages/guides.html',
+			controller: 'guidesCtrl'
+		})
+    .when('/guides/:id', {
+			templateUrl: 'pages/guide.html',
 			controller: 'guideCtrl'
 		})
 		//else
