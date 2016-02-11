@@ -1,5 +1,5 @@
 $(document).ready(function()
-	{	
+	{
 		$("#main-content").on("click", ".copy-item-url", function() {
 			fadeInBlackBG();
 			fadeInUrlBox();
@@ -43,14 +43,14 @@ $(document).ready(function()
 
 		})
 	});
-	
+
 //show comments
 $(document).on("click", "#commentsButton", function(){
 		$("#comments").show();
 		resetDisqus();
 		$("#commentsButton").hide();
 	});
-	
+
 //Copy standard page link button
 $(document).on("click", ".copy-standard-link-button", function() {
 		console.log("check");
@@ -425,7 +425,7 @@ function getMaterialByIdSpec(materials, amount, types) {
 					what = "armor";
 					}
 				}
-			
+
 			var matInfo = {name: search.name, amount: amount[index], rarity: search.rarity, icon: search.image, what:what};
 			mats.push(matInfo);
 			}
@@ -722,7 +722,7 @@ function usedToCraftFromPotion(id) {
 	})
 	return crafted;
 	}
-	
+
 function usedToCraftFromEquipment(id) {
 	var crafted = [];
 	$.each(jsonEquipments, function(index, val) {

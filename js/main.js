@@ -91,7 +91,7 @@
 		//if guides
 		.when('/guides', {
 			templateUrl: 'pages/guides.html',
-			controller: 'guideCtrl'
+			controller: 'guidesCtrl'
 		})
     .when('/guides/:id', {
 			templateUrl: 'pages/guide.html',

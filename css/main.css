@@ -409,7 +409,7 @@ h2 {
 #main-content {
   background: #F3F3F3;
   padding: 20px;
-  min-height: 300px;
+  min-height: 400px;
 }
 
 #side-bar {
@@ -1512,6 +1512,10 @@ footer .row {
   margin: 20px 0 50px 0;
 }
 
+.guides-list table {
+  width: 100%;
+}
+
 .sidebar-guides {
 
 }
@@ -2021,6 +2025,41 @@ footer .row {
   border-top: 1px solid #ddd;
 }
 
+.guide-content h2 {
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 15px 0 5px 0;
+}
+
+.guide-content img {
+  max-width: 100%;
+}
+
+.guide-content ul,
+.guide-content ol {
+  margin: 15px 0 25px 0;
+}
+
+.guide-content ul li,
+.guide-content ol li {
+  margin: 3px 0;
+}
+
+.guide-content .alignright {
+  float: right;
+  padding: 15px 0 15px 15px;
+}
+
+.guide-content .alignleft {
+  float: left;
+  padding: 15px 15px 15px 0;
+}
+
+.guide-content p {
+  margin: 0 0 25px 0;
+}
+
 .guide-options {
   float: right;
   margin: 0 0 0 15px;
@@ -2031,7 +2070,7 @@ footer .row {
 }
 
 .wp-smiley {
-  max-width: 13px;
+  max-width: 13px !important;
 }
 
 
@@ -2110,6 +2149,10 @@ footer .row {
 
   #comparison-prompt-content table {
     font-size: .9em;
+  }
+
+  .guide h1{
+    font-size: 2.5em;
   }
 }
 

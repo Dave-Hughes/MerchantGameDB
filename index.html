@@ -46,6 +46,7 @@
     <script src="js/controllers/itemMaterialCtrl.js"></script>
     <script src="js/controllers/toolCtrl.js"></script>
 		<script src="js/controllers/toolCompareCtrl.js"></script>
+    <script src="js/controllers/guidesCtrl.js"></script>
     <script src="js/controllers/guideCtrl.js"></script>
 
 
@@ -319,7 +320,7 @@
                     <h4>Latest Guides</h4>
                     <div class="sidebar-guides">
                       <ul>
-                        <li ng-repeat="guide in guidesList">
+                        <li ng-repeat="guide in guidesList | limitTo:3">
                           <a href="#!/guides/{{guide.title.rendered}}">{{guide.title.rendered}}</a>
                           <span>By {{getAuthByID(guide.author)}}</span>
                         </li>

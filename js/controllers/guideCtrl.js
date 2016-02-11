@@ -27,13 +27,17 @@ angular.module('mainApp')
 			return author;
 		}
 
-		$scope.selectedGuide = getGuideByTitle($routeParams.id);
+		$scope.trimDate = function(date) {
+    	var length = 10;
+    	var trimmedDate = date.substring(0, length);
+    	return trimmedDate;
+    }
 
-		$scope.guideAuthor = getAuthorByID($scope.selectedGuide.author);
-		$scope.guideTitle = $scope.selectedGuide.title.rendered;
-		$scope.guideContent = $scope.selectedGuide.content.rendered;
-		$scope.guideDate = $scope.selectedGuide.date;
-
+		$scope.selectedGuide 		= getGuideByTitle($routeParams.id);
+		$scope.guideAuthor 			= getAuthorByID($scope.selectedGuide.author);
+		$scope.guideTitle 			= $scope.selectedGuide.title.rendered;
+		$scope.guideContent 		= $scope.selectedGuide.content.rendered;
+		$scope.guideDate 				= $scope.selectedGuide.date;
 
 		var redditLink = "["+$scope.guideTitle+"]" + " (" + window.location.href + ")";
 		$("#raw-url-link").click(function() {
