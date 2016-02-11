@@ -119,7 +119,7 @@
 			//get the URL, split by /
 			var href = window.location.href.split("/");
 			//get the text after last /, replace %20 with space
-			href = href[href.length-1].replace("%20", " ");
+			href = href[href.length-1].replace(/%20/g, " ");
 			//if we are on main site
 			if(href.length == 0){href = "Main"}
 			//attributums after ?
