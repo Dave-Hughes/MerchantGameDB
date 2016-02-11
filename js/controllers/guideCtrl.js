@@ -2,34 +2,6 @@
 angular.module('mainApp')
 	.controller('guideCtrl', function($scope, $routeParams) {
 
-		function getGuideByTitle(title) {
-       var guide = "";
-       $.each(listOfGuides, function(index, val) {
-				 if (listOfGuides[index].title.rendered == title) {
-          	guide = val;
-            return false;
-          }
-       })
-  	 	return guide;
-   	}
-
-		function getAuthorByID(id) {
-			var author = "";
-			if (id == 1) {
-				author = "Chirp";
-			}
-			else if (id == 2) {
-				author = "Phaturia";
-			}
-			else if (id == 3) {
-				author = "EnzymSama";
-			}
-			else if (id == 4) {
-				author = "Kamighty";
-			}
-			return author;
-		}
-
 		$scope.trimDate = function(date) {
     	var length = 10;
     	var trimmedDate = date.substring(0, length);

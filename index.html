@@ -16,20 +16,20 @@
 	   <!-- Javascripts -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
-    <script src="js/others/angular-sanitize.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/plugins.js"></script>
 
 
-	<script src="js/others/json.js"></script>
-	<script src="js/others/function.js"></script>
+  	<script src="js/others/json.js"></script>
+  	<script src="js/others/function.js"></script>
 
-  <script src="js/main.js"></script>
-  <script src="js/controllers/searchController.js"></script>
-	<script src="js/controllers/mobileMenuController.js"></script>
-	<script src="js/controllers/bodyCtrl.js"></script>
-	<script src="js/controllers/mainCtrl.js"></script>
-	<script src="js/others/filter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/searchController.js"></script>
+  	<script src="js/controllers/mobileMenuController.js"></script>
+  	<script src="js/controllers/bodyCtrl.js"></script>
+  	<script src="js/controllers/mainCtrl.js"></script>
+  	<script src="js/others/filter.js"></script>
 
     <script src="js/controllers/eqWeaponCtrl.js"></script>
     <script src="js/controllers/eqArmorCtrl.js"></script>
@@ -283,7 +283,7 @@
         					config: function () {
         						var href = window.location.href.split("#!");
         						//get the text after last /, replace %20 with space
-        						href = href[1].replace(/%20/g, " ");
+        						href = href[1].replace("%20", " ");
         						//if we are on main site
         						if(href.length == 0){href = "Merchant[DB]"}
         						//cut attributums after ?
