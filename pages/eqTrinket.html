@@ -9,6 +9,9 @@
         <img ng-src="assets/{{item.image}}">
       </div>
 
+      <!-- Copy URL Button -->
+      <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+
       <table class='gear-table'>
         <tr>
           <td colspan=2 class='gear-name'>
@@ -61,3 +64,13 @@
   		    </tr>
   	    </tbody>
   	  </table>
+
+      <div class="item-url-hold">
+        <label>Unique Item URL:</label>
+        <ul class="url-tabs">
+          <li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+          <li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+        </ul>
+        <input id="generatedLink" readonly>
+        <input class="hide" id="generatedLink-reddit" readonly>
+      </div>

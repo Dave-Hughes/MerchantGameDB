@@ -13,4 +13,20 @@ angular.module('mainApp')
 			$scope.droppedBy = getMonsterByMaterialId($scope.materialID);
 			}
 		$scope.craft=usedToCraftFromMaterial($scope.materialID);
+
+		var redditLink = "["+$scope.material.name+"]" + " (" + window.location.href + ")";
+
+		$("#raw-url-link").click(function() {
+			$("#generatedLink").show();
+			$("#generatedLink-reddit").addClass("hide");
+		})
+
+		$("#reddit-url-link").click(function() {
+			$("#generatedLink").hide();
+			$("#generatedLink-reddit").removeClass("hide");
+		})
+
+		$("#generatedLink").val(window.location.href);
+		$("#generatedLink-reddit").val(redditLink);
+
 	})

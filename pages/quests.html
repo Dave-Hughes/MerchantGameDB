@@ -85,35 +85,47 @@
 			</td>
 		</tr>
 	</tfoot>
-	<tr ng-show="quest.reward1[0]">
-		<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
-		<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
-		<td>{{quest.reward1[2]}}<span ng-if="quest.reward1[3] > 1">-{{quest.reward1[3]}}</span></td>
-		<td>{{quest.reward1[1]}}%</td>
-	</tr>
-	<tr ng-show="quest.reward2[0]">
-		<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
-		<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
-		<td>{{quest.reward2[2]}}<span ng-if="quest.reward2[3] > 1">-{{quest.reward2[3]}}</span></td>
-		<td>{{quest.reward2[1]}}%</td>
-	</tr>
-	<tr ng-show="quest.reward3[0]">
-		<td class="center"><img ng-src="assets/{{mats[quest.reward3[0]-1].image}}"></td>
-		<td><a class="quality-{{mats[quest.reward3[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward3[0]-1].name}}">{{mats[quest.reward3[0]-1].name}}</a></td>
-		<td>{{quest.reward3[2]}}<span ng-if="quest.reward3[3] > 1">-{{quest.reward3[3]}}</span></td>
-		<td>{{quest.reward3[1]}}%</td>
-	</tr>
-	<tr ng-show="quest.reward4[0]">
-		<td class="center"><img ng-src="assets/{{mats[quest.reward4[0]-1].image}}"></td>
-		<td><a class="quality-{{mats[quest.reward4[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward4[0]-1].name}}">{{mats[quest.reward4[0]-1].name}}</a></td>
-		<td>{{quest.reward4[2]}}<span ng-if="quest.reward4[3] > 1">-{{quest.reward4[3]}}</span></td>
-		<td>{{quest.reward4[1]}}%</td>
-	</tr>
-	<tr ng-show="quest.trinket[0]">
-		<td class="center"><img ng-src="assets/{{eq[quest.trinket[0]-1].image}}"></td>
-		<td><a class="quality-{{eq[quest.trinket[0]-1].rarity}}" href="#!/items/trinket/{{eq[quest.trinket[0]-1].name}}">{{eq[quest.trinket[0]-1].name}}</a></td>
-		<td>1</td>
-		<td>{{quest.trinket[1]}}%</td>
-	</tr>
+	<tbody>
+		<tr ng-show="quest.reward1[0]">
+			<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
+			<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
+			<td>{{quest.reward1[2]}}<span ng-if="quest.reward1[3] > 1">-{{quest.reward1[3]}}</span></td>
+			<td>{{quest.reward1[1]}}%</td>
+		</tr>
+		<tr ng-show="quest.reward2[0]">
+			<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
+			<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
+			<td>{{quest.reward2[2]}}<span ng-if="quest.reward2[3] > 1">-{{quest.reward2[3]}}</span></td>
+			<td>{{quest.reward2[1]}}%</td>
+		</tr>
+		<tr ng-show="quest.reward3[0]">
+			<td class="center"><img ng-src="assets/{{mats[quest.reward3[0]-1].image}}"></td>
+			<td><a class="quality-{{mats[quest.reward3[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward3[0]-1].name}}">{{mats[quest.reward3[0]-1].name}}</a></td>
+			<td>{{quest.reward3[2]}}<span ng-if="quest.reward3[3] > 1">-{{quest.reward3[3]}}</span></td>
+			<td>{{quest.reward3[1]}}%</td>
+		</tr>
+		<tr ng-show="quest.reward4[0]">
+			<td class="center"><img ng-src="assets/{{mats[quest.reward4[0]-1].image}}"></td>
+			<td><a class="quality-{{mats[quest.reward4[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward4[0]-1].name}}">{{mats[quest.reward4[0]-1].name}}</a></td>
+			<td>{{quest.reward4[2]}}<span ng-if="quest.reward4[3] > 1">-{{quest.reward4[3]}}</span></td>
+			<td>{{quest.reward4[1]}}%</td>
+		</tr>
+		<tr ng-show="quest.trinket[0]">
+			<td class="center"><img ng-src="assets/{{eq[quest.trinket[0]-1].image}}"></td>
+			<td><a class="quality-{{eq[quest.trinket[0]-1].rarity}}" href="#!/items/trinket/{{eq[quest.trinket[0]-1].name}}">{{eq[quest.trinket[0]-1].name}}</a></td>
+			<td>1</td>
+			<td>{{quest.trinket[1]}}%</td>
+		</tr>
+	</tbody>
 </table>
-<!-- <pre>{{quest}}</pre> -->
+
+
+<div class="item-url-hold">
+	<label>Unique Item URL:</label>
+	<ul class="url-tabs">
+		<li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+		<li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+	</ul>
+	<input id="generatedLink" readonly>
+	<input class="hide" id="generatedLink-reddit" readonly>
+</div>
