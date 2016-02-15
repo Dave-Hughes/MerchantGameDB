@@ -612,7 +612,9 @@ footer .row {
   font-weight: bold;
 }
 
-.suffix-adjustment-hold label, .prefix-adjustment-hold label {
+.suffix-adjustment-hold label,
+.prefix-adjustment-hold label,
+.grade-adjustment-hold label {
   font-size: .8em;
   font-weight: 900;
   letter-spacing: 1.2px;
@@ -621,7 +623,9 @@ footer .row {
   padding: 0;
 }
 
-.suffix-adjustment-hold {
+.suffix-adjustment-hold,
+.prefix-adjustment-hold,
+.grade-adjustment-hold {
   padding: 0px 8px 4px 8px;
   background: #ccc;
   overflow: hidden;
@@ -633,7 +637,9 @@ footer .row {
   margin: 10px 0 0 0;
 }
 
-.suffix-adjustment-hold select {
+.suffix-adjustment-hold select,
+.prefix-adjustment-hold select,
+.grade-adjustment-hold select {
   transition: all 0.3s ease;
   -webkit-border-radius:4px;
   -moz-border-radius:4px;
@@ -643,29 +649,6 @@ footer .row {
   overflow: hidden;
   background: #fff;
   margin: 0;
-}
-
-.prefix-adjustment-hold {
-  padding: 0px 8px 4px 8px;
-  background: #ccc;
-  overflow: hidden;
-  width: 75px;
-  display: inline-block;
-  text-align: center;
-  float: left;
-  clear: left;
-  margin: 10px 0 0 0;
-}
-
-.prefix-adjustment-hold select {
-  transition: all 0.3s ease;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  clear: both;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
 }
 
 .copy-item-url, .eqpage-compare-button {
@@ -1075,35 +1058,41 @@ footer .row {
 
 
 
+.object-image span {
+  height: 20px;
+  width: 20px;
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 .item-quality-1-bg,
 .item-quality-2-bg,
 .item-quality-3-bg,
 .item-quality-4-bg,
-.item-quality-5-bg,
-.item-grade-s-bg,
-.item-grade-a-bg,
-.item-grade-b-bg,
-.item-grade-c-bg,
-.item-grade-d-bg {
+.item-quality-5-bg {
   image-rendering: pixelated;
 }
 
-.item-grade-s-bg {
-  background: url("../img/grades/quest_grade_S_B.png");
+.item-grade-S {
+  background: url("../img/grades/quest_grade_S-edit.png");
 }
-.item-grade-a-bg {
-  background: url("../img/grades/quest_grade_A_B.png");
+.item-grade-A {
+  background: url("../img/grades/quest_grade_A-edit.png");
 }
-.item-grade-b-bg {
-  background: url("../img/grades/quest_grade_B_B.png");
+.item-grade-B {
+  background: url("../img/grades/quest_grade_B-edit.png");
 }
-.item-grade-c-bg {
-  background: url("../img/grades/quest_grade_C_B.png");
+.item-grade-C {
+  background: url("../img/grades/quest_grade_C-edit.png");
 }
-.item-grade-d-bg {
-  background: url("../img/grades/quest_grade_D_B.png");
+.item-grade-D {
+  background: url("../img/grades/quest_grade_D-edit.png");
 }
+
 
 .item-quality-1-bg {
   background: url("../img/item-quality-1-bg.png");
@@ -1163,6 +1152,7 @@ footer .row {
 
 
 .object-image {
+  position: relative;
   image-rendering: pixelated;
   width: 75px;
   height: 75px;
