@@ -553,7 +553,7 @@ footer .row {
 /* GEAR Page Styles */
 .gear-table {
   width: 70%;
-  max-width: 310px;
+  max-width: 385px;
   border: 2px solid #bbb;
   font-size: .9em;
   min-height: 60px;
@@ -734,7 +734,7 @@ footer .row {
 
 #generatedLink {
   width: 100%;
-  max-width: 400px;
+  max-width: 475px;
   padding: 5px 10px;
   font-size: .8em;
   display: block;
@@ -743,7 +743,7 @@ footer .row {
 
 #generatedLink-reddit {
   width: 100%;
-  max-width: 400px;
+  max-width: 475px;
   padding: 5px 10px;
   font-size: .8em;
   display: block;
@@ -945,7 +945,7 @@ footer .row {
 /* MATERIALS page styles */
 .mats-table {
   width: 70%;
-  max-width: 310px;
+  max-width: 385px;
   border: 2px solid #bbb;
   font-size: .9em;
   min-height: 60px;
@@ -1022,7 +1022,7 @@ footer .row {
 
 .crafting-reagents-table {
   width: 100%;
-  max-width: 400px;
+  max-width: 475px;
   border: 2px solid #bbb;
   font-size: .9em;
   clear: both;
@@ -1379,7 +1379,7 @@ footer .row {
 
 .quest-table {
   width: 50%;
-  max-width: 230px;
+  max-width: 305px;
   border: 2px solid #bbb;
   font-size: .9em;
   float: left;
@@ -1469,7 +1469,7 @@ footer .row {
 /* MONSTER LOOT TABLE */
 .quest-loot-drops-table {
   width: 100%;
-  max-width: 400px;
+  max-width: 475px;
   border: 2px solid #bbb;
   font-size: .9em;
   clear: both;

@@ -5,23 +5,24 @@ angular.module('mainApp')
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
-		if($scope.item.crafterID != 0)
-			{ //if its craftable (worn items fix)
-			if($scope.item.hasOwnProperty("materialType"))
-				{
+
+		if($scope.item.crafterID != 0) { //if its craftable (worn items fix)
+			if($scope.item.hasOwnProperty("materialType")) {
 				$scope.material = getMaterialByIdSpec($scope.item.materialID, $scope.item.materialAmount, $scope.item.materialType);
-				}
-			else
-				{
-				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
-				}
 			}
-		$scope.craft=usedToCraftFromEquipment($scope.itemID);
-		$scope.suffix = 0;
-		$scope.prefix = "";
-		$scope.suffixNum = 0;
-		$scope.prefixNum = 0;
-		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7};
+			else {
+				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+			}
+		}
+
+		$scope.craft 							= usedToCraftFromEquipment($scope.itemID);
+		$scope.suffix 						= 0;
+		$scope.prefix 						= "";
+		$scope.grade							= "";
+		$scope.suffixNum 					= 0;
+		$scope.prefixNum 					= 0;
+
+		$scope.listOfSuffix 			= {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7};
 		$scope.listOfWeaponPrefix = ["", "Burning", "Fiery", "Flaming", "Smoldering", "Blazing", "Cold", "Chilled", "Icy", "Frozen", "Glacial", "Keen", "Accurate", "Sharp", "Fatal", "Deadly"];
 
 		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
