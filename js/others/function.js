@@ -335,6 +335,15 @@ function lvToTierAtMaterials(lv) {
 	return Math.floor(((lv)/10)+1);
 }
 
+function getSuffixMod(suff) {
+	if(jsonSuffixes[suff].hasOwnProperty("stats")) {
+		return jsonSuffixes[suff].stats.atk;
+	}
+	else {
+		return ".0";
+	}
+}
+
 function getEquipmentByName(name) {
 	var item = "";
 	$.each(jsonEquipments, function(index, val) {

@@ -6,24 +6,20 @@ angular.module('mainApp')
 		$scope.prefix = jsonPrefixes;
 		$scope.getItems = $routeParams.c;
 
-		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6};
-		var listOfWeaponPrefix = {"":0, "Burning":1, "Fiery":2, "Flaming":3, "Smoldering":4, "Blazing":5, "Cold":6, "Chilled":7, "Icy":8, "Frozen":9, "Glacial":10, "Keen":11, "Accurate":12, "Sharp":13, "Fatal":14, "Deadly":15};
-		var listOfArmorPrefix = {"":0, "Tenacious":16, "Vigorous":17, "Robust":18, "Resilient":19, "Titan's":20, "Solid":21, "Hard":22, "Tough":23, "Sturdy":24, "Defender's":25, "Focused":26, "Resolute":27, "Centered":28, "Mindful":29, "Protector's":30};
+		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
+		$scope.listOfPrefix = {"":0, "Burning":1, "Fiery":2, "Flaming":3, "Smoldering":4, "Blazing":5, "Cold":6, "Chilled":7, "Icy":8, "Frozen":9, "Glacial":10, "Keen":11, "Accurate":12, "Sharp":13, "Fatal":14, "Deadly":15, "Tenacious":16, "Vigorous":17, "Robust":18, "Resilient":19, "Titan's":20, "Solid":21, "Hard":22, "Tough":23, "Sturdy":24, "Defender's":25, "Focused":26, "Resolute":27, "Centered":28, "Mindful":29, "Protector's":30};
 
 		//decide if use Weapon or Armor prefixes
 		if($scope.equipment[$routeParams.c.split("-")[0].split(",")[0]].itemSlot == 1)
 			{ //Weapon
-			$scope.listOfPrefix = listOfWeaponPrefix;
 			$scope.itsWeapon = true;
 			}
 		else if($scope.equipment[$routeParams.c.split("-")[0].split(",")[0]].itemSlot == 6)
 			{ //Trinket
-			$scope.listOfPrefix = listOfArmorPrefix;
 			$scope.itsTrinket = true;
 			}
 		else
 			{ //Armor
-			$scope.listOfPrefix = listOfArmorPrefix;
 			$scope.itsArmor = true;
 			}
 

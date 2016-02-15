@@ -22,8 +22,8 @@ angular.module('mainApp')
 		$scope.suffixNum 					= 0;
 		$scope.prefixNum 					= 0;
 
-		$scope.listOfSuffix 			= {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7};
-		$scope.listOfWeaponPrefix = ["", "Burning", "Fiery", "Flaming", "Smoldering", "Blazing", "Cold", "Chilled", "Icy", "Frozen", "Glacial", "Keen", "Accurate", "Sharp", "Fatal", "Deadly"];
+		$scope.listOfSuffix 			= $scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
+		$scope.listOfWeaponPrefix = ["", "Burning", "Fiery", "Flaming", "Smoldering", "Blazing", "Cold", "Chilled", "Icy", "Frozen", "Glacial", "Keen", "Accurate", "Sharp", "Fatal", "Deadly", "Tenacious", "Vigorous", "Robust", "Resilient", "Titan's", "Solid", "Hard", "Tough", "Sturdy", "Defender's", "Focused", "Resolute", "Centered", "Mindful", "Protector's"];
 
 		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
 
@@ -58,7 +58,7 @@ angular.module('mainApp')
 		}
 
 		function suffixChange() {
-			$scope.percentMod = "1." + ($scope.suffix * 10);
+			$scope.percentMod = 1 + getSuffixMod($scope.suffix);
 			if($scope.suffix > 0) {
 				$("#add-suffix").removeClass("hide");
 				$scope.suffixNum = 1;
