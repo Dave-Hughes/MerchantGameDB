@@ -1,12 +1,19 @@
-<!--<pre>{{item}}</pre>
-<br>
-<pre>{{material}}</pre>
-<br>
-<pre>{{itemBaseStat}}</pre>
-<br>-->
+
     <div class='object-hold'>
       <div class='object-image item-quality-{{item.rarity + suffixNum + prefixNum}}-bg'>
         <img ng-src="assets/{{item.image}}">
+        <span class="item-grade-{{grade}}"></span>
+      </div>
+
+      <!-- Grade Adjustment -->
+      <div class="grade-adjustment-hold">
+        <label>Grade</label>
+        <select id="prefix-select"
+			            ng-options="option for option in listOfGrades"
+                  ng-model="grade"
+  			          ng-init="grade=grade"
+                  ng-change="suffixPrefixChange()">
+        </select>
       </div>
 
       <div class="suffix-adjustment-hold">
@@ -53,10 +60,10 @@
           <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*0.9*0.8 * percentMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*1.1*1.3 * percentMod | number:0}} Physical Defense</td>
+          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Physical Defense</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*0.9*0.8 * percentMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*1.1*1.3 * percentMod | number:0}} Magical Defense</td>
+          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Magical Defense</td>
         </tr>
 
 	       <!-- If the armor has bonus stats -->
@@ -65,7 +72,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0]*0.8 | number:0}}-{{value[1]*1.3 | number:0}}
+			      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
 		      </td>
 	      </tr>
         <tr ng-show="prefix">
@@ -102,7 +109,7 @@
 		    </tr>
 	    </tbody>
 	  </table>
-		
+
 		<table ng-show="{{craft != ''}}" class='crafting-reagents-table'>
 			<caption>Used to Craft</caption>
 			<thead>

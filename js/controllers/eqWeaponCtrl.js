@@ -24,7 +24,7 @@ angular.module('mainApp')
 		$scope.suffixNum 					= 0;
 		$scope.prefixNum 					= 0;
 
-		$scope.listOfGrades				= {"S":{"min":1.2,"max":1.3},"A":{"min":1.1,"max":1.2},"B":{"min":1,"max":1.1},"C":{"min":0.9,"max":1},"D":{"min":0.8,"max":0.9}}
+		$scope.listOfGrades				= ["", "S", "A", "B", "C", "D"];
 		$scope.listOfSuffix 			= $scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
 		$scope.listOfWeaponPrefix = ["", "Burning", "Fiery", "Flaming", "Smoldering", "Blazing", "Cold", "Chilled", "Icy", "Frozen", "Glacial", "Keen", "Accurate", "Sharp", "Fatal", "Deadly", "Tenacious", "Vigorous", "Robust", "Resilient", "Titan's", "Solid", "Hard", "Tough", "Sturdy", "Defender's", "Focused", "Resolute", "Centered", "Mindful", "Protector's"];
 
@@ -94,6 +94,31 @@ angular.module('mainApp')
 			if ($scope.prefix != 0) {
 				$scope.prefixNum = 1;
 			}
+		}
+
+		if ($scope.grade == "") {
+			$scope.minGradeModifier		= 0.8;
+			$scope.maxGradeModifier		= 1.3;
+		}
+		else if ($scope.grade == "A") {
+			$scope.minGradeModifier		= 1.1;
+			$scope.maxGradeModifier		= 1.2;
+		}
+		else if ($scope.grade == "B") {
+			$scope.minGradeModifier		= 1;
+			$scope.maxGradeModifier		= 1.1;
+		}
+		else if ($scope.grade == "C") {
+			$scope.minGradeModifier		= 0.9;
+			$scope.maxGradeModifier		= 1;
+		}
+		else if ($scope.grade == "D") {
+			$scope.minGradeModifier		= 0.8;
+			$scope.maxGradeModifier		= 0.9;
+		}
+		else if ($scope.grade == "S") {
+			$scope.minGradeModifier		= 1.2;
+			$scope.maxGradeModifier		= 1.3;
 		}
 
 		$("#raw-url-link").click(function() {

@@ -14,7 +14,7 @@
       <div class="grade-adjustment-hold">
         <label>Grade</label>
         <select id="prefix-select"
-			            ng-options="name for (name, value) in listOfGrades"
+			            ng-options="option for option in listOfGrades"
                   ng-model="grade"
   			          ng-init="grade=grade"
                   ng-change="suffixPrefixChange()">
@@ -68,10 +68,10 @@
           <td colspan=2>{{(itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Physical Attack</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel)*0.9*0.8 * percentMod | number: 0}} - {{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel)*1.1*1.3 * percentMod | number: 0}} Magical Attack</td>
+          <td colspan=2>{{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number: 0}} - {{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number: 0}} Magical Attack</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel)*0.9*0.8 * percentMod | number:0}} - {{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel)*1.1*1.3 * percentMod | number:0}} Accuracy</td>
+          <td colspan=2>{{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Accuracy</td>
         </tr>
 
 	       <!-- If the weapon has bonus stats -->
@@ -80,7 +80,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0]*0.8 | number:0}}-{{value[1]*1.3 | number:0}}
+			      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
 		      </td>
 	      </tr>
         <tr ng-show="prefix">
