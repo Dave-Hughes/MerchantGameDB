@@ -1076,22 +1076,44 @@ footer .row {
 
 
 
-.item-quality-1-bg, .item-quality-2-bg, .item-quality-3-bg, .item-quality-4-bg, .item-quality-5-bg, {
+.item-quality-1-bg,
+.item-quality-2-bg,
+.item-quality-3-bg,
+.item-quality-4-bg,
+.item-quality-5-bg,
+.item-grade-s-bg,
+.item-grade-a-bg,
+.item-grade-b-bg,
+.item-grade-c-bg,
+.item-grade-d-bg {
   image-rendering: pixelated;
+}
+
+.item-grade-s-bg {
+  background: url("../img/grades/quest_grade_S_B.png");
+}
+.item-grade-a-bg {
+  background: url("../img/grades/quest_grade_A_B.png");
+}
+.item-grade-b-bg {
+  background: url("../img/grades/quest_grade_B_B.png");
+}
+.item-grade-c-bg {
+  background: url("../img/grades/quest_grade_C_B.png");
+}
+.item-grade-d-bg {
+  background: url("../img/grades/quest_grade_D_B.png");
 }
 
 .item-quality-1-bg {
   background: url("../img/item-quality-1-bg.png");
 }
-
 .item-quality-2-bg {
   background: url("../img/item-quality-2-bg.png");
 }
-
 .item-quality-3-bg {
   background: url("../img/item-quality-3-bg.png");
 }
-
 .item-quality-4-bg {
   background: url("../img/item-quality-4-bg.png");
 }
