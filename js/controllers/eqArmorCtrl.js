@@ -57,7 +57,7 @@ angular.module('mainApp')
 		}
 
 		function suffixChange() {
-			$scope.percentMod = "1." + ($scope.suffix * 10);
+			$scope.percentMod = 1 + getSuffixMod($scope.suffix);
 			if($scope.suffix > 0) {
 				$("#add-suffix").removeClass("hide");
 				$scope.suffixNum = 1;

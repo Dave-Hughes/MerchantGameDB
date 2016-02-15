@@ -53,10 +53,10 @@
           <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*0.9 * percentMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*1.1 * percentMod | number:0}} Physical Defense</td>
+          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*0.9*0.8 * percentMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel)*1.1*1.3 * percentMod | number:0}} Physical Defense</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*0.9 * percentMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*1.1 * percentMod | number:0}} Magical Defense</td>
+          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*0.9*0.8 * percentMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel)*1.1*1.3 * percentMod | number:0}} Magical Defense</td>
         </tr>
 
 	       <!-- If the armor has bonus stats -->
@@ -65,7 +65,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0]}}-{{value[1]}}
+			      {{key | changeStat}}: {{value[0]*0.8 | number:0}}-{{value[1]*1.3 | number:0}}
 		      </td>
 	      </tr>
         <tr ng-show="prefix">
