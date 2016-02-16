@@ -133,8 +133,8 @@
 				$.each(params, function(index, param)
 					{
 					param = param.split("=")
-					if(param[0] == "prefix"){prefix = param[1]}
-					else if(param[0] == "suffix"){suffix = "+"+param[1]}
+					if(param[0] == "prefix"){prefix = jsonPrefixes[param[1]].name}
+					else if(param[0] == "suffix"){suffix = jsonSuffixes[param[1]].name}
 					});
 				}
 
