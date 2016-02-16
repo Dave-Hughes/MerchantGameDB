@@ -52,7 +52,12 @@ $.getJSON( "json/beta/SuffixList.json", function( data ) {
 	jsonSuffixes = data;
 	});
 
-
+//Grades
+var jsonGrades = "";
+$.getJSON( "json/beta/GradeList.json", function( data ) {
+	jsonGrades = data;
+	});
+	
 	var listOfGuides = "";
 	$.ajax({
 	  url: "http://merchantgamedb.com/guides/wp-json/wp/v2/posts",
