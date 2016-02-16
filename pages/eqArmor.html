@@ -9,7 +9,7 @@
       <div class="grade-adjustment-hold">
         <label>Grade</label>
         <select id="prefix-select"
-			            ng-options="option for option in listOfGrades"
+			            ng-options="k as v.name for (k, v) in listOfGrades"
                   ng-model="grade"
   			          ng-init="grade=grade"
                   ng-change="suffixPrefixChange()">
@@ -22,7 +22,7 @@
                 ng-model="suffix"
 			          ng-init="suffix=suffix"
                 ng-change="suffixPrefixChange()"
-			          ng-options="name for (name, value) in listOfSuffix">
+			          ng-options="k as v.name for (k, v) in listOfSuffix">
         </select>
       </div>
 
@@ -30,7 +30,7 @@
       <div class="prefix-adjustment-hold">
         <label>Prefix</label>
         <select id="prefix-select"
-			            ng-options="option for option in listOfArmorPrefix"
+			            ng-options="k as v.name for (k, v) in listOfPrefix"
                   ng-model="prefix"
   			          ng-init="prefix=prefix"
                   ng-change="suffixPrefixChange()">
@@ -46,7 +46,7 @@
       <table class='gear-table'>
         <tr>
           <td class='gear-name'>
-            <h3 class="quality-{{item.rarity + suffixNum + prefixNum}}"><span id="prefix-hold"></span><span class="item-name">{{item.name}}</span> <span class="hide" id="add-suffix">+<span id="suffix-alone">{{suffix}}</span></span></h3>
+            <h3 class="quality-{{item.rarity + suffixNum + prefixNum}}"><span id="prefix-hold">{{prefixStat.name}}</span><span class="item-name">{{item.name}}</span> <span class="hide" id="add-suffix">+<span id="suffix-alone">{{suffix}}</span></span></h3>
           </td>
           <td class='gear-cost'>Cost:
             <img class='coin-img' ng-src="img/coin.png">{{item.cost}}
@@ -60,10 +60,10 @@
           <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Physical Defense</td>
+          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Physical Defense</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 0.9 * minGradeModifier * percentMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 1.1 * maxGradeModifier * percentMod | number:0}} Magical Defense</td>
+          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Magical Defense</td>
         </tr>
 
 	       <!-- If the armor has bonus stats -->
@@ -77,7 +77,9 @@
 	      </tr>
         <tr ng-show="prefix">
     			<td colspan="2">
-    				<span class="prefix-stat">+{{prefixStat.val}} {{prefixStat.name | changeStat}} ({{prefix}})</span>
+            <span class="prefix-stat" ng-repeat="(k, v) in prefixStat.stats">
+							+{{v}} {{k | changeStat}} ({{prefixStat.name}})
+						</span>
     			</td>
     		</tr>
       </table>

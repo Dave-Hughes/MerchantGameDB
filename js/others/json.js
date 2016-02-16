@@ -52,7 +52,11 @@ $.getJSON( "json/stable/SuffixList.json", function( data ) {
 	jsonSuffixes = data;
 	});
 
-
+//Grades
+var jsonGrades = "";
+$.getJSON( "json/stable/GradeList.json", function( data ) {
+	jsonGrades = data;
+	});
 
 var listOfGuides = "";
 $.ajax({
