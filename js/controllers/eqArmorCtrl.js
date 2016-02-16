@@ -5,82 +5,41 @@ angular.module('mainApp')
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
-		if($scope.item.crafterID != 0)
-			{ //if its craftable (worn items fix)
-			if($scope.item.hasOwnProperty("materialType"))
-				{
+		
+		if($scope.item.crafterID != 0) { //if its craftable (worn items fix)
+			if($scope.item.hasOwnProperty("materialType")) {
 				$scope.material = getMaterialByIdSpec($scope.item.materialID, $scope.item.materialAmount, $scope.item.materialType);
-				}
-			else
-				{
-				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
-				}
 			}
-		$scope.craft=usedToCraftFromEquipment($scope.itemID);
-		$scope.suffix = 0;
-		$scope.prefix = "";
-		$scope.grade							= "";
-		$scope.minGradeModifier		= 0.8;
-		$scope.maxGradeModifier		= 1.3;
-		$scope.suffixNum = 0;
-		$scope.prefixNum = 0;
-		$scope.listOfGrades				= ["", "S", "A", "B", "C", "D"];
-		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
-		$scope.listOfArmorPrefix = ["", "Burning", "Fiery", "Flaming", "Smoldering", "Blazing", "Cold", "Chilled", "Icy", "Frozen", "Glacial", "Keen", "Accurate", "Sharp", "Fatal", "Deadly", "Tenacious", "Vigorous", "Robust", "Resilient", "Titan's", "Solid", "Hard", "Tough", "Sturdy", "Defender's", "Focused", "Resolute", "Centered", "Mindful", "Protector's"];
+			else {
+				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
+			}
+		}
+		$scope.craft 							= usedToCraftFromEquipment($scope.itemID);
 
-		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
-
-		//If the URL has a "grade" parameter
-		if ($routeParams.grade) {
-			//Grade = the grade in the URL
+		/***************/
+		/**GRADE START**/
+		/***************/
+		$scope.listOfGrades				= jsonGrades;
+		$scope.grade							= "0";
+		if ($routeParams.grade) { //If there is a ?grade=x in the URL
 			$scope.grade = $routeParams.grade;
 		}
-
-		//If there is a ?suffix=x in the URL
-		if ($routeParams.suffix) {
-			//Suffix = the suffix in the URL (converted to number from string)
-			$scope.suffix = parseInt($routeParams.suffix)
+		$scope.minGradeModifier		= jsonGrades[$scope.grade].min;
+		$scope.maxGradeModifier		= jsonGrades[$scope.grade].max;
+	
+		/****************/
+		/**SUFFIX START**/
+		/****************/
+		$scope.listOfSuffix 			= jsonSuffixes;
+		$scope.suffix 						= "0";
+		$scope.suffixNum 					= 0;
+		
+		if ($routeParams.suffix) { //If there is a ?suffix=x in the URL
+			$scope.suffix = $routeParams.suffix;
 		}
-
-		//If there is a ?prefix=x in the URL
-		if ($routeParams.prefix) {
-			//Prefix = the prefix in the URL
-			$scope.prefix = $routeParams.prefix;
-			$scope.prefixStat = getPrefixStatByName($routeParams.prefix)
-		}
-
-		$scope.suffixPrefixChange = function() {
-			var objectURL = "";
-			if ($scope.suffix && $scope.prefix && $scope.grade) {
-				objectURL = "#!/items/armor/"+$routeParams.id+"?suffix="+$scope.suffix+"&prefix="+$scope.prefix+"&grade="+$scope.grade;
-			}
-			else if($scope.suffix && $scope.prefix) {
-				objectURL = "#!/items/armor/"+$routeParams.id+"?suffix="+$scope.suffix+"&prefix="+$scope.prefix;
-			}
-			else if($scope.suffix && $scope.grade) {
-				objectURL = "#!/items/armor/"+$routeParams.id+"?suffix="+$scope.suffix+"&grade="+$scope.grade;
-			}
-			else if($scope.prefix && $scope.grade) {
-				objectURL = "#!/items/armor/"+$routeParams.id+"?prefix="+$scope.prefix+"&grade="+$scope.grade;
-			}
-			else if($scope.suffix) {
-				objectURL = "#!/items/armor/"+$routeParams.id+"?suffix="+$scope.suffix;
-			}
-			else if($scope.prefix){
-				objectURL = "#!/items/armor/"+$routeParams.id+"?prefix="+$scope.prefix;
-			}
-			else if($scope.grade){
-				objectURL = "#!/items/armor/"+$routeParams.id+"?grade="+$scope.grade;
-			}
-			else{
-				objectURL = "#!/items/armor/"+$routeParams.id;
-			}
-			$(location).attr('href', objectURL);
-		}
-
 		function suffixChange() {
-			$scope.percentMod = 1 + getSuffixMod($scope.suffix);
-			if($scope.suffix > 0) {
+			$scope.suffixMod = 1 + getSuffixMod($scope.suffix);
+			if($scope.suffix > 0) { //+1 color if have suffix
 				$("#add-suffix").removeClass("hide");
 				$scope.suffixNum = 1;
 			}
@@ -89,43 +48,38 @@ angular.module('mainApp')
 			}
 		}
 
+		/****************/
+		/**PREFIX START**/
+		/****************/
+		$scope.listOfPrefix 			= jsonPrefixes;
+		$scope.prefix 						= "0";
+		$scope.prefixNum 					= 0;
+		
+		if ($routeParams.prefix) { //If there is a ?prefix=x in the URL
+			$scope.prefix = $routeParams.prefix;
+			$scope.prefixStat = jsonPrefixes[$scope.prefix];
+		}
 		function prefixChange() {
-			$("#prefix-hold").text($scope.prefix + " ");
-			if ($scope.prefix != 0) {
+			if ($scope.prefix != 0) { //+1 color if have prefix
 				$scope.prefixNum = 1;
 			}
 		}
 
-		if ($scope.grade == "") {
-			$scope.minGradeModifier		= 0.8;
-			$scope.maxGradeModifier		= 1.3;
-		}
-		else if ($scope.grade == "A") {
-			$scope.minGradeModifier		= 1.1;
-			$scope.maxGradeModifier		= 1.2;
-		}
-		else if ($scope.grade == "B") {
-			$scope.minGradeModifier		= 1;
-			$scope.maxGradeModifier		= 1.1;
-		}
-		else if ($scope.grade == "C") {
-			$scope.minGradeModifier		= 0.9;
-			$scope.maxGradeModifier		= 1;
-		}
-		else if ($scope.grade == "D") {
-			$scope.minGradeModifier		= 0.8;
-			$scope.maxGradeModifier		= 0.9;
-		}
-		else if ($scope.grade == "S") {
-			$scope.minGradeModifier		= 1.2;
-			$scope.maxGradeModifier		= 1.3;
+		//ON SUFFIX/PREFIX/GRADE change
+		$scope.suffixPrefixChange = function() {
+			var objectURL = "#!/items/armor/"+$routeParams.id+"?suffix="+$scope.suffix+"&prefix="+$scope.prefix+"&grade="+$scope.grade;
+			$(location).attr('href', objectURL);
 		}
 
+		/** LINKS **/
+		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
+		//RAW link
 		$("#raw-url-link").click(function() {
 			$("#generatedLink").show();
 			$("#generatedLink-reddit").addClass("hide");
 		})
 
+		//REDDIT link
 		$("#reddit-url-link").click(function() {
 			$("#generatedLink").hide();
 			$("#generatedLink-reddit").removeClass("hide");
@@ -133,6 +87,9 @@ angular.module('mainApp')
 
 		$("#generatedLink").val(window.location.href);
 		$("#generatedLink-reddit").val(redditLink);
+		
+		
+		//INITIALIZE FUNCTIONS
 		prefixChange();
 		suffixChange();
 	})
