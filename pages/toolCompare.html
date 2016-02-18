@@ -350,65 +350,65 @@
 	<!--11.row: HP -->
 	<tr ng-if="item1Stat.bonusStat.hpBns || item2Stat.bonusStat.hpBns || item1Prefix.stat.hpBns || item2Prefix.stat.hpBns">
 		<th>HP</th>
-		<td>{{(+item1Stat.bonusStat.hpBns[0]) * item1Grade.min + item1Prefix.stat.hpBns| number:0}}-{{item1Stat.bonusStat.hpBns[1] * item1Grade.max + item1Prefix.stat.hpBns| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.hpBns[0]) * item1Grade.min + item1Prefix.stat.hpBns| number:0}}-{{(+item1Stat.bonusStat.hpBns[1]) * item1Grade.max + item1Prefix.stat.hpBns| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.hpBns[0]) * item2Grade.min + item2Prefix.stat.hpBns| number:0}}-{{item2Stat.bonusStat.hpBns[1] * item2Grade.max + item2Prefix.stat.hpBns| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.hpBns[0]) * item2Grade.min + item2Prefix.stat.hpBns| number:0}}-{{(+item2Stat.bonusStat.hpBns[1]) * item2Grade.max + item2Prefix.stat.hpBns| number:0}}</td>
 	</tr>
 
 	<!--12.row: Crit -->
 	<tr ng-if="item1Stat.bonusStat.critBns || item2Stat.bonusStat.critBns">
 		<th>Crit</th>
-		<td>{{(+item1Stat.bonusStat.critBns[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.critBns[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.critBns[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.critBns[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.critBns[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.critBns[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.critBns[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.critBns[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--13.row: dex -->
 	<tr ng-if="item1Stat.bonusStat.dex || item2Stat.bonusStat.dex">
 		<th>Dex</th>
-		<td>{{(+item1Stat.bonusStat.dex[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.dex[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.dex[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.dex[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.dex[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.dex[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.dex[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.dex[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--14.row: int -->
 	<tr ng-if="item1Stat.bonusStat.int || item2Stat.bonusStat.int">
 		<th>Int</th>
-		<td>{{(+item1Stat.bonusStat.int[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.int[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.int[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.int[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.int[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.int[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.int[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.int[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--15.row: str -->
 	<tr ng-if="item1Stat.bonusStat.str || item2Stat.bonusStat.str">
 		<th>Str</th>
-		<td>{{(+item1Stat.bonusStat.str[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.str[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.str[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.str[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.str[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.str[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.str[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.str[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--16.row: luck -->
 	<tr ng-if="item1Stat.bonusStat.lckMod || item2Stat.bonusStat.lckMod">
 		<th>Luck</th>
-		<td>{{(+item1Stat.bonusStat.lckMod[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.lckMod[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.lckMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.lckMod[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.lckMod[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.lckMod[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.lckMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.lckMod[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--17.row: gold -->
 	<tr ng-if="item1Stat.bonusStat.gldMod || item2Stat.bonusStat.gldMod">
 		<th>Gold</th>
-		<td>{{(+item1Stat.bonusStat.gldMod[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.gldMod[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.gldMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.gldMod[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.gldMod[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.gldMod[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.gldMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.gldMod[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 
 	<!--18.row: exp -->
 	<tr ng-if="item1Stat.bonusStat.expMod || item2Stat.bonusStat.expMod">
 		<th>Exp</th>
-		<td>{{(+item1Stat.bonusStat.expMod[0]) * item1Grade.min| number:0}}-{{item1Stat.bonusStat.expMod[1] * item1Grade.max| number:0}}</td>
+		<td>{{(+item1Stat.bonusStat.expMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.expMod[1]) * item1Grade.max| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.expMod[0]) * item2Grade.min| number:0}}-{{item2Stat.bonusStat.expMod[1] * item2Grade.max| number:0}}</td>
+		<td>{{(+item2Stat.bonusStat.expMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.expMod[1]) * item2Grade.max| number:0}}</td>
 	</tr>
 </table>
 
