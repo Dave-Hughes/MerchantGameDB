@@ -276,7 +276,7 @@ function displayBothCompareItems(hasError) {
 
 
 				//Go to URL passing in the ID numbers as link params
-				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + "-" + item2ID + "," + item2PrefixID + "," + item2SuffixID;
+				var comparisonURL = "#!/tools/compare?c=" + item1ID + "," + item1PrefixID + "," + item1SuffixID + ",0-" + item2ID + "," + item2PrefixID + "," + item2SuffixID+",0";
 				$(location).attr('href', comparisonURL);
 
 
