@@ -4,12 +4,13 @@ angular.module('mainApp')
 	  $scope.formula = jsonFormulas;
 		$scope.suffix = jsonSuffixes;
 		$scope.prefix = jsonPrefixes;
+		$scope.grade = jsonGrades;
 		$scope.getItems = $routeParams.c;
 
-		$scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
-		$scope.listOfPrefix = {"":0, "Burning":1, "Fiery":2, "Flaming":3, "Smoldering":4, "Blazing":5, "Cold":6, "Chilled":7, "Icy":8, "Frozen":9, "Glacial":10, "Keen":11, "Accurate":12, "Sharp":13, "Fatal":14, "Deadly":15, "Tenacious":16, "Vigorous":17, "Robust":18, "Resilient":19, "Titan's":20, "Solid":21, "Hard":22, "Tough":23, "Sturdy":24, "Defender's":25, "Focused":26, "Resolute":27, "Centered":28, "Mindful":29, "Protector's":30};
+		// $scope.listOfSuffix = {'': 0,'+1': 1,'+2': 2,'+3': 3,'+4': 4,'+5': 5,'+6': 6,'+7': 7,'+8': 8,'+9': 9};
+		// $scope.listOfPrefix = {"":0, "Burning":1, "Fiery":2, "Flaming":3, "Smoldering":4, "Blazing":5, "Cold":6, "Chilled":7, "Icy":8, "Frozen":9, "Glacial":10, "Keen":11, "Accurate":12, "Sharp":13, "Fatal":14, "Deadly":15, "Tenacious":16, "Vigorous":17, "Robust":18, "Resilient":19, "Titan's":20, "Solid":21, "Hard":22, "Tough":23, "Sturdy":24, "Defender's":25, "Focused":26, "Resolute":27, "Centered":28, "Mindful":29, "Protector's":30};
 
-		//decide if use Weapon or Armor prefixes
+		//What is it?
 		if($scope.equipment[$routeParams.c.split("-")[0].split(",")[0]].itemSlot == 1)
 			{ //Weapon
 			$scope.itsWeapon = true;
@@ -29,20 +30,19 @@ angular.module('mainApp')
 
 			//first number (Equipment)
 			var item1Stat = item1.split(",")[0];
-			item1Stat = $scope.equipment[item1Stat];
-			$scope.item1Stat = item1Stat;
+			$scope.item1Stat = $scope.equipment[item1Stat];
 
 			//second number (Prefix)
 			var item1Prefix = {};
-			item1Prefix.id = parseInt(item1.split(",")[1]);
+			item1Prefix.id = item1.split(",")[1];
 			item1Prefix.name = $scope.prefix[item1Prefix.id].name;
 			item1Prefix.stat = $scope.prefix[item1Prefix.id].stats;
 			$scope.item1Prefix = item1Prefix;
 			if(item1Prefix.id != 0){$scope.item1PrefixNum = 1;}
 
-			//third nuber (Suffix)
+			//third number (Suffix)
 			var item1Suffix = {};
-			item1Suffix.id = parseInt(item1.split(",")[2]);
+			item1Suffix.id = item1.split(",")[2];
 			item1Suffix.name = $scope.suffix[item1Suffix.id].name;
 			if($scope.suffix[item1Suffix.id].hasOwnProperty("stats"))
 				{
@@ -54,6 +54,14 @@ angular.module('mainApp')
 				item1Suffix.modif = 0;
 				}
 			$scope.item1Suffix = item1Suffix;
+			
+			//Fourth number (Grade)
+			var item1Grade = {}
+			item1Grade.id = item1.split(",")[3];
+			item1Grade.name = $scope.grade[item1Grade.id].name;
+			item1Grade.min = $scope.grade[item1Grade.id].min;
+			item1Grade.max = $scope.grade[item1Grade.id].max;
+			$scope.item1Grade = item1Grade;
 
 		//Item 2
 			//get item2 from url
@@ -66,15 +74,15 @@ angular.module('mainApp')
 
 			//second number (Prefix)
 			var item2Prefix = {};
-			item2Prefix.id = parseInt(item2.split(",")[1]);
+			item2Prefix.id = item2.split(",")[1];
 			item2Prefix.name = $scope.prefix[item2Prefix.id].name;
 			item2Prefix.stat = $scope.prefix[item2Prefix.id].stats;
 			$scope.item2Prefix = item2Prefix;
 			if(item2Prefix.id != 0){$scope.item2PrefixNum = 1}
 
-			//third nuber (Suffix)
+			//third number (Suffix)
 			var item2Suffix = {};
-			item2Suffix.id = parseInt(item2.split(",")[2]);
+			item2Suffix.id = item2.split(",")[2];
 			item2Suffix.name = $scope.suffix[item2Suffix.id].name;
 			if($scope.suffix[item2Suffix.id].hasOwnProperty("stats"))
 				{
@@ -86,16 +94,26 @@ angular.module('mainApp')
 				item2Suffix.modif = 0;
 				}
 			$scope.item2Suffix = item2Suffix;
+			
+			//Fourth number (Grade)
+			var item2Grade = {}
+			item2Grade.id = item2.split(",")[3];
+			item2Grade.name = $scope.grade[item2Grade.id].name;
+			item2Grade.min = $scope.grade[item2Grade.id].min;
+			item2Grade.max = $scope.grade[item2Grade.id].max;
+			$scope.item2Grade = item2Grade;
 
-		$scope.suffixPrefixChange = function(i1p, i1s, i2p, i2s) {
+		$scope.suffixPrefixChange = function(i1p, i1s, i1g, i2p, i2s, i2g) {
 			var objectURL = "#!/tools/compare?c=";
 			objectURL += $routeParams.c.split("-")[0].split(",")[0]+",";
 			objectURL += i1p+",";
-			objectURL += i1s;
+			objectURL += i1s+",";
+			objectURL += i1g;
 			objectURL += "-";
 			objectURL += $routeParams.c.split("-")[1].split(",")[0]+",";
 			objectURL += i2p+",";
-			objectURL += i2s;
+			objectURL += i2s+",";
+			objectURL += i2g;
 			$(location).attr('href', objectURL);
 		}
 

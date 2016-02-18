@@ -1779,7 +1779,8 @@ footer .row {
 }
 
 .comparison-page-suffix-hold label,
-.comparison-page-prefix-hold label {
+.comparison-page-prefix-hold label,
+.comparison-page-grade-hold label {
   font-size: .8em;
   font-weight: 900;
   letter-spacing: 1.2px;
@@ -1789,7 +1790,8 @@ footer .row {
 }
 
 .comparison-page-suffix-hold,
-.comparison-page-prefix-hold {
+.comparison-page-prefix-hold,
+.comparison-page-grade-hold {
   overflow: hidden;
   width: 40%;
   min-width: 50px;
@@ -1798,7 +1800,8 @@ footer .row {
 }
 
 .comparison-page-suffix-hold select,
-.comparison-page-prefix-hold select {
+.comparison-page-prefix-hold select,
+.comparison-page-grade-hold select {
   transition: all 0.3s ease;
   -webkit-border-radius:4px;
   -moz-border-radius:4px;
