@@ -4,7 +4,7 @@ angular.module('mainApp')
 
 		//Game Version Numbers
 		$scope.betaVersion = "1.858";
-		$scope.liveVersion = "1.86";
+		$scope.liveVersion = "1.88";
 
 		//Side bar latest guides
 		$scope.guidesList = listOfGuides;
