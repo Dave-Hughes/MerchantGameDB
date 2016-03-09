@@ -13,6 +13,12 @@
   <p ng-include src="heroUnlock"></p>
 
   <h3>Starting / Level 50 Stats</h3>
+	Ancession:
+		<select ng-model="anc" ng-init="anc='0'">
+			<option value="0">No Ancession</option>
+			<option value="1">First Ancession</option>
+			<option value="2">Second Ancession</option>
+		</select>
   <table>
     <thead>
       <tr>
@@ -33,44 +39,44 @@
       <tr>
         <th scope='row'>Health</th>
         <td>{{hero.hp}}</td>
-        <td>{{hero.hpPlv[0]}}</td>
-        <td>{{hero.hp + hero.hpPlv[0]*50}}</td>
+        <td>{{hero.hpPlv[anc]}}</td>
+        <td>{{hero.hp + hero.hpPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Physical Attack</th>
         <td>{{hero.atk}}</td>
-        <td>{{hero.atkPlv[0]}}</td>
-        <td>{{hero.atk + hero.atkPlv[0]*50}}</td>
+        <td>{{hero.atkPlv[anc]}}</td>
+        <td>{{hero.atk + hero.atkPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Magical Attack</th>
         <td>{{hero.matk}}</td>
-        <td>{{hero.matkPlv[0]}}</td>
-        <td>{{hero.matk + hero.matkPlv[0]*50}}</td>
+        <td>{{hero.matkPlv[anc]}}</td>
+        <td>{{hero.matk + hero.matkPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Accuracy</th>
         <td>{{hero.acc}}</td>
-        <td>{{hero.accPlv[0]}}</td>
-        <td>{{hero.acc + hero.accPlv[0]*50}}</td>
+        <td>{{hero.accPlv[anc]}}</td>
+        <td>{{hero.acc + hero.accPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Crit</th>
         <td>{{hero.crit}}</td>
-        <td>{{hero.critPlv[0]}}</td>
-        <td>{{hero.crit + hero.critPlv[0]*50}}</td>
+        <td>{{hero.critPlv[anc]}}</td>
+        <td>{{hero.crit + hero.critPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Physical Defense</th>
         <td>{{hero.def}}</td>
-        <td>{{hero.defPlv[0]}}</td>
-        <td>{{hero.def + hero.defPlv[0]*50}}</td>
+        <td>{{hero.defPlv[anc]}}</td>
+        <td>{{hero.def + hero.defPlv[anc]*50}}</td>
       </tr>
       <tr>
         <th scope='row'>Magical Defense</th>
         <td>{{hero.mdef}}</td>
-        <td>{{hero.mdefPlv[0]}}</td>
-        <td>{{hero.mdef + hero.mdefPlv[0]*50}}</td>
+        <td>{{hero.mdefPlv[anc]}}</td>
+        <td>{{hero.mdef + hero.mdefPlv[anc]*50}}</td>
       </tr>
     </tbody>
   </table>
@@ -93,9 +99,9 @@
     </tfoot>
     <tbody>
       <tr>
-        <td>{{hero.strMod[0]}} Per 1 Str</td>
-        <td>{{hero.intMod[0]}} Per 1 Int</td>
-        <td>{{hero.dexMod[0]}} Per 1 Dex</td>
+        <td>{{hero.strMod[anc]}} Per 1 Str</td>
+        <td>{{hero.intMod[anc]}} Per 1 Int</td>
+        <td>{{hero.dexMod[anc]}} Per 1 Dex</td>
       </tr>
     </tbody>
   </table>
