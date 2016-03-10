@@ -5,6 +5,20 @@ angular.module('mainApp')
 		$scope.item = getEquipmentByName($routeParams.id);
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.droppedBy = getMonsterByTrinketId($scope.itemID);
+		
+		$scope.listOfGrades				= jsonGrades;
+		$scope.grade							= "0";
+		if ($routeParams.grade) { //If there is a ?grade=x in the URL
+			$scope.grade = $routeParams.grade;
+		}
+		$scope.minGradeModifier		= jsonGrades[$scope.grade].min;
+		$scope.maxGradeModifier		= jsonGrades[$scope.grade].max;
+		
+		//ON GRADE change
+		$scope.gradeChange = function() {
+			var objectURL = "#!/items/trinket/"+$routeParams.id+"?grade="+$scope.grade;
+			$(location).attr('href', objectURL);
+		}
 
 		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
 

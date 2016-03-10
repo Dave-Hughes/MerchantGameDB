@@ -7,6 +7,17 @@
     <div class='object-hold'>
       <div class='object-image item-quality-{{item.rarity}}-bg'>
         <img ng-src="assets/{{item.image}}">
+				<span class="item-grade-{{grade}}"></span>
+      </div>
+			
+      <div class="grade-adjustment-hold">
+        <label>Grade</label>
+        <select id="prefix-select"
+			            ng-options="k as v.name for (k, v) in listOfGrades"
+                  ng-model="grade"
+  			          ng-init="grade=grade"
+                  ng-change="gradeChange()">
+        </select>
       </div>
 
       <!-- Copy URL Button -->
@@ -32,7 +43,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0]}}-{{value[1]}}
+			      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
 		      </td>
 	      </tr>
       </table>
