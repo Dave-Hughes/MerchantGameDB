@@ -1,0 +1,9 @@
+<div class="suffix-adjustment-hold">
+  <label>Suffix</label>
+  <select id="suffix-select"
+          ng-model="suffix"
+          ng-init="suffix=suffix"
+          ng-change="suffixPrefixChange()"
+          ng-options="k as v.name for (k, v) in listOfSuffix">
+  </select>
+</div>

@@ -6,42 +6,19 @@
       </div>
 
       <!-- Grade Adjustment -->
-      <div class="grade-adjustment-hold">
-        <label>Grade</label>
-        <select id="prefix-select"
-			            ng-options="k as v.name for (k, v) in listOfGrades"
-                  ng-model="grade"
-  			          ng-init="grade=grade"
-                  ng-change="suffixPrefixChange()">
-        </select>
-      </div>
+      <div item-grade></div>
 
-      <div class="suffix-adjustment-hold">
-        <label>Suffix</label>
-        <select id="suffix-select"
-                ng-model="suffix"
-			          ng-init="suffix=suffix"
-                ng-change="suffixPrefixChange()"
-			          ng-options="k as v.name for (k, v) in listOfSuffix">
-        </select>
-      </div>
+      <!-- Suffix Adjustment -->
+      <div item-suffix></div>
 
       <!-- Prefix Adjustment -->
-      <div class="prefix-adjustment-hold">
-        <label>Prefix</label>
-        <select id="prefix-select"
-			            ng-options="k as v.name for (k, v) in listOfPrefix"
-                  ng-model="prefix"
-  			          ng-init="prefix=prefix"
-                  ng-change="suffixPrefixChange()">
-        </select>
-      </div>
+      <div item-prefix></div>
 
       <!-- Copy URL Button -->
-      <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+      <div item-page-copy-button></div>
 
       <!-- Compare Button -->
-      <div class="eqpage-compare-button btn btn-success"><span class="glyphicon glyphicon glyphicon-stats"></span> Compare</div>
+      <div item-page-compare-button></div>
 
       <table class='gear-table'>
         <tr>

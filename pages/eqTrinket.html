@@ -1,27 +1,15 @@
-<!--<pre>{{item}}</pre>
-<br>
-<pre>{{material}}</pre>
-<br>
-<pre>{{itemBaseStat}}</pre>
-<br>-->
+
     <div class='object-hold'>
       <div class='object-image item-quality-{{item.rarity}}-bg'>
         <img ng-src="assets/{{item.image}}">
 				<span class="item-grade-{{grade}}"></span>
       </div>
-			
-      <div class="grade-adjustment-hold">
-        <label>Grade</label>
-        <select id="prefix-select"
-			            ng-options="k as v.name for (k, v) in listOfGrades"
-                  ng-model="grade"
-  			          ng-init="grade=grade"
-                  ng-change="gradeChange()">
-        </select>
-      </div>
+
+      <!-- Grade Adjustment -->
+      <div item-grade></div>
 
       <!-- Copy URL Button -->
-      <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+      <div item-page-copy-button></div>
 
       <table class='gear-table'>
         <tr>
