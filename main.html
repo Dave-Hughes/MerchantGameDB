@@ -138,9 +138,9 @@
 				<th>Spawn Date</th>
 			</thead>
       <tbody>
-        <tr ng-repeat="boss in bosses">
-					<td><a href="#!/quests/{{quests[boss.resultParams].name}}"><img ng-src="assets/{{quests[boss.resultParams].image}}"></a></td>
-					<td><a href="#!/quests/{{quests[boss.resultParams].name}}">{{quests[boss.resultParams].name}}</a></td>
+        <tr ng-repeat="boss in bosses" ng-if="boss.detectParams[0] + 604800 | curTimestamp">
+					<td><a href="#!/quests/{{quests[boss.resultParams-1].name}}"><img ng-src="assets/{{quests[boss.resultParams-1].image}}"></a></td>
+					<td><a href="#!/quests/{{quests[boss.resultParams-1].name}}">{{quests[boss.resultParams-1].name}}</a></td>
 					<td>{{boss.detectParams[0] | timestampToDate}}</td>
         </tr>
       </tbody>

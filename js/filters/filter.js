@@ -9,7 +9,7 @@ angular.module('mainApp')
     }
 	})
 	
-	//filter change space ( ) to underscore (_)
+	//filter change timestamp to yyyy-mm-dd
 	.filter('timestampToDate',function() {
     return function(input) {
 			function n(n){
@@ -17,11 +17,26 @@ angular.module('mainApp')
 			}
 			var a = new Date(input * 1000);
 			var year = a.getFullYear();
-			var month = n(a.getMonth());
+			var month = n(a.getMonth()+1);
 			var date = n(a.getDate());
 
 			var time = year + '. ' + month + '. ' + date;
 			return time;
+    }
+	})
+	
+	//filter gives back 0 if given timestamp is in the past, 1 if in the future
+	.filter('curTimestamp',function() {
+    return function(input) {
+			var current = Math.floor(Date.now() / 1000);
+			if(current > input)
+				{
+				return 0;
+				}
+			else
+				{
+				return 1
+				}
     }
 	})
 
