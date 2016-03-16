@@ -57,6 +57,12 @@ var jsonGrades = "";
 $.getJSON( "json/stable/GradeList.json", function( data ) {
 	jsonGrades = data;
 	});
+	
+//Bosses
+var jsonBosses = "";
+$.getJSON( "json/stable/EventList.json", function( data ) {
+	jsonBosses = data;
+	});
 
 var listOfGuides = "";
 $.ajax({

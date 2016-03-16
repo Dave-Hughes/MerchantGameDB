@@ -67,7 +67,7 @@
       <tbody>
         <tr>
           <td><a href="#!/items/armor/Titan's Guard"><img src="assets/Armor/Body/titan_guard.png" alt="Titan's Guard"></a></td>
-          <td><a href="#!/items/trinkets/Shadow Earring"><img src="assets/Armor/Trinkets/Twin_Earring.png" alt="Shadow Earring"></a></td>
+          <td><a href="#!/items/trinket/Shadow Earring"><img src="assets/Armor/Trinkets/Twin_Earring.png" alt="Shadow Earring"></a></td>
           <td><a href="#!/items/armor/Inferno Chapeau"><img src="assets/Armor/Head/inferno_chapeau.png" alt="inferno_chapeau"></a></td>
         </tr>
       </tbody>
@@ -128,14 +128,27 @@
       </tbody>
     </table>
   </div>
+	
+  <div class="home-content-col well">
+    <h4><span class="glyphicon glyphicon-chevron-right"></span>Scout out the Epic Bosses!</h4>
+    <table class="home-content-table">
+			<thead>
+				<th>Icon</th>
+				<th>Name</th>
+				<th>Spawn Date</th>
+			</thead>
+      <tbody>
+        <tr ng-repeat="boss in bosses">
+					<td><a href="#!/quests/{{quests[boss.resultParams].name}}"><img ng-src="assets/{{quests[boss.resultParams].image}}"></a></td>
+					<td><a href="#!/quests/{{quests[boss.resultParams].name}}">{{quests[boss.resultParams].name}}</a></td>
+					<td>{{boss.detectParams[0] | timestampToDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
   <div class="home-content-col well">
     <h4><span class="glyphicon glyphicon-chevron-right"></span>Step up your game, with guides!</h4>
   </div>
-
-
-
-
-
 </div>

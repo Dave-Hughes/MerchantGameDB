@@ -8,6 +8,22 @@ angular.module('mainApp')
         }
     }
 	})
+	
+	//filter change space ( ) to underscore (_)
+	.filter('timestampToDate',function() {
+    return function(input) {
+			function n(n){
+					return n > 9 ? "" + n: "0" + n;
+			}
+			var a = new Date(input * 1000);
+			var year = a.getFullYear();
+			var month = n(a.getMonth());
+			var date = n(a.getDate());
+
+			var time = year + '. ' + month + '. ' + date;
+			return time;
+    }
+	})
 
 	//filter normalize stat
 	.filter('changeStat',function() {
