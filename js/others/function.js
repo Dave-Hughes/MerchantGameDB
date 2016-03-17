@@ -478,20 +478,16 @@ function getMonsterByTrinketId(id) {
 	var monsters = [];
 	$.each(jsonQuests, function(index, val) {
 		if (val.hasOwnProperty("trinketA") && (val.trinketA[0]-1 == id)) {
-			if (val.trinketA[0]-1 == id) {
 				var currentMonster = val.trinketA[0]-1;
-				monsterInfo = {name: val.name, region: val.region, icon: val.image, rarity: val.title, dropRate: val.trinketA[1]};
+				var monsterInfo = {name: val.name, region: val.region, icon: val.image, rarity: val.title, dropRate: val.trinketA[1]};
 				monsterInfo.region = regionById(val.region);
 				monsters.push(monsterInfo);
-			}
 		}
 		if (val.hasOwnProperty("trinketB") && (val.trinketB[0]-1 == id)) {
-			if (val.trinketB[0]-1 == id) {
 				var currentMonster = val.trinketB[0]-1;
-				monsterInfo = {name: val.nameB, region: val.region, icon: val.imageB, rarity: val.titleB, dropRate: val.trinketB[1]};
+				var monsterInfo = {name: val.nameB, region: val.region, icon: val.imageB, rarity: val.titleB, dropRate: val.trinketB[1]};
 				monsterInfo.region = regionById(val.region);
 				monsters.push(monsterInfo);
-			}
 		}
 	})
 	return monsters;
