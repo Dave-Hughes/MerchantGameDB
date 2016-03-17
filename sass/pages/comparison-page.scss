@@ -1,0 +1,155 @@
+/*Comparison Page*/
+
+.comparison-page-item-image {
+  image-rendering: pixelated;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 8px auto;
+}
+
+.compared-item-name {
+  clear: both;
+  margin: 10px 0 0 0;
+}
+
+.comparison-page-item-image img {
+  width: 95%;
+  padding-top: 2px;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+
+.comparison-adjustments-hold {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison-page-suffix-hold label, .comparison-page-prefix-hold label, .comparison-page-grade-hold label {
+  font-size: .8em;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.comparison-page-suffix-hold, .comparison-page-prefix-hold, .comparison-page-grade-hold {
+  overflow: hidden;
+  width: 40%;
+  min-width: 50px;
+  display: inline-block;
+  text-align: center;
+}
+
+.comparison-page-suffix-hold select, .comparison-page-prefix-hold select, .comparison-page-grade-hold select {
+  transition: all 0.3s ease;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  clear: both;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  font-size: .8em;
+  font-weight: normal;
+}
+
+.comparison-copy-item-url, .comparison-help-button {
+  border: 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  padding: 4px;
+  font-size: .8em;
+  width: 75px;
+  display: inline-block;
+  text-align: center;
+}
+
+.compareTable {
+  width: 100%;
+  border: 2px solid #ccc;
+  th, td {
+    text-align: center;
+  }
+  tr {
+    border: 1px solid #ddd;
+  }
+}
+
+.no-border {
+  border: 0;
+  td, th {
+    border: 0;
+  }
+}
+
+.compareThis {
+  font-weight: bold;
+}
+
+.compareWin {
+  color: green;
+}
+
+.compareLose {
+  color: red;
+}
+
+.compareTie {
+  color: blue;
+}
+
+.compareTable {
+  tr td:nth-child(3) {
+    color: #555;
+    padding: 5px;
+    font-size: .8em;
+    font-weight: bold;
+  }
+  thead tr:nth-child(1) th {
+    background: #ddd;
+  }
+  tbody tr {
+    &:nth-child(1) {
+      td, th {
+        color: #666;
+        border: 0;
+        border-top: 2px solid #ccc;
+      }
+    }
+    &:nth-child(3) {
+      td, th {
+        border-bottom: 2px solid #ccc;
+      }
+    }
+    &:hover {
+      background: #ddd;
+    }
+  }
+  tfoot tr td {
+    font-size: .8em;
+    text-align: left;
+    padding: 15px 10px;
+  }
+}
+
+.comparison-page-options {
+  float: right;
+  margin: 15px 0 0 0;
+  ul {
+    list-style: none;
+    margin: 0 0 5px 0;
+    padding: 0;
+    li {
+      display: inline;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
