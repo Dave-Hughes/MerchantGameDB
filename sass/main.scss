@@ -7,12 +7,14 @@
 @import 'components/reddit-widget';
 @import 'components/fonts';
 @import 'components/disqus';
+@import 'coomponents/guides';
 @import 'pages/hero';
 @import 'pages/materials';
 @import 'pages/potions';
 @import 'pages/main-home';
 @import 'pages/comparison-page';
 @import 'pages/item-filter-pages';
+@import 'pages/guides';
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -906,177 +908,6 @@ h2 {
   font-size: .9em;
   padding: 8px;
 }
-
-
-
-.guides-list {
-  margin: 20px 0 50px 0;
-}
-
-.guides-list table {
-  width: 100%;
-}
-
-.guides-list th {
-  padding: 0;
-}
-
-.guides-list tbody tr td {
-  padding: 3px 0;
-}
-
-.sidebar-guides {
-
-}
-
-.sidebar-guides ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sidebar-guides ul li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.guides-list-sidebar {
-  list-style: none;
-}
-
-
-
-
-
-
-
-
-.sidebar-guides {
-
-}
-
-.sidebar-guides ul {
-  padding: 10px 0 0 0;
-}
-
-.sidebar-guides ul li {
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-}
-
-.sidebar-guides ul li a {
-  display: block;
-}
-
-.sidebar-guides ul li span {
-  font-size: .8em;
-}
-
-.sidebar-guides ul li:nth-child(odd) {
-
-}
-
-.sidebar-guides ul li:nth-child(even) {
-
-}
-
-.view-more-guides {
-  margin: 25px 0 0 0;
-}
-
-.view-more-guides a {
-  font-size: .8em;
-  display: block;
-  background: #333;
-  color: #eee;
-  padding: 7px;
-}
-
-.guide {
-  padding: 0 0 30px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.guide h1{
-  margin: 0 0 5px 0;
-}
-
-.guide-author,
-.guide-date {
-  float: left;
-  margin: 0 15px 0 0;
-}
-
-.guide-author .glyphicon,
-.guide-date .glyphicon {
-  font-size: .8em;
-}
-
-.guide-author p,
-.guide-date p {
-  display: inline;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: .8em;
-}
-
-.guide-content {
-  margin: 10px 0 0 0;
-  padding: 20px 5px 0 5px;
-  border-top: 1px solid #ddd;
-}
-
-.guide-content h2 {
-  text-transform: uppercase;
-  font-size: 1.3em;
-  font-weight: bold;
-  margin: 20px 0 7px 0;
-}
-
-.guide-content img {
-  max-width: 100%;
-}
-
-.guide-content ul,
-.guide-content ol {
-  margin: 15px 0 25px 0;
-}
-
-.guide-content ul li,
-.guide-content ol li {
-  margin: 3px 0;
-}
-
-.guide-content .alignright {
-  float: right;
-  padding: 15px 0 15px 15px;
-}
-
-.guide-content .alignleft {
-  float: left;
-  padding: 15px 15px 15px 0;
-}
-
-.guide-content p {
-  margin: 0 0 28px 0;
-  line-height: 25px;
-}
-
-.guide-options {
-  float: right;
-  margin: 0 0 0 15px;
-}
-
-.guide-options .copy-item-url {
-  margin-top: -1px;
-}
-
-.wp-smiley {
-  max-width: 13px !important;
-}
-
-
 
 
 
