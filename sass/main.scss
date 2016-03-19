@@ -7,7 +7,8 @@
 @import 'components/reddit-widget';
 @import 'components/fonts';
 @import 'components/disqus';
-@import 'coomponents/guides';
+@import 'components/guides';
+@import 'components/url-popups';
 @import 'pages/hero';
 @import 'pages/materials';
 @import 'pages/potions';
@@ -15,6 +16,7 @@
 @import 'pages/comparison-page';
 @import 'pages/item-filter-pages';
 @import 'pages/guides';
+@import 'pages/quest';
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -255,105 +257,7 @@ h2 {
   clear: both;
 }
 
-#black-overlay {
-	background: rgba(0,0,0,0.85);
-	width: 100%;
-	height: 100%;
-  min-height: 2000px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	text-align: center;
-}
 
-#urls-popup {
-  width: 70%;
-  max-width: 500px;
-  height: 200px;
-  display: block;
-  position: absolute;
-	top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-	text-align: center;
-  -webkit-box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.75);
-  background: #333;
-}
-
-.url-box-close-button {
-  background: #FED000;
-  border-radius: 0px 0px 0px 200px;
-  -moz-border-radius: 0px 0px 0px 200px;
-  -webkit-border-radius: 0px 0px 0px 200px;
-  border: 0px solid #000000;
-  display: block;
-  width: 30px;
-  height: 30px;
-  float: right;
-  color: #222;
-  padding-top: 3px;
-  padding-left: -3px;
-}
-
-#urls-popup ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#urls-popup h3 {
-  display: block;
-  padding: 0;
-  margin: 25px auto 15px auto;
-  color: #eee;
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-#urls-popup h3 span {
-  font-size: .8em;
-  margin: 0 5px 0 0;
-}
-
-#urls-popup ul li {
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin: 0 10px 0 10px;
-  width: 145px;
-  height: 115px;
-  padding: 25px 0 20px 0;
-  overflow: hidden;
-  background: #ddd;
-}
-
-#urls-popup ul li:hover {
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #fff;
-}
-
-.url-box-close-button:hover {
-  cursor: pointer;
-}
-
-#urls-popup ul li span {
-  font-size: 3em;
-  color: #333;
-}
-
-#urls-popup ul li img {
-  max-width: 50px;
-  margin-bottom: 2px;
-}
-
-#urls-popup p {
-  margin: 5px 0 0 0;
-  padding: 0;
-}
 
 /*Comparison Prompt*/
 #comparison-prompt {
@@ -737,104 +641,7 @@ h2 {
 }
 
 
-.quest-image-holder {
-  float: left;
-  width: 35%;
-  max-width: 150px;
-  text-align: center;
-  display: block;
-  position: relative;
-  margin: 0 20px 0 0;
-	image-rendering: pixelated;
-}
 
-.quest-image-holder img {
-}
-
-.quest-image-background {
-  z-index: 1;
-  width: 100%;
-  margin: 30px 0 0 0;
-}
-
-.quest-image-monster {
-  width: 70%;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0 20px 0 0;
-}
-
-.quest-table {
-  width: 50%;
-  max-width: 305px;
-  border: 2px solid #bbb;
-  font-size: .9em;
-  float: left;
-}
-
-.quest-table thead {
-}
-
-.quest-table tbody {
-}
-
-.quest-table td {
-  padding: 2px 5px 0px 5px;
-}
-
-.quest-header-row {
-  background: #222;
-}
-
-.quest-table h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  color: #333;
-  margin: 0;
-  padding: 3px 0 3px 0;
-  font-weight: bold;
-}
-
-.quest-cost {
-  vertical-align: bottom;
-  text-align: right;
-}
-
-.quest-zone {
-  text-align: right;
-}
-
-.coin-img {
-  padding: 0 1px 3px 2px;
-}
-
-.quest-tier {
-  text-align: right;
-}
-
-.quest-level {
-}
-
-.quest-type {
-}
-
-.quest-spacer {
-  height: 20px;
-}
-
-.quest-stat {
-  max-width: 20px;
-  background: red;
-}
-
-.quest-stat-label {
-  background: #ccc;
-  color: #222;
-  height: 25px;
-  font-weight: bold;
-}
 
 .bonus-stats {
   font-size: .9em;
@@ -855,59 +662,7 @@ h2 {
 
 
 
-/* MONSTER LOOT TABLE */
-.quest-loot-drops-table {
-  width: 100%;
-  max-width: 475px;
-  border: 2px solid #bbb;
-  font-size: .9em;
-  clear: both;
-  margin: 30px 0 0 0;
-}
 
-.quest-loot-drops-table caption {
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  font-size: 18px;
-  color: #333;
-  font-weight: bold;
-  margin: 0;
-  padding: 0 0 5px 0;
-}
-
-.quest-loot-drops-table td, th {
-  padding: 5px 7px;
-}
-
-.quest-loot-drops-table thead {
-  background: #aaa;
-}
-
-.quest-loot-drops-table thead th {
-  height: 40px;
-}
-
-.quest-loot-drops-table tbody tr {
-  border-bottom: 1px solid #bbb;
-}
-
-.quest-loot-drops-table tbody tr:nth-child(even) {
-  background: #ccc;
-}
-
-.quest-loot-drops-table tbody tr td {
-  text-align: center;
-}
-
-.quest-loot-drops-table tbody tr td:nth-child(2) {
-  text-align: left;
-}
-
-.quest-loot-drops-table tfoot td {
-  font-style: italic;
-  font-size: .9em;
-  padding: 8px;
-}
 
 
 
