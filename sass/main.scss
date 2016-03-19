@@ -9,6 +9,7 @@
 @import 'components/disqus';
 @import 'components/guides';
 @import 'components/url-popups';
+@import 'components/gear-options';
 @import 'pages/hero';
 @import 'pages/materials';
 @import 'pages/potions';
@@ -17,6 +18,7 @@
 @import 'pages/item-filter-pages';
 @import 'pages/guides';
 @import 'pages/quest';
+@import 'layout/media-queries';
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -122,58 +124,15 @@ h2 {
   font-weight: bold;
 }
 
-.gear-options {
-  padding: 10px;
-  margin: 20px 0 0 0;
-  width: 92%;
-  max-width: 400px;
-}
-
-.gear-options h4 {
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.suffix-adjustment-hold label,
-.prefix-adjustment-hold label,
-.grade-adjustment-hold label {
-  font-size: .8em;
-  font-weight: 900;
-  letter-spacing: 1.2px;
-  line-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.suffix-adjustment-hold,
-.prefix-adjustment-hold,
-.grade-adjustment-hold {
-  padding: 0px 8px 4px 8px;
-  background: #ccc;
-  overflow: hidden;
-  width: 75px;
-  display: inline-block;
+.bonus-stats {
+  font-size: .9em;
   text-align: center;
-  float: left;
-  clear: left;
-  margin: 10px 0 0 0;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+  color: #666;
 }
 
-.suffix-adjustment-hold select,
-.prefix-adjustment-hold select,
-.grade-adjustment-hold select {
-  transition: all 0.3s ease;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  clear: both;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-  margin: 0;
-}
+
 
 .copy-item-url, .eqpage-compare-button {
   border: 0;
@@ -643,13 +602,6 @@ h2 {
 
 
 
-.bonus-stats {
-  font-size: .9em;
-  text-align: center;
-  border-top: 1px dotted #999;
-  border-bottom: 1px dotted #999;
-  color: #666;
-}
 
 
 
@@ -666,206 +618,8 @@ h2 {
 
 
 
-/* Extra small devices (phones, less than 450px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
 
 
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
-
-  #live-beta-button-hold {
-    display: none;
-  }
-
-  #side-bar {
-    display: none;
-  }
-
-  #top-bar {
-    margin: 30px auto 20px auto;
-  }
-
-  #search-hold {
-    display: none;
-  }
-
-  #navigation {
-    display: none;
-  }
-
-  #mobile-menu-toggle {
-    display: block;
-  }
-
-  #mobile-search {
-    display: block;
-  }
-
-  .footer-col {
-    margin-bottom: 20px;
-  }
-}
-
-
-@media only screen and (max-width : 625px) {
-  #urls-popup {
-    width: 90%;
-  }
-
-  #urls-popup ul li {
-    margin: 0 5px 0 5px;
-    width: 130px;
-  }
-
-  #comparison-prompt {
-    width: 90%;
-    max-width: 1000px;
-  }
-
-  #comparison-prompt-content {
-    margin: 20px 25px;
-  }
-
-  #comparison-prompt-content table {
-    font-size: .9em;
-  }
-
-  .guide h1{
-    font-size: 2.5em;
-  }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-  #content-hold {
-    padding: 0;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 0 auto;
-    box-sizing: border-box;
-    display: block;
-    min-height: 50px;
-  }
-
-  #main-content {
-    background: #F3F3F3;
-    padding: 20px 8px;
-  }
-
-  #main-content img {
-    image-rendering: pixelated;
-  }
-
-  #side-bar {
-    display: none;
-  }
-
-  #top-bar {
-    margin: 15px auto 15px auto;
-  }
-
-  #logo-hold {
-    height: 60px;
-  }
-
-  #logo-hold img {
-    max-width: 60px;
-  }
-
-  #logo-hold span {
-    font-size: 2em;
-    margin-left: 7px;
-  }
-
-  #mobile-menu-toggle {
-    margin: 20px 0 0 0
-  }
-
-  #mobile-menu-toggle a {
-    font-size: 2.5em;
-  }
-
-  #mobile-search {
-    margin-top: 12px;
-  }
-
-  .quest-image-holder {
-    margin-right: 0;
-  }
-
-  .quest-table {
-    width: 60%;
-  }
-
-  .hero-page h2 {
-    font-size: 2em;
-  }
-
-  .hero-page-avatar {
-    float: left;
-    width: 130px;
-    margin: 0 0 35px 0;
-  }
-
-  .home-content-col {
-    width: 100%;
-    margin: 20px auto;
-  }
-
-  .guide-content .alignright,
-  .guide-content .alignleft {
-    float: none;
-    padding: 0;
-    margin: 0 auto 0 auto;
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  footer .col-xs-6 {
-    clear: both;
-    width: 100%;
-  }
-
-  .quest-table {
-    float: right;
-  }
-
-  #logo-hold {
-    height: 50px;
-  }
-
-  #logo-hold img {
-    max-width: 50px;
-  }
-
-  #logo-hold span {
-    font-size: 1.8em;
-    margin-left: 7px;
-  }
-
-  #mobile-menu-toggle {
-    margin: 15px 0 0 0
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
-  body {
-    background: purple;
-  }
-
-}
 
 
 #ac-search_dropdown {

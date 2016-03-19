@@ -410,6 +410,152 @@ footer {
 #disqus_thread {
   margin: 100px 0 0 0; }
 
+.sidebar-guides ul {
+  padding: 10px 0 0 0; }
+  .sidebar-guides ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px; }
+    .sidebar-guides ul li a {
+      display: block; }
+    .sidebar-guides ul li span {
+      font-size: .8em; }
+
+.view-more-guides {
+  margin: 25px 0 0 0; }
+  .view-more-guides a {
+    font-size: .8em;
+    display: block;
+    background: #333;
+    color: #eee;
+    padding: 7px; }
+
+#black-overlay {
+  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: 100%;
+  min-height: 2000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center; }
+
+#urls-popup {
+  width: 70%;
+  max-width: 500px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  text-align: center;
+  -webkit-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  background: #333; }
+
+.url-box-close-button {
+  background: #FED000;
+  border-radius: 0px 0px 0px 200px;
+  -moz-border-radius: 0px 0px 0px 200px;
+  -webkit-border-radius: 0px 0px 0px 200px;
+  border: 0px solid #000000;
+  display: block;
+  width: 30px;
+  height: 30px;
+  float: right;
+  color: #222;
+  padding-top: 3px;
+  padding-left: -3px; }
+
+#urls-popup ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+#urls-popup h3 {
+  display: block;
+  padding: 0;
+  margin: 25px auto 15px auto;
+  color: #eee;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold; }
+  #urls-popup h3 span {
+    font-size: .8em;
+    margin: 0 5px 0 0; }
+
+#urls-popup ul li {
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  width: 145px;
+  height: 115px;
+  padding: 25px 0 20px 0;
+  overflow: hidden;
+  background: #ddd; }
+  #urls-popup ul li:hover {
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #fff; }
+
+.url-box-close-button:hover {
+  cursor: pointer; }
+
+#urls-popup ul li span {
+  font-size: 3em;
+  color: #333; }
+
+#urls-popup ul li img {
+  max-width: 50px;
+  margin-bottom: 2px; }
+
+#urls-popup p {
+  margin: 5px 0 0 0;
+  padding: 0; }
+
+.gear-options {
+  padding: 10px;
+  margin: 20px 0 0 0;
+  width: 92%;
+  max-width: 400px; }
+  .gear-options h4 {
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold; }
+
+.suffix-adjustment-hold label, .prefix-adjustment-hold label, .grade-adjustment-hold label {
+  font-size: .8em;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  line-height: 0;
+  margin: 0;
+  padding: 0; }
+
+.suffix-adjustment-hold, .prefix-adjustment-hold, .grade-adjustment-hold {
+  padding: 0px 8px 4px 8px;
+  background: #ccc;
+  overflow: hidden;
+  width: 75px;
+  display: inline-block;
+  text-align: center;
+  float: left;
+  clear: left;
+  margin: 10px 0 0 0; }
+
+.suffix-adjustment-hold select, .prefix-adjustment-hold select, .grade-adjustment-hold select {
+  transition: all 0.3s ease;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  clear: both;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: 0; }
+
 /*HERO PAGES*/
 .hero-page {
   padding: 15px;
@@ -803,6 +949,169 @@ th {
   font-size: .9em;
   padding: 8px; }
 
+.guide {
+  padding: 0 0 30px 0;
+  border-bottom: 1px solid #ddd; }
+  .guide h1 {
+    margin: 0 0 5px 0; }
+
+.guide-author, .guide-date {
+  float: left;
+  margin: 0 15px 0 0; }
+
+.guide-author .glyphicon, .guide-date .glyphicon {
+  font-size: .8em; }
+
+.guide-author p, .guide-date p {
+  display: inline;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .8em; }
+
+.guide-content {
+  margin: 10px 0 0 0;
+  padding: 20px 5px 0 5px;
+  border-top: 1px solid #ddd; }
+  .guide-content h2 {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 7px 0; }
+  .guide-content img {
+    max-width: 100%; }
+  .guide-content ul, .guide-content ol {
+    margin: 15px 0 25px 0; }
+  .guide-content ul li, .guide-content ol li {
+    margin: 3px 0; }
+  .guide-content .alignright {
+    float: right;
+    padding: 15px 0 15px 15px; }
+  .guide-content .alignleft {
+    float: left;
+    padding: 15px 15px 15px 0; }
+  .guide-content p {
+    margin: 0 0 28px 0;
+    line-height: 25px; }
+
+.guide-options {
+  float: right;
+  margin: 0 0 0 15px; }
+  .guide-options .copy-item-url {
+    margin-top: -1px; }
+
+.wp-smiley {
+  max-width: 13px !important; }
+
+.quest-image-holder {
+  float: left;
+  width: 35%;
+  max-width: 150px;
+  text-align: center;
+  display: block;
+  position: relative;
+  margin: 0 20px 0 0;
+  image-rendering: pixelated; }
+
+.quest-image-background {
+  z-index: 1;
+  width: 100%;
+  margin: 30px 0 0 0; }
+
+.quest-image-monster {
+  width: 70%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 20px 0 0; }
+
+.quest-table {
+  width: 50%;
+  max-width: 305px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  float: left; }
+  .quest-table td {
+    padding: 2px 5px 0px 5px; }
+
+.quest-header-row {
+  background: #222; }
+
+.quest-table h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  padding: 3px 0 3px 0;
+  font-weight: bold; }
+
+.quest-cost {
+  vertical-align: bottom;
+  text-align: right; }
+
+.quest-zone {
+  text-align: right; }
+
+.coin-img {
+  padding: 0 1px 3px 2px; }
+
+.quest-tier {
+  text-align: right; }
+
+.quest-spacer {
+  height: 20px; }
+
+.quest-stat {
+  max-width: 20px;
+  background: red; }
+
+.quest-stat-label {
+  background: #ccc;
+  color: #222;
+  height: 25px;
+  font-weight: bold; }
+
+/* MONSTER LOOT TABLE */
+.quest-loot-drops-table {
+  width: 100%;
+  max-width: 475px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  clear: both;
+  margin: 30px 0 0 0; }
+  .quest-loot-drops-table caption {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 5px 0; }
+  .quest-loot-drops-table td {
+    padding: 5px 7px; }
+
+th {
+  padding: 5px 7px; }
+
+.quest-loot-drops-table thead {
+  background: #aaa; }
+  .quest-loot-drops-table thead th {
+    height: 40px; }
+
+.quest-loot-drops-table tbody tr {
+  border-bottom: 1px solid #bbb; }
+  .quest-loot-drops-table tbody tr:nth-child(even) {
+    background: #ccc; }
+  .quest-loot-drops-table tbody tr td {
+    text-align: center; }
+    .quest-loot-drops-table tbody tr td:nth-child(2) {
+      text-align: left; }
+
+.quest-loot-drops-table tfoot td {
+  font-style: italic;
+  font-size: .9em;
+  padding: 8px; }
+
 body {
   font-family: 'Open Sans', sans-serif;
   background: #333333;
@@ -885,54 +1194,6 @@ h2 {
   color: #497A2A;
   font-weight: bold; }
 
-.gear-options {
-  padding: 10px;
-  margin: 20px 0 0 0;
-  width: 92%;
-  max-width: 400px; }
-
-.gear-options h4 {
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: bold; }
-
-.suffix-adjustment-hold label,
-.prefix-adjustment-hold label,
-.grade-adjustment-hold label {
-  font-size: .8em;
-  font-weight: 900;
-  letter-spacing: 1.2px;
-  line-height: 0;
-  margin: 0;
-  padding: 0; }
-
-.suffix-adjustment-hold,
-.prefix-adjustment-hold,
-.grade-adjustment-hold {
-  padding: 0px 8px 4px 8px;
-  background: #ccc;
-  overflow: hidden;
-  width: 75px;
-  display: inline-block;
-  text-align: center;
-  float: left;
-  clear: left;
-  margin: 10px 0 0 0; }
-
-.suffix-adjustment-hold select,
-.prefix-adjustment-hold select,
-.grade-adjustment-hold select {
-  transition: all 0.3s ease;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  clear: both;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-  margin: 0; }
-
 .copy-item-url, .eqpage-compare-button {
   border: 0;
   transition: all 0.3s ease;
@@ -1004,94 +1265,6 @@ h2 {
   font-size: .8em;
   display: block;
   clear: both; }
-
-#black-overlay {
-  background: rgba(0, 0, 0, 0.85);
-  width: 100%;
-  height: 100%;
-  min-height: 2000px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center; }
-
-#urls-popup {
-  width: 70%;
-  max-width: 500px;
-  height: 200px;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  text-align: center;
-  -webkit-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
-  background: #333; }
-
-.url-box-close-button {
-  background: #FED000;
-  border-radius: 0px 0px 0px 200px;
-  -moz-border-radius: 0px 0px 0px 200px;
-  -webkit-border-radius: 0px 0px 0px 200px;
-  border: 0px solid #000000;
-  display: block;
-  width: 30px;
-  height: 30px;
-  float: right;
-  color: #222;
-  padding-top: 3px;
-  padding-left: -3px; }
-
-#urls-popup ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-#urls-popup h3 {
-  display: block;
-  padding: 0;
-  margin: 25px auto 15px auto;
-  color: #eee;
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: bold; }
-
-#urls-popup h3 span {
-  font-size: .8em;
-  margin: 0 5px 0 0; }
-
-#urls-popup ul li {
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin: 0 10px 0 10px;
-  width: 145px;
-  height: 115px;
-  padding: 25px 0 20px 0;
-  overflow: hidden;
-  background: #ddd; }
-
-#urls-popup ul li:hover {
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #fff; }
-
-.url-box-close-button:hover {
-  cursor: pointer; }
-
-#urls-popup ul li span {
-  font-size: 3em;
-  color: #333; }
-
-#urls-popup ul li img {
-  max-width: 50px;
-  margin-bottom: 2px; }
-
-#urls-popup p {
-  margin: 5px 0 0 0;
-  padding: 0; }
 
 /*Comparison Prompt*/
 #comparison-prompt {
@@ -1393,241 +1566,12 @@ h2 {
   border: 1px solid #222;
   float: left; }
 
-.quest-image-holder {
-  float: left;
-  width: 35%;
-  max-width: 150px;
-  text-align: center;
-  display: block;
-  position: relative;
-  margin: 0 20px 0 0;
-  image-rendering: pixelated; }
-
-.quest-image-background {
-  z-index: 1;
-  width: 100%;
-  margin: 30px 0 0 0; }
-
-.quest-image-monster {
-  width: 70%;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0 20px 0 0; }
-
-.quest-table {
-  width: 50%;
-  max-width: 305px;
-  border: 2px solid #bbb;
-  font-size: .9em;
-  float: left; }
-
-.quest-table td {
-  padding: 2px 5px 0px 5px; }
-
-.quest-header-row {
-  background: #222; }
-
-.quest-table h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  color: #333;
-  margin: 0;
-  padding: 3px 0 3px 0;
-  font-weight: bold; }
-
-.quest-cost {
-  vertical-align: bottom;
-  text-align: right; }
-
-.quest-zone {
-  text-align: right; }
-
-.coin-img {
-  padding: 0 1px 3px 2px; }
-
-.quest-tier {
-  text-align: right; }
-
-.quest-spacer {
-  height: 20px; }
-
-.quest-stat {
-  max-width: 20px;
-  background: red; }
-
-.quest-stat-label {
-  background: #ccc;
-  color: #222;
-  height: 25px;
-  font-weight: bold; }
-
 .bonus-stats {
   font-size: .9em;
   text-align: center;
   border-top: 1px dotted #999;
   border-bottom: 1px dotted #999;
   color: #666; }
-
-/* MONSTER LOOT TABLE */
-.quest-loot-drops-table {
-  width: 100%;
-  max-width: 475px;
-  border: 2px solid #bbb;
-  font-size: .9em;
-  clear: both;
-  margin: 30px 0 0 0; }
-
-.quest-loot-drops-table caption {
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  font-size: 18px;
-  color: #333;
-  font-weight: bold;
-  margin: 0;
-  padding: 0 0 5px 0; }
-
-.quest-loot-drops-table td, th {
-  padding: 5px 7px; }
-
-.quest-loot-drops-table thead {
-  background: #aaa; }
-
-.quest-loot-drops-table thead th {
-  height: 40px; }
-
-.quest-loot-drops-table tbody tr {
-  border-bottom: 1px solid #bbb; }
-
-.quest-loot-drops-table tbody tr:nth-child(even) {
-  background: #ccc; }
-
-.quest-loot-drops-table tbody tr td {
-  text-align: center; }
-
-.quest-loot-drops-table tbody tr td:nth-child(2) {
-  text-align: left; }
-
-.quest-loot-drops-table tfoot td {
-  font-style: italic;
-  font-size: .9em;
-  padding: 8px; }
-
-.guides-list {
-  margin: 20px 0 50px 0; }
-
-.guides-list table {
-  width: 100%; }
-
-.guides-list th {
-  padding: 0; }
-
-.guides-list tbody tr td {
-  padding: 3px 0; }
-
-.sidebar-guides ul {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.sidebar-guides ul li {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-.guides-list-sidebar {
-  list-style: none; }
-
-.sidebar-guides ul {
-  padding: 10px 0 0 0; }
-
-.sidebar-guides ul li {
-  border-bottom: 1px solid #ddd;
-  padding: 10px; }
-
-.sidebar-guides ul li a {
-  display: block; }
-
-.sidebar-guides ul li span {
-  font-size: .8em; }
-
-.view-more-guides {
-  margin: 25px 0 0 0; }
-
-.view-more-guides a {
-  font-size: .8em;
-  display: block;
-  background: #333;
-  color: #eee;
-  padding: 7px; }
-
-.guide {
-  padding: 0 0 30px 0;
-  border-bottom: 1px solid #ddd; }
-
-.guide h1 {
-  margin: 0 0 5px 0; }
-
-.guide-author,
-.guide-date {
-  float: left;
-  margin: 0 15px 0 0; }
-
-.guide-author .glyphicon,
-.guide-date .glyphicon {
-  font-size: .8em; }
-
-.guide-author p,
-.guide-date p {
-  display: inline;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: .8em; }
-
-.guide-content {
-  margin: 10px 0 0 0;
-  padding: 20px 5px 0 5px;
-  border-top: 1px solid #ddd; }
-
-.guide-content h2 {
-  text-transform: uppercase;
-  font-size: 1.3em;
-  font-weight: bold;
-  margin: 20px 0 7px 0; }
-
-.guide-content img {
-  max-width: 100%; }
-
-.guide-content ul,
-.guide-content ol {
-  margin: 15px 0 25px 0; }
-
-.guide-content ul li,
-.guide-content ol li {
-  margin: 3px 0; }
-
-.guide-content .alignright {
-  float: right;
-  padding: 15px 0 15px 15px; }
-
-.guide-content .alignleft {
-  float: left;
-  padding: 15px 15px 15px 0; }
-
-.guide-content p {
-  margin: 0 0 28px 0;
-  line-height: 25px; }
-
-.guide-options {
-  float: right;
-  margin: 0 0 0 15px; }
-
-.guide-options .copy-item-url {
-  margin-top: -1px; }
-
-.wp-smiley {
-  max-width: 13px !important; }
 
 /* Extra small devices (phones, less than 450px) */
 /* No media query since this is the default in Bootstrap */
