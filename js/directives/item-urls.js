@@ -2,6 +2,6 @@
 angular.module('mainApp')
   .directive('itemUrls', function() {
     return {
-      templateUrl: '../templates/item-urls-template.html'
+      templateUrl: 'templates/item-urls-template.html'
     }
   })

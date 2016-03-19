@@ -2,6 +2,6 @@
 angular.module('mainApp')
   .directive('itemSuffix', function() {
     return {
-      templateUrl: '../templates/item-suffix-template.html'
+      templateUrl: 'templates/item-suffix-template.html'
     }
   })

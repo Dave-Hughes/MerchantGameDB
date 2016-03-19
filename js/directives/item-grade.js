@@ -2,6 +2,6 @@
 angular.module('mainApp')
   .directive('itemGrade', function() {
     return {
-      templateUrl: '../templates/item-grade-template.html'
+      templateUrl: 'templates/item-grade-template.html'
     }
   })

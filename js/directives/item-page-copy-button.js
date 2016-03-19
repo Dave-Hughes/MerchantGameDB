@@ -2,6 +2,6 @@
 angular.module('mainApp')
   .directive('itemPageCopyButton', function() {
     return {
-      templateUrl: '../templates/item-page-copy-button-template.html'
+      templateUrl: 'templates/item-page-copy-button-template.html'
     }
   })

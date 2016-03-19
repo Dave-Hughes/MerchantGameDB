@@ -2,6 +2,6 @@
 angular.module('mainApp')
   .directive('itemPageCompareButton', function() {
     return {
-      templateUrl: '../templates/item-page-compare-button-template.html'
+      templateUrl: 'templates/item-page-compare-button-template.html'
     }
   })
