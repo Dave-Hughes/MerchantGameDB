@@ -8,6 +8,12 @@
   <tr>
     <td colspan=4 class='quest-name'><h3>{{quest.name}}</h3></td>
   </tr>
+  <tr ng-show="quest.other" ng-if="quest.type == 'a'">
+    <td colspan=4>10% chance to become <a href="#!/quests/{{quest.other}}">{{quest.other}}</a></td>
+  </tr>
+  <tr ng-show="quest.other" ng-if="quest.type == 'b'">
+    <td colspan=4>From <a href="#!/quests/{{quest.other}}">{{quest.other}}</a></td>
+  </tr>
   <tr>
     <td colspan=2 class='quest-type'>{{quest.title}}</td>
     <td colspan=2 class='quest-cost'>

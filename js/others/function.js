@@ -623,6 +623,13 @@ function getQuestByName(name) {
 				{
 				val.title = "Normal";
 				}
+				
+			var other = "";
+			if(val.hasOwnProperty("nameB"))
+				{
+				other = val.nameB;
+				}
+			
 			// console.log(val.title.length);
 			quest = {
 					"name": val.name,
@@ -646,7 +653,9 @@ function getQuestByName(name) {
 					"reward4":val.rewardA4,
 					"region":val.region,
 					"region2":val.region2,
-					"questSize":questSize
+					"questSize":questSize,
+					"other":other,
+					"type":"a"
 					};
 			return false;
 			}
@@ -684,7 +693,9 @@ function getQuestByName(name) {
 					"reward4":val.rewardB4,
 					"region":val.region,
 					"region2":val.region2,
-					"questSize":questSize
+					"questSize":questSize,
+					"other":val.name,
+					"type":"b"
 					};
 			return false;
 			}
