@@ -509,24 +509,32 @@ function getMonsterByMaterialId(id) {
 	var listDropsName = [];
 
 	$.each(jsonParcel, function(i, val) {
+		var totalOdds = 0;
+		var min = "";
+		var max = "";
+		var odds = "";
 		$.each(val.itemList, function(j, val2) {
+			totalOdds += val2.odds;
 			if(val2.id-1 == id)
 				{
-				var min = "";
-				var max = "";
 				if(val2.amount[5]){min = val2.amount[0]; max = val2.amount[4]}
 				else if(val2.amount[3]){min = val2.amount[0]; max = val2.amount[2]}
 				else{min = val2.amount[0]; max = val2.amount[0]}
-				
-				var temp = {"name": i, "min":min, "max":max, "odds":val2.odds}
-				listDrops.push(temp);
+				odds = val2.odds
 				listDropsName.push(i);
 				}
 		});
+		
+		if(odds)
+			{
+			odds = (100-val.nilOdds)/totalOdds*odds;
+			var temp = {"name": i, "min":min, "max":max, "odds":odds}
+			listDrops.push(temp);
+			}
 	});
 	
-	// console.log(listDrops);
-	// console.log(listDropsName);
+	console.log(listDrops);
+	console.log(listDropsName);
 	
 	$.each(jsonQuests, function(index, val) {
 		if(val.title != "Placeholder")
@@ -706,7 +714,8 @@ function getQuestByName(name) {
 function getReward(name)
 	{
 	var rewards = [];
-	rewards.odds = jsonParcel[name].nilOdds;
+	rewards.nilOdds = jsonParcel[name].nilOdds;
+	rewards.totalOdds = 0;
 	rewards.items = [];
 	$.each(jsonParcel[name].itemList, function(index, val)
 		{
@@ -748,6 +757,7 @@ function getReward(name)
 			}
 			
 		itemCh = val.odds;
+		rewards.totalOdds += val.odds;
 		
 		item = {
 			"name":itemName,
