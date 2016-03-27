@@ -121,14 +121,8 @@ th {
   }
   tbody tr {
     border-bottom: 1px solid #bbb;
-    &:nth-child(even) {
-      background: #ccc;
-    }
     td {
       text-align: center;
-      &:nth-child(2) {
-        text-align: left;
-      }
     }
   }
   tfoot td {

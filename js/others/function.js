@@ -505,43 +505,79 @@ function regionById(id) {
 
 function getMonsterByMaterialId(id) {
 	var monsters = [];
+	var listDrops = [];
+	var listDropsName = [];
+
+	$.each(jsonParcel, function(i, val) {
+		$.each(val.itemList, function(j, val2) {
+			if(val2.id-1 == id)
+				{
+				var min = "";
+				var max = "";
+				if(val2.amount[5]){min = val2.amount[0]; max = val2.amount[4]}
+				else if(val2.amount[3]){min = val2.amount[0]; max = val2.amount[2]}
+				else{min = val2.amount[0]; max = val2.amount[0]}
+				
+				var temp = {"name": i, "min":min, "max":max, "odds":val2.odds}
+				listDrops.push(temp);
+				listDropsName.push(i);
+				}
+		});
+	});
+	
+	// console.log(listDrops);
+	// console.log(listDropsName);
+	
 	$.each(jsonQuests, function(index, val) {
 		if(val.title != "Placeholder")
 			{
 			if (val.rewardA1[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: val.rewardA1[1], min: val.rewardA1[2], max: val.rewardA1[3],region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: 100, min: val.rewardA1[1], max: val.rewardA1[2],region: regionById(val.region)}
 				monsters.push(monster)
 			}
 			else if (val.rewardA2[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: val.rewardA2[1], min: val.rewardA2[2], max: val.rewardA2[3],region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: 100, min: val.rewardA2[1], max: val.rewardA2[2],region: regionById(val.region)}
 				monsters.push(monster)
 			}
-			else if (val.rewardA3[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: val.rewardA3[1], min: val.rewardA3[2], max: val.rewardA3[3],region: regionById(val.region)}
+			
+			var indexOf = listDropsName.indexOf(val.rewardA3)
+			if(indexOf > -1)
+				{
+				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 				monsters.push(monster)
-			}
-			else if (val.rewardA4[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: val.rewardA4[1], min: val.rewardA4[2], max: val.rewardA4[3],region: regionById(val.region)}
+				}
+				
+			indexOf = listDropsName.indexOf(val.rewardA4)
+			if(indexOf > -1)
+				{
+				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 				monsters.push(monster)
-			}
+				}
+				
 			if(val.hasOwnProperty("nameB"))
 				{
 				if (val.rewardB1[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: val.rewardB1[1], min: val.rewardB1[2], max: val.rewardB1[3],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: 100, min: val.rewardB1[1], max: val.rewardB1[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
 				else if (val.rewardB2[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: val.rewardB2[1], min: val.rewardB2[2], max: val.rewardB2[3],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: 100, min: val.rewardB2[1], max: val.rewardB2[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
-				else if (val.rewardB3[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: val.rewardB3[1], min: val.rewardB3[2], max: val.rewardB3[3],region: regionById(val.region)}
+				
+				indexOf = listDropsName.indexOf(val.rewardB3)
+				if(indexOf > -1)
+					{
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
-				}
-				else if (val.rewardB4[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: val.rewardB4[1], min: val.rewardB4[2], max: val.rewardB4[3],region: regionById(val.region)}
+					}		
+				indexOf = listDropsName.indexOf(val.rewardB4)
+				if(indexOf > -1)
+					{
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
-				}
+					}	
+				
 				}
 			}
 	})
@@ -608,7 +644,6 @@ function getQuestByName(name) {
 					"reward2":val.rewardA2,
 					"reward3":val.rewardA3,
 					"reward4":val.rewardA4,
-					"trinket":val.trinketA,
 					"region":val.region,
 					"region2":val.region2,
 					"questSize":questSize
@@ -647,7 +682,6 @@ function getQuestByName(name) {
 					"reward2":val.rewardB2,
 					"reward3":val.rewardB3,
 					"reward4":val.rewardB4,
-					"trinket":val.trinketB,
 					"region":val.region,
 					"region2":val.region2,
 					"questSize":questSize
@@ -657,6 +691,69 @@ function getQuestByName(name) {
 	})
 	return quest;
 }
+
+function getReward(name)
+	{
+	var rewards = [];
+	rewards.odds = jsonParcel[name].nilOdds;
+	rewards.items = [];
+	$.each(jsonParcel[name].itemList, function(index, val)
+		{
+		// console.log(val);
+		var item = "";
+		var itemName = "";
+		var itemPic = "";
+		var itemRarity = "";
+		var itemMin = "";
+		var itemMax = "";
+		var itemCh = "";
+		if(val.id[1])
+			{
+			itemName = jsonEquipments[val.id[1]-1].name;
+			itemPic = jsonEquipments[val.id[1]-1].image;
+			itemRarity = jsonEquipments[val.id[1]-1].rarity;
+			}
+		else
+			{
+			itemName = jsonMaterials[val.id[0]-1].name;
+			itemPic = jsonMaterials[val.id[0]-1].image;
+			itemRarity = jsonMaterials[val.id[0]-1].rarity;
+			}
+			
+		if(val.amount[5])
+			{
+			itemMin = val.amount[0];
+			itemMax = val.amount[4];
+			}
+		else if(val.amount[3])
+			{
+			itemMin = val.amount[0];
+			itemMax = val.amount[2];
+			}
+		else
+			{
+			itemMin = val.amount[0];
+			itemMax = val.amount[0];
+			}
+			
+		itemCh = val.odds;
+		
+		item = {
+			"name":itemName,
+			"image":itemPic,
+			"rarity":itemRarity,
+			"min":itemMin,
+			"max":itemMax,
+			"odd":itemCh
+			}
+		
+		// console.log(item);
+		rewards.items.push(item);
+		});
+		
+	// console.log(rewards);
+	return rewards;
+	}
 
 function usedToCraftFromMaterial(id) {
 	var crafted = [];

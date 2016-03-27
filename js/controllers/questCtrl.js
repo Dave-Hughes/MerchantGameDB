@@ -4,6 +4,13 @@ angular.module('mainApp')
 		$scope.quest = getQuestByName($routeParams.id);
 		$scope.mats = jsonMaterials;
 		$scope.eq = jsonEquipments;
+		
+		$scope.reward3 = getReward($scope.quest.reward3);
+		
+		if($scope.quest.reward4)
+			{
+			$scope.reward4 = getReward($scope.quest.reward4);
+			}
 
 		var redditLink = "["+$scope.quest.name+"]" + " (" + window.location.href + ")";
 

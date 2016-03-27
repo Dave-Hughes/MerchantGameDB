@@ -30,6 +30,8 @@ angular.module('mainApp')
 					item.subType === $scope.Filter.blade ||
 					item.subType === $scope.Filter.hilt ||
 					item.subType === $scope.Filter.crystal ||
+					item.subType === $scope.Filter.gem ||
+					item.subType === $scope.Filter.rune ||
 					item.subType === $scope.Filter.shell ||
 					item.subType === $scope.Filter.claw ||
 					item.subType === $scope.Filter.horn ||
@@ -88,6 +90,8 @@ angular.module('mainApp')
 				$scope.Filter.blade		= false;
 				$scope.Filter.hilt		= false;
 				$scope.Filter.crystal	= false;
+				$scope.Filter.gem	= false;
+				$scope.Filter.rune	= false;
 				$scope.Filter.shell		= false;
 				$scope.Filter.claw		= false;
 				$scope.Filter.horn		= false;
@@ -110,6 +114,8 @@ angular.module('mainApp')
 				$scope.Filter.blade		= "blade";
 				$scope.Filter.hilt		= "hilt";
 				$scope.Filter.crystal	= "crystal";
+				$scope.Filter.gem	= "gem";
+				$scope.Filter.rune	= "rune";
 				$scope.Filter.shell		= "shell";
 				$scope.Filter.claw		= "claw";
 				$scope.Filter.horn		= "horn";

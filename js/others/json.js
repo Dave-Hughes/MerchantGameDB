@@ -63,6 +63,12 @@ var jsonBosses = "";
 $.getJSON( "json/stable/EventList.json", function( data ) {
 	jsonBosses = data;
 	});
+	
+//Parcel
+var jsonParcel = "";
+$.getJSON( "json/stable/ParcelList.json", function( data ) {
+	jsonParcel = data;
+	});
 
 var listOfGuides = "";
 $.ajax({

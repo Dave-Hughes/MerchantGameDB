@@ -105,7 +105,7 @@
 		<td><img ng-src="assets/{{drop.icon}}"></td>
 		<td><a class="quality-{{drop.rarity}}" href="#!/quests/{{drop.name}}">{{drop.name}}</a></td>
 		<td><a href="#!/regios/{{drop.region}}">{{drop.region}}</a></td>
-		<td class='center'>{{drop.min}}<span ng-if="drop.max > 1">-{{drop.max}}</span></td>
+		<td class='center'>{{drop.min *0.8 |number:0}}<span ng-if="drop.max > 1">-{{drop.max *1.3 |number:0}}</span></td>
 		<td class='center'>{{drop.chance}}%</td>
 	</tr>
 </table>

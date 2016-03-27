@@ -1458,12 +1458,8 @@ th {
 
 .quest-loot-drops-table tbody tr {
   border-bottom: 1px solid #bbb; }
-  .quest-loot-drops-table tbody tr:nth-child(even) {
-    background: #ccc; }
   .quest-loot-drops-table tbody tr td {
     text-align: center; }
-    .quest-loot-drops-table tbody tr td:nth-child(2) {
-      text-align: left; }
 
 .quest-loot-drops-table tfoot td {
   font-style: italic;
