@@ -916,6 +916,9 @@ function getAuthorByID(id) {
 	else if (id == 4) {
 		author = "Kamighty";
 	}
+	else if (id == 5) {
+		author = "Rkinasz";
+	}
 	return author;
 }
 
