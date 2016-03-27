@@ -78,9 +78,9 @@
 	<caption>Dropped by {{quest.name}}</caption>
 	<thead>
 		<tr>
-			<th></th>
-			<th class='center'></th>
-			<th>Item Name</th>
+			<th class='center'>Slot</th>
+			<th class='center'>Icon</th>
+			<th class='center'>Item Name</th>
 			<th class='center'>Amount</th>
 			<th class='center'>Drop Rate</th>
 		</tr>
@@ -94,7 +94,7 @@
 	</tfoot>
 	<tbody>
 		<tr ng-show="quest.reward1[0]">
-			<td>100%</td>
+			<td>1.</td>
 			<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
 			<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
 			<td>{{quest.reward1[1]*0.8 | number:0}}<span ng-if="quest.reward1[2] > 1"> - {{quest.reward1[2]*1.3 | number:0}}</span></td>
@@ -103,7 +103,7 @@
 	</tbody>
 	<tbody>
 		<tr ng-show="quest.reward2[0]">
-			<td>100%</td>
+			<td>2.</td>
 			<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
 			<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
 			<td>{{quest.reward2[1]}}<span ng-if="quest.reward2[2] > 1"> - {{quest.reward2[2]}}</span></td>
@@ -111,7 +111,7 @@
 		</tr>
 	</tbody>
 	<tbody ng-show="reward3">
-		<tr><td rowspan="{{reward3.items.length + 2}}">{{100 - reward3.nilOdds}}%</td><td></td><td></td><td></td><td></td></tr>
+		<tr><td rowspan="{{reward3.items.length + 2}}">3.</td><td></td><td></td><td></td><td></td></tr>
 		<tr ng-repeat="item in reward3.items">
 			<td class="center"><img ng-src="assets/{{item.image}}"></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/material/{{item.name}}">{{item.name}}</a></td>
@@ -121,7 +121,7 @@
 		<tr><td></td><td></td><td></td><td></td></tr>
 	</tbody>
 	<tbody ng-show="reward4">
-		<tr><td rowspan="{{reward4.items.length + 2}}">{{100 - reward4.nilOdds}}%</td><td></td><td></td><td></td><td></td></tr>
+		<tr><td rowspan="{{reward4.items.length + 2}}">4.</td><td></td><td></td><td></td><td></td></tr>
 		<tr ng-repeat="item in reward4.items">
 			<td class="center"><img ng-src="assets/{{item.image}}"></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/material/{{item.name}}">{{item.name}}</a></td>
