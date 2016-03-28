@@ -530,8 +530,8 @@ function getMonsterByMaterialId(id) {
 		
 		if(odds)
 			{
-			var oddsMin = (100-val.nilOdds*1.4)/totalOdds*odds;
-			var oddsMax = (100-val.nilOdds*0.5)/totalOdds*odds;
+			var oddsMin = odds/(totalOdds+val.nilOdds*1.4)*100;
+			var oddsMax = odds/(totalOdds+val.nilOdds*0.5)*100;
 			var temp = {"name": i, "min":min, "max":max, "oddsMin":oddsMin, "oddsMax":oddsMax}
 			listDrops.push(temp);
 			}

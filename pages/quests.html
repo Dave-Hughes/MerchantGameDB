@@ -116,7 +116,7 @@
 			<td class="center"><img ng-src="assets/{{item.image}}"></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/material/{{item.name}}">{{item.name}}</a></td>
 			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
-			<td>{{ (100-reward3.nilOdds*1.4)/reward3.totalOdds*item.odd |number:2 }}% - {{ (100-reward3.nilOdds*0.5)/reward3.totalOdds*item.odd |number:2 }}%</td>
+			<td>{{item.odd/(reward3.totalOdds+reward3.nilOdds*1.4)*100 |number:2 }}% - {{item.odd/(reward3.totalOdds+reward3.nilOdds*0.5)*100 |number:2 }}%</td>
 		</tr>
 		<tr><td></td><td></td><td></td><td></td></tr>
 	</tbody>
@@ -126,7 +126,7 @@
 			<td class="center"><img ng-src="assets/{{item.image}}"></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/material/{{item.name}}">{{item.name}}</a></td>
 			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
-			<td>{{ (100-reward4.nilOdds*1.4)/reward4.totalOdds*item.odd |number:2 }}% - {{ (100-reward4.nilOdds*0.5)/reward4.totalOdds*item.odd |number:2 }}%</td>
+			<td>{{item.odd/(reward4.totalOdds+reward4.nilOdds*1.4)*100 |number:2 }}% - {{item.odd/(reward4.totalOdds+reward4.nilOdds*0.5)*100 |number:2 }}%</td>
 		</tr>
 		<tr><td></td><td></td><td></td><td></td></tr>
 	</tbody>
