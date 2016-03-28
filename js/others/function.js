@@ -521,68 +521,70 @@ function getMonsterByMaterialId(id) {
 				else if(val2.amount[3]){min = val2.amount[0]; max = val2.amount[2]}
 				else{min = val2.amount[0]; max = val2.amount[0]}
 				odds = val2.odds
-				listDropsName.push(i);
+				
+				var indexOf = listDropsName.indexOf(i)
+				if(indexOf < 0)
+					{listDropsName.push(i);}
 				}
 		});
 		
 		if(odds)
 			{
-			odds = (100-val.nilOdds)/totalOdds*odds;
-			var temp = {"name": i, "min":min, "max":max, "odds":odds}
+			var oddsMin = (100-val.nilOdds*1.4)/totalOdds*odds;
+			var oddsMax = (100-val.nilOdds*0.5)/totalOdds*odds;
+			var temp = {"name": i, "min":min, "max":max, "oddsMin":oddsMin, "oddsMax":oddsMax}
 			listDrops.push(temp);
 			}
 	});
 	
-	console.log(listDrops);
-	console.log(listDropsName);
 	
 	$.each(jsonQuests, function(index, val) {
 		if(val.title != "Placeholder")
 			{
 			if (val.rewardA1[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: 100, min: val.rewardA1[1], max: val.rewardA1[2],region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: 100, oddsMax: 100, min: val.rewardA1[1], max: val.rewardA1[2],region: regionById(val.region)}
 				monsters.push(monster)
 			}
 			else if (val.rewardA2[0]-1 == id) {
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: 100, min: val.rewardA2[1], max: val.rewardA2[2],region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: 100, oddsMax: 100, min: val.rewardA2[1], max: val.rewardA2[2],region: regionById(val.region)}
 				monsters.push(monster)
 			}
 			
 			var indexOf = listDropsName.indexOf(val.rewardA3)
 			if(indexOf > -1)
 				{
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 				monsters.push(monster)
 				}
 				
 			indexOf = listDropsName.indexOf(val.rewardA4)
 			if(indexOf > -1)
 				{
-				var monster = {name: val.name, rarity: val.title, icon: val.image, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 				monsters.push(monster)
 				}
 				
 			if(val.hasOwnProperty("nameB"))
 				{
 				if (val.rewardB1[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: 100, min: val.rewardB1[1], max: val.rewardB1[2],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: 100, oddsMax: 100, min: val.rewardB1[1], max: val.rewardB1[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
 				else if (val.rewardB2[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: 100, min: val.rewardB2[1], max: val.rewardB2[2],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: 100, oddsMax: 100, min: val.rewardB2[1], max: val.rewardB2[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
 				
 				indexOf = listDropsName.indexOf(val.rewardB3)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}		
 				indexOf = listDropsName.indexOf(val.rewardB4)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, chance: listDrops[indexOf].odds, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}	
 				
