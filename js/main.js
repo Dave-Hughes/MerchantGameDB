@@ -137,8 +137,8 @@ var mainApp = angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute', 
 		/** CHANGE TITLE ON ROUTE CHANGE **/
 		//get the URL, split by /
 		var href = window.location.href.split("/");
-		//get the text after last /, replace %20 with space
-		href = href[href.length-1].replace(/%20/g, " ");
+		//get the text after last /, replace %20 with space and %27 with '
+		href = href[href.length-1].replace(/%20/g, " ").replace(/%27/g, "'");
 		//if we are on main site
 		if(href.length == 0){href = "Main"}
 		//attributums after ?
