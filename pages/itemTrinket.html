@@ -22,18 +22,18 @@
     <tr>
       <th class="center"></th>
       <th>Name</th>
-      <th class="center">Cost/<br>Level</th>
+      <th class="center">Level</th>
     </tr>
   </thead>
   <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:6} | filter:showTrinketsByTier">
     <tr>
 		<td rowspan="2" class="center"><img ng-src="assets/{{item.image}}"></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/trinket/{{item.name}}">{{item.name}}</a><br>{{item.desc1}}</td>
-		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
+		<td class="center">Lv. {{item.itemLevel}}</td>
     </tr>
 	<tr>
 		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | number:0}} </span></td>
-		<td class="center">Lv. {{item.itemLevel}}</td>
+		<td class="center"></td>
 	</tr>
   </tbody>
 </table>
