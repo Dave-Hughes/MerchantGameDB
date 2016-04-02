@@ -36,13 +36,16 @@
       <td class='gear-tier'>Tier {{item.tier}}</td>
     </tr>
     <tr>
-      <td colspan=2>{{(itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Physical Attack</td>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Physical Attack</td>
     </tr>
     <tr>
-      <td colspan=2>{{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number: 0}} - {{(itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number: 0}} Magical Attack</td>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number: 0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number: 0}} Magical Attack</td>
     </tr>
     <tr>
-      <td colspan=2>{{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Accuracy</td>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Accuracy</td>
     </tr>
 
      <!-- Bonus Stats -->
@@ -51,7 +54,7 @@
     </tr>
     <tr ng-repeat="(key, value) in item.bonusStat">
       <td colspan=2>
-	      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
+	      {{key | changeStat}}: {{Math.ceil(value[0] * minGradeModifier) | number:0}}-{{Math.ceil(value[1] * maxGradeModifier) | number:0}}
       </td>
     </tr>
     <tr ng-show="prefix">

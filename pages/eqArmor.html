@@ -37,10 +37,12 @@
           <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Physical Defense</td>
+          <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+												{{Math.ceil(Math.ceil( (itemBaseStat.defBase + itemBaseStat.defLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Physical Defense</td>
         </tr>
         <tr>
-          <td colspan=2>{{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 0.9 * minGradeModifier * suffixMod | number:0}} - {{(itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * 1.1 * maxGradeModifier * suffixMod | number:0}} Magical Defense</td>
+          <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+												{{Math.ceil(Math.ceil( (itemBaseStat.mdefBase + itemBaseStat.mdefLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Magical Defense</td>
         </tr>
 
 	       <!-- If the armor has bonus stats -->
@@ -49,7 +51,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
+			      {{key | changeStat}}: {{ Math.ceil(value[0] * minGradeModifier) | number:0}}-{{ Math.ceil(value[1] * maxGradeModifier) | number:0}}
 		      </td>
 	      </tr>
         <tr ng-show="prefix">

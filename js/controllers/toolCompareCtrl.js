@@ -1,5 +1,6 @@
 angular.module('mainApp')
 	.controller('toolCompareCtrl', function($scope, $routeParams) {
+		$scope.Math=Math;
 	  $scope.equipment = jsonEquipments;
 	  $scope.formula = jsonFormulas;
 		$scope.suffix = jsonSuffixes;

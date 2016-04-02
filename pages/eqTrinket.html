@@ -31,7 +31,7 @@
         </tr>
         <tr ng-repeat="(key, value) in item.bonusStat">
 		      <td colspan=2>
-			      {{key | changeStat}}: {{value[0] * minGradeModifier | number:0}}-{{value[1] * maxGradeModifier | number:0}}
+			      {{key | changeStat}}: {{Math.ceil(value[0] * minGradeModifier) | number:0}}-{{Math.ceil(value[1] * maxGradeModifier) | number:0}}
 		      </td>
 	      </tr>
       </table>

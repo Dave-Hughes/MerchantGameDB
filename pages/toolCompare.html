@@ -140,28 +140,28 @@
 	<tr ng-if="itsWeapon">
 		<th>Atk</th>
 		<td>
-			{{ (formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.atkBns[0]) * item1Grade.min
 					+ item1Prefix.stat.atkBns
 					| number:0}}
 			-
-			{{ (formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.atkBns[1]) * item1Grade.max
 					+ item1Prefix.stat.atkBns
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{ (formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.atkBns[0]) * item2Grade.min
 					+ item2Prefix.stat.atkBns
 					| number:0}}
 			-
-			{{ (formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.atkBns[1]) * item2Grade.max
 					+ item2Prefix.stat.atkBns
 					| number:0}}
@@ -172,28 +172,28 @@
 	<tr ng-if="itsWeapon">
 		<th>mAtk</th>
 		<td>
-			{{ (formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.matkBns[0]) * item1Grade.min
 					+ item1Prefix.stat.matkBns
 					| number:0}}
 			-
-			{{ (formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.matkBns[1]) * item1Grade.max
 					+ item1Prefix.stat.matkBns
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{ (formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.matkBns[0]) * item2Grade.min
 					+ item2Prefix.stat.matkBns
 					| number:0}}
 			-
-			{{ (formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.matkBns[1]) * item2Grade.max
 					+ item2Prefix.stat.matkBns
 					| number:0}}
@@ -204,48 +204,48 @@
 	<tr ng-if="itsWeapon">
 		<th>Total Attack</th>
 		<td>
-			{{((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{(Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.atkBns[0]) * item1Grade.min
 					+ item1Prefix.stat.atkBns)
 						+
-				((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+				(Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.matkBns[0]) * item1Grade.min
 					+ item1Prefix.stat.matkBns)
 					| number:0}}
 			-
-			{{((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{(Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.atkBns[1]) * item1Grade.max
 					+ item1Prefix.stat.atkBns)
 						+
-				((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+				(Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.matkBns[1]) * item1Grade.max
 					+ item1Prefix.stat.matkBns)
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{(Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.atkBns[0]) * item2Grade.min
 					+ item2Prefix.stat.atkBns)
 						+
-				((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+				(Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.matkBns[0]) * item2Grade.min
 					+ item2Prefix.stat.matkBns)
 					| number:0}}
 			-
-			{{((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{(Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.atkBns[1]) * item2Grade.max
 					+ item2Prefix.stat.atkBns)
 						+
-				((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+				(Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.matkBns[1]) * item2Grade.max
 					+ item2Prefix.stat.matkBns)
 					| number:0}}
@@ -256,28 +256,28 @@
 	<tr ng-if="itsWeapon">
 		<th>Acc</th>
 		<td>
-			{{ (formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.accBns[0]) * item1Grade.min
 					+ item1Prefix.stat.accBns
 					| number:0}}
 			-
-			{{ (formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.accBns[1]) * item1Grade.max
 					+ item1Prefix.stat.accBns
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{ (formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.accBns[0]) * item2Grade.min
 					+ item2Prefix.stat.accBns
 					| number:0}}
 			-
-			{{ (formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.accBns[1]) * item2Grade.max
 					+ item2Prefix.stat.accBns
 					| number:0}}
@@ -288,28 +288,28 @@
 	<tr ng-if="itsArmor || item1Prefix.stat.defBns || item2Prefix.stat.defBns">
 		<th>Def</th>
 		<td>
-			{{ (formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.defBns[0]) * item1Grade.min
 					+ item1Prefix.stat.defBns
 					| number:0}}
 			-
-			{{ (formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.defBns[1]) * item1Grade.max
 					+ item1Prefix.stat.defBns
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{ (formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.defBns[0]) * item2Grade.min
 					+ item2Prefix.stat.defBns
 					| number:0}}
 			-
-			{{ (formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.defBns[1]) * item1Grade.max
 					+ item2Prefix.stat.defBns
 					| number:0}}
@@ -320,28 +320,28 @@
 	<tr ng-if="itsArmor || item1Prefix.stat.mdefBns || item2Prefix.stat.mdefBns">
 		<th>mDef</th>
 		<td>
-			{{ (formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * 0.9 * item1Grade.min
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * item1Grade.min)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.mdefBns[0]) * item1Grade.min
 					+ item1Prefix.stat.mdefBns
 					| number:0}}
 			-
-			{{ (formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * 1.1 * item1Grade.max
-					* (1+item1Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * item1Grade.max)
+					* (1+item1Suffix.modif))
 					+ (+item1Stat.bonusStat.mdefBns[1]) * item1Grade.max
 					+ item1Prefix.stat.mdefBns
 					| number:0}}
 		</td>
 		<td class="compareThis high"></td>
 		<td>
-			{{ (formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * 0.9 * item2Grade.min
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * item2Grade.min)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.mdefBns[0]) * item2Grade.min
 					+ item2Prefix.stat.mdefBns
 					| number:0}}
 			-
-			{{ (formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * 1.1 * item2Grade.max
-					* (1+item2Suffix.modif)
+			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * item2Grade.max)
+					* (1+item2Suffix.modif))
 					+ (+item2Stat.bonusStat.mdefBns[1]) * item2Grade.max
 					+ item2Prefix.stat.mdefBns
 					| number:0}}</td>
@@ -350,65 +350,91 @@
 	<!--11.row: HP -->
 	<tr ng-if="item1Stat.bonusStat.hpBns || item2Stat.bonusStat.hpBns || item1Prefix.stat.hpBns || item2Prefix.stat.hpBns">
 		<th>HP</th>
-		<td>{{(+item1Stat.bonusStat.hpBns[0]) * item1Grade.min + item1Prefix.stat.hpBns| number:0}}-{{(+item1Stat.bonusStat.hpBns[1]) * item1Grade.max + item1Prefix.stat.hpBns| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.hpBns[0]) * item1Grade.min) + item1Prefix.stat.hpBns| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.hpBns[1]) * item1Grade.max) + item1Prefix.stat.hpBns| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.hpBns[0]) * item2Grade.min + item2Prefix.stat.hpBns| number:0}}-{{(+item2Stat.bonusStat.hpBns[1]) * item2Grade.max + item2Prefix.stat.hpBns| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.hpBns[0]) * item2Grade.min) + item2Prefix.stat.hpBns| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.hpBns[1]) * item2Grade.max) + item2Prefix.stat.hpBns| number:0}}</td>
 	</tr>
 
 	<!--12.row: Crit -->
 	<tr ng-if="item1Stat.bonusStat.critBns || item2Stat.bonusStat.critBns">
 		<th>Crit</th>
-		<td>{{(+item1Stat.bonusStat.critBns[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.critBns[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.critBns[0]) * item1Grade.min)| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.critBns[1]) * item1Grade.max)| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.critBns[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.critBns[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.critBns[0]) * item2Grade.min)| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.critBns[1]) * item2Grade.max)| number:0}}</td>
 	</tr>
 
 	<!--13.row: dex -->
 	<tr ng-if="item1Stat.bonusStat.dex || item2Stat.bonusStat.dex">
 		<th>Dex</th>
-		<td>{{(+item1Stat.bonusStat.dex[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.dex[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.dex[0]) * item1Grade.min)| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.dex[1]) * item1Grade.max)| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.dex[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.dex[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.dex[0]) * item2Grade.min)| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.dex[1]) * item2Grade.max)| number:0}}</td>
 	</tr>
 
 	<!--14.row: int -->
 	<tr ng-if="item1Stat.bonusStat.int || item2Stat.bonusStat.int">
 		<th>Int</th>
-		<td>{{(+item1Stat.bonusStat.int[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.int[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.int[0]) * item1Grade.min)| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.int[1]) * item1Grade.max)| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.int[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.int[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.int[0]) * item2Grade.min)| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.int[1]) * item2Grade.max)| number:0}}</td>
 	</tr>
 
 	<!--15.row: str -->
 	<tr ng-if="item1Stat.bonusStat.str || item2Stat.bonusStat.str">
 		<th>Str</th>
-		<td>{{(+item1Stat.bonusStat.str[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.str[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.str[0]) * item1Grade.min)| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.str[1]) * item1Grade.max)| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.str[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.str[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.str[0]) * item2Grade.min)| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.str[1]) * item2Grade.max)| number:0}}</td>
 	</tr>
 
 	<!--16.row: luck -->
-	<tr ng-if="item1Stat.bonusStat.lckMod || item2Stat.bonusStat.lckMod">
+	<tr ng-if="item1Stat.bonusStat.lckMod || item2Stat.bonusStat.lckMod || item1Prefix.stat.lckMod || item2Prefix.stat.lckMod">
 		<th>Luck</th>
-		<td>{{(+item1Stat.bonusStat.lckMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.lckMod[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.lckMod[0]) * item1Grade.min) + item1Prefix.stat.lckMod| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.lckMod[1]) * item1Grade.max) + item1Prefix.stat.lckMod| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.lckMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.lckMod[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.lckMod[0]) * item2Grade.min) + item2Prefix.stat.lckMod| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.lckMod[1]) * item2Grade.max) + item2Prefix.stat.lckMod| number:0}}</td>
 	</tr>
 
 	<!--17.row: gold -->
 	<tr ng-if="item1Stat.bonusStat.gldMod || item2Stat.bonusStat.gldMod">
 		<th>Gold</th>
-		<td>{{(+item1Stat.bonusStat.gldMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.gldMod[1]) * item1Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.gldMod[0]) * item1Grade.min)| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.gldMod[1]) * item1Grade.max)| number:0}}</td>
 		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.gldMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.gldMod[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item2Stat.bonusStat.gldMod[0]) * item2Grade.min)| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.gldMod[1]) * item2Grade.max)| number:0}}</td>
 	</tr>
 
 	<!--18.row: exp -->
-	<tr ng-if="item1Stat.bonusStat.expMod || item2Stat.bonusStat.expMod">
+	<tr ng-if="item1Stat.bonusStat.expMod || item2Stat.bonusStat.expMod || item1Prefix.stat.expMod || item2Prefix.stat.expMod">
 		<th>Exp</th>
-		<td>{{(+item1Stat.bonusStat.expMod[0]) * item1Grade.min| number:0}}-{{(+item1Stat.bonusStat.expMod[1]) * item1Grade.max| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{(+item2Stat.bonusStat.expMod[0]) * item2Grade.min| number:0}}-{{(+item2Stat.bonusStat.expMod[1]) * item2Grade.max| number:0}}</td>
+		<td>{{Math.ceil((+item1Stat.bonusStat.expMod[0]) * item1Grade.min) + item1Prefix.stat.expMod| number:0}}-
+				{{Math.ceil((+item1Stat.bonusStat.expMod[1]) * item1Grade.max) + item1Prefix.stat.expMod| number:0}}</td>
+		<td class="compareThis high"></td>                                
+		<td>{{Math.ceil((+item2Stat.bonusStat.expMod[0]) * item2Grade.min) + item2Prefix.stat.expMod| number:0}}-
+				{{Math.ceil((+item2Stat.bonusStat.expMod[1]) * item2Grade.max) + item2Prefix.stat.expMod| number:0}}</td>
+	</tr>
+	
+	<!--19.row: speed -->
+	<tr ng-if="item1Prefix.stat.speed || item2Prefix.stat.speed">
+		<th>Speed</th>
+		<td>{{(+item1Prefix.stat.speed)| number:0}}-
+				{{(+item1Prefix.stat.speed)| number:0}}</td>
+		<td class="compareThis high"></td>                                
+		<td>{{(+item2Prefix.stat.speed)| number:0}}-
+				{{(+item2Prefix.stat.speed)| number:0}}</td>
 	</tr>
 </table>
 
