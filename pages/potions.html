@@ -10,22 +10,18 @@
 		<td colspan=1 class='mats-name'>
 			<h3>{{potion.name}}</h3>
 		</td>
+		<td class="mats-cost">{{potion.sell[0]}} - {{potion.sell[1]}}<img class='coin-img' ng-src="img/coin.png"></td>
 	</tr>
 	<tr>
-		<td colspan=1>
+		<td colspan=2>
 			Level {{potion.itemLevel}}
 		</td>
 	</tr>
 	<tr>
-		<td ng-show="{{potion.cost}}" class='mats-cost'>Cost:
-			<img class='coin-img' ng-src="img/coin.png">{{potion.cost}}
-		</td>
+		<td colspan=2>{{potion.desc1}} {{potion.desc2}}</td>
 	</tr>
 	<tr>
-		<td colspan=1>{{potion.desc1}} {{potion.desc2}}</td>
-	</tr>
-	<tr>
-		<td colspan=1>Created by the Alchemist</td>
+		<td colspan=2>Created by the Alchemist</td>
 	</tr>
 </table>
 
@@ -36,6 +32,11 @@
 		<th></th>
 		<th>Item Name</th>
 		<th>Amount</th>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;<img ng-src="img/coin.png"></td>
+		<td><a class="quality-1">Gold</a></td>
+		<td>{{potion.cost}}</td>
 	</tr>
 	<tr ng-repeat="craft in craftedBy">
 		<td><img ng-src="assets/{{craft.icon}}"></td>

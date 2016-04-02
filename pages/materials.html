@@ -7,25 +7,20 @@
 
 <table class='mats-table'>
 	<tr>
-		<td colspan=1 class='mats-name'>
+		<td class='mats-name'>
 			<h3>{{material.name}}</h3>
 		</td>
-	</tr>
-	<tr>
-		<td ng-show="{{material.cost}}" class='mats-cost'>Cost:
-			<img class='coin-img' ng-src="img/coin.png">{{material.cost}}
+		<td class="mats-cost">
+			{{material.sell[0]}} - {{material.sell[1]}}<img class='coin-img' ng-src="img/coin.png">
 		</td>
 	</tr>
 	<tr>
-		<td class='mats-cost'>
-			Tier
+		<td colspan="2" class='mats-cost'>
+			Tier {{Math.floor ((material.itemLevel-0.1)/10 + 1)}}
 		</td>
 	</tr>
 	<tr>
-		<td colspan=1>"{{material.desc1}} {{material.desc2}}"</td>
-	</tr>
-	<tr>
-		<td colspan=1>Created by the </td>
+		<td colspan="2">"{{material.desc1}} {{material.desc2}}"</td>
 	</tr>
 </table>
 
@@ -47,6 +42,11 @@
 		</tr>
 	</tfoot>
 	<tbody class='crafting-reagents-table-body'>
+		<tr>
+			<td class='center'><img ng-src="img/coin.png"></td>
+			<td><a class="quality-1">Gold</a></td>
+			<td class='center'>{{material.cost}}</td>
+		</tr>
 		<tr ng-repeat="craft in craftedBy">
 			<td class='center'><img ng-src="assets/{{craft.icon}}"></td>
 			<td><a class="quality-{{craft.rarity}}" href="#!/items/material/{{craft.name}}">{{craft.name}}</a></td>

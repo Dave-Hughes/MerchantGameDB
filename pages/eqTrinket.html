@@ -13,8 +13,11 @@
 
       <table class='gear-table'>
         <tr>
-          <td colspan=2 class='gear-name'>
+          <td class='gear-name'>
             <h3>{{item.name}}</h3>
+          </td>
+          <td class='gear-cost'>
+            {{rarityMod[item.rarity].min * item.value}}-{{rarityMod[item.rarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
           </td>
         </tr>
         <tr>

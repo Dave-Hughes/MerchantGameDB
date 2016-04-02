@@ -5,6 +5,7 @@ angular.module('mainApp')
 		$scope.item = getEquipmentByName($routeParams.id);
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.droppedBy = getMonsterByTrinketId($scope.itemID);
+		$scope.rarityMod = jsonRarity;
 		
 		$scope.listOfGrades				= jsonGrades;
 		$scope.grade							= "0";

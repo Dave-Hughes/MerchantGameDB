@@ -69,6 +69,12 @@ var jsonParcel = "";
 $.getJSON( "json/stable/ParcelList.json", function( data ) {
 	jsonParcel = data;
 	});
+	
+//rarityMod
+var jsonRarity = "";
+$.getJSON( "json/stable/rarityMod.json", function( data ) {
+	jsonRarity = data;
+	});
 
 var listOfGuides = "";
 $.ajax({

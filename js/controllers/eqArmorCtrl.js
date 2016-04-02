@@ -5,6 +5,7 @@ angular.module('mainApp')
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
+		$scope.rarityMod = jsonRarity;
 		
 		if($scope.item.crafterID != 0) { //if its craftable (worn items fix)
 			if($scope.item.hasOwnProperty("materialType")) {
