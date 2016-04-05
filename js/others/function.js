@@ -726,6 +726,7 @@ function getReward(name)
 		var itemName = "";
 		var itemPic = "";
 		var itemRarity = "";
+		var itemType = "";
 		var itemMin = "";
 		var itemMax = "";
 		var itemCh = "";
@@ -734,24 +735,26 @@ function getReward(name)
 			itemName = jsonEquipments[val.id[1]-1].name;
 			itemPic = jsonEquipments[val.id[1]-1].image;
 			itemRarity = jsonEquipments[val.id[1]-1].rarity;
+			itemType = "trinket";
 			}
 		else
 			{
 			itemName = jsonMaterials[val.id[0]-1].name;
 			itemPic = jsonMaterials[val.id[0]-1].image;
 			itemRarity = jsonMaterials[val.id[0]-1].rarity;
+			itemType = "material";
 			}
 			
-		if(val.amount[5])
+		if(val.amount.length > 1)
 			{
 			itemMin = val.amount[0];
-			itemMax = val.amount[4];
+			itemMax = val.amount[val.amount.length-2];
 			}
-		else if(val.amount[3])
-			{
-			itemMin = val.amount[0];
-			itemMax = val.amount[2];
-			}
+		// else if(val.amount[3])
+			// {
+			// itemMin = val.amount[0];
+			// itemMax = val.amount[2];
+			// }
 		else
 			{
 			itemMin = val.amount[0];
@@ -765,6 +768,7 @@ function getReward(name)
 			"name":itemName,
 			"image":itemPic,
 			"rarity":itemRarity,
+			"type":itemType,
 			"min":itemMin,
 			"max":itemMax,
 			"odd":itemCh
