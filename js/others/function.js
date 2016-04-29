@@ -721,61 +721,64 @@ function getReward(name)
 	rewards.items = [];
 	$.each(jsonParcel[name].itemList, function(index, val)
 		{
-		// console.log(val);
-		var item = "";
-		var itemName = "";
-		var itemPic = "";
-		var itemRarity = "";
-		var itemType = "";
-		var itemMin = "";
-		var itemMax = "";
-		var itemCh = "";
-		if(val.id[1])
+		// console.log($.isEmptyObject(val));
+		if(!$.isEmptyObject(val))
 			{
-			itemName = jsonEquipments[val.id[1]-1].name;
-			itemPic = jsonEquipments[val.id[1]-1].image;
-			itemRarity = jsonEquipments[val.id[1]-1].rarity;
-			itemType = "trinket";
-			}
-		else
-			{
-			itemName = jsonMaterials[val.id[0]-1].name;
-			itemPic = jsonMaterials[val.id[0]-1].image;
-			itemRarity = jsonMaterials[val.id[0]-1].rarity;
-			itemType = "material";
-			}
+			var item = "";
+			var itemName = "";
+			var itemPic = "";
+			var itemRarity = "";
+			var itemType = "";
+			var itemMin = "";
+			var itemMax = "";
+			var itemCh = "";
+			if(val.id[1])
+				{
+				itemName = jsonEquipments[val.id[1]-1].name;
+				itemPic = jsonEquipments[val.id[1]-1].image;
+				itemRarity = jsonEquipments[val.id[1]-1].rarity;
+				itemType = "trinket";
+				}
+			else
+				{
+				itemName = jsonMaterials[val.id[0]-1].name;
+				itemPic = jsonMaterials[val.id[0]-1].image;
+				itemRarity = jsonMaterials[val.id[0]-1].rarity;
+				itemType = "material";
+				}
+				
+			if(val.amount.length > 1)
+				{
+				itemMin = val.amount[0];
+				itemMax = val.amount[val.amount.length-2];
+				}
+			// else if(val.amount[3])
+				// {
+				// itemMin = val.amount[0];
+				// itemMax = val.amount[2];
+				// }
+			else
+				{
+				itemMin = val.amount[0];
+				itemMax = val.amount[0];
+				}
+				
+			itemCh = val.odds;
+			rewards.totalOdds += val.odds;
 			
-		if(val.amount.length > 1)
-			{
-			itemMin = val.amount[0];
-			itemMax = val.amount[val.amount.length-2];
-			}
-		// else if(val.amount[3])
-			// {
-			// itemMin = val.amount[0];
-			// itemMax = val.amount[2];
-			// }
-		else
-			{
-			itemMin = val.amount[0];
-			itemMax = val.amount[0];
-			}
+			item = {
+				"name":itemName,
+				"image":itemPic,
+				"rarity":itemRarity,
+				"type":itemType,
+				"min":itemMin,
+				"max":itemMax,
+				"odd":itemCh
+				}
 			
-		itemCh = val.odds;
-		rewards.totalOdds += val.odds;
-		
-		item = {
-			"name":itemName,
-			"image":itemPic,
-			"rarity":itemRarity,
-			"type":itemType,
-			"min":itemMin,
-			"max":itemMax,
-			"odd":itemCh
+			// console.log(item);
+			rewards.items.push(item);
 			}
-		
-		// console.log(item);
-		rewards.items.push(item);
 		});
 		
 	// console.log(rewards);
