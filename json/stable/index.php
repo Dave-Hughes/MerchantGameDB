@@ -6,12 +6,12 @@ $potion = json_decode(file_get_contents("PotionList.json"), true);
 $quest = json_decode(file_get_contents("QuestList.json"), true);
 
 
-print("<pre>");
+print("<pre>[");
 
 // /*Equipments
 foreach($equips as $resul)
 	{ //Equipments
-	if(!empty($resul['itemSlot']))
+	if(!empty($resul['itemSlot']) && !empty($resul['image']))
 		{			
 		//MAIN
 		print("{");
@@ -124,11 +124,7 @@ foreach($quest as $resul)
 		print('"type":"Quest", ');
 		
 		//subType
-		if($resul['gathering'] == 1)
-			{
-			print('"subType":"Gathering", ');
-			}
-		elseif(empty($resul['title']))
+		if(empty($resul['title']))
 			{
 			print('"subType":"Normal", ');
 			}
@@ -173,6 +169,6 @@ foreach($quest as $resul)
 		}
 	}
 // */
-print("<pre>");
+print("]<pre>");
 
 ?>
