@@ -4,6 +4,7 @@ angular.module('mainApp')
 		$scope.quest = getQuestByName($routeParams.id);
 		$scope.mats = jsonMaterials;
 		$scope.eq = jsonEquipments;
+		$scope.jsonAbility = jsonAbility;
 		
 		$scope.reward3 = getReward($scope.quest.reward3);
 		

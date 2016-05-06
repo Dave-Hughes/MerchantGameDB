@@ -73,6 +73,30 @@
 </table>
 <div class='clear'></div>
 
+<table class='quest-loot-drops-table'>
+	<caption>Attack list</caption>
+	<thead>
+		<tr>
+			<th class='center'></th>
+			<th class='center'>Name</th>
+			<th class='center'>Description</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan='3'>
+				Attack list information for {{quest.name}}.
+			</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr ng-repeat="ability in quest.attackList track by $index">
+			<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+			<td>{{ability}}</td>
+			<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+		</tr>
+	</tbody>
+</table>
 
 <table class='quest-loot-drops-table'>
 	<caption>Dropped by {{quest.name}}</caption>

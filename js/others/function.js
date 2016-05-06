@@ -665,7 +665,8 @@ function getQuestByName(name) {
 					"region2":val.region2,
 					"questSize":questSize,
 					"other":other,
-					"type":"a"
+					"type":"a",
+					"attackList":val.attackList
 					};
 			return false;
 			}
@@ -705,7 +706,8 @@ function getQuestByName(name) {
 					"region2":val.region2,
 					"questSize":questSize,
 					"other":val.name,
-					"type":"b"
+					"type":"b",
+					"attackList":val.attackListB
 					};
 			return false;
 			}
