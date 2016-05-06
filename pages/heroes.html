@@ -30,7 +30,7 @@
     <tfoot>
       <tr>
         <td colspan='4'>
-          Shown: Warrior stats data.
+          Shown: {{hero.name}} stats data.
         </td>
       </tr>
     </tfoot>
@@ -104,4 +104,54 @@
       </tr>
     </tbody>
   </table>
+	
+	<h3>Abilities</h3>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="3">Passive abilities</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="3">{{hero.name}}'s passive abilities</td>
+		</tfoot>
+		<tbody>
+			<tr ng-repeat="ability in hero.passiveList">
+				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td>{{ability}}</td>
+				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="4">Active abilities</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>AP</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="4">{{hero.name}}'s active abilities</td>
+		</tfoot>
+		<tbody>
+			<tr ng-repeat="ability in hero.skillList">
+				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td>{{ability}}</td>
+				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+				<td>{{jsonAbility[ability].apCost}}</td>
+			</tr>
+		</tbody>
 </div>

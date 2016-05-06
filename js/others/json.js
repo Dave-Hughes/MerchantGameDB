@@ -70,6 +70,12 @@ $.getJSON( "json/stable/ParcelList.json", function( data ) {
 	jsonParcel = data;
 	});
 	
+//Ability
+var jsonAbility = "";
+$.getJSON( "json/stable/AbilityList.json", function( data ) {
+	jsonAbility = data;
+	});
+	
 //rarityMod
 var jsonRarity = "";
 $.getJSON( "json/stable/rarityMod.json", function( data ) {
