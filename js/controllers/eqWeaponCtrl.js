@@ -3,7 +3,6 @@ angular.module('mainApp')
 	.controller('eqWeaponCtrl', function($scope, $routeParams) {
 		$scope.Math = Math;
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
-		console.log($scope.itemID);
 		$scope.item = jsonEquipments[$scope.itemID];
 		$scope.itemBaseStat = getBaseStatByType($scope.item.subType);
 		$scope.rarityMod = jsonRarity;

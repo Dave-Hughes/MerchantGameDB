@@ -476,6 +476,7 @@ function getMaterialIdByName(name) {
 
 function getMonsterByTrinketId(id) {
 	var monsters = [];
+	//if dropped by 100% (slot 1-2)
 	$.each(jsonQuests, function(index, val) {
 		if (val.hasOwnProperty("trinketA") && (val.trinketA[0]-1 == id)) {
 				var currentMonster = val.trinketA[0]-1;
@@ -490,6 +491,78 @@ function getMonsterByTrinketId(id) {
 				monsters.push(monsterInfo);
 		}
 	})
+	
+	//if dropped by rng (slot 3-4)
+	var listDrops = [];
+	var listDropsName = [];
+
+	$.each(jsonParcel, function(i, val) {
+		var totalOdds = 0;
+		var min = "";
+		var max = "";
+		var odds = "";
+		$.each(val.itemList, function(j, val2) {
+			totalOdds += val2.odds;
+			if(val2.id[1]-1 == id)
+				{
+				if(val2.amount[5]){min = val2.amount[0]; max = val2.amount[4]}
+				else if(val2.amount[3]){min = val2.amount[0]; max = val2.amount[2]}
+				else{min = val2.amount[0]; max = val2.amount[0]}
+				odds = val2.odds
+				
+				var indexOf = listDropsName.indexOf(i)
+				if(indexOf < 0)
+					{listDropsName.push(i);}
+				}
+		});
+		
+		if(odds)
+			{
+			var oddsMin = odds/(totalOdds+val.nilOdds*1.25)*100;
+			var oddsMax = odds/(totalOdds+val.nilOdds*0.75)*100;
+			var temp = {"name": i, "min":min, "max":max, "oddsMin":oddsMin, "oddsMax":oddsMax}
+			listDrops.push(temp);
+			}
+	});
+
+	$.each(jsonQuests, function(index, val) {
+		if(val.title != "Placeholder")
+			{
+			var indexOf = listDropsName.indexOf(val.rewardA3)
+			if(indexOf > -1)
+				{
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+				monsters.push(monster)
+				}
+				
+			indexOf = listDropsName.indexOf(val.rewardA4)
+			if(indexOf > -1)
+				{
+				var monster = {name: val.name, rarity: val.title, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+				monsters.push(monster)
+				}
+			if(val.hasOwnProperty("nameB"))
+				{
+				indexOf = listDropsName.indexOf(val.rewardB3)
+				if(indexOf > -1)
+					{
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					monsters.push(monster)
+					}		
+				indexOf = listDropsName.indexOf(val.rewardB4)
+				if(indexOf > -1)
+					{
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					monsters.push(monster)
+					}	
+				}
+			}
+		});
+
+	// console.log(listDrops);
+	// console.log(listDropsName);
+	// console.log(monsters);
+	
 	return monsters;
 }
 
@@ -587,7 +660,6 @@ function getMonsterByMaterialId(id) {
 					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}	
-				
 				}
 			}
 	})
