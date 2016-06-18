@@ -50,8 +50,11 @@ angular.module('mainApp')
 		else if(input == "matkBns"){input = "mAtk";}
 		else if(input == "matkPct"){input = "mAtk%";}
 		else if(input == "defBns"){input = "Def";}
+		else if(input == "defPct"){input = "Def%";}
 		else if(input == "mdefBns"){input = "mDef";}
+		else if(input == "mdefPct"){input = "mDef%";}
 		else if(input == "accBns"){input = "Acc";}
+		else if(input == "accPct"){input = "Acc%";}
 		else if(input == "critBns"){input = "Crit";}
 		else if(input == "str"){input = "Str";}
 		else if(input == "dex"){input = "Dex";}
@@ -60,6 +63,7 @@ angular.module('mainApp')
 		else if(input == "gldMod"){input = "Gold";}
 		else if(input == "expMod"){input = "Exp";}
 		else if(input == "critMod"){input = "Crit%";}
+		else if(input == "apMod"){input = "AP";}
 		return input;
 		}
 	});
