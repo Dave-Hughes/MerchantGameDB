@@ -12,7 +12,7 @@ print("<pre>[");
 foreach($equips as $resul)
 	{ //Equipments
 	if(!empty($resul['itemSlot']) && !empty($resul['image']))
-		{			
+		{
 		//MAIN
 		print("{");
 		
