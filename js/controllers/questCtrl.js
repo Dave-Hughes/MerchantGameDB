@@ -6,7 +6,7 @@ angular.module('mainApp')
 		$scope.eq = jsonEquipments;
 		$scope.jsonAbility = jsonAbility;
 		
-		if($scope.quest.reward4)
+		if($scope.quest.reward3)
 			{
 			$scope.reward3 = getReward($scope.quest.reward3);
 			}
