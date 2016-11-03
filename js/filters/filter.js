@@ -66,4 +66,19 @@ angular.module('mainApp')
 		else if(input == "apMod"){input = "AP";}
 		return input;
 		}
+	})
+	.filter('grade', function($filter){
+		var numberFilter = $filter('number');
+		return function(input, gradeMultiplier){
+			var ceiled = Math.ceil(input * gradeMultiplier);
+			return numberFilter(ceiled, 0);
+		}
+	})
+	//filter fix % stats displaying
+	.filter('fixPercentStat', function(){
+		var percentStats = ["atkPct","matkPct","defPct", "mdefPct", "accPct"];
+
+		return function(input, statName) {
+			return percentStats.indexOf(statName) === -1 ? input : input * 100;
+		}
 	});

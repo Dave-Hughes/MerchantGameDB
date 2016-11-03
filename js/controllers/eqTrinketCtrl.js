@@ -33,10 +33,27 @@ angular.module('mainApp')
 			// var objectURL = "#!/items/trinket/"+$routeParams.id+"?grade="+$scope.grade;
 			// $(location).attr('href', objectURL);
 		// }
+
+		/****************/
+		/**PREFIX START**/
+		/****************/
+		$scope.listOfPrefix 			= jsonPrefixes;
+		$scope.prefix 						= "0";
+		$scope.prefixNum 					= 0;
+		
+		if ($routeParams.prefix) { //If there is a ?prefix=x in the URL
+			$scope.prefix = $routeParams.prefix;
+			$scope.prefixStat = jsonPrefixes[$scope.prefix];
+		}
+		function prefixChange() {
+			if ($scope.prefix != 0) { //+1 color if have prefix
+				$scope.prefixNum = 1;
+			}
+		}
 		
 		//ON SUFFIX/PREFIX/GRADE change
 		$scope.suffixPrefixChange = function() {
-			var objectURL = "#!/items/trinket/"+$routeParams.id+"?grade="+$scope.grade;
+			var objectURL = "#!/items/trinket/"+$routeParams.id+"?grade="+$scope.grade+"&prefix="+$scope.prefix;
 			$(location).attr('href', objectURL);
 		}
 

@@ -54,13 +54,13 @@
     </tr>
     <tr ng-repeat="(key, value) in item.bonusStat">
       <td colspan=2>
-	      {{key | changeStat}}: {{Math.ceil(value[0] * minGradeModifier) | number:0}}-{{Math.ceil(value[1] * maxGradeModifier) | number:0}}
+        {{key | changeStat}}: {{value[0] | fixPercentStat:key | grade:minGradeModifier }}-{{ value[1] | fixPercentStat:key | grade:maxGradeModifier}}
       </td>
     </tr>
     <tr ng-show="prefix">
 			<td colspan="2">
         <span class="prefix-stat" ng-repeat="(k, v) in prefixStat.stats">
-					+{{v}} {{k | changeStat}} ({{prefixStat.name}})
+					+{{v | fixPercentStat:k}} {{k | changeStat}} ({{prefixStat.name}})
 				</span>
 			</td>
 		</tr>
