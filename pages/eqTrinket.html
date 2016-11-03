@@ -8,6 +8,9 @@
       <!-- Grade Adjustment -->
       <div item-grade></div>
 
+      <!-- Prefix Adjustment -->
+      <div item-prefix></div>
+
       <!-- Copy URL Button -->
       <div item-page-copy-button></div>
 
@@ -37,6 +40,13 @@
 			      {{key | changeStat}}: {{Math.ceil(value[0] * minGradeModifier) | number:0}}-{{Math.ceil(value[1] * maxGradeModifier) | number:0}}
 		      </td>
 	      </tr>
+        <tr ng-show="prefix">
+    			<td colspan="2">
+            <span class="prefix-stat" ng-repeat="(k, v) in prefixStat.stats">
+							+{{v | fixPercentStat:k}} {{k | changeStat}} ({{prefixStat.name}})
+						</span>
+    			</td>
+    		</tr>
       </table>
 
       <!-- Table showing what drops trinket -->
