@@ -166,7 +166,7 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | number:0}} </span></td>
+		<td><span ng-repeat="(statName, statVal) in item.bonusStat">{{statName | changeStat}}: ~{{(statVal[0]+statVal[1])/2 | fixPercentStat : statName | number:0}} </span></td>
 		<td class="center">Lv. {{item.itemLevel}}</td>
 	</tr>	
   </tbody>
