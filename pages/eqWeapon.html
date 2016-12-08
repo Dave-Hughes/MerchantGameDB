@@ -33,7 +33,7 @@
     </tr>
     <tr>
       <td>Level {{item.itemLevel}}</td>
-      <td class='gear-tier'>Tier {{item.tier}}</td>
+      <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
     </tr>
     <tr>
       <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
