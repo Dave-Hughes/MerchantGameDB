@@ -130,7 +130,7 @@
 			<td>2.</td>
 			<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
 			<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
-			<td>{{quest.reward2[1]}}<span ng-if="quest.reward2[2] > 1"> - {{quest.reward2[2]}}</span></td>
+			<td>{{quest.reward2[1]*0.8 | number:0}}<span ng-if="quest.reward2[2] > 1"> - {{quest.reward2[2]*1.3 | number:0}}</span></td>
 			<td>100%</td>
 		</tr>
 	</tbody>
