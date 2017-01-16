@@ -55,6 +55,7 @@ angular.module('mainApp')
 				$scope.Filter.Tier3			= false;
 				$scope.Filter.Tier4			= false;
 				$scope.Filter.Tier5			= false;
+				$scope.Filter.Tier6			= false;
 				$(".armors-tier-options label").each(function(){$(this).removeClass("filter-selected");});
 				}
 			else
@@ -65,6 +66,7 @@ angular.module('mainApp')
 				$scope.Filter.Tier3			= 3;
 				$scope.Filter.Tier4			= 4;
 				$scope.Filter.Tier5			= 5;
+				$scope.Filter.Tier6			= 6;
 				$(".armors-tier-options label").each(function(){$(this).addClass("filter-selected");});
 				}
 			

@@ -21,6 +21,7 @@ angular.module('mainApp')
 				$scope.Filter.Tier3			= false;
 				$scope.Filter.Tier4			= false;
 				$scope.Filter.Tier5			= false;
+				$scope.Filter.Tier6			= false;
 				$(".weapons-tier-options label").each(function(){$(this).removeClass("filter-selected");});
 				}
 			else
@@ -31,6 +32,7 @@ angular.module('mainApp')
 				$scope.Filter.Tier3			= 3;
 				$scope.Filter.Tier4			= 4;
 				$scope.Filter.Tier5			= 5;
+				$scope.Filter.Tier6			= 6;
 				$(".weapons-tier-options label").each(function(){$(this).addClass("filter-selected");});
 				}
 			
@@ -99,6 +101,7 @@ angular.module('mainApp')
 				$scope.Filter.Rod					= false;
 				$scope.Filter.Pole				= false;
 				$scope.Filter.Trident			= false;
+				$scope.Filter.Scythe			= false;
 				$scope.Filter.SpellSword	= false;
 				$("#sp-weapons-subtypes label").each(function(){$(this).removeClass("filter-selected");});
 				}
@@ -108,6 +111,7 @@ angular.module('mainApp')
 				$scope.Filter.Rod					= "Rod";
 				$scope.Filter.Pole				= "Pole";
 				$scope.Filter.Trident			= "Trident";
+				$scope.Filter.Scythe			= "Scythe";
 				$scope.Filter.SpellSword	= "Spellsword";
 				$("#sp-weapons-subtypes label").each(function(){$(this).addClass("filter-selected");});
 				}
@@ -130,6 +134,7 @@ angular.module('mainApp')
 						item.subType === $scope.Filter.Rod ||
 						item.subType === $scope.Filter.Pole ||
 						item.subType === $scope.Filter.Trident ||
+						item.subType === $scope.Filter.Scythe ||
 						item.subType === $scope.Filter.SpellSword;
 	  };
 
@@ -138,6 +143,7 @@ angular.module('mainApp')
 						lvToTier(item.itemLevel) == $scope.Filter.Tier2 ||
 						lvToTier(item.itemLevel) == $scope.Filter.Tier3 ||
 						lvToTier(item.itemLevel) == $scope.Filter.Tier4 ||
-						lvToTier(item.itemLevel) == $scope.Filter.Tier5;
+						lvToTier(item.itemLevel) == $scope.Filter.Tier5 ||
+						lvToTier(item.itemLevel) == $scope.Filter.Tier6;
 	  };
 	});
