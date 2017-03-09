@@ -54,7 +54,7 @@
     </tr>
     <tr ng-repeat="(key, value) in item.bonusStat">
       <td colspan=2>
-        {{key | changeStat}}: {{value[0] | fixPercentStat:key | grade:minGradeModifier }}-{{ value[1] | fixPercentStat:key | grade:maxGradeModifier}}
+        {{key | changeStat}}: {{value[0] | grade:minGradeModifier }}-{{ value[1] | grade:maxGradeModifier}}
       </td>
     </tr>
     <tr ng-show="prefix">
