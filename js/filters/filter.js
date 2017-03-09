@@ -70,8 +70,15 @@ angular.module('mainApp')
 	.filter('grade', function($filter){
 		var numberFilter = $filter('number');
 		return function(input, gradeMultiplier){
-			var ceiled = Math.ceil(input * gradeMultiplier);
-			return numberFilter(ceiled, 0);
+			var result;
+			if (input < 0){
+				result = input / gradeMultiplier; //negative stats handling
+			}else if (input < 1){
+				result = input * 100; // percent stats handling
+			}else{
+				result = input * gradeMultiplier
+			}
+			return numberFilter(Math.ceil(result), 0);
 		}
 	})
 	//filter fix % stats displaying
