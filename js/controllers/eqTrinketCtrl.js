@@ -72,4 +72,5 @@ angular.module('mainApp')
 		$("#generatedLink").val(window.location.href);
 		$("#generatedLink-reddit").val(redditLink);
 
+		prefixChange();
 	})
