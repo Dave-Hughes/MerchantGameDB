@@ -1,6 +1,6 @@
 
     <div class='object-hold'>
-      <div class='object-image item-quality-{{item.rarity}}-bg'>
+      <div class='object-image item-quality-{{item.rarity + prefixNum}}-bg'>
         <img ng-src="assets/{{item.image}}">
 				<span class="item-grade-{{grade}}"></span>
       </div>
@@ -17,10 +17,13 @@
       <table class='gear-table'>
         <tr>
           <td class='gear-name'>
-            <h3>{{item.name}}</h3>
+            <h3 class="quality-{{item.rarity + prefixNum}}">
+              <span id="prefix-hold">{{prefixStat.name}} </span>
+              <span class="item-name">{{item.name}}</span> 
+            </h3>
           </td>
           <td class='gear-cost'>
-            {{rarityMod[item.rarity].min * item.value}}-{{rarityMod[item.rarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
+            {{rarityMod[item.rarity + prefixNum].min * item.value}}-{{rarityMod[item.rarity + prefixNum].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
           </td>
         </tr>
         <tr>
