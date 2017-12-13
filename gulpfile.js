@@ -27,3 +27,10 @@ gulp.task('styles', function() {
 });
 
 gulp.task('default', ['scripts', 'styles']);
+
+gulp.task('dev', function(){
+  var liteServer = require("lite-server");
+  liteServer.server();
+  gulp.watch(['./js/**/*.js', '!./js/vendor/*.min.js', '!./js/modules/*.min.js', '!./js/bundle.js'], ['scripts'])
+  gulp.watch('sass/**/*.scss', ['styles'])
+})
