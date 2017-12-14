@@ -4,7 +4,9 @@
   "description": "Package manager for MerchantGameDB.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"gulp",
+    "dev":"gulp dev"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-sass": "^2.2.0",
-    "gulp-uglify": "^1.5.3"
+    "gulp-uglify": "^1.5.3",
+    "lite-server": "^2.2.2"
   },
   "dependencies": {
     "graceful-fs": "^4.1.11",
