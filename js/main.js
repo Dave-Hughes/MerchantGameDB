@@ -15,7 +15,10 @@ var mainApp = angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute', 
 	// configure html5 to get links working on jsfiddle
 	// $locationProvider.html5Mode(true);
 })
-
+//disable debug attributes and html comments
+.config(['$compileProvider', function ($compileProvider) {
+	$compileProvider.debugInfoEnabled(false);
+  }])
 // Configuration for mobile "Snap" menu
 .config(function(snapRemoteProvider) {
   snapRemoteProvider.globalOptions.disable = 'left';

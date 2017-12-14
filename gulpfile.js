@@ -12,6 +12,8 @@ gulp.task('scripts', function() {
       "directives/*.js",
       "controllers/*.js",
       "filters/*.js",
+      "components/*.js",
+      "services/*.js",
       "others/*.js"
     ]))
     .pipe(concat('bundle.js'))
