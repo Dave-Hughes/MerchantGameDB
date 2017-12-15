@@ -1,0 +1,133 @@
+.quest-image-holder {
+  float: left;
+  width: 35%;
+  max-width: 150px;
+  text-align: center;
+  display: block;
+  position: relative;
+  margin: 0 20px 0 0;
+  image-rendering: pixelated;
+  img {}
+}
+
+.quest-image-background {
+  z-index: 1;
+  width: 100%;
+  margin: 30px 0 0 0;
+}
+
+.quest-image-monster {
+  width: 70%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 20px 0 0;
+}
+
+.quest-table {
+  width: 50%;
+  max-width: 305px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  float: left;
+  thead, tbody {}
+  td {
+    padding: 2px 5px 0px 5px;
+  }
+}
+
+.quest-header-row {
+  background: #222;
+}
+
+.quest-table h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  padding: 3px 0 3px 0;
+  font-weight: bold;
+}
+
+.quest-cost {
+  vertical-align: bottom;
+  text-align: right;
+}
+
+.quest-zone {
+  text-align: right;
+}
+
+.coin-img {
+  padding: 0 1px 3px 2px;
+}
+
+.quest-tier {
+  text-align: right;
+}
+
+.quest-level, .quest-type {}
+
+.quest-spacer {
+  height: 20px;
+}
+
+.quest-stat {
+  max-width: 20px;
+  background: red;
+}
+
+.quest-stat-label {
+  background: #ccc;
+  color: #222;
+  height: 25px;
+  font-weight: bold;
+}
+
+/* MONSTER LOOT TABLE */
+
+.quest-loot-drops-table {
+  width: 100%;
+  max-width: 475px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  clear: both;
+  margin: 30px 0 0 0;
+  caption {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 5px 0;
+  }
+  td {
+    padding: 5px 7px;
+  }
+}
+
+th {
+  padding: 5px 7px;
+}
+
+.quest-loot-drops-table {
+  thead {
+    background: #aaa;
+    th {
+      height: 40px;
+    }
+  }
+  tbody tr {
+    border-bottom: 1px solid #bbb;
+    td {
+      text-align: center;
+    }
+  }
+  tfoot td {
+    font-style: italic;
+    font-size: .9em;
+    padding: 8px;
+  }
+}

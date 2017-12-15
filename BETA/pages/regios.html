@@ -1,0 +1,124 @@
+
+<script>
+$(document).ready(function()
+	{
+	$("table").on("click", ".clickable", function()
+		{
+		if($(this).find(".glyphicon").hasClass("glyphicon-chevron-down"))
+			{
+			$(this).find(".glyphicon").removeClass("glyphicon-chevron-down");
+			$(this).find(".glyphicon").addClass("glyphicon-chevron-up");
+			}
+		else
+			{
+			$(this).find(".glyphicon").removeClass("glyphicon-chevron-up");
+			$(this).find(".glyphicon").addClass("glyphicon-chevron-down");
+			}
+		$(this).next().find(".toggle").slideToggle();
+		});
+	});
+</script>
+
+<div class='object-hold region-page'>
+	<h2>The {{regioName}}</h2>
+
+	<table class="region-table">
+		<thead>
+			<tr>
+				<th colspan="2" class="region-quest-name">Quest Name</th>
+				<th class="region-quest-status">Status</th>
+				<th class="region-quest-level center">Level</th>
+				<th class="region-quest-cost">Cost</th>
+				<th class="region-quest-party center">Party Size</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="quest in quests">
+			<tr>
+				<td class="center region-icon"><img ng-src="assets/{{quest.image}}"></td>
+				<td><a href="#!/quests/{{quest.name}}">{{quest.name}}</a></td>
+				<td>{{quest.title}}</td>
+				<td class="center">{{quest.levelReq}}</td>
+				<td><img class='coin-img' src='img/coin.png'>{{quest.gold}}</td>
+				<td class="center">{{quest.questSize}}</td>
+			</tr>
+			<tr class="toggle">
+				<td class="sub-tables" colspan="6"><!--Drops Info -->
+					<table class="region-drops-table">
+						<thead>
+							<tr>
+								<th class="region-table-header" colspan="4">Quest Drops</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>Item Name</th>
+								<th>Amount</th>
+								<th>Drop Rate</th>
+							</tr>
+						</thead>
+						<tr ng-show="quest.reward1[0]">
+							<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
+							<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
+							<td>{{quest.reward1[2]}}<span ng-if="quest.reward1[3] > 1">-{{quest.reward1[3]}}</span></td>
+							<td>{{quest.reward1[1]}}%</td>
+						</tr>
+						<tr ng-show="quest.reward2[0]">
+							<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
+							<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
+							<td>{{quest.reward2[2]}}<span ng-if="quest.reward2[3] > 1">-{{quest.reward2[3]}}</span></td>
+							<td>{{quest.reward2[1]}}%</td>
+						</tr>
+						<tr ng-show="quest.reward3[0]">
+							<td class="center"><img ng-src="assets/{{mats[quest.reward3[0]-1].image}}"></td>
+							<td><a class="quality-{{mats[quest.reward3[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward3[0]-1].name}}">{{mats[quest.reward3[0]-1].name}}</a></td>
+							<td>{{quest.reward3[2]}}<span ng-if="quest.reward3[3] > 1">-{{quest.reward3[3]}}</span></td>
+							<td>{{quest.reward3[1]}}%</td>
+						</tr>
+						<tr ng-show="quest.reward4[0]">
+							<td class="center"><img ng-src="assets/{{mats[quest.reward4[0]-1].image}}"></td>
+							<td><a class="quality-{{mats[quest.reward4[0]-1].rarity}}" href="#/items/material/{{mats[quest.reward4[0]-1].name}}">{{mats[quest.reward4[0]-1].name}}</a></td>
+							<td>{{quest.reward4[2]}}<span ng-if="quest.reward4[3] > 1">-{{quest.reward4[3]}}</span></td>
+							<td>{{quest.reward4[1]}}%</td>
+						</tr>
+						<tr ng-show="quest.trinket[0]">
+							<td class="center"><img ng-src="assets/{{eq[quest.trinket[0]-1].image}}"></td>
+							<td><a class="quality-{{eq[quest.trinket[0]-1].rarity}}" href="#/items/trinket/{{eq[quest.trinket[0]-1].name}}">{{eq[quest.trinket[0]-1].name}}</a></td>
+							<td>1</td>
+							<td>{{quest.trinket[1]}}%</td>
+						</tr>
+					</table>
+
+					<table class="region-stats-table">
+						<thead>
+							<tr>
+								<th class="region-table-header" colspan="4">Quest Stats</th>
+							</tr>
+							<tr>
+								<th>Exp</th>
+								<th>Time</th>
+								<th>HP</th>
+								<th>Eva</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>{{quest.exp}}</td>
+							<td>{{quest.time}}</td>
+							<td>{{quest.enemyHp}}</td>
+							<td>{{quest.enemyEva}}</td>
+						</tr>
+						<tr>
+							<th>Atk</th>
+							<th>mAtk</th>
+							<th>Def</th>
+							<th>mDef</th>
+						</tr>
+						<tr>
+							<td>{{quest.enemyAtk}}</td>
+							<td>{{quest.enemyMatk}}</td>
+							<td>{{quest.enemyDef}}</td>
+							<td>{{quest.enemyMdef}}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>

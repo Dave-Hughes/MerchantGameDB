@@ -1,0 +1,113 @@
+<h1>Welcome to MerchantDB</h1>
+
+<div class="home-content row">
+  <div class="home-content-col well">
+    <h4><span class="glyphicon glyphicon-chevron-right"></span>Read about the Heroes!</h4>
+
+    <table class="home-content-table">
+      <thead>
+        <tr>
+          <th><a href="#!/heroes/Warrior">Warrior</a></th>
+          <th><a href="#!/heroes/Mage">Mage</a></th>
+          <th><a href="#!/heroes/Rogue">Rogue</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#!/heroes/Warrior"><img src="img/Icn_Hero_Warrior.png" alt="The Warrior!"></a></td>
+          <td><a href="#!/heroes/Mage"><img src="img/Icn_Hero_Mage.png" alt="The Mage!"></a></td>
+          <td><a href="#!/heroes/Rogue"><img src="img/Icn_Hero_Rogue.png" alt="The Rogue!"></a></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><a href="#!/heroes/Berserker">Berserker</a></th>
+          <th><a href="#!/heroes/Cleric">Cleric</a></th>
+          <th><a href="#!/heroes/Paladin">Paladin</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#!/heroes/Berserker"><img src="img/Icn_Hero_Berserker.png" alt="The Berserker!"></a></td>
+          <td><a href="#!/heroes/Cleric"><img src="img/Icn_Hero_Cleric.png" alt="The Cleric!"></a></td>
+          <td><a href="#!/heroes/Paladin"><img src="img/Icn_Hero_Paladin.png" alt="The Paladin!"></a></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><a href="#!/heroes/Assassin">Assassin</a></th>
+          <th><a href="#!/heroes/Dark Knight">Dark Knight</a></th>
+          <th><a href="#!/heroes/Bard">Bard</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#!/heroes/Assassin"><img src="img/Icn_Hero_Assassin.png" alt="The Assassin!"></a></td>
+          <td><a href="#!/heroes/Dark Knight"><img src="img/Icn_Hero_Dark_Knight.png" alt="The Dark Knight!"></a></td>
+          <td><a href="#!/heroes/Bard"><img src="img/Icn_Hero_Bard.png" alt="The Bard!"></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="home-content-col well">
+    <h4><span class="glyphicon glyphicon-chevron-right"></span>Drool over amazing gear!</h4>
+    <table class="home-content-table">
+      <thead>
+        <tr>
+          <th><a href="#!/items/weapon/Oni's Decapitator">Oni's Decapitator</a></th>
+          <th><a href="#!/items/weapon/Fate's%20Decree">Fate's Decree</a></th>
+          <th><a href="#!/items/weapon/Frostmourne">Frostmourne</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#!/items/weapon/Oni's Decapitator"><img src="assets/Weapons/Sword/oni_decapitator.png" alt="Oni's Decapitator"></a></td>
+          <td><a href="#!/items/weapon/Fate's Decree"><img src="assets/Weapons/Axe/fatalis_axe.png" alt="Fate's Decree"></a></td>
+          <td><a href="#!/items/weapon/Frostmourne"><img src="assets/Weapons/Region 6/azuros_sword.png" alt="Frostmourne"></a></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><a href="#!/items/armor/Torun's Plate">Torun's Plate</a></th>
+          <th><a href="#!/items/trinket/Frozen Flame">Frozen Flame</a></th>
+          <th><a href="#!/items/armor/Deathcap">Deathcap</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#!/items/armor/Torun's Plate"><img src="assets/Armor/Region 6/bison_platemail_2.png" alt="Torun's Plate"></a></td>
+          <td><a href="#!/items/trinket/Frozen Flame"><img src="assets/Armor/Region 6/medallion_6.png" alt="Frozen Flame"></a></td>
+          <td><a href="#!/items/armor/Deathcap"><img src="assets/Armor/Region 6/wraith_hat_3.png" alt="Deathcap"></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="home-content-col well">
+    <h4>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      Scout out the Epic Bosses and Events!</h4>
+    <table class="home-content-table">
+      <tbody>
+        <tr ng-repeat="boss in bosses">
+          <td ng-if="!boss.isBoost">
+            <a href="#!/quests/{{quests[boss.resultParams-1].name}}">
+              <img ng-src="assets/{{quests[boss.resultParams-1].image}}">
+            </a>
+          </td>
+          <td ng-if="!boss.isBoost">
+            <a href="#!/quests/{{quests[boss.resultParams-1].name}}">{{quests[boss.resultParams-1].name}}</a>
+          </td>
+          <td ng-if="boss.isBoost"><img ng-src="img/frozen_logo_32.png"></td>
+          <td ng-if="boss.isBoost">{{boss.name}}</td>
+          <td>{{boss.startTimestamp | timestampToDate}} ({{(boss.duration) | durationToDays}})</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+	<!--
+  <div class="home-content-col well">
+    <h4><span class="glyphicon glyphicon-chevron-right"></span>Step up your game, with guides!</h4>
+  </div> -->
+</div>
