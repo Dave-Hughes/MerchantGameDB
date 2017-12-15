@@ -1,0 +1,58 @@
+footer {
+  width: 100%;
+  background: #000;
+  margin: 100px 0 0 0;
+  font-size: 14px;
+  .row {
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    box-sizing: border-box;
+    padding: 30px 0 30px 0;
+  }
+}
+
+.footer-col {
+  transition: all 0.3s ease;
+  background: #222;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #bbb;
+  min-height: 225px;
+  text-align: center;
+  border-bottom: 10px solid #222;
+  &:hover {
+    background: #333;
+    color: #fff;
+  }
+  h3 {
+    color: #eee;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    text-align: center;
+    margin: 10px 0 20px 0;
+  }
+}
+
+#download-merchant img {
+  width: 100%;
+  display: block;
+  max-width: 200px;
+  clear: both;
+  margin: 10px auto 0 auto;
+}
+
+#github-button, #reddit-button {
+  transition: all 0.3s ease;
+  margin: 20px auto 0 auto;
+  border: 1px solid #eee;
+  max-width: 150px;
+  text-align: center;
+  padding: 10px;
+  color: #eee;
+}
+
+#github-button:hover, #reddit-button:hover {
+  background: #eee;
+  color: #222;
+}

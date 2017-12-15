@@ -1,0 +1,9 @@
+<div class="grade-adjustment-hold">
+  <label>Grade</label>
+  <select id="prefix-select"
+            ng-options="k as v.name for (k, v) in listOfGrades"
+            ng-model="grade"
+            ng-init="grade=grade"
+            ng-change="suffixPrefixChange()">
+  </select>
+</div>

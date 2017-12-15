@@ -1,0 +1,252 @@
+#top-bar {
+  width: 95%;
+  max-width: 1200px;
+  margin: 30px auto 30px auto;
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+}
+
+#logo-search-hold {
+  position: relative;
+}
+
+#logo-hold {
+  img {
+    max-width: 75px;
+  }
+  span {
+    font-size: 2.5em;
+    font-family: 'Alagard', 'Pathway Gothic One', sans-serif;
+    margin-left: 15px;
+    position: relative;
+    top: 15px;
+    color: #ddd;
+    line-height: 0;
+  }
+  .db {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: bold;
+    font-size: .7em;
+    line-height: 0;
+    position: relative;
+    top: -2px;
+    left: 5px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+#search-hold {
+  margin: 22px 0 0 0;
+  padding: 0;
+}
+
+#mobile-menu-toggle {
+  margin: 22px 0 0 0;
+  a {
+    color: #ddd;
+    float: right;
+    font-size: 3em;
+    line-height: 0;
+  }
+}
+
+#desktop-searchbar input {
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  float: right;
+  padding: 15px;
+  box-sizing: border-box;
+  background: #222;
+  border: 2px solid #222;
+  &:focus {
+    outline: 0;
+    border: 2px solid #3D5CAA;
+  }
+}
+
+#live-beta-button-hold-mobile {
+  width: 90%;
+  margin: 25px auto 0 auto;
+  .live-button, .beta-button {
+    float: none;
+    padding: 10px;
+    margin: 0 auto 0 auto;
+  }
+}
+
+#live-beta-button-hold {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  font-size: .8em;
+  span {
+    margin: 0 3px 0 0;
+  }
+  input {
+    margin: 0 5px 0 0;
+  }
+}
+
+.live-button {
+  transition: all .5s ease;
+  float: right;
+  background: #C71D18;
+  color: #eee;
+}
+
+.beta-button {
+  transition: all .5s ease;
+  float: right;
+  background: #C71D18;
+  color: #eee;
+  margin: 0 10px 0 0;
+}
+
+.live-button a, .beta-button a {
+  display: block;
+  height: 100%;
+  color: #eee;
+  padding: 4px;
+}
+
+.live-button:hover, .beta-button:hover {
+  cursor: pointer;
+  background: #C71D18;
+  color: #eee;
+}
+
+.version-inactive {
+  background: #851410;
+  color: #aaa;
+  a {
+    color: #aaa;
+    &:hover {
+      color: #eee;
+    }
+  }
+}
+
+#mobile-menu-toggle {
+  display: none;
+}
+
+#navigation {
+  background: #222;
+  margin: 20px 0 0 0;
+}
+
+#navi-hold ul {
+  list-style: none;
+  margin: 0 5px 0 5px;
+  padding: 0;
+  li {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    a {
+      display: inline-block;
+      padding: 15px;
+      margin: 0;
+      color: #FED000;
+      font-family: 'Pathway Gothic One', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      span {
+        vertical-align: text-bottom;
+        padding: 0 0 0 3px;
+        color: #555;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.menu-community {
+  float: right;
+  margin: 0;
+  padding: 0;
+  img {
+    max-width: 30px;
+    vertical-align: text-top;
+    float: left;
+    margin: 0 10px 0 0;
+  }
+}
+
+#sub-menu-hold {
+  border-top: 1px solid #333;
+  height: 55px;
+  display: none;
+  position: relative;
+  top: 0;
+  width: 100%;
+  ul {
+    margin: 0 0 0 10px;
+    width: 100%;
+    height: 100%;
+    li {
+      height: 100%;
+      min-width: 80px;
+      position: relative;
+      text-align: center;
+      a {
+        display: inline-block;
+        padding: 18px 5px 15px 5px;
+        margin: 0 0 0 10px;
+        color: #FED000;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: none;
+        font-size: .9em;
+        text-align: center;
+        img {
+          width: 50px;
+          margin: 0 5px 5px 0;
+          clear: both;
+          display: block;
+          margin: 0 auto;
+        }
+        &:hover {
+          color: #fff;
+          background: none;
+        }
+      }
+    }
+  }
+}
+
+.menu-hovered {
+  background: #FED000;
+  color: #222 !important;
+}
+
+#mobile-search {
+  display: none;
+  margin: 20px 0 0 0;
+  background: blue;
+}
+
+#mobile-searchbar input {
+  font-family: 'Pathway Gothic One', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 1.3px;
+  font-weight: lighter;
+  transition: all 0.3s ease;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background: #222;
+  border: 1px solid #222;
+  color: #ddd;
+  &:focus {
+    outline: 0;
+    border: 1px solid #555;
+  }
+}

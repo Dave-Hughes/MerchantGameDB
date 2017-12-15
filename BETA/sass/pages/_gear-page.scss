@@ -1,0 +1,54 @@
+/* GEAR Page Styles */
+
+.gear-table {
+  width: 70%;
+  max-width: 385px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  min-height: 60px;
+  td {
+    padding: 2px 5px 2px 5px;
+  }
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.gear-header-row {
+  background: #222;
+}
+
+.gear-table h3 {
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.gear-cost {
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.gear-tier {
+  text-align: right;
+}
+
+.bonus-stats {
+  font-size: .9em;
+  text-align: center;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+  color: #666;
+}
+
+.prefix-stat {
+  color: #497A2A;
+  font-weight: bold;
+}
+
+.bonus-stats {
+  font-size: .9em;
+  text-align: center;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+  color: #666;
+}

@@ -1,0 +1,33 @@
+/* Potion page styles */
+
+.potion-table {
+  width: 70%;
+  max-width: 310px;
+  border: 2px solid #bbb;
+  font-size: .9em;
+  min-height: 60px;
+  td {
+    padding: 2px 5px 2px 5px;
+  }
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.potion-header-row {
+  background: #222;
+}
+
+.potion-table h3 {
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.potion-cost {
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.potion-tier {
+  text-align: right;
+}

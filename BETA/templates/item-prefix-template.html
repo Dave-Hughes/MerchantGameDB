@@ -1,0 +1,9 @@
+<div class="prefix-adjustment-hold">
+  <label>Prefix</label>
+  <select id="prefix-select"
+            ng-options="k as v.name for (k, v) in listOfPrefix"
+            ng-model="prefix"
+            ng-init="prefix=prefix"
+            ng-change="suffixPrefixChange()">
+  </select>
+</div>

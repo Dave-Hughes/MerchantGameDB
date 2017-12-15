@@ -1,0 +1,151 @@
+/* Extra small devices (phones, less than 450px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767px) {
+  #live-beta-button-hold, #side-bar {
+    display: none;
+  }
+  #top-bar {
+    margin: 30px auto 20px auto;
+  }
+  #search-hold, #navigation {
+    display: none;
+  }
+  #mobile-menu-toggle, #mobile-search {
+    display: block;
+  }
+  .footer-col {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  #urls-popup {
+    width: 90%;
+    ul li {
+      margin: 0 5px 0 5px;
+      width: 130px;
+    }
+  }
+  #comparison-prompt {
+    width: 90%;
+    max-width: 1000px;
+  }
+  #comparison-prompt-content {
+    margin: 20px 25px;
+    table {
+      font-size: .9em;
+    }
+  }
+  .guide h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  #content-hold {
+    padding: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    box-sizing: border-box;
+    display: block;
+    min-height: 50px;
+  }
+  #main-content {
+    background: #F3F3F3;
+    padding: 20px 8px;
+    img {
+      image-rendering: pixelated;
+    }
+  }
+  #side-bar {
+    display: none;
+  }
+  #top-bar {
+    margin: 15px auto 15px auto;
+  }
+  #logo-hold {
+    height: 60px;
+    img {
+      max-width: 60px;
+    }
+    span {
+      font-size: 2em;
+      margin-left: 7px;
+    }
+  }
+  #mobile-menu-toggle {
+    margin: 20px 0 0 0;
+    a {
+      font-size: 2.5em;
+    }
+  }
+  #mobile-search {
+    margin-top: 12px;
+  }
+  .quest-image-holder {
+    margin-right: 0;
+  }
+  .quest-table {
+    width: 60%;
+  }
+  .hero-page h2 {
+    font-size: 2em;
+  }
+  .hero-page-avatar {
+    float: left;
+    width: 130px;
+    margin: 0 0 35px 0;
+  }
+  .home-content-col {
+    width: 100%;
+    margin: 20px auto;
+  }
+  .guide-content {
+    .alignright, .alignleft {
+      float: none;
+      padding: 0;
+      margin: 0 auto 0 auto;
+      display: block;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer .col-xs-6 {
+    clear: both;
+    width: 100%;
+  }
+  .quest-table {
+    float: right;
+  }
+  #logo-hold {
+    height: 50px;
+    img {
+      max-width: 50px;
+    }
+    span {
+      font-size: 1.8em;
+      margin-left: 7px;
+    }
+  }
+  #mobile-menu-toggle {
+    margin: 15px 0 0 0;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  body {
+    background: purple;
+  }
+}

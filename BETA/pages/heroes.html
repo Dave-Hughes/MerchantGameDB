@@ -1,0 +1,158 @@
+<div class='hero-page'>
+  <img class='hero-page-avatar' ng-src="img/Img_{{hero.name | spaceless}}.png">
+  <h2>The {{hero.name}}</h2>
+  <p>{{hero.desc1}} {{hero.desc2}}.</p>
+
+  <hr>
+
+  <h3>The Role of the {{hero.name}}</h3>
+  <p ng-include src="heroRole"></p>
+
+
+  <h3>How to unlock</h3>
+  <p ng-include src="heroUnlock"></p>
+
+  <h3>Starting / Level 50 Stats</h3>
+	Ascension:
+		<select ng-model="anc" ng-init="anc='0'">
+			<option value="0">No Ascension</option>
+			<option value="1">First Ascension</option>
+			<option value="2">Second Ascension</option>
+		</select>
+  <table>
+    <thead>
+      <tr>
+        <th scope='col'>Stat</th>
+        <th scope='col'>Starting</th>
+        <th scope='col'>Per Level</th>
+        <th scope='col'>Level 50</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan='4'>
+          Shown: {{hero.name}} stats data.
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <th scope='row'>Health</th>
+        <td>{{hero.hp}}</td>
+        <td>{{hero.hpPlv[anc]}}</td>
+        <td>{{hero.hp + hero.hpPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Physical Attack</th>
+        <td>{{hero.atk}}</td>
+        <td>{{hero.atkPlv[anc]}}</td>
+        <td>{{hero.atk + hero.atkPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Magical Attack</th>
+        <td>{{hero.matk}}</td>
+        <td>{{hero.matkPlv[anc]}}</td>
+        <td>{{hero.matk + hero.matkPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Accuracy</th>
+        <td>{{hero.acc}}</td>
+        <td>{{hero.accPlv[anc]}}</td>
+        <td>{{hero.acc + hero.accPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Crit</th>
+        <td>{{hero.crit}}</td>
+        <td>{{hero.critPlv[anc]}}</td>
+        <td>{{hero.crit + hero.critPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Physical Defense</th>
+        <td>{{hero.def}}</td>
+        <td>{{hero.defPlv[anc]}}</td>
+        <td>{{hero.def + hero.defPlv[anc]*50}}</td>
+      </tr>
+      <tr>
+        <th scope='row'>Magical Defense</th>
+        <td>{{hero.mdef}}</td>
+        <td>{{hero.mdefPlv[anc]}}</td>
+        <td>{{hero.mdef + hero.mdefPlv[anc]*50}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Stat Scaling</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Physical Attack</th>
+        <th>Magical Attack</th>
+        <th>Accuracy</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan='3'>
+          Stat increase for 1 (STR / INT / DEX).
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>{{hero.strMod[anc]}} Per 1 Str</td>
+        <td>{{hero.intMod[anc]}} Per 1 Int</td>
+        <td>{{hero.dexMod[anc]}} Per 1 Dex</td>
+      </tr>
+    </tbody>
+  </table>
+	
+	<h3>Abilities</h3>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="3">Passive abilities</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="3">{{hero.name}}'s passive abilities</td>
+		</tfoot>
+		<tbody>
+			<tr ng-repeat="ability in hero.passiveList">
+				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td>{{ability}}</td>
+				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="4">Active abilities</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>AP</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="4">{{hero.name}}'s active abilities</td>
+		</tfoot>
+		<tbody>
+			<tr ng-repeat="ability in hero.skillList">
+				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td>{{ability}}</td>
+				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+				<td>{{jsonAbility[ability].apCost}}</td>
+			</tr>
+		</tbody>
+</div>

@@ -1,0 +1,73 @@
+<div class='object-image item-quality-{{potion.rarity}}-bg'>
+	<img ng-src="assets/{{potion.image}}">
+</div>
+
+<!-- Copy URL Button -->
+<div item-page-copy-button></div>
+
+<table class='mats-table'>
+	<tr>
+		<td colspan=1 class='mats-name'>
+			<h3>{{potion.name}}</h3>
+		</td>
+		<td class="mats-cost">{{potion.sell[0]}} - {{potion.sell[1]}}<img class='coin-img' ng-src="img/coin.png"></td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			Level {{potion.itemLevel}}
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>{{potion.desc1}} {{potion.desc2}}</td>
+	</tr>
+	<tr>
+		<td colspan=2>Created by the Alchemist</td>
+	</tr>
+</table>
+
+
+<table class="crafting-reagents-table">
+	<caption>Potion Recipe</caption>
+	<tr>
+		<th></th>
+		<th>Item Name</th>
+		<th>Amount</th>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;<img ng-src="img/coin.png"></td>
+		<td><a class="quality-1">Gold</a></td>
+		<td>{{potion.cost}}</td>
+	</tr>
+	<tr ng-repeat="craft in craftedBy">
+		<td><img ng-src="assets/{{craft.icon}}"></td>
+		<td><a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a></td>
+		<td>{{craft.amount}}</td>
+	</tr>
+</table>
+
+
+<table ng-show="{{craft}}" class='crafting-reagents-table'>
+	<caption>Used to Craft</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Item Name</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="craf in craft">
+		<td><img ng-src="assets/{{craf.image}}"></td>
+		<td><a class="quality-{{craf.rarity}}" href="#!/items/potion/{{craf.name}}">{{craf.name}}</a></td>
+		<td>{{craf.amount}}</td>
+	</tr>
+</table>
+
+<div class="item-url-hold">
+	<label>Unique Item URL:</label>
+	<ul class="url-tabs">
+		<li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+		<li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+	</ul>
+	<input id="generatedLink" readonly>
+	<input class="hide" id="generatedLink-reddit" readonly>
+</div>

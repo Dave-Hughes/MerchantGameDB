@@ -1,0 +1,50 @@
+/* Global Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #333333;
+  color: #555;
+}
+
+snap-content {
+  background: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.center {
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.alt-h1 {
+  background: #333;
+  font-size: 2.5em;
+  margin: 0;
+  padding: 10px;
+  color: #ddd;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+ul {
+  list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

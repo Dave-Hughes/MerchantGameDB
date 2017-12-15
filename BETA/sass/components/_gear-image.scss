@@ -1,0 +1,100 @@
+.object-image span {
+  height: 20px;
+  width: 20px;
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.item-quality-1-bg, .item-quality-2-bg, .item-quality-3-bg, .item-quality-4-bg, .item-quality-5-bg {
+  image-rendering: pixelated;
+}
+
+.item-grade-S {
+  background: url("../img/grades/quest_grade_S-edit.png");
+}
+
+.item-grade-A {
+  background: url("../img/grades/quest_grade_A-edit.png");
+}
+
+.item-grade-B {
+  background: url("../img/grades/quest_grade_B-edit.png");
+}
+
+.item-grade-C {
+  background: url("../img/grades/quest_grade_C-edit.png");
+}
+
+.item-grade-D {
+  background: url("../img/grades/quest_grade_D-edit.png");
+}
+
+.item-quality-1-bg {
+  background: url("../img/item-quality-1-bg.png");
+}
+
+.item-quality-2-bg {
+  background: url("../img/item-quality-2-bg.png");
+}
+
+.item-quality-3-bg {
+  background: url("../img/item-quality-3-bg.png");
+}
+
+.item-quality-4-bg {
+  background: url("../img/item-quality-4-bg.png");
+}
+
+.item-quality-5-bg, .item-quality-6-bg, .item-quality-7-bg, .item-quality-8-bg, .item-quality-9-bg, .item-quality-10-bg, .item-quality-11-bg, .item-quality-12-bg {
+  background: url("../img/item-quality-5-bg.png");
+}
+
+.quality-1 {
+  color: #000;
+  font-weight: bold;
+}
+
+.quality-2 {
+  color: #497A2A;
+  font-weight: bold;
+}
+
+.quality-3 {
+  color: #2A5EA1;
+  font-weight: bold;
+}
+
+.quality-4 {
+  color: #8A2F92;
+  font-weight: bold;
+}
+
+.quality-5, .quality-6, .quality-7, .quality-8, .quality-9, .quality-10, .quality-11, .quality-12 {
+  color: #C06D2C;
+  font-weight: bold;
+}
+
+.object-image {
+  position: relative;
+  image-rendering: pixelated;
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  float: left;
+  margin: 0 15px 0 0;
+  -webkit-box-shadow: 4px 4px 17px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 17px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 17px -4px rgba(0, 0, 0, 0.75);
+  img {
+    width: 95%;
+    padding-top: 2px;
+    margin: 0 auto 0 auto;
+    display: block;
+  }
+}

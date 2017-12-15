@@ -1,0 +1,131 @@
+<div class='object-hold'>
+  <div class='object-image item-quality-{{item.rarity + suffixNum + prefixNum}}-bg'>
+    <img ng-src="assets/{{item.image}}">
+    <span class="item-grade-{{grade}}"></span>
+  </div>
+
+  <!-- Grade Adjustment -->
+  <div item-grade></div>
+
+  <!-- Suffix Adjustment -->
+  <div item-suffix></div>
+
+  <!-- Prefix Adjustment -->
+  <div item-prefix></div>
+
+  <!-- Copy URL Button -->
+  <div item-page-copy-button></div>
+
+  <!-- Compare Button -->
+  <div item-page-compare-button></div>
+
+  <table class='gear-table'>
+    <tr>
+      <td class='gear-name'>
+        <h3 class="quality-{{item.rarity + suffixNum + prefixNum}}"><span id="prefix-hold">{{prefixStat.name}} </span><span class="item-name">{{item.name}}</span> <span class="hide" id="add-suffix">+<span id="suffix-alone">{{suffix}}</span></span></h3>
+      </td>
+      <td class='gear-cost'>
+        {{rarityMod[item.rarity + suffixNum + prefixNum].min * item.value}}-{{rarityMod[item.rarity + suffixNum + prefixNum].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2 class='gear-type'><span id="primary-type">Weapon</span> - {{item.subType}}</td>
+    </tr>
+    <tr>
+      <td>Level {{item.itemLevel}}</td>
+      <td class='gear-tier'>Tier {{Math.floor ((item.itemLevel-0.1)/10 + 1)}}</td>
+    </tr>
+    <tr>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.atkBase + itemBaseStat.atkLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Physical Attack</td>
+    </tr>
+    <tr>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number: 0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.matkBase + itemBaseStat.matkLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number: 0}} Magical Attack</td>
+    </tr>
+    <tr>
+      <td colspan=2>{{Math.ceil(Math.ceil( (itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * minGradeModifier ) * suffixMod ) | number:0}} - 
+										{{Math.ceil(Math.ceil( (itemBaseStat.accBase + itemBaseStat.accLvl*item.itemLevel) * maxGradeModifier ) * suffixMod ) | number:0}} Accuracy</td>
+    </tr>
+
+     <!-- Bonus Stats -->
+    <tr class='bonus-stat-row'>
+      <td colspan=2 class='bonus-stats'>Additional Stats</td>
+    </tr>
+    <tr ng-repeat="(key, value) in item.bonusStat">
+      <td colspan=2>
+        {{key | changeStat}}: {{value[0] | grade:minGradeModifier }}-{{ value[1] | grade:maxGradeModifier}}
+      </td>
+    </tr>
+    <tr ng-show="prefix">
+			<td colspan="2">
+        <span class="prefix-stat" ng-repeat="(k, v) in prefixStat.stats">
+					+{{v | fixPercentStat:k}} {{k | changeStat}} ({{prefixStat.name}})
+				</span>
+			</td>
+		</tr>
+  </table>
+
+  <div class="clear"></div>
+
+<!-- Display table showing what items are needed to craft weapon -->
+<table class='crafting-reagents-table'>
+  <caption>Weapon Recipe</caption>
+  <thead>
+    <tr>
+      <th class='center'></th>
+      <th>Item Name</th>
+      <th class='center'>Amount</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='3'>
+        Weapon recipe information for {{item.name}}.
+      </td>
+    </tr>
+  </tfoot>
+  <tbody class='crafting-reagents-table-body'>
+		<tr>
+			<td class='center'><img ng-src="img/coin.png"></td>
+			<td><a class="quality-1">Gold</a></td>
+			<td class='center'>{{item.cost}}</td>
+		</tr>
+    <tr ng-repeat="mat in material" class='row-poop'>
+      <td class='center'><img ng-src='assets/{{mat.icon}}'></td>
+      <td><a class='quality-{{mat.rarity}}' href="#!/items/{{mat.what}}/{{mat.name}}">{{mat.name}}</a></td>
+      <td class='center'>{{mat.amount}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Display table showing what items the current item is used to craft -->
+<table ng-show="{{craft != ''}}" class='crafting-reagents-table'>
+	<caption>Used to Craft</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Item Name</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="craf in craft">
+		<td><img ng-src="assets/{{craf.image}}"></td>
+		<td><a class="quality-{{craf.rarity}}" href="#!/items/weapon/{{craf.name}}">{{craf.name}}</a></td>
+		<td>{{craf.amount}}</td>
+	</tr>
+</table>
+
+<!-- Unique Item URLs:
+  Nescisary. Some browsers may not be able to use copy button.
+  Also, need an html <input> for the copy function to select the text from.
+-->
+<div class="item-url-hold">
+  <label>Unique Item URL:</label>
+  <ul class="url-tabs">
+    <li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
+    <li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
+  </ul>
+  <input id="generatedLink" readonly>
+  <input class="hide" id="generatedLink-reddit" readonly>
+</div>

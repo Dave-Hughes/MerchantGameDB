@@ -1,0 +1,17 @@
+<div class="" ng-class="::Filter.cssClass">
+    <h3>{{::Filter.title}}</h3>
+    <table>
+        <tr>
+            <td>
+                <span class="selectButton" ng-click="Filter.selectAll()">!ALL!</span>
+            </td>
+            <td>
+                <ng-repeat ng-repeat="(key,data) in ::Filter.options">
+                    <input ng-attr-id="{{::Filter.getId(key)}}" type="checkbox" ng-model="data.selected" />
+                    <label ng-class="{'filter-selected': data.selected}" ng-attr-for="{{::Filter.getId(key)}}">{{::data.title}}</label>
+                    <br ng-if="::Filter.needBreak($index, $last)" />
+                </ng-repeat>
+            </td>
+        </tr>
+    </table>
+</div>
