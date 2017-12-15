@@ -1,0 +1,45 @@
+.gear-options {
+  padding: 10px;
+  margin: 20px 0 0 0;
+  width: 92%;
+  max-width: 400px;
+  h4 {
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+.suffix-adjustment-hold label, .prefix-adjustment-hold label, .grade-adjustment-hold label {
+  font-size: .8em;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.suffix-adjustment-hold, .prefix-adjustment-hold, .grade-adjustment-hold {
+  padding: 0px 8px 4px 8px;
+  background: #ccc;
+  overflow: hidden;
+  width: 75px;
+  display: inline-block;
+  text-align: center;
+  float: left;
+  clear: left;
+  margin: 10px 0 0 0;
+}
+
+.suffix-adjustment-hold select, .prefix-adjustment-hold select, .grade-adjustment-hold select {
+  transition: all 0.3s ease;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  clear: both;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+}

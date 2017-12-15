@@ -1,0 +1,83 @@
+/*Comparison Prompt*/
+
+#comparison-prompt {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  background: #333;
+}
+
+#comparison-prompt-content {
+  margin: 30px 50px;
+  h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #eee;
+    text-transform: uppercase;
+  }
+  p {
+    color: #ddd;
+  }
+  table {
+    border: 1px solid #000;
+    width: 100%;
+    background: #eee;
+    td {
+      padding: 5px 0;
+    }
+  }
+}
+
+#comparison-prompt-remove1, #comparison-prompt-remove2 {
+  text-align: center;
+  color: #D9534F;
+}
+
+#comparison-prompt-remove1:hover, #comparison-prompt-remove2:hover {
+  cursor: pointer;
+  color: #A6201C;
+}
+
+#comparison-prompt-remove1 span, #comparison-prompt-remove2 span {
+  font-size: 1.5em;
+}
+
+#comparison-prompt-item1-icon, #comparison-prompt-item2-icon {
+  text-align: center;
+}
+
+#comparison-prompt-item1-icon img, #comparison-prompt-item2-icon img {
+  image-rendering: pixelated;
+  width: 25px;
+}
+
+#comparison-prompt-confirm-button, #comparison-prompt-final-button {
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.prompt-close-button {
+  background: #FED000;
+  border-radius: 0px 0px 0px 200px;
+  -moz-border-radius: 0px 0px 0px 200px;
+  -webkit-border-radius: 0px 0px 0px 200px;
+  border: 0px solid #000000;
+  width: 30px;
+  height: 30px;
+  color: #222;
+  padding: 4px 0 0 10px;
+  float: right;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+    padding-top: 5px;
+  }
+}

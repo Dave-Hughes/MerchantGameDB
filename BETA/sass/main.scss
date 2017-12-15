@@ -1,0 +1,48 @@
+/* VENDOR - Default fall-backs and external files.
+========================================================================== */
+@import 'layout/bootstrap-overrides';
+
+/* BASE - Base Variable file along with starting point Mixins and Placeholders.
+========================================================================== */
+@import 'base/globals';
+@import 'base/fonts';
+
+/* LAYOUT - Structure and layout files.
+========================================================================== */
+@import 'layout/topbar';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/main-content';
+
+/* COMPONENTS - Elements used throughout the website.
+========================================================================== */
+@import 'components/gear-image';
+@import 'components/mobile-menu';
+@import 'components/reddit-widget';
+@import 'components/disqus';
+@import 'components/guides';
+@import 'components/url-popups';
+@import 'components/gear-options';
+@import 'components/url-hold';
+@import 'components/comparison-prompts';
+@import 'components/crafting-reagents-table';
+@import 'components/search-dropdown';
+@import 'components/coin-img';
+@import 'components/copy-compare-buttons';
+
+/* PAGES - Styles that are unique to individual pages.
+========================================================================== */
+@import 'pages/hero';
+@import 'pages/materials';
+@import 'pages/potions';
+@import 'pages/main-home';
+@import 'pages/comparison-page';
+@import 'pages/item-filter-pages';
+@import 'pages/guides';
+@import 'pages/gear-page';
+@import 'pages/quest';
+@import 'pages/region-page';
+
+/* MEDIA QUERIES - Style overrides for different screen sizes.
+========================================================================== */
+@import 'layout/media-queries';

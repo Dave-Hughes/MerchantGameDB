@@ -1,0 +1,79 @@
+/*HERO PAGES*/
+
+.hero-page {
+  padding: 15px;
+  margin: 0;
+  padding-top: 10px;
+  max-width: 600px;
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  h2 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.5em;
+    background: #222;
+    color: #ddd;
+    padding: 8px;
+    display: inline-block;
+    margin: 0 0 10px 0;
+  }
+}
+
+.hero-page-avatar {
+  image-rendering: pixelated;
+  float: left;
+  width: 150px;
+  margin: 0 15px 35px 0;
+}
+
+.hero-page {
+  h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+    clear: both;
+    margin: 30px 0 5px 0;
+  }
+  table {
+    border: 1px solid #bbb;
+    width: 100%;
+    th {
+      border-bottom: 1px solid #bbb;
+    }
+  }
+  td {
+    padding: 5px 7px;
+  }
+}
+
+th {
+  padding: 5px 7px;
+}
+
+.hero-page {
+  thead {
+    background: #aaa;
+    th {
+      height: 40px;
+      text-align: center;
+    }
+  }
+  tbody tr {
+    border-bottom: 1px solid #bbb;
+    &:nth-child(even) {
+      background: #ccc;
+    }
+    td {
+      text-align: center;
+    }
+  }
+  tfoot td {
+    font-style: italic;
+    font-size: .9em;
+    padding: 8px;
+  }
+}
