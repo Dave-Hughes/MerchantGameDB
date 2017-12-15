@@ -1,0 +1,97 @@
+.region-table {
+  width: 100%;
+  margin: 30px 0 0 0;
+  thead {
+    background: #555;
+    color: #eee;
+    tr th {
+      padding: 15px 0;
+    }
+  }
+  tbody tr td {
+    padding: 3px 2px;
+  }
+}
+
+.region-quest-icon {
+  width: 10%;
+}
+
+.region-quest-name {
+  width: 40%;
+  text-align: center;
+}
+
+.region-quest-status {
+  width: 15%;
+}
+
+.region-quest-level, .region-quest-cost {
+  width: 10%;
+}
+
+.region-quest-party {
+  width: 15%;
+}
+
+.region-table tbody:nth-child(odd) {
+  background: #ddd;
+}
+
+.toggle {
+  display: none;
+}
+
+.region-page h2 {
+  font-family: 'Pathway Gothic One', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em;
+  background: #222;
+  color: #ddd;
+  padding: 8px;
+  display: inline-block;
+  margin: 0 0 10px 0;
+}
+
+.sub-tables {
+  padding: 10px;
+}
+
+.region-drops-table {
+  width: 60%;
+  border: 1px solid #222;
+  float: left;
+  thead {
+    max-height: 20px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.region-stats-table thead {
+  max-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.region-drops-table tbody tr td, .region-stats-table tbody tr td {
+  padding: 5px 0;
+  margin: 5px 0;
+}
+
+.region-table-header {
+  background: red;
+  text-align: center;
+}
+
+.region-drops-table thead tr {
+  padding: 0;
+  margin: 0;
+}
+
+.region-stats-table {
+  width: 40%;
+  border: 1px solid #222;
+  float: left;
+}

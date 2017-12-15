@@ -18,6 +18,9 @@ module.exports = {
       //log({ format: '%date %status %method %url' }),
       fallback({
         index: '/index.html',
+        rewrites: [
+          { from: /\/BETA/, to: '/BETA/index.html'}
+        ],
         htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'] // systemjs workaround
       })
     ]
