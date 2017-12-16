@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"gulp",
-    "dev":"gulp dev"
+    "start": "gulp",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,6 @@
   },
   "homepage": "https://github.com/Chirpizard/MerchantGameDB#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-ng-annotate": "^2.0.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-uglify": "^1.5.3",
     "lite-server": "^2.2.2"
   },
   "dependencies": {
@@ -32,7 +27,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-order": "^1.1.1",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^3.1.0",
     "gulp-uglify": "^1.5.3"
   }
 }
