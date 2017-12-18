@@ -42,11 +42,11 @@ angular.module("mainApp").service("filtersService", function () {
 
     self.getSpecialTypes = function () {
         return {
-            "Dagger": { title: "Rod" },
-            "Sword": { title: "Pole" },
-            "Hatchet": { title: "Trident" },
-            "Knife": { title: "Spellsword" },
-            "Longsword": { title: "Scythe" },
+            "Rod": { title: "Rod" },
+            "Pole": { title: "Pole" },
+            "Trident": { title: "Trident" },
+            "Spellsword": { title: "Spellsword" },
+            "Scythe": { title: "Scythe" },
         }
     }
 
