@@ -112,7 +112,7 @@ $(document).on("click", ".prompt-close-button", function() {
 function displayFirstCompareItem() {
 		//Set item 1's name and icon
 		var item1Name 	= $(".item-name").text();
-		var item1Icon 	= "<img src="+$(".object-image img").attr('src')+">";
+		var item1Icon 	= "<img src='"+$(".object-image img").attr('src')+"'>";
 		var item1Prefix =	$("#prefix-hold").text();
 		var item1Suffix = $("#suffix-alone").text();
 		var item1Type		= $("#primary-type").text();
@@ -152,7 +152,7 @@ function displayFirstCompareItem() {
 function displayBothCompareItems(hasError) {
 		//Set item 2's name and icon
 		var item2Name = $(".item-name").text();
-		var item2Icon = "<img src="+$(".object-image img").attr('src')+">";
+		var item2Icon = "<img src='"+$(".object-image img").attr('src')+"'>";
 		var item2Prefix =	$("#prefix-hold").text();
 		var item2Suffix = $("#suffix-alone").text();
 
@@ -578,6 +578,7 @@ function regionById(id) {
 	else if (id == 3) { region = "Aldur Highlands"}
 	else if (id == 4) { region = "Vulkrum Badlands"}
 	else if (id == 5) { region = "Grimhal Volcano"}
+	else if (id == 6) { region = "Frentir Chasm"}
 	return region;
 }
 
@@ -960,6 +961,7 @@ function getQuestNamesByRegioName(name) {
 	else if(name == "Aldur Highlands"){regio = 3}
 	else if(name == "Vulkrum Badlands"){regio = 4}
 	else if(name == "Grimhal Volcano"){regio = 5}
+	else if(name == "Frentir Chasm"){regio = 6}
 
 	var names = [];
 	$.each(jsonQuests, function(index, val)
