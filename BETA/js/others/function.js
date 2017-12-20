@@ -112,7 +112,7 @@ $(document).on("click", ".prompt-close-button", function() {
 function displayFirstCompareItem() {
 		//Set item 1's name and icon
 		var item1Name 	= $(".item-name").text();
-		var item1Icon 	= "<img src="+$(".object-image img").attr('src')+">";
+		var item1Icon 	= "<img src='"+$(".object-image img").attr('src')+"'>";
 		var item1Prefix =	$("#prefix-hold").text();
 		var item1Suffix = $("#suffix-alone").text();
 		var item1Type		= $("#primary-type").text();
@@ -152,7 +152,7 @@ function displayFirstCompareItem() {
 function displayBothCompareItems(hasError) {
 		//Set item 2's name and icon
 		var item2Name = $(".item-name").text();
-		var item2Icon = "<img src="+$(".object-image img").attr('src')+">";
+		var item2Icon = "<img src='"+$(".object-image img").attr('src')+"'>";
 		var item2Prefix =	$("#prefix-hold").text();
 		var item2Suffix = $("#suffix-alone").text();
 
