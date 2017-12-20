@@ -23,7 +23,11 @@
       <table class='gear-table'>
         <tr>
           <td class='gear-name'>
-            <h3 class="quality-{{::finalRarity}}"><span id="prefix-hold">{{prefixStat.name}} </span><span class="item-name">{{item.name}}</span> <span class="hide" id="add-suffix">+<span id="suffix-alone">{{suffix}}</span></span></h3>
+            <h3 class="quality-{{::finalRarity}}">
+              <span id="prefix-hold">{{prefixStat.name}} </span>
+              <span class="item-name">{{item.name}}</span> 
+              <span ng-if="hasSuffix">+<span id="suffix-alone">{{suffix}}</span></span>
+            </h3>
           </td>
           <td class='gear-cost'>
             {{::rarityMod[finalRarity].min * item.value}}-{{rarityMod[finalRarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
