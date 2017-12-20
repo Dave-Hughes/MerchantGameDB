@@ -394,8 +394,11 @@ footer {
 .item-quality-4-bg {
   background: url("../img/item-quality-4-bg.png"); }
 
-.item-quality-5-bg, .item-quality-6-bg, .item-quality-7-bg, .item-quality-8-bg, .item-quality-9-bg, .item-quality-10-bg, .item-quality-11-bg, .item-quality-12-bg {
+.item-quality-5-bg, .item-quality-6-bg {
   background: url("../img/item-quality-5-bg.png"); }
+
+.item-quality-7-bg, .item-quality-8-bg, .item-quality-9-bg, .item-quality-10-bg, .item-quality-11-bg, .item-quality-12-bg {
+  background: url("../img/item-quality-7-bg.png"); }
 
 .quality-1 {
   color: #000;
@@ -413,8 +416,12 @@ footer {
   color: #8A2F92;
   font-weight: bold; }
 
-.quality-5, .quality-6, .quality-7, .quality-8, .quality-9, .quality-10, .quality-11, .quality-12 {
+.quality-5, .quality-6 {
   color: #C06D2C;
+  font-weight: bold; }
+
+.quality-7, .quality-8, .quality-9, .quality-10, .quality-11, .quality-12 {
+  color: #872217;
   font-weight: bold; }
 
 .object-image {
