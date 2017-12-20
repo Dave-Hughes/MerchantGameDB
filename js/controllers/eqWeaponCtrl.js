@@ -1,6 +1,6 @@
 //Controller for Weapons
 angular.module('mainApp')
-	.controller('eqWeaponCtrl', function($scope, $routeParams) {
+	.controller('eqWeaponCtrl', function($scope, $routeParams, itemsService) {
 		$scope.Math = Math;
 		$scope.itemID = getEquipmentIdByName($routeParams.id);
 		$scope.item = jsonEquipments[$scope.itemID];
@@ -33,38 +33,28 @@ angular.module('mainApp')
 		/****************/
 		$scope.listOfSuffix 			= jsonSuffixes;
 		$scope.suffix 						= "0";
-		$scope.suffixNum 					= 0;
+		$scope.hasSuffix 					= false;
 		
-		if ($routeParams.suffix) { //If there is a ?suffix=x in the URL
+		if ($routeParams.suffix && $routeParams.suffix > 0) { //If there is a ?suffix=x in the URL
 			$scope.suffix = $routeParams.suffix;
+			$scope.hasSuffix = true;
 		}
-		function suffixChange() {
-			$scope.suffixMod = 1 + getSuffixMod($scope.suffix);
-			if($scope.suffix > 0) { //+1 color if have suffix
-				$("#add-suffix").removeClass("hide");
-				$scope.suffixNum = 1;
-			}
-			else {
-				$("#add-suffix").addClass("hide");
-			}
-		}
+		$scope.suffixMod = 1 + getSuffixMod($scope.suffix);
 
 		/****************/
 		/**PREFIX START**/
 		/****************/
 		$scope.listOfPrefix 			= jsonPrefixes;
 		$scope.prefix 						= "0";
-		$scope.prefixNum 					= 0;
+		$scope.hasPrefix 					= false;
 		
 		if ($routeParams.prefix) { //If there is a ?prefix=x in the URL
 			$scope.prefix = $routeParams.prefix;
 			$scope.prefixStat = jsonPrefixes[$scope.prefix];
+			$scope.hasPrefix = true;
 		}
-		function prefixChange() {
-			if ($scope.prefix != 0) { //+1 color if have prefix
-				$scope.prefixNum = 1;
-			}
-		}
+
+		$scope.finalRarity = itemsService.getItemQuality($scope.item, $scope.hasPrefix, $scope.hasSuffix)
 		
 		//ON SUFFIX/PREFIX/GRADE change
 		$scope.suffixPrefixChange = function() {
@@ -87,10 +77,5 @@ angular.module('mainApp')
 		})
 
 		$("#generatedLink").val(window.location.href);
-		$("#generatedLink-reddit").val(redditLink);
-		
-		
-		//INITIALIZE FUNCTIONS
-		prefixChange();
-		suffixChange();
+		$("#generatedLink-reddit").val(redditLink);	
 	})
