@@ -98,7 +98,7 @@ angular.module('mainApp')
 	})
 	//filter fix % stats displaying
 	.filter('fixPercentStat', function(){
-		var percentStats = ["atkPct","matkPct","defPct", "mdefPct", "accPct"];
+		var percentStats = ["atkPct","matkPct","defPct", "mdefPct", "accPct", "hpPct", "critMod"];
 
 		return function(input, statName) {
 			return percentStats.indexOf(statName) === -1 ? input : input * 100;
