@@ -28,21 +28,32 @@
 
 <table class="crafting-reagents-table">
 	<caption>Potion Recipe</caption>
-	<tr>
-		<th></th>
-		<th>Item Name</th>
-		<th>Amount</th>
-	</tr>
-	<tr>
-		<td>&nbsp;&nbsp;&nbsp;<img ng-src="img/coin.png"></td>
-		<td><a class="quality-1">Gold</a></td>
-		<td>{{potion.cost}}</td>
-	</tr>
-	<tr ng-repeat="craft in craftedBy">
-		<td><img ng-src="assets/{{craft.icon}}"></td>
-		<td><a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a></td>
-		<td>{{craft.amount}}</td>
-	</tr>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Item Name</th>
+        <th class='center'>Amount</th>
+      </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>&nbsp;&nbsp;&nbsp;<img ng-src="img/coin.png"></td>
+			<td><a class="quality-1">Gold</a></td>
+			<td>{{potion.cost}}</td>
+		</tr>
+		<tr ng-repeat="craft in craftedBy">
+			<td><img ng-src="assets/{{craft.icon}}"></td>
+			<td><a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a></td>
+			<td>{{craft.amount}}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan='3'>
+				Item recipe information for {{potion.name}}.
+			</td>
+		</tr>
+	</tfoot>
 </table>
 
 

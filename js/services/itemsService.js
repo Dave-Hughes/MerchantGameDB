@@ -22,6 +22,8 @@ angular.module("mainApp").service("itemsService", function () {
         }
         $scope.minGradeModifier = jsonGrades[$scope.grade].min;
         $scope.maxGradeModifier = jsonGrades[$scope.grade].max;
+        $scope.craftTimeMin = jsonGrades[$scope.grade].craftTimeMin;
+        $scope.craftTimeMax = jsonGrades[$scope.grade].craftTimeMax;
         $scope.gradeName = jsonGrades[$scope.grade].name;
     }
 
