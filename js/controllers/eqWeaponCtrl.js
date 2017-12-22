@@ -15,7 +15,7 @@ angular.module('mainApp')
 				$scope.material = getMaterialById($scope.item.materialID, $scope.item.materialAmount);
 			}
 		}
-		$scope.craft 							= usedToCraftFromEquipment($scope.itemID);
+		$scope.craft = usedToCraftFromEquipment($scope.itemID);
 
 		itemsService.initGradeFromRoute($scope, $routeParams);
 		itemsService.initSuffixFromRoute($scope, $routeParams);
