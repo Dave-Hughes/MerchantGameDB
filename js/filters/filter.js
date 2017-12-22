@@ -25,6 +25,41 @@ angular.module('mainApp')
     }
 	})
 
+	.filter('duration', function(){
+		function getReadableDuration(duration) {
+			var minutes = Math.floor(duration / 60);
+			var result;
+			if (duration < 600) { //less than 10 minutes
+				result = minutes + "m ";
+				var seconds = duration % 60;
+				if (seconds > 0) {
+					result += " " + seconds + "s";
+				}
+			} else if (duration < 600 * 60) {//less than 10 hours				
+				result = "~" + Math.floor(minutes / 60) + "h";
+				minutes = minutes % 60;
+				if (minutes > 0) {
+					result += " " + minutes + "m";
+				}
+			} else {//more than 10 hours
+				result = "~" + Math.round(minutes / 60) + "h";
+			}
+			return result;
+		}
+
+		return function (input, craftTimeMin, craftTimeMax) {
+			var result;
+			if (craftTimeMax == craftTimeMin) {
+				result = getReadableDuration(input * craftTimeMin);
+			} else {
+				result = getReadableDuration(input * craftTimeMin) +
+					" - " + getReadableDuration(input * craftTimeMax);
+			}
+
+			return result;
+		}
+	})
+
 	.filter('durationToDays', function(){
 		return function(input) {
 			var days = Math.round(input / 60 / 60 / 24);
@@ -78,6 +113,7 @@ angular.module('mainApp')
 		else if(input == "expMod"){input = "Exp";}
 		else if(input == "critMod"){input = "Crit%";}
 		else if(input == "apMod"){input = "AP";}
+		else if(input == "hpPct"){input = "HP%";}
 		return input;
 		}
 	})
@@ -90,14 +126,14 @@ angular.module('mainApp')
 			}else if (input < 1){
 				result = input * 100; // percent stats handling
 			}else{
-				result = input * gradeMultiplier
+				result = input * gradeMultiplier;
 			}
 			return numberFilter(Math.ceil(result), 0);
 		}
 	})
 	//filter fix % stats displaying
 	.filter('fixPercentStat', function(){
-		var percentStats = ["atkPct","matkPct","defPct", "mdefPct", "accPct"];
+		var percentStats = ["atkPct","matkPct","defPct", "mdefPct", "accPct", "hpPct", "critMod"];
 
 		return function(input, statName) {
 			return percentStats.indexOf(statName) === -1 ? input : input * 100;
