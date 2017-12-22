@@ -12,9 +12,9 @@
   <h3>How to unlock</h3>
   <p ng-include src="heroUnlock"></p>
 
-  <h3>Starting / Level 50 Stats</h3>
+  <h3>Starting / Level {{maxLevel}} Stats</h3>
 	Ascension:
-		<select ng-model="anc" ng-init="anc='0'">
+		<select ng-model="anc" ng-init="anc='0'" ng-change="fixMaxLevel()">
 			<option value="0">No Ascension</option>
 			<option value="1">First Ascension</option>
 			<option value="2">Second Ascension</option>
@@ -25,7 +25,7 @@
         <th scope='col'>Stat</th>
         <th scope='col'>Starting</th>
         <th scope='col'>Per Level</th>
-        <th scope='col'>Level 50</th>
+        <th scope='col'>Level {{maxLevel}}</th>
       </tr>
     </thead>
     <tfoot>
@@ -40,43 +40,43 @@
         <th scope='row'>Health</th>
         <td>{{hero.hp}}</td>
         <td>{{hero.hpPlv[anc]}}</td>
-        <td>{{hero.hp + hero.hpPlv[anc]*50}}</td>
+        <td>{{hero.hp + hero.hpPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Physical Attack</th>
         <td>{{hero.atk}}</td>
         <td>{{hero.atkPlv[anc]}}</td>
-        <td>{{hero.atk + hero.atkPlv[anc]*50}}</td>
+        <td>{{hero.atk + hero.atkPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Magical Attack</th>
         <td>{{hero.matk}}</td>
         <td>{{hero.matkPlv[anc]}}</td>
-        <td>{{hero.matk + hero.matkPlv[anc]*50}}</td>
+        <td>{{hero.matk + hero.matkPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Accuracy</th>
         <td>{{hero.acc}}</td>
         <td>{{hero.accPlv[anc]}}</td>
-        <td>{{hero.acc + hero.accPlv[anc]*50}}</td>
+        <td>{{hero.acc + hero.accPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Crit</th>
         <td>{{hero.crit}}</td>
         <td>{{hero.critPlv[anc]}}</td>
-        <td>{{hero.crit + hero.critPlv[anc]*50}}</td>
+        <td>{{hero.crit + hero.critPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Physical Defense</th>
         <td>{{hero.def}}</td>
         <td>{{hero.defPlv[anc]}}</td>
-        <td>{{hero.def + hero.defPlv[anc]*50}}</td>
+        <td>{{hero.def + hero.defPlv[anc]*maxLevel}}</td>
       </tr>
       <tr>
         <th scope='row'>Magical Defense</th>
         <td>{{hero.mdef}}</td>
         <td>{{hero.mdefPlv[anc]}}</td>
-        <td>{{hero.mdef + hero.mdefPlv[anc]*50}}</td>
+        <td>{{hero.mdef + hero.mdefPlv[anc]*maxLevel}}</td>
       </tr>
     </tbody>
   </table>
