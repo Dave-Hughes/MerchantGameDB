@@ -78,6 +78,7 @@ angular.module('mainApp')
 		else if(input == "expMod"){input = "Exp";}
 		else if(input == "critMod"){input = "Crit%";}
 		else if(input == "apMod"){input = "AP";}
+		else if(input == "hpPct"){input = "HP%";}
 		return input;
 		}
 	})
@@ -90,7 +91,7 @@ angular.module('mainApp')
 			}else if (input < 1){
 				result = input * 100; // percent stats handling
 			}else{
-				result = input * gradeMultiplier
+				result = input * gradeMultiplier;
 			}
 			return numberFilter(Math.ceil(result), 0);
 		}
