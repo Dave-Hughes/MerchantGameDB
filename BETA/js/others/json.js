@@ -1,84 +1,84 @@
 //Search
 var jsonSearch = "";
-$.getJSON( "json/stable/search.json", function( data ) {
+$.getJSON( "json/search.json", function( data ) {
 	jsonSearch = data;
 	});
 
 //Equipments
 var jsonEquipments = "";
-$.getJSON( "json/stable/EquipmentList.json", function( data ) {
+$.getJSON( "json/EquipmentList.json", function( data ) {
 	jsonEquipments = data;
 	});
 
 //Formulas
 var jsonFormulas = "";
-$.getJSON( "json/stable/FormulaList.json", function( data ) {
+$.getJSON( "json/FormulaList.json", function( data ) {
 	jsonFormulas = data;
 	});
 
 //Heroes
 var jsonHeroes = "";
-$.getJSON( "json/stable/HeroList.json", function( data ) {
+$.getJSON( "json/HeroList.json", function( data ) {
 	jsonHeroes = data;
 	});
 
 //Materials
 var jsonMaterials = "";
-$.getJSON( "json/stable/MaterialList.json", function( data ) {
+$.getJSON( "json/MaterialList.json", function( data ) {
 	jsonMaterials = data;
 	});
 
 //Potions
 var jsonPotions = "";
-$.getJSON( "json/stable/PotionList.json", function( data ) {
+$.getJSON( "json/PotionList.json", function( data ) {
 	jsonPotions = data;
 	});
 
 //Quests
 var jsonQuests = "";
-$.getJSON( "json/stable/QuestList.json", function( data ) {
+$.getJSON( "json/QuestList.json", function( data ) {
 	jsonQuests = data;
 	});
 
 //Prefixes
 var jsonPrefixes = "";
-$.getJSON( "json/stable/PrefixList.json", function( data ) {
+$.getJSON( "json/PrefixList.json", function( data ) {
 	jsonPrefixes = data;
 	});
 
 //Suffixes
 var jsonSuffixes = "";
-$.getJSON( "json/stable/SuffixList.json", function( data ) {
+$.getJSON( "json/SuffixList.json", function( data ) {
 	jsonSuffixes = data;
 	});
 
 //Grades
 var jsonGrades = "";
-$.getJSON( "json/stable/GradeList.json", function( data ) {
+$.getJSON( "json/GradeList.json", function( data ) {
 	jsonGrades = data;
 	});
 	
 //Bosses
 var jsonBosses = "";
-$.getJSON( "json/stable/EventList.json", function( data ) {
+$.getJSON( "json/EventList.json", function( data ) {
 	jsonBosses = data;
 	});
 	
 //Parcel
 var jsonParcel = "";
-$.getJSON( "json/stable/ParcelList.json", function( data ) {
+$.getJSON( "json/ParcelList.json", function( data ) {
 	jsonParcel = data;
 	});
 	
 //Ability
 var jsonAbility = "";
-$.getJSON( "json/stable/AbilityList.json", function( data ) {
+$.getJSON( "json/AbilityList.json", function( data ) {
 	jsonAbility = data;
 	});
 	
 //rarityMod
 var jsonRarity = "";
-$.getJSON( "json/stable/rarityMod.json", function( data ) {
+$.getJSON( "json/rarityMod.json", function( data ) {
 	jsonRarity = data;
 	});
 
