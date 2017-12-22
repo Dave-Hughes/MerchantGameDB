@@ -1,8 +1,8 @@
 
     <div class='object-hold'>
-      <div class='object-image item-quality-{{item.rarity + prefixNum}}-bg'>
-        <img ng-src="assets/{{item.image}}">
-				<span class="item-grade-{{grade}}"></span>
+      <div class='object-image item-quality-{{::finalRarity}}-bg'>
+        <img ng-src="assets/{{::item.image}}">
+        <span ng-if="grade > '0'" class="item-grade-{{::gradeName}}"></span>
       </div>
 
       <!-- Grade Adjustment -->
@@ -17,13 +17,13 @@
       <table class='gear-table'>
         <tr>
           <td class='gear-name'>
-            <h3 class="quality-{{item.rarity + prefixNum}}">
-              <span id="prefix-hold">{{prefixStat.name}} </span>
-              <span class="item-name">{{item.name}}</span> 
+            <h3 class="quality-{{::finalRarity}}">
+              <span id="prefix-hold">{{::prefixStat.name}} </span>
+              <span class="item-name">{{::item.name}}</span> 
             </h3>
           </td>
           <td class='gear-cost'>
-            {{rarityMod[item.rarity + prefixNum].min * item.value}}-{{rarityMod[item.rarity + prefixNum].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
+            {{::rarityMod[finalRarity].min * item.value}}-{{::rarityMod[finalRarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
           </td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@
       </table>
 
       <!-- Table showing what drops trinket -->
-      <table class='crafting-reagents-table' ng-show="droppedBy.length > 0">
+      <table class='crafting-reagents-table' ng-if="::droppedBy.length > 0">
         <caption>Dropped By</caption>
         <thead>
           <tr>
@@ -82,7 +82,7 @@
   	    </tbody>
   	  </table>
 			
-			<table class='crafting-reagents-table' ng-if="item.crafterID != 0">
+			<table class='crafting-reagents-table' ng-if="::item.crafterID != 0">
 				<caption>Trinket Recipe</caption>
 				<thead>
 					<tr>
@@ -92,9 +92,14 @@
 					</tr>
 				</thead>
 				<tfoot>
+          <tr>
+            <td></td>
+            <td>Crafting time: {{::item.runTime | duration :craftTimeMin: craftTimeMax}}</td>
+            <td class='center'>Experience: {{::item.experience}}</td>
+          </tr>
 					<tr>
 						<td colspan='3'>
-							Weapon recipe information for {{item.name}}.
+							Trinket recipe information for {{::item.name}}.
 						</td>
 					</tr>
 				</tfoot>
@@ -102,12 +107,12 @@
 					<tr>
 						<td class='center'><img ng-src="img/coin.png"></td>
 						<td><a class="quality-1">Gold</a></td>
-						<td class='center'>{{item.cost}}</td>
+						<td class='center'>{{::item.cost}}</td>
 					</tr>
-					<tr ng-repeat="mat in material" class='row-poop'>
-						<td class='center'><img ng-src='assets/{{mat.icon}}'></td>
-						<td><a class='quality-{{mat.rarity}}' href="#!/items/{{mat.what}}/{{mat.name}}">{{mat.name}}</a></td>
-						<td class='center'>{{mat.amount}}</td>
+					<tr ng-repeat="mat in ::material" class='row-poop'>
+						<td class='center'><img ng-src='assets/{{::mat.icon}}'></td>
+						<td><a class='quality-{{::mat.rarity}}' href="#!/items/{{::mat.what}}/{{::mat.name}}">{{::mat.name}}</a></td>
+						<td class='center'>{{::mat.amount}}</td>
 					</tr>
 				</tbody>
 			</table>

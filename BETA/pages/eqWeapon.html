@@ -1,7 +1,7 @@
 <div class='object-hold'>
     <div class='object-image item-quality-{{::finalRarity}}-bg'>
-      <img ng-src="assets/{{item.image}}">
-      <span class="item-grade-{{grade}}"></span>
+      <img ng-src="assets/{{::item.image}}">
+      <span ng-if="grade > '0'" class="item-grade-{{::gradeName}}"></span>
     </div>
   
     <!-- Grade Adjustment -->
@@ -23,13 +23,13 @@
       <tr>
         <td class='gear-name'>
           <h3 class="quality-{{::finalRarity}}">
-            <span id="prefix-hold">{{prefixStat.name}} </span>
-            <span class="item-name">{{item.name}}</span> 
+            <span id="prefix-hold">{{::prefixStat.name}} </span>
+            <span class="item-name">{{::item.name}}</span> 
             <span ng-if="hasSuffix">+<span id="suffix-alone">{{suffix}}</span></span>
           </h3>
         </td>
         <td class='gear-cost'>
-          {{::rarityMod[finalRarity].min * item.value}}-{{rarityMod[finalRarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
+          {{::rarityMod[finalRarity].min * item.value}}-{{::rarityMod[finalRarity].max * item.value}} <img class='coin-img' ng-src="img/coin.png">
         </td>
       </tr>
       <tr>
@@ -84,27 +84,39 @@
     </thead>
     <tfoot>
       <tr>
+        <td></td>
+        <td>Crafting time: {{::item.runTime | duration :craftTimeMin: craftTimeMax}}</td>
+        <td class='center'>Experience: {{::item.experience}}</td>
+      </tr>
+      <tr>
         <td colspan='3'>
-          Weapon recipe information for {{item.name}}.
+          Weapon recipe information for {{::item.name}}.
         </td>
       </tr>
     </tfoot>
     <tbody class='crafting-reagents-table-body'>
       <tr>
-        <td class='center'><img ng-src="img/coin.png"></td>
-        <td><a class="quality-1">Gold</a></td>
-        <td class='center'>{{item.cost}}</td>
+        <td class='center'>
+          <img ng-src="img/coin.png">
+        </td>
+        <td>
+          <a class="quality-1">Gold</a>
+        </td>
+        <td class='center'>{{::item.cost}}</td>
       </tr>
-      <tr ng-repeat="mat in material" class='row-poop'>
-        <td class='center'><img ng-src='assets/{{mat.icon}}'></td>
-        <td><a class='quality-{{mat.rarity}}' href="#!/items/{{mat.what}}/{{mat.name}}">{{mat.name}}</a></td>
-        <td class='center'>{{mat.amount}}</td>
+      <tr ng-repeat="mat in ::material" class='row-poop'>
+        <td class='center'>
+          <img ng-src='assets/{{mat.icon}}'>
+        </td>
+        <td>
+          <a class='quality-{{::mat.rarity}}' href="#!/items/{{::mat.what}}/{{::mat.name}}">{{::mat.name}}</a>
+        </td>
+        <td class='center'>{{::mat.amount}}</td>
       </tr>
     </tbody>
   </table>
-  
   <!-- Display table showing what items the current item is used to craft -->
-  <table ng-show="{{craft != ''}}" class='crafting-reagents-table'>
+  <table ng-if="::craft != ''" class='crafting-reagents-table'>
     <caption>Used to Craft</caption>
     <thead>
       <tr>
@@ -113,10 +125,10 @@
         <th>Amount</th>
       </tr>
     </thead>
-    <tr ng-repeat="craf in craft">
-      <td><img ng-src="assets/{{craf.image}}"></td>
-      <td><a class="quality-{{craf.rarity}}" href="#!/items/weapon/{{craf.name}}">{{craf.name}}</a></td>
-      <td>{{craf.amount}}</td>
+    <tr ng-repeat="craf in ::craft">
+      <td><img ng-src="assets/{{::craf.image}}"></td>
+      <td><a class="quality-{{::craf.rarity}}" href="#!/items/weapon/{{::craf.name}}">{{::craf.name}}</a></td>
+      <td>{{::craf.amount}}</td>
     </tr>
   </table>
   

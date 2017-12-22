@@ -1,0 +1,44 @@
+{
+    "0": {
+        "name": "No Grade",
+        "min": 0.8,
+        "max": 1.3,
+        "craftTimeMin": 0.75,
+        "craftTimeMax": 1.1
+    },
+    "1": {
+        "name": "D",
+        "min": 0.8,
+        "max": 0.9,
+        "craftTimeMin": 1.1,
+        "craftTimeMax": 1.1
+    },
+    "2": {
+        "name": "C",
+        "min": 0.9,
+        "max": 1,
+        "craftTimeMin": 1,
+        "craftTimeMax": 1
+    },
+    "3": {
+        "name": "B",
+        "min": 1,
+        "max": 1.1,
+        "craftTimeMin": 0.9,
+        "craftTimeMax": 0.9
+    },
+    "4": {
+        "name": "A",
+        "min": 1.1,
+        "max": 1.2,
+        "craftTimeMin": 0.8,
+        "craftTimeMax": 0.8
+    },
+    "5": {
+        "name": "S",
+        "min": 1.2,
+        "max": 1.3,
+        "craftTimeMin": 0.75,
+        "craftTimeMax": 0.75
+    }
+}
