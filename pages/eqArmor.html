@@ -81,6 +81,11 @@
       </thead>
       <tfoot>
         <tr>
+          <td></td>
+          <td>Crafting time: {{::item.runTime | duration :craftTimeMin: craftTimeMax}}</td>
+          <td class='center'>Experience: {{::item.experience}}</td>
+        </tr>
+        <tr>
           <td colspan='3'>
             Armor recipe information for {{item.name}}.
           </td>

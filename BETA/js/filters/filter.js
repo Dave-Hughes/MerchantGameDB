@@ -25,6 +25,41 @@ angular.module('mainApp')
     }
 	})
 
+	.filter('duration', function(){
+		function getReadableDuration(duration) {
+			var minutes = Math.floor(duration / 60);
+			var result;
+			if (duration < 600) { //less than 10 minutes
+				result = minutes + "m ";
+				var seconds = duration % 60;
+				if (seconds > 0) {
+					result += " " + seconds + "s";
+				}
+			} else if (duration < 600 * 60) {//less than 10 hours				
+				result = "~" + Math.floor(minutes / 60) + "h";
+				minutes = minutes % 60;
+				if (minutes > 0) {
+					result += " " + minutes + "m";
+				}
+			} else {//more than 10 hours
+				result = "~" + Math.round(minutes / 60) + "h";
+			}
+			return result;
+		}
+
+		return function (input, craftTimeMin, craftTimeMax) {
+			var result;
+			if (craftTimeMax == craftTimeMin) {
+				result = getReadableDuration(input * craftTimeMin);
+			} else {
+				result = getReadableDuration(input * craftTimeMin) +
+					" - " + getReadableDuration(input * craftTimeMax);
+			}
+
+			return result;
+		}
+	})
+
 	.filter('durationToDays', function(){
 		return function(input) {
 			var days = Math.round(input / 60 / 60 / 24);
