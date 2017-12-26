@@ -19,24 +19,6 @@
     text-align: left;
 }
 
-#ac-search_value {
-  float: left;
-  color: #aaa;
-  background: #222;
-  border: 0;
-  height: 45px;
-  border-radius: 0;
-  outline: none;
-  outline-color: transparent;
-  outline-style: none;
-}
-
-#ac-search_value:focus {
-  outline: none;
-  outline-color: transparent;
-  outline-style: none;
-}
-
 .angucomplete-searching {
     color: #acacac;
     font-size: 14px;
@@ -53,7 +35,7 @@
     clear: both;
 }
 
-.angucomplete-selected-row {
+.angucomplete-row:hover {
     background-color: lightblue;
     color: #ffffff;
 }

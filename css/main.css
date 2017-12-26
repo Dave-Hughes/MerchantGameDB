@@ -55,6 +55,9 @@ ul {
 a:hover {
   text-decoration: none; }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
 @font-face {
   font-family: 'Alagard';
   src: url("fonts/alagard-webfont.eot");
@@ -851,7 +854,7 @@ th {
   font-size: .9em;
   padding: 8px; }
 
-#ac-search_dropdown {
+#desktop-searchbar .angucomplete-dropdown, #mobile-searchbar .angucomplete-dropdown {
   max-height: 350px;
   overflow-y: scroll;
   overflow-x: hidden;
