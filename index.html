@@ -133,7 +133,7 @@
     <!-- Site/App Content Below -->
 
 		
-    <div id="live-beta-button-hold">
+    <div id="live-beta-button-hold" ng-cloak>
       <div class="live-button">
         <a href="/#!/">
           <span class="glyphicon glyphicon-check"></span> -->
@@ -153,27 +153,26 @@
           <!-- LOGO - SEARCH - NAVIGATION -->
           <div id="logo-hold" class="col-xs-9 col-sm-7 col-md-8">
             <a href="#!/">
-							<img src="img/Icon-TFT.png" alt="MerchantDB">
+            <img src="img/Icon-TFT.png" alt="MerchantDB">
 							<span>Merchant<span class="db">[DB]</span></span>
 						</a>
           </div>
           <div id="search-hold" class="col-xs-3 col-sm-5 col-md-4">
-            <div id="desktop-searchbar" ng-controller="searchController">
+            <div id="desktop-searchbar" ng-controller="searchController" ng-cloak>
               <div  angucomplete-alt
                     id="ac-search"
-                    placeholder="Search Database"
                     pause="200"
                     selected-object="itemSelected"
                     local-data="gameObjects"
-                    search-fields="name"
                     title-field="name"
-					          titleclass-field="rarity"
+                    template-url="/templates/autocomplete-template.html",
                     description-field="subType"
                     image-field="icon"
 					          clear-selected="true"
                     minlength="2"
                     input-class="form-control form-control-small"
-                    match-class="highlight" />
+                    local-search="limitedSearch"
+                     />
               </div>
             </div>
           </div>
@@ -183,22 +182,21 @@
         </div>
 
         <div id="mobile-search" class="row">
-            <div id="mobile-searchbar" ng-controller="searchController">
+            <div id="mobile-searchbar" ng-controller="searchController" ng-cloak>
               <div  angucomplete-alt
-                    id="ac-search"
-                    placeholder="Search Database"
-                    pause="200"
+                    id="ac-search-mobile"
+                    pause="400"
                     selected-object="itemSelected"
                     local-data="gameObjects"
-                    search-fields="name"
                     title-field="name"
-					          titleclass-field="rarity"
+                    template-url="/templates/autocomplete-template.html",
                     description-field="subType"
                     image-field="icon"
 					          clear-selected="true"
                     minlength="2"
                     input-class="form-control form-control-small"
-                    match-class="highlight" />
+                    local-search="limitedSearch"
+                     />
               </div>
             </div>
         </div>
@@ -222,7 +220,7 @@
       <section id="content-hold">
         <div class="row">
           <div id="main-content" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			       <div ng-view autoscroll></div>
+			       <div ng-view autoscroll ng-cloak></div>
 
              <div class="clear"></div>
 
@@ -391,6 +389,7 @@
 	   <!-- Javascripts: jQuery, AngularJS, ngSanitize, ngRoute, Bootstrap -->
      <script src="js/vendor/jquery-1.12.1.min.js"></script>
      <script src="js/vendor/angular-1.5.11.min.js"></script>
+     <script src="js/vendor/fuse.3.0.4.min.js"></script>
      <script src="js/modules/angular-sanitize.min.js"></script>
      <script src="js/modules/angular-route.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

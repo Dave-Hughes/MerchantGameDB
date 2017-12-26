@@ -1,25 +1,28 @@
 //Controller for Guides
 angular.module('mainApp')
-	.controller('guideCtrl', function($scope, $routeParams) {
+	.controller('guideCtrl', function ($scope, $routeParams, guidesService) {
 
-		$scope.trimDate = function(date) {
-    	var trimmedDate = trimDate(date);
-    	return trimmedDate;
-    }
+		$scope.trimDate = trimDate;
+		$scope.isLoaded = false;
+		
+		guidesService.getGuides().then(function (listOfGuides) {
+			$scope.guidesList = listOfGuides;
+			$scope.selectedGuide = guidesService.getGuideByTitle($routeParams.id);
+			$scope.guideAuthor = guidesService.getAuthorByID($scope.selectedGuide.author);
+			$scope.guideTitle = $scope.selectedGuide.title.rendered;
+			$scope.guideContent = $scope.selectedGuide.content.rendered;
+			$scope.guideDate = $scope.selectedGuide.date;
+			$scope.isLoaded = true;
+		})
 
-		$scope.selectedGuide 		= getGuideByTitle($routeParams.id);
-		$scope.guideAuthor 			= getAuthorByID($scope.selectedGuide.author);
-		$scope.guideTitle 			= $scope.selectedGuide.title.rendered;
-		$scope.guideContent 		= $scope.selectedGuide.content.rendered;
-		$scope.guideDate 				= $scope.selectedGuide.date;
 
-		var redditLink = "["+$scope.guideTitle+"]" + " (" + window.location.href + ")";
-		$("#raw-url-link").click(function() {
+		var redditLink = "[" + $scope.guideTitle + "]" + " (" + window.location.href + ")";
+		$("#raw-url-link").click(function () {
 			$("#generatedLink").show();
 			$("#generatedLink-reddit").addClass("hide");
 		})
 
-		$("#reddit-url-link").click(function() {
+		$("#reddit-url-link").click(function () {
 			$("#generatedLink").hide();
 			$("#generatedLink-reddit").removeClass("hide");
 		})
