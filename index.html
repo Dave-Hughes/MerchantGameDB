@@ -133,7 +133,7 @@
     <!-- Site/App Content Below -->
 
 		
-    <div id="live-beta-button-hold">
+    <div id="live-beta-button-hold" ng-cloak>
       <div class="live-button">
         <a href="/#!/">
           <span class="glyphicon glyphicon-check"></span> -->
@@ -153,12 +153,12 @@
           <!-- LOGO - SEARCH - NAVIGATION -->
           <div id="logo-hold" class="col-xs-9 col-sm-7 col-md-8">
             <a href="#!/">
-							<img src="img/Icon-TFT.png" alt="MerchantDB">
+            <img src="img/Icon-TFT.png" alt="MerchantDB">
 							<span>Merchant<span class="db">[DB]</span></span>
 						</a>
           </div>
           <div id="search-hold" class="col-xs-3 col-sm-5 col-md-4">
-            <div id="desktop-searchbar" ng-controller="searchController">
+            <div id="desktop-searchbar" ng-controller="searchController" ng-cloak>
               <div  angucomplete-alt
                     id="ac-search"
                     placeholder="Search Database"
@@ -183,7 +183,7 @@
         </div>
 
         <div id="mobile-search" class="row">
-            <div id="mobile-searchbar" ng-controller="searchController">
+            <div id="mobile-searchbar" ng-controller="searchController" ng-cloak>
               <div  angucomplete-alt
                     id="ac-search"
                     placeholder="Search Database"
@@ -222,7 +222,7 @@
       <section id="content-hold">
         <div class="row">
           <div id="main-content" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			       <div ng-view autoscroll></div>
+			       <div ng-view autoscroll ng-cloak></div>
 
              <div class="clear"></div>
 
