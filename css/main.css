@@ -55,6 +55,9 @@ ul {
 a:hover {
   text-decoration: none; }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
 @font-face {
   font-family: 'Alagard';
   src: url("fonts/alagard-webfont.eot");
