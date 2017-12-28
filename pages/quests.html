@@ -91,7 +91,7 @@
 	</tfoot>
 	<tbody>
 		<tr ng-repeat="ability in quest.attackList track by $index">
-			<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+			<td><div ng-class="::jsonAbility[ability].image | imageToCssClass"></div></td>
 			<td>{{ability}}</td>
 			<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
 		</tr>
@@ -119,7 +119,7 @@
 	<tbody>
 		<tr ng-show="quest.reward1[0]">
 			<td>1.</td>
-			<td class="center"><img ng-src="assets/{{mats[quest.reward1[0]-1].image}}"></td>
+			<td class="center"><div ng-class="::mats[quest.reward1[0]-1].image | imageToCssClass"></div></td>
 			<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
 			<td>{{quest.reward1[1]*0.8 | number:0}}<span ng-if="quest.reward1[2] > 1"> - {{quest.reward1[2]*1.3 | number:0}}</span></td>
 			<td>100%</td>
@@ -128,7 +128,7 @@
 	<tbody>
 		<tr ng-show="quest.reward2[0]">
 			<td>2.</td>
-			<td class="center"><img ng-src="assets/{{mats[quest.reward2[0]-1].image}}"></td>
+			<td class="center"><div ng-class="::mats[quest.reward2[0]-1].image | imageToCssClass"></div></td>
 			<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
 			<td>
 				{{quest.reward2[1]*0.8 | number:0}}
@@ -142,7 +142,7 @@
 	<tbody ng-show="reward3">
 		<tr><td rowspan="{{reward3.items.length + 2}}">3.</td><td></td><td></td><td></td><td></td></tr>
 		<tr ng-repeat="item in reward3.items">
-			<td class="center"><img ng-src="assets/{{item.image}}"></td>
+			<td class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/{{item.type}}/{{item.name}}">{{item.name}}</a></td>
 			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
 			<td>{{item.odd/(reward3.totalOdds+reward3.nilOdds*1.25)*100 |number:2 }}% - {{item.odd/(reward3.totalOdds+reward3.nilOdds*0.75)*100 |number:2 }}%</td>
@@ -152,7 +152,7 @@
 	<tbody ng-show="reward4">
 		<tr><td rowspan="{{reward4.items.length + 2}}">4.</td><td></td><td></td><td></td><td></td></tr>
 		<tr ng-repeat="item in reward4.items">
-			<td class="center"><img ng-src="assets/{{item.image}}"></td>
+			<td class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 			<td><a class="quality-{{item.rarity}}" href="#!/items/{{item.type}}/{{item.name}}">{{item.name}}</a></td>
 			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
 			<td>{{item.odd/(reward4.totalOdds+reward4.nilOdds*1.25)*100 |number:2 }}% - {{item.odd/(reward4.totalOdds+reward4.nilOdds*0.75)*100 |number:2 }}%</td>

@@ -1,7 +1,7 @@
 
     <div class='object-hold'>
       <div class='object-image item-quality-{{::finalRarity}}-bg'>
-        <img ng-src="assets/{{::item.image}}">
+        <div ng-class="::item.image | imageToCssClass"></div>
         <span ng-if="::grade > '0'" class="item-grade-{{::gradeName}}"></span>
       </div>
 
@@ -98,7 +98,7 @@
 					<td class='center'>{{::item.cost}}</td>
 				</tr>
         <tr ng-repeat="mat in ::material" class='row-poop'>
-          <td class='center'><img ng-src='assets/{{::mat.icon}}'></td>
+          <td class='center'><div ng-class="::mat.icon | imageToCssClass"></div></td>
           <td><a class='quality-{{::mat.rarity}}' href="#!/items/{{::mat.what}}/{{::mat.name}}">{{::mat.name}}</a></td>
           <td class='center'>{{::mat.amount}}</td>
 		    </tr>
@@ -115,7 +115,7 @@
 				</tr>
 			</thead>
 			<tr ng-repeat="craf in ::craft">
-				<td><img ng-src="assets/{{::craf.image}}"></td>
+				<td><div ng-class="::craf.image | imageToCssClass"></div></td>
 				<td><a class="quality-{{::craf.rarity}}" href="#!/items/armor/{{::craf.name}}">{{::craf.name}}</a></td>
 				<td>{{::craf.amount}}</td>
 			</tr>

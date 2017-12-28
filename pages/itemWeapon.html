@@ -23,7 +23,7 @@
   </thead>
   <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType:true | filter:showWeaponsByTier">
     <tr>
-		<td rowspan="3" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td rowspan="3" class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/weapon/{{item.name}}">{{item.name}}</a></td>
 		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
     </tr>
