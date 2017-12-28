@@ -5,6 +5,7 @@ var uglify = require("gulp-uglify");
 var ngAnnotate = require('gulp-ng-annotate');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
+var fs = require('fs');
 
 function checkDevelopment() {
   //console.log("Node environment", process.env.NODE_ENV);
@@ -42,7 +43,6 @@ gulp.task('styles', function () {
 });
 
 gulp.task('regenerate-search', function () {
-  var fs = require('fs');
   var basePath = "./json/";
   var equip = JSON.parse(fs.readFileSync(basePath + 'EquipmentList.json'));
   var mats = JSON.parse(fs.readFileSync(basePath + 'MaterialList.json'));
@@ -69,7 +69,7 @@ gulp.task('regenerate-search', function () {
         icon: item.image,
       });
     } else {
-      newEquip.push({name: item.name});//clean not existing items
+      newEquip.push({ name: item.name });//clean not existing items
     }
   }
   for (var i = 0; i < mats.length; i++) {
@@ -85,7 +85,7 @@ gulp.task('regenerate-search', function () {
         icon: item.image,
       });
     } else {
-      newMats.push({name: item.name});//clean not existing items
+      newMats.push({ name: item.name });//clean not existing items
     }
   }
   for (var i = 0; i < potions.length; i++) {
@@ -116,8 +116,7 @@ gulp.task('regenerate-search', function () {
         icon: quest.image,
       });
     } else {
-      console.log("push placeholder")
-      newQuests.push({title: "Placeholder"});//clean not existing items
+      newQuests.push({ title: "Placeholder" });//clean not existing items
     }
   }
 
@@ -156,6 +155,124 @@ gulp.task('pack-json', function () {
 
 //Use gulp json once when new content arrived
 gulp.task('json', ["regenerate-search", "pack-json"]);
+
+//pack all mostly used assets in spritesheets. 
+//Should be executed after regenerate-search, which clean up not existing items
+//optipng tool will greatly reduce file size (~50%)
+gulp.task('sprites', function () {
+  var fs_extra = require('fs-extra')
+  var gulpif = require('gulp-if');
+  var sprity = require('sprity');
+  var jsonPath = "./json/";
+  var equip = JSON.parse(fs.readFileSync(jsonPath + 'EquipmentList.json'));
+  var mats = JSON.parse(fs.readFileSync(jsonPath + 'MaterialList.json'));
+  var potions = JSON.parse(fs.readFileSync(jsonPath + 'PotionList.json'));
+  var quests = JSON.parse(fs.readFileSync(jsonPath + 'QuestList.json'));
+  var skills = JSON.parse(fs.readFileSync(jsonPath + 'AbilityList.json'));
+
+  for (var i = 0; i < equip.length; i++) {
+    var item = equip[i];
+    if (item.itemSlot && item.image) {
+      fs_extra.copySync("./assets/" + item.image, "./tempSprites/" + item.image, { overwrite: false });
+    }
+  }
+  for (var i = 0; i < mats.length; i++) {
+    var item = mats[i];
+    if (item.image && item.image.substr(-1) != "/" &&
+      item.image != "Materials/Region_6/Chieftains_Blade.png") {
+      fs_extra.copySync("./assets/" + item.image, "./tempSprites/" + item.image, { overwrite: false });
+    }
+  }
+  for (var i = 0; i < potions.length; i++) {
+    var item = potions[i];
+    if (item.image && item.image.substr(-1) != "/") {
+      fs_extra.copySync("./assets/" + item.image, "./tempSprites/" + item.image, { overwrite: false });
+    }
+  }
+
+  for (var i = 0; i < quests.length; i++) {
+    var quest = quests[i];
+    if (quest.title != "Placeholder" && quest.image.substr(-1) != "/") {
+      fs_extra.copySync("./assets/" + quest.image, "./tempSprites/" + quest.image, { overwrite: false });
+    }
+  }
+  var used = {};
+  for (var i in skills) {
+    if (skills.hasOwnProperty(i) && skills[i].image.indexOf("/.png") == -1) {
+      var skill = skills[i];
+      if (used[skill.image] == undefined) {
+        used[skill.image] = true;
+        fs_extra.copySync("./assets/" + skill.image, "./tempSprites/" + skill.image, { overwrite: false });
+      }
+    }
+  }
+
+  sprity.src({
+    src: './tempSprites/Materials/**/*.png',
+    style: './all-spritesheets.css',
+    name: "materials_sprites",
+    prefix: "ico-mat",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+
+  sprity.src({
+    src: './tempSprites/Armor/**/*.png',
+    style: './all-spritesheets.css',
+    name: "armor_sprites",
+    prefix: "ico-armor",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+
+  sprity.src({
+    src: './tempSprites/Weapons/**/*.png',
+    style: './all-spritesheets.css',
+    name: "weap_sprites",
+    prefix: "ico-weap",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+
+  sprity.src({
+    src: './tempSprites/Consumables/**/*.png',
+    style: './all-spritesheets.css',
+    name: "pot_sprites",
+    prefix: "ico-pot",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+
+  sprity.src({
+    src: './tempSprites/Quests/**/*.png',
+    style: './all-spritesheets.css',
+    name: "quests_sprites",
+    prefix: "ico-quest",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+
+  sprity.src({
+    src: './tempSprites/Skills/**/*.png',
+    style: './all-spritesheets.css',
+    name: "skills_sprites",
+    prefix: "ico-skill",
+    cssPath: "/img/spritesheets/",
+    orientation: "binary-tree",
+    margin: 0
+  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+});
+
+gulp.task('sprites-css-min', function () {
+  return gulp.src("tempSprites/all-spritesheets.css")
+    .pipe(cleanCSS())
+    .pipe(gulp.dest("./css/"));
+})
 
 gulp.task('default', ['scripts', 'styles']);
 
