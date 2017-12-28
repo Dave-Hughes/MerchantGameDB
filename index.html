@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/angular-snap.css">
     <link rel="stylesheet" href="css/angucomplete-alt.css">
+    <link rel="stylesheet" href="css/all-spritesheets.css">
   </head>
   <body ng-controller="bodyCtrl">
     <!--[if lt IE 8]>
@@ -112,11 +113,12 @@
       </ul>
 
 			
+		<!--
       <div id="live-beta-button-hold-mobile">
         <div class="live-button">
           <a href="/#!/">
-            <span class="glyphicon glyphicon-check"></span>
-            LIVE (V{{liveVersion}})
+            <span class="glyphicon glyphicon-check"></span>-->
+            <span ng-cloak>LIVE (V{{liveVersion}})</span><!--
           </a>
         </div>
         <div class="beta-button version-inactive">
@@ -125,7 +127,7 @@
             BETA (V{{betaVersion}})
           </a>
         </div>
-      </div>
+      </div>-->
 
     </div>
 
@@ -137,7 +139,7 @@
       <div class="live-button">
         <a href="/#!/">
           <span class="glyphicon glyphicon-check"></span> -->
-          LIVE (V{{liveVersion}})
+          <span ng-cloak>LIVE (V{{liveVersion}})</span>
         <!--</a>
       </div>
       <div class="beta-button version-inactive">

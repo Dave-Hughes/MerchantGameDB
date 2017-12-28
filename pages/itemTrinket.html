@@ -16,7 +16,7 @@
   </thead>
   <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:6} | filter:showTrinketsByTier">
     <tr>
-		<td rowspan="2" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td rowspan="2" class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/trinket/{{item.name}}">{{item.name}}</a><br>{{item.desc1}}</td>
 		<td class="center">Lv. {{item.itemLevel}}</td>
     </tr>
