@@ -7,7 +7,7 @@
   position: relative;
   margin: 0 20px 0 0;
   image-rendering: pixelated;
-  img {}
+  image-rendering: -moz-crisp-edges;
 }
 
 .quest-image-background {
@@ -31,7 +31,6 @@
   border: 2px solid #bbb;
   font-size: .9em;
   float: left;
-  thead, tbody {}
   td {
     padding: 2px 5px 0px 5px;
   }
@@ -66,8 +65,6 @@
 .quest-tier {
   text-align: right;
 }
-
-.quest-level, .quest-type {}
 
 .quest-spacer {
   height: 20px;
