@@ -1,7 +1,7 @@
 
     <div class='object-hold'>
       <div class='object-image item-quality-{{::finalRarity}}-bg'>
-        <img ng-src="assets/{{::item.image}}">
+        <div ng-class="::item.image | imageToCssClass"></div>
         <span ng-if="grade > '0'" class="item-grade-{{::gradeName}}"></span>
       </div>
 
@@ -73,7 +73,7 @@
         </tfoot>
         <tbody class='trink-drop-table-body'>
           <tr ng-repeat="monster in droppedBy">
-            <td class='center'><img ng-src='assets/{{monster.icon}}'></td>
+            <td class='center'><div ng-class="::monster.icon | imageToCssClass"></div></td>
             <td><a href="#!/quests/{{monster.name}}">{{monster.name}}</a></td>
             <td class='center'><a href="#!/regions/{{monster.region}}">{{monster.region}}</a></td>						
 						<td class='center'>{{monster.min *0.8 |number:0}}<span ng-if="drop.max > 1">-{{monster.max *1.3 |number:0}}</span></td>
@@ -110,7 +110,7 @@
 						<td class='center'>{{::item.cost}}</td>
 					</tr>
 					<tr ng-repeat="mat in ::material" class='row-poop'>
-						<td class='center'><img ng-src='assets/{{::mat.icon}}'></td>
+						<td class='center'><div ng-class="::mat.icon | imageToCssClass"></div></td>
 						<td><a class='quality-{{::mat.rarity}}' href="#!/items/{{::mat.what}}/{{::mat.name}}">{{::mat.name}}</a></td>
 						<td class='center'>{{::mat.amount}}</td>
 					</tr>

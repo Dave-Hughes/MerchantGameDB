@@ -3,7 +3,7 @@
   New to Merchant? Follow these guides to get started.
 </p>
 
-<div class="guides-list">
+<div class="guides-list" ng-if="isLoaded">
 
   <table>
     <thead>
@@ -25,6 +25,6 @@
 
 </div>
 
-<p>
+<p ng-if="isLoaded">
   Have a request for a guide? Leave a comment below and we'll add it to the list!
 </p>

@@ -27,7 +27,7 @@
 				</div>
 
 				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}-bg'>
-					<img ng-src="assets/{{item1Stat.image}}">
+					<div ng-class="::item1Stat.image | imageToCssClass"></div>
 				</div>
 
 				<div class="comparison-adjustments-hold">
@@ -70,7 +70,7 @@
 				</div>
 
 				<div class='comparison-page-item-image item-quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}-bg'>
-					<img ng-src="assets/{{item2Stat.image}}">
+					<div ng-class="::item2Stat.image | imageToCssClass"></div>
 				</div>
 
 				<div class="comparison-adjustments-hold">

@@ -124,7 +124,7 @@
 		</tfoot>
 		<tbody>
 			<tr ng-repeat="ability in hero.passiveList">
-				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td><div ng-class="::jsonAbility[ability].image | imageToCssClass"></div></td>
 				<td>{{ability}}</td>
 				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
 			</tr>
@@ -149,7 +149,7 @@
 		</tfoot>
 		<tbody>
 			<tr ng-repeat="ability in hero.skillList">
-				<td><img ng-src="assets/{{jsonAbility[ability].image}}"></td>
+				<td><div ng-class="::jsonAbility[ability].image | imageToCssClass"></div></td>
 				<td>{{ability}}</td>
 				<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
 				<td>{{jsonAbility[ability].apCost}}</td>
