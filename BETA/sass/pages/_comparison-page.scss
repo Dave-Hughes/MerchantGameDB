@@ -2,24 +2,31 @@
 
 .comparison-page-item-image {
   image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
   width: 40px;
   height: 40px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 8px auto;
+  #{$ico-styles} {
+    transform:scale(1.6);
+    -moz-transform:scale(1.6);
+  }
+}
+
+.comparison-page-item-image:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  margin-top: 14px;
+  margin-left: -1px;
 }
 
 .compared-item-name {
   clear: both;
   margin: 10px 0 0 0;
-}
-
-.comparison-page-item-image img {
-  width: 95%;
-  padding-top: 2px;
-  margin: 0 auto 0 auto;
-  display: block;
 }
 
 .comparison-adjustments-hold {

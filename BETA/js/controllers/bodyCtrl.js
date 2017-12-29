@@ -1,17 +1,16 @@
 // Controller for the <body>
 // Used for anything outside of the control of other controllers
 angular.module('mainApp')
-	.controller('bodyCtrl', function($scope, $http) {
+	.controller('bodyCtrl', function($scope, guidesService) {
 
 		// Game Version Numbers
-		$scope.betaVersion = "2.397";
+		$scope.betaVersion = "2.411";
 		$scope.liveVersion = "2.41";
 
 		// Logic for the "Latest Guides" sidebar widget
-		$scope.guidesList = listOfGuides;
-		$scope.getAuthByID = function(id) {
-			var author = getAuthorByID(id);
-			return author;
-		}
+		guidesService.getGuides().then(function (listOfGuides) {
+			$scope.guidesList = listOfGuides;
+		})
+		$scope.getAuthByID = guidesService.getAuthorByID;
 
 	})

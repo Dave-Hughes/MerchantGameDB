@@ -43,7 +43,7 @@ angular.module('mainApp')
 
 			//third number (Suffix)
 			var item1Suffix = {};
-			item1Suffix.id = item1.split(",")[2];
+			item1Suffix.id = item1.split(",")[2] || "0";
 			item1Suffix.name = $scope.suffix[item1Suffix.id].name;
 			if($scope.suffix[item1Suffix.id].hasOwnProperty("stats"))
 				{
@@ -83,7 +83,7 @@ angular.module('mainApp')
 
 			//third number (Suffix)
 			var item2Suffix = {};
-			item2Suffix.id = item2.split(",")[2];
+			item2Suffix.id = item2.split(",")[2] || "0";
 			item2Suffix.name = $scope.suffix[item2Suffix.id].name;
 			if($scope.suffix[item2Suffix.id].hasOwnProperty("stats"))
 				{

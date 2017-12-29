@@ -138,4 +138,36 @@ angular.module('mainApp')
 		return function(input, statName) {
 			return percentStats.indexOf(statName) === -1 ? input : input * 100;
 		}
-	});
+	})
+	.filter('imageToCssClass', function () {
+		var mapping = {
+			"Armor/": "ico-armor",
+			"Materials/": "ico-mat",
+			"Weapons/": "ico-weap",
+			"Consumables/": "ico-pot",
+			"Quests/": "ico-quest",
+			"Skills/": "ico-skill",
+		};
+		var icoTypes = [];
+		for (var i in mapping){
+			if (mapping.hasOwnProperty(i)){
+				icoTypes.push(i);
+			}
+		}
+		return function (input) {
+			var icoType;
+			//todo: handle undefined images?
+			for (var i = 0;i<icoTypes.length;i++){
+				icoType = icoTypes[i]; 
+				if (input.indexOf(icoType) === 0){
+					break;
+				}
+			}
+
+			var cssClass = mapping[icoType];
+
+			var res = cssClass + " " + input.replace(icoType, cssClass + "-").replace("/", "-").replace(" ", "-").replace(".png", "");
+			return res;
+		}
+	})
+	;
