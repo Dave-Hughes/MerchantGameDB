@@ -113,12 +113,12 @@
       </ul>
 
 			
-		<!--
+		
       <div id="live-beta-button-hold-mobile">
         <div class="live-button">
           <a href="/#!/">
-            <span class="glyphicon glyphicon-check"></span>-->
-            <span ng-cloak>LIVE (V{{liveVersion}})</span><!--
+            <span class="glyphicon glyphicon-check"></span>
+            LIVE (V{{liveVersion}})
           </a>
         </div>
         <div class="beta-button version-inactive">
@@ -127,20 +127,20 @@
             BETA (V{{betaVersion}})
           </a>
         </div>
-      </div>-->
+      </div>
 
     </div>
 
     <snap-content class="scrollable" autoscroll="true" snap-content snap-options="snapOpts">
     <!-- Site/App Content Below -->
 
-		<!--
+		
     <div id="live-beta-button-hold" ng-cloak>
       <div class="live-button">
         <a href="/#!/">
-          <span class="glyphicon glyphicon-check"></span> -->
+          <span class="glyphicon glyphicon-check"></span>
           <span ng-cloak>LIVE (V{{liveVersion}})</span>
-        <!--</a>
+        </a>
       </div>
       <div class="beta-button version-inactive">
         <a href="/BETA/#!/">
@@ -148,7 +148,7 @@
           BETA (V{{betaVersion}})
         </a>
       </div>
-    </div>-->
+    </div>
 
       <header id="top-bar" class="container-fluid">
         <div id="logo-search-hold" class="row">
@@ -387,23 +387,23 @@
       </div>
 
     </snap-content>
+    <!-- Javascripts: jQuery, AngularJS, ngSanitize, ngRoute, Bootstrap -->
+    <script src="/js/vendor/jquery-1.12.1.min.js"></script>
+    <script src="/js/vendor/angular-1.5.11.min.js"></script>
+    <script src="/js/vendor/fuse.3.0.4.min.js"></script>
+    <script src="/js/modules/angular-sanitize.min.js"></script>
+    <script src="/js/modules/angular-route.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"></script>
 
-	   <!-- Javascripts: jQuery, AngularJS, ngSanitize, ngRoute, Bootstrap -->
-     <script src="js/vendor/jquery-1.12.1.min.js"></script>
-     <script src="js/vendor/angular-1.5.11.min.js"></script>
-     <script src="js/vendor/fuse.3.0.4.min.js"></script>
-     <script src="js/modules/angular-sanitize.min.js"></script>
-     <script src="js/modules/angular-route.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-     <!-- Bundled JavaScript files, minified -->
-     <script src="js/bundle.js"></script>
-     <script src="js/jsonDB.js"></script>
-     <!--<script src="js/others/function.js"></script>-->
-
-  	<script type="text/javascript">
-		  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
-	  </script>
+    <!-- Note that scripts above loaded from root "/"" - so browser cache Beta and live vendor scripts together -->
+    <script type="text/javascript">
+      angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>
+    <!-- Bundled JavaScript files, minified -->
+    <script src="js/bundle.js"></script>
+    <script src="js/jsonDB.js"></script>
+    <!--<script src="js/others/function.js"></script>-->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script src="https://www.google-analytics.com/analytics.js"></script>

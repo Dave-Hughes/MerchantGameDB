@@ -65,8 +65,6 @@
   user-select: none;
 }
 
-.materials-type-options, .trinkets-type-options, .potions-type-options, .armors-type-options, .weapons-type-options {}
-
 .materials-subtype-options, .potions-subtype-options, .armors-subtype-options, .weapons-subtype-options {
   margin: 10px 0 0 0;
 }
@@ -93,10 +91,7 @@
     margin: 0;
     padding: 0 0 5px 0;
   }
-  td {}
 }
-
-th {}
 
 .filtered-gear-table {
   thead {
@@ -121,4 +116,16 @@ th {}
     font-size: .9em;
     padding: 8px;
   }
+
+  #{$ico-styles} {
+    transform:scale(1.46);
+    -moz-transform:scale(1.46);
+    margin: 0 10px 0 10px;
+  }
+}
+
+#{$ico-styles} {
+  display: inline-block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
 }

@@ -1,5 +1,5 @@
 <div class='object-image item-quality-{{potion.rarity}}-bg'>
-	<img ng-src="assets/{{potion.image}}">
+	<div ng-class="::potion.image | imageToCssClass"></div>
 </div>
 
 <!-- Copy URL Button -->
@@ -42,7 +42,7 @@
 			<td>{{potion.cost}}</td>
 		</tr>
 		<tr ng-repeat="craft in craftedBy">
-			<td><img ng-src="assets/{{craft.icon}}"></td>
+			<td><div ng-class="::craft.icon | imageToCssClass"></div></td>
 			<td><a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a></td>
 			<td>{{craft.amount}}</td>
 		</tr>
@@ -67,7 +67,7 @@
 		</tr>
 	</thead>
 	<tr ng-repeat="craf in craft">
-		<td><img ng-src="assets/{{craf.image}}"></td>
+		<td><div ng-class="::craf.image | imageToCssClass"></td>
 		<td><a class="quality-{{craf.rarity}}" href="#!/items/potion/{{craf.name}}">{{craf.name}}</a></td>
 		<td>{{craf.amount}}</td>
 	</tr>

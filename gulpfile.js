@@ -6,6 +6,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
 var fs = require('fs');
+var runSequence = require('run-sequence');
 
 function checkDevelopment() {
   //console.log("Node environment", process.env.NODE_ENV);
@@ -42,7 +43,7 @@ gulp.task('styles', function () {
   return cssPipe.pipe(gulp.dest('./css/'));
 });
 
-gulp.task('regenerate-search', function () {
+gulp.task('regenerate-search', function (callback) {
   var basePath = "./json/";
   var equip = JSON.parse(fs.readFileSync(basePath + 'EquipmentList.json'));
   var mats = JSON.parse(fs.readFileSync(basePath + 'MaterialList.json'));
@@ -126,12 +127,13 @@ gulp.task('regenerate-search', function () {
   fs.writeFileSync(basePath + "MaterialList.json", JSON.stringify(newMats));
   fs.writeFileSync(basePath + "PotionList.json", JSON.stringify(newPotions));
   fs.writeFileSync(basePath + "QuestList.json", JSON.stringify(newQuests));
+  callback();
 })
 
 gulp.task('pack-json', function () {
   var jsoncombine = require("gulp-jsoncombine");
 
-  gulp.src("./json/*.json")
+  return gulp.src("./json/*.json")
     .pipe(jsoncombine("jsonDB.js", function (data) {
       var jsonDb = "var jsonData = " + JSON.stringify(data) +
         ";var jsonSearch = jsonData.search;" +
@@ -153,13 +155,10 @@ gulp.task('pack-json', function () {
     .pipe(gulp.dest("./js/"));
 });
 
-//Use gulp json once when new content arrived
-gulp.task('json', ["regenerate-search", "pack-json"]);
-
 //pack all mostly used assets in spritesheets. 
 //Should be executed after regenerate-search, which clean up not existing items
 //optipng tool will greatly reduce file size (~50%)
-gulp.task('sprites', function () {
+gulp.task('sprites', function (callback) {
   var fs_extra = require('fs-extra')
   var gulpif = require('gulp-if');
   var sprity = require('sprity');
@@ -207,71 +206,46 @@ gulp.task('sprites', function () {
     }
   }
 
-  sprity.src({
-    src: './tempSprites/Materials/**/*.png',
-    style: './all-spritesheets.css',
-    name: "materials_sprites",
-    prefix: "ico-mat",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+  var successRequire = 6, successCurrent = 0;
+  function makeCallbacks(stream) {
+    stream.on('end', function () { console.log("success + 1"); successCurrent++; if (successCurrent == successRequire) { callback(); } });
+    stream.on('error', function (err) { console.log("error", err); callback(err); });
+    stream.on('cancel', function () { console.log("cancel?"); });
+  }
 
-  sprity.src({
-    src: './tempSprites/Armor/**/*.png',
-    style: './all-spritesheets.css',
-    name: "armor_sprites",
-    prefix: "ico-armor",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+  function makeImgStream(folderName, spritesheetName, prefixName) {
 
-  sprity.src({
-    src: './tempSprites/Weapons/**/*.png',
-    style: './all-spritesheets.css',
-    name: "weap_sprites",
-    prefix: "ico-weap",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+    var stream = sprity.src({
+      src: './tempSprites/' + folderName + '/**/*.png',
+      style: './all-spritesheets.css',
+      name: spritesheetName,
+      prefix: prefixName,
+      cssPath: "/img/spritesheets/",
+      orientation: "binary-tree",
+      margin: 0
+    }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+    makeCallbacks(stream);
+  }
 
-  sprity.src({
-    src: './tempSprites/Consumables/**/*.png',
-    style: './all-spritesheets.css',
-    name: "pot_sprites",
-    prefix: "ico-pot",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
-
-  sprity.src({
-    src: './tempSprites/Quests/**/*.png',
-    style: './all-spritesheets.css',
-    name: "quests_sprites",
-    prefix: "ico-quest",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
-
-  sprity.src({
-    src: './tempSprites/Skills/**/*.png',
-    style: './all-spritesheets.css',
-    name: "skills_sprites",
-    prefix: "ico-skill",
-    cssPath: "/img/spritesheets/",
-    orientation: "binary-tree",
-    margin: 0
-  }).pipe(gulpif('*.png', gulp.dest('./img/spritesheets/'), gulp.dest('./tempSprites/')));
+  makeImgStream("Materials", "materials_sprites", "ico-mat");
+  makeImgStream("Armor", "armor_sprites", "ico-armor");
+  makeImgStream("Weapons", "weap_sprites", "ico-weap");
+  makeImgStream("Consumables", "pot_sprites", "ico-pot");
+  makeImgStream("Quests", "quests_sprites", "ico-quest");
+  makeImgStream("Skills", "skills_sprites", "ico-skill");
 });
 
 gulp.task('sprites-css-min', function () {
   return gulp.src("tempSprites/all-spritesheets.css")
     .pipe(cleanCSS())
     .pipe(gulp.dest("./css/"));
+})
+
+//required: extract assets before running this
+gulp.task('build-new-version', function (callback) {
+  runSequence('regenerate-search',
+    'pack-json', 'sprites',
+    'sprites-css-min', callback);
 })
 
 gulp.task('default', ['scripts', 'styles']);
