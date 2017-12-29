@@ -1,4 +1,4 @@
-<div class="guide">
+<div class="guide" ng-if="isLoaded">
 
   <div class="guide-options">
     <!-- Copy URL Button -->
@@ -23,7 +23,7 @@
 
 </div>
 
-<div class="item-url-hold">
+<div class="item-url-hold" ng-if="isLoaded">
   <label>Guide URL:</label>
   <ul class="url-tabs">
     <li id="raw-url-link" class="left-rounded-corners">Raw Link</li>

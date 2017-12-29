@@ -1,17 +1,15 @@
 //Controller for Guides
 angular.module('mainApp')
-	.controller('guidesCtrl', function($scope, $routeParams) {
+	.controller('guidesCtrl', function ($scope, $routeParams, guidesService) {
 
-    //Side bar latest guides
-		$scope.guidesList = listOfGuides;
-		$scope.getAuthByID = function(id) {
-			var author = getAuthorByID(id);
-			return author;
-		}
+		$scope.isLoaded = false;
+		//Side bar latest guides
+		guidesService.getGuides().then(function (listOfGuides) {
+			$scope.guidesList = listOfGuides;
+			$scope.isLoaded = true;
+		})
+		$scope.getAuthByID = guidesService.getAuthorByID;
 
-    $scope.trimDate = function(date) {
-    	var trimmedDate = trimDate(date);
-    	return trimmedDate;
-    }
+		$scope.trimDate = trimDate;
 
 	})

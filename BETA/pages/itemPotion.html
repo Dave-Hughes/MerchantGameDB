@@ -18,7 +18,7 @@
   </thead>
   <tbody ng-repeat="item in potion | orderBy : 'itemLevel' | filter:showPotionsByType | filter:showPotionsByTier">
     <tr>
-		<td rowspan="3" class="center"><img ng-src="assets/{{item.image}}"></td>
+		<td rowspan="3" class="center"><span ng-class="::item.image | imageToCssClass"></span></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/potion/{{item.name}}">{{item.name}}</a></td>
 		<td class="center">{{item.cost}}<img style="width:12px" src="img/coin.png"></td>
     </tr>
