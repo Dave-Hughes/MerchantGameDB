@@ -591,7 +591,7 @@
 
             image = '';
             if (scope.imageField) {
-              image = "assets/"+extractValue(responseData[i], scope.imageField);
+              image = extractValue(responseData[i], scope.imageField);
             }
 
             if (scope.matchClass) {
