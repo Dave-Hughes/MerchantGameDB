@@ -8,7 +8,7 @@
         <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>
         <div class="angucomplete-row" ng-repeat="result in results" ng-click="selectResult(result)">
             <div class="angucomplete-image-holder">
-                <img ng-if="::result.image && result.image != ''" ng-src="{{::result.image}}" class="angucomplete-image" />
+                <div ng-if="::result.image && result.image != ''" ng-class="::result.image | imageToCssClass" class="angucomplete-image" ></div>
                 <div ng-if="::!result.image && result.image != ''" class="angucomplete-image-default"></div>
             </div>
             <div class="angucomplete-title quality-{{::result.originalObject.rarity}}">{{:: result.title }}</div>
