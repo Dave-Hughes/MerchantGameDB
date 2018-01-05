@@ -27,21 +27,4 @@ angular.module('mainApp')
 			var objectURL = "#!/items/weapon/"+$routeParams.id+"?suffix="+$scope.suffix+"&prefix="+$scope.prefix+"&grade="+$scope.grade;
 			$(location).attr('href', objectURL);
 		}
-
-		/** LINKS **/
-		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
-		//RAW link
-		$("#raw-url-link").click(function() {
-			$("#generatedLink").show();
-			$("#generatedLink-reddit").addClass("hide");
-		})
-
-		//REDDIT link
-		$("#reddit-url-link").click(function() {
-			$("#generatedLink").hide();
-			$("#generatedLink-reddit").removeClass("hide");
-		})
-
-		$("#generatedLink").val(window.location.href);
-		$("#generatedLink-reddit").val(redditLink);	
 	})

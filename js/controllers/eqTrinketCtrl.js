@@ -26,19 +26,4 @@ angular.module('mainApp')
 			var objectURL = "#!/items/trinket/"+$routeParams.id+"?grade="+$scope.grade+"&prefix="+$scope.prefix;
 			$(location).attr('href', objectURL);
 		}
-
-		var redditLink = "["+$scope.item.name+"]" + " (" + window.location.href + ")";
-
-		$("#raw-url-link").click(function() {
-			$("#generatedLink").show();
-			$("#generatedLink-reddit").addClass("hide");
-		})
-
-		$("#reddit-url-link").click(function() {
-			$("#generatedLink").hide();
-			$("#generatedLink-reddit").removeClass("hide");
-		})
-
-		$("#generatedLink").val(window.location.href);
-		$("#generatedLink-reddit").val(redditLink);
 	})

@@ -2,7 +2,7 @@
 
   <div class="guide-options">
     <!-- Copy URL Button -->
-    <div class="copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+    <div item-page-copy-button></div>
   </div>
 
   <h1>{{guideTitle}}</h1>
@@ -23,12 +23,4 @@
 
 </div>
 
-<div class="item-url-hold" ng-if="isLoaded">
-  <label>Guide URL:</label>
-  <ul class="url-tabs">
-    <li id="raw-url-link" class="left-rounded-corners">Raw Link</li>
-    <li id="reddit-url-link" class="right-rounded-corners">Reddit Link</li>
-  </ul>
-  <input id="generatedLink" readonly>
-  <input class="hide" id="generatedLink-reddit" readonly>
-</div>
+<item-url reddit-name="guideTitle" title="Guide URL:" ng-if="isLoaded"></item-url>
