@@ -315,64 +315,74 @@
       </footer>
 
 
+      <ng-controller ng-controller="popupController as popup" ng-cloak>
 
-      <!--
-        black-overlay is for darkening background
-        urls-popup is for the share button urls
-      -->
-      <div id='black-overlay' class="hide"></div>
-      <div id="urls-popup" class="hide">
-        <div class="url-box-close-button">
-          <span class="glyphicon glyphicon-remove"></span>
-        </div>
-        <h3><span class="glyphicon glyphicon-chevron-right"></span>Link Format</h3>
-        <ul>
-          <li class="copy-standard-link-button well">
-            <span class="glyphicon glyphicon-link"></span>
-            <p>Standard</p>
-          </li>
+        <!--
+          black-overlay is for darkening background
+          urls-popup is for the share button urls
+        -->
+        <div id='black-overlay' ng-show="popup.model.mode !== popup.modes.none"></div>
+        <div id="urls-popup" ng-show="popup.model.mode === popup.modes.showLink">
+          <div class="url-box-close-button" ng-click="popup.hide()">
+            <span class="glyphicon glyphicon-remove"></span>
+          </div>
+          <h3><span class="glyphicon glyphicon-chevron-right"></span>Link Format</h3>
+          <ul>
+            <li class="copy-standard-link-button well" ng-click="popup.copy(false)">
+              <span class="glyphicon glyphicon-link"></span>
+              <p>Standard</p>
+            </li>
 
-          <li class="copy-reddit-link-button well">
-            <img src="img/icon-reddit.png">
-            <p>Reddit</p>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Comparison Prompt -->
-      <div id="comparison-prompt" class="hide">
-        <div class="prompt-close-button">
-          <span class="glyphicon glyphicon-remove"></span>
+            <li class="copy-reddit-link-button well" ng-click="popup.copy(true)">
+              <img src="img/icon-reddit.png">
+              <p>Reddit</p>
+            </li>
+          </ul>
         </div>
 
-        <div id="comparison-prompt-content">
-          <h3>Text</h3>
-          <p>Lots more text that is larger than the H3</p>
-
-          <div id="comparison-error-hold" class="alert alert-danger hide" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span>
-            Not possible to compare items of 2 different types.
-            <span id="comparison-error-message">Remove existing item from table and try again.</span>
+        <!-- Comparison Prompt -->
+        <div id="comparison-prompt" ng-show="popup.model.mode === popup.modes.showComparisonPrompt">
+          <div class="prompt-close-button" ng-click="popup.hide()">
+            <span class="glyphicon glyphicon-remove"></span>
           </div>
 
-          <table>
-            <tr id="comparison-prompt-first-row">
-              <td id="comparison-prompt-item1-icon"></td>
-              <td id="comparison-prompt-item1-name"></td>
-              <td id="comparison-prompt-remove1"></td>
-            </tr>
-            <tr id="comparison-prompt-second-row" class="hide">
-              <td id="comparison-prompt-item2-icon"></td>
-              <td id="comparison-prompt-item2-name"></td>
-              <td id="comparison-prompt-remove2"></td>
-            </tr>
-          </table>
+          <div id="comparison-prompt-content">
+            <h3>Item Comparison</h3>
+            <p>{{popup.comparison.currentOperation}}</p>
 
-          <button id="comparison-prompt-confirm-button" class="btn btn-primary">Confirm Change</button>
-          <button id="comparison-prompt-final-button" class="btn btn-success hide">View Comparison</button>
+            <div id="comparison-error-hold" class="alert alert-danger" role="alert" ng-show="popup.comparison.hasError">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              Not possible to compare items of 2 different types.
+              <span id="comparison-error-message">Remove existing item from table and try again.</span>
+            </div>
+
+            <table>
+              <tr id="comparison-prompt-first-row" ng-if="popup.comparison.item1 != null">
+                <td id="comparison-prompt-item1-icon"><div ng-class="popup.comparison.item1.image | imageToCssClass"></div></td>
+                <td id="comparison-prompt-item1-name">{{popup.comparison.item1.fullName}}</td>
+                <td id="comparison-prompt-remove1">
+                  <span class='glyphicon glyphicon-remove' ng-click="popup.removeItem1()"></span>
+                </td>
+              </tr>
+              <tr id="comparison-prompt-second-row" ng-if="popup.comparison.item2 != null">
+                <td id="comparison-prompt-item2-icon"><div ng-class="popup.comparison.item2.image | imageToCssClass"></div></td>
+                <td id="comparison-prompt-item2-name">{{popup.comparison.item2.fullName}}</td>
+                <td id="comparison-prompt-remove2">
+                  <span class='glyphicon glyphicon-remove' ng-click="popup.removeItem2()"></span>
+                </td>
+              </tr>
+            </table>
+
+            <button id="comparison-prompt-confirm-button" ng-hide="popup.comparison.isReady()" ng-click="popup.hide()" class="btn btn-primary">
+              Confirm Change
+            </button>
+            <button id="comparison-prompt-final-button" ng-show="popup.comparison.isReady()" ng-click="popup.goToComparison()" class="btn btn-success">
+              View Comparison
+            </button>
+          </div>
         </div>
-      </div>
+    </ng-controller>
 
       <!-- To hold comparison data -->
       <div id="temp-comparison-items">

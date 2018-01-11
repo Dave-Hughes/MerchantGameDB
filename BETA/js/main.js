@@ -155,8 +155,8 @@ var mainApp = angular.module('mainApp', ['snap', 'angucomplete-alt', 'ngRoute', 
 			$.each(params, function(index, param)
 				{
 				param = param.split("=")
-				if(param[0] == "prefix"){prefix = jsonPrefixes[param[1]].name}
-				else if(param[0] == "suffix"){suffix = jsonSuffixes[param[1]].name}
+				if(param[0] == "prefix"){prefix = jsonPrefixes[param[1] || "0"].name}
+				else if(param[0] == "suffix"){suffix = jsonSuffixes[param[1] || "0"].name}
 				});
 			}
 

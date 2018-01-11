@@ -173,7 +173,7 @@ function getMonsterByTrinketId(id) {
 		}
 		if (val.hasOwnProperty("trinketB") && (val.trinketB[0]-1 == id)) {
 				var currentMonster = val.trinketB[0]-1;
-				var monsterInfo = {name: val.nameB, region: val.region, icon: val.imageB, rarity: val.titleB, dropRate: val.trinketB[1]};
+				var monsterInfo = {name: val.nameB, region: val.region, icon: val.image, rarity: val.titleB, dropRate: val.trinketB[1]};
 				monsterInfo.region = regionById(val.region);
 				monsters.push(monsterInfo);
 		}
@@ -233,13 +233,13 @@ function getMonsterByTrinketId(id) {
 				indexOf = listDropsName.indexOf(val.rewardB3)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}		
 				indexOf = listDropsName.indexOf(val.rewardB4)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}	
 				}
@@ -328,24 +328,24 @@ function getMonsterByMaterialId(id) {
 			if(val.hasOwnProperty("nameB"))
 				{
 				if (val.rewardB1[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: 100, oddsMax: 100, min: val.rewardB1[1], max: val.rewardB1[2],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: 100, oddsMax: 100, min: val.rewardB1[1], max: val.rewardB1[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
 				else if (val.rewardB2[0]-1 == id) {
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: 100, oddsMax: 100, min: val.rewardB2[1], max: val.rewardB2[2],region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: 100, oddsMax: 100, min: val.rewardB2[1], max: val.rewardB2[2],region: regionById(val.region)}
 					monsters.push(monster)
 				}
 				
 				indexOf = listDropsName.indexOf(val.rewardB3)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}		
 				indexOf = listDropsName.indexOf(val.rewardB4)
 				if(indexOf > -1)
 					{
-					var monster = {name: val.nameB, rarity: val.titleB, icon: val.imageB, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
+					var monster = {name: val.nameB, rarity: val.titleB, icon: val.image, oddsMin: listDrops[indexOf].oddsMin, oddsMax: listDrops[indexOf].oddsMax, min: listDrops[indexOf].min, max: listDrops[indexOf].max,region: regionById(val.region)}
 					monsters.push(monster)
 					}	
 				}
@@ -445,7 +445,7 @@ function getQuestByName(name) {
 			quest = {
 					"name": val.nameB,
 					"nickname": val.nicknameB,
-					"image":val.imageB,
+					"image":val.image, // currently in game imageB is not used
 					"enemyImage":val.enemyImageB,
 					"title":val.titleB,
 					"levelReq":val.levelReq,

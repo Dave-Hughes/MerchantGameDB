@@ -116,6 +116,15 @@ gulp.task('regenerate-search', function (callback) {
         rarity: "1",
         icon: quest.image,
       });
+      if (quest.nameB != null) {
+        toSave.push({
+          name: quest.nameB,
+          type: "Quest",
+          subType: quest.titleB || "Rare",
+          rarity: "1",
+          icon: quest.image, //imageB is not used in the game currently
+        });        
+      }
     } else {
       newQuests.push({ title: "Placeholder" });//clean not existing items
     }
