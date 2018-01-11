@@ -124,7 +124,7 @@ angular.module('mainApp')
 			if (input < 0){
 				result = input / gradeMultiplier; //negative stats handling
 			}else if (input < 1){
-				result = input * 100; // percent stats handling
+				result = input * 100 - 1e-7; // percent stats handling. 1e-7 for rounding issues
 			}else{
 				result = input * gradeMultiplier;
 			}

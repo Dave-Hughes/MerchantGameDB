@@ -44,9 +44,13 @@ angular.module("mainApp").service("itemsService", function () {
 
         if ($routeParams.prefix) { //If there is a ?prefix=x in the URL
             $scope.prefix = $routeParams.prefix;
-            $scope.prefixStat = jsonPrefixes[$scope.prefix];
+            $scope.prefixStat = self.getPrefixById($scope.prefix);
         }
         $scope.hasPrefix = $scope.prefix > 0;
+    }
+
+    self.getPrefixById = function (prefixId) {
+        return jsonPrefixes[prefixId];
     }
 
     self.initQuality = function ($scope) {

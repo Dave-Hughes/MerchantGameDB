@@ -1,0 +1,13 @@
+<!-- Unique Item URLs:
+    Nescisary. Some browsers may not be able to use copy button.
+    Also, need an html <input> for the copy function to select the text from.
+  -->
+<div class="item-url-hold">
+    <label>{{::url.labelText}}</label>
+    <ul class="url-tabs">
+        <li ng-click="url.toogleReddit(false)" class="left-rounded-corners">Raw Link</li>
+        <li ng-click="url.toogleReddit(true)" class="right-rounded-corners">Reddit Link</li>
+    </ul>
+    <input id="generatedLink" ng-hide="url.copyModel.showReddit" ng-value="url.itemUrl" readonly>
+    <input id="generatedLink-reddit" ng-show="url.copyModel.showReddit" ng-value="url.redditText" readonly>
+</div>
