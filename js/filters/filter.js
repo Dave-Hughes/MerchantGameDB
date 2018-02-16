@@ -111,7 +111,7 @@ angular.module('mainApp')
 		else if(input == "lckMod"){input = "Luck";}
 		else if(input == "gldMod"){input = "Gold";}
 		else if(input == "expMod"){input = "Exp";}
-		else if(input == "critMod"){input = "Crit%";}
+		else if(input == "critMod"){input = "CDmg%";}
 		else if(input == "apMod"){input = "AP";}
 		else if(input == "hpPct"){input = "HP%";}
 		return input;
