@@ -11,18 +11,21 @@ angular.module('mainApp')
 	
 	//filter change timestamp to yyyy-mm-dd
 	.filter('timestampToDate',function() {
-    return function(input) {
+    	return function(input) {
 			function n(n){
 					return n > 9 ? "" + n: "0" + n;
 			}
 			var a = new Date(input * 1000);
+			
 			var year = a.getFullYear();
 			var month = n(a.getMonth()+1);
 			var date = n(a.getDate());
+			var hours = n(a.getHours());
+			var minutes = n(a.getMinutes());
 
-			var time = year + '. ' + month + '. ' + date;
+			var time = year + '.' + month + '.' + date + ' ' + hours + ':' + minutes;
 			return time;
-    }
+    	}
 	})
 
 	.filter('duration', function(){

@@ -100,7 +100,7 @@
           </td>
           <td ng-if="boss.isBoost"><img ng-src="img/frozen_logo_32.png"></td>
           <td ng-if="boss.isBoost">{{boss.name}}</td>
-          <td>{{boss.startTimestamp | timestampToDate}} ({{(boss.duration) | durationToDays}})</td>
+          <td>{{boss.startTimestamp | timestampToDate}}<br/> ({{(boss.duration) | durationToDays}})</td>
         </tr>
       </tbody>
     </table>
