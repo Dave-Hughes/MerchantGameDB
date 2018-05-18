@@ -25,7 +25,7 @@
 			</th>
 			<th class="compare-table-item-1">
 				<div class="compared-item-name">
-					<a href="#!/items/{{pageName}}/{{item1Stat.name}}?prefix={{item1Prefix.id}}&suffix={{item1Suffix.id}}">
+					<a href="#!/items/{{pageName}}/{{item1Stat.name}}?prefix={{item1Prefix.id}}&suffix={{item1Suffix.id}}&grade={{item1Grade.id}}">
 						<span class="quality-{{item1Stat.finalRarity}}">{{item1Stat.name}}</span>
 					</a>
 				</div>
@@ -62,7 +62,7 @@
 			<th></th>
 			<th class="compare-table-item-2">
 				<div class="compared-item-name">
-					<a href="#!/items/{{pageName}}/{{item2Stat.name}}?prefix={{item2Prefix.id}}&suffix={{item2Suffix.id}}">
+					<a href="#!/items/{{pageName}}/{{item2Stat.name}}?prefix={{item2Prefix.id}}&suffix={{item2Suffix.id}}&grade={{item2Grade.id}}">
 						<span class="quality-{{item2Stat.finalRarity}}">{{item2Stat.name}}</span>
 					</a>
 				</div>
@@ -106,7 +106,6 @@
 		</tr>
 	</tfoot>
 
-	<!--2.row: type -->
 	<tr>
 		<th>Type</th>
 		<td>{{item1Stat.subType}}</td>
@@ -114,7 +113,6 @@
 		<td>{{item2Stat.subType}}</td>
 	</tr>
 
-	<!--3.row: level -->
 	<tr>
 		<th>Level</th>
 		<td>{{item1Stat.itemLevel}}</td>
@@ -122,12 +120,18 @@
 		<td>{{item2Stat.itemLevel}}</td>
 	</tr>
 
-	<!--4.row: cost -->
 	<tr>
-		<th>Cost</th>
+		<th>Craft Cost</th>
 		<td>{{item1Stat.cost}}</td>
 		<td></td>
 		<td>{{item2Stat.cost}}</td>
+	</tr>
+
+	<tr>
+		<th>Sell Cost</th>
+		<td>{{::rarityMod[item1Stat.finalRarity].min * item1Stat.value}} - {{::rarityMod[item1Stat.finalRarity].max * item1Stat.value}}</td>
+		<td></td>
+		<td>{{::rarityMod[item2Stat.finalRarity].min * item2Stat.value}} - {{::rarityMod[item2Stat.finalRarity].max * item2Stat.value}}</td>
 	</tr>
 
 	<tr ng-repeat="statName in existingStats">

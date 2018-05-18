@@ -6,6 +6,7 @@ angular.module('mainApp')
 		$scope.suffix = jsonSuffixes;
 		$scope.prefix = jsonPrefixes;
 		$scope.grade = jsonGrades;
+		$scope.rarityMod = jsonRarity;
 		$scope.getItems = $routeParams.c;
 		var itemId = $routeParams.c.split("-")[0].split(",")[0]
 		var statsOrdered;
