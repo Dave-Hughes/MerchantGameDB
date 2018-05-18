@@ -34,7 +34,7 @@ angular.module('mainApp')
 			var result;
 			if (duration < 600) { //less than 10 minutes
 				result = minutes + "m ";
-				var seconds = duration % 60;
+				var seconds = Math.floor(duration % 60);
 				if (seconds > 0) {
 					result += " " + seconds + "s";
 				}

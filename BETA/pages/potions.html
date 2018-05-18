@@ -10,7 +10,9 @@
 		<td colspan=1 class='mats-name'>
 			<h3>{{potion.name}}</h3>
 		</td>
-		<td class="mats-cost">{{potion.sell[0]}} - {{potion.sell[1]}}<img class='coin-img' ng-src="img/coin.png"></td>
+		<td class="mats-cost">{{potion.sell[0]}} - {{potion.sell[1]}}
+			<img class='coin-img' ng-src="img/coin.png">
+		</td>
 	</tr>
 	<tr>
 		<td colspan=2>
@@ -28,26 +30,39 @@
 
 <table class="crafting-reagents-table">
 	<caption>Potion Recipe</caption>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Item Name</th>
-        <th class='center'>Amount</th>
-      </tr>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Item Name</th>
+			<th class='center'>Amount</th>
+		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>&nbsp;&nbsp;&nbsp;<img ng-src="img/coin.png"></td>
-			<td><a class="quality-1">Gold</a></td>
+			<td>&nbsp;&nbsp;&nbsp;
+				<img ng-src="img/coin.png">
+			</td>
+			<td>
+				<a class="quality-1">Gold</a>
+			</td>
 			<td>{{potion.cost}}</td>
 		</tr>
 		<tr ng-repeat="craft in craftedBy">
-			<td><div ng-class="::craft.icon | imageToCssClass"></div></td>
-			<td><a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a></td>
+			<td>
+				<div ng-class="::craft.icon | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{craft.rarity}}" href="#!/items/{{craft.what}}/{{craft.name}}">{{craft.name}}</a>
+			</td>
 			<td>{{craft.amount}}</td>
 		</tr>
 	</tbody>
 	<tfoot>
+		<tr>
+			<td></td>
+			<td>Crafting time: {{::potion.runTime | duration :craftTimeMin: craftTimeMax}}</td>
+			<td class='center'>Experience: {{::potion.experience}}</td>
+		</tr>
 		<tr>
 			<td colspan='3'>
 				Item recipe information for {{potion.name}}.
@@ -67,8 +82,12 @@
 		</tr>
 	</thead>
 	<tr ng-repeat="craf in craft">
-		<td><div ng-class="::craf.image | imageToCssClass"></td>
-		<td><a class="quality-{{craf.rarity}}" href="#!/items/potion/{{craf.name}}">{{craf.name}}</a></td>
+		<td>
+			<div ng-class="::craf.image | imageToCssClass">
+		</td>
+		<td>
+			<a class="quality-{{craf.rarity}}" href="#!/items/potion/{{craf.name}}">{{craf.name}}</a>
+		</td>
 		<td>{{craf.amount}}</td>
 	</tr>
 </table>

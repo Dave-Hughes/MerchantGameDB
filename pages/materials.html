@@ -11,7 +11,8 @@
 			<h3>{{material.name}}</h3>
 		</td>
 		<td class="mats-cost">
-			{{material.sell[0]}} - {{material.sell[1]}}<img class='coin-img' ng-src="img/coin.png">
+			{{material.sell[0]}} - {{material.sell[1]}}
+			<img class='coin-img' ng-src="img/coin.png">
 		</td>
 	</tr>
 	<tr>
@@ -25,7 +26,7 @@
 </table>
 
 <!-- Table showing what is needed to craft this item -->
-<table ng-show="{{craftedBy}}" class='crafting-reagents-table'>
+<table ng-if="craftedBy" class='crafting-reagents-table'>
 	<caption>Item Recipe</caption>
 	<thead>
 		<tr>
@@ -36,6 +37,11 @@
 	</thead>
 	<tfoot>
 		<tr>
+			<td></td>
+			<td>Crafting time: {{::material.runTime | duration :craftTimeMin: craftTimeMax}}</td>
+			<td class='center'>Experience: {{::material.experience}}</td>
+		</tr>
+		<tr>
 			<td colspan='3'>
 				Item recipe information for {{material.name}}.
 			</td>
@@ -43,20 +49,28 @@
 	</tfoot>
 	<tbody class='crafting-reagents-table-body'>
 		<tr>
-			<td class='center'><img ng-src="img/coin.png"></td>
-			<td><a class="quality-1">Gold</a></td>
+			<td class='center'>
+				<img ng-src="img/coin.png">
+			</td>
+			<td>
+				<a class="quality-1">Gold</a>
+			</td>
 			<td class='center'>{{material.cost}}</td>
 		</tr>
 		<tr ng-repeat="craft in craftedBy">
-			<td class='center'><div ng-class="::craft.icon | imageToCssClass"></div></td>
-			<td><a class="quality-{{craft.rarity}}" href="#!/items/material/{{craft.name}}">{{craft.name}}</a></td>
+			<td class='center'>
+				<div ng-class="::craft.icon | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{craft.rarity}}" href="#!/items/material/{{craft.name}}">{{craft.name}}</a>
+			</td>
 			<td class='center'>{{craft.amount}}</td>
 		</tr>
 	</tbody>
 </table>
 
 <!-- Table showing what this item is used to craft -->
-<table ng-show="{{craft}}" class='crafting-reagents-table'>
+<table ng-if="craft" class='crafting-reagents-table'>
 	<caption>Used to Craft</caption>
 	<thead>
 		<tr>
@@ -74,8 +88,11 @@
 	</tfoot>
 	<tbody class='crafting-reagents-table-body'>
 		<tr ng-repeat="craf in craft">
-			<td class='center'><div ng-class="::craf.image | imageToCssClass"></div></td>
-			<td><a class="quality-{{craf.rarity}}" href="#!/items/{{craf.type}}/{{craf.name}}">{{craf.name}}</td>
+			<td class='center'>
+				<div ng-class="::craf.image | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{craf.rarity}}" href="#!/items/{{craf.type}}/{{craf.name}}">{{craf.name}}</td>
 			<td>{{craf.amount}}</td>
 		</tr>
 	</tbody>
@@ -102,11 +119,21 @@
 		</tr>
 	</tfoot>
 	<tr ng-repeat="drop in droppedBy">
-		<td><div ng-class="::drop.icon | imageToCssClass"></div></td>
-		<td><a class="quality-{{drop.rarity}}" href="#!/quests/{{drop.name}}">{{drop.name}}</a></td>
-		<td><a href="#!/regios/{{drop.region}}">{{drop.region}}</a></td>
-		<td class='center'>{{drop.min *0.8 |number:0}}<span ng-if="drop.max > 1 || drop.min == 0 && drop.max == 1">-{{drop.max *1.3 |number:0}}</span></td>
-		<td class='center'>{{drop.oddsMin |number:2}}%<span ng-if="drop.oddsMax < 100"> - {{drop.oddsMax |number:2}}%</span></td>
+		<td>
+			<div ng-class="::drop.icon | imageToCssClass"></div>
+		</td>
+		<td>
+			<a class="quality-{{drop.rarity}}" href="#!/quests/{{drop.name}}">{{drop.name}}</a>
+		</td>
+		<td>
+			<a href="#!/regios/{{drop.region}}">{{drop.region}}</a>
+		</td>
+		<td class='center'>{{drop.min *0.8 |number:0}}
+			<span ng-if="drop.max > 1 || drop.min == 0 && drop.max == 1">-{{drop.max *1.3 |number:0}}</span>
+		</td>
+		<td class='center'>{{drop.oddsMin |number:2}}%
+			<span ng-if="drop.oddsMax < 100"> - {{drop.oddsMax |number:2}}%</span>
+		</td>
 	</tr>
 </table>
 
