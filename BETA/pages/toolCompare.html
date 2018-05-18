@@ -5,11 +5,15 @@
 	<ul>
 		<li>
 			<!-- Copy URL Button -->
-			<div class="comparison-copy-item-url btn btn-primary"><span class="glyphicon glyphicon-link"></span> Copy URL</div>
+			<div class="comparison-copy-item-url btn btn-primary">
+				<span class="glyphicon glyphicon-link"></span> Copy URL</div>
 		</li>
 		<li>
 			<!-- Help Button -->
-			<a href="#!/guides/How%20to%20use%20Item%20Comparison"><div class="comparison-help-button btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span> Help</a></div>
+			<a href="#!/guides/How%20to%20use%20Item%20Comparison">
+				<div class="comparison-help-button btn btn-danger">
+					<span class="glyphicon glyphicon-question-sign"></span> Help</a>
+			</div>
 		</li>
 	</ul>
 </div>
@@ -21,86 +25,74 @@
 			</th>
 			<th class="compare-table-item-1">
 				<div class="compared-item-name">
-					<a ng-if="itsWeapon" href="#!/items/weapon/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
-					<a ng-if="itsArmor" href="#!/items/armor/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
-					<a ng-if="itsTrinket" href="#!/items/trinket/{{item1Stat.name}}?prefix={{item1Prefix.name}}&suffix={{item1Suffix.id}}"><span class="quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}">{{item1Stat.name}}</span></a>
+					<a href="#!/items/{{pageName}}/{{item1Stat.name}}?prefix={{item1Prefix.id}}&suffix={{item1Suffix.id}}">
+						<span class="quality-{{item1Stat.finalRarity}}">{{item1Stat.name}}</span>
+					</a>
 				</div>
 
-				<div class='comparison-page-item-image item-quality-{{item1Stat.rarity + item1SuffixNum + item1PrefixNum}}-bg'>
+				<div class='comparison-page-item-image item-quality-{{item1Stat.finalRarity}}-bg'>
 					<div ng-class="::item1Stat.image | imageToCssClass"></div>
 				</div>
 
 				<div class="comparison-adjustments-hold">
 					<div class="comparison-page-prefix-hold">
-		        <label>Prefix</label>
-						<select class="prefix-select"
-		        ng-model="item1Prefix.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in prefix">
-		        </select>
+						<label>Prefix</label>
+						<select class="prefix-select" ng-model="item1Prefix.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in prefix">
+						</select>
 					</div>
 
 					<div class="comparison-page-suffix-hold">
 						<label>Suffix</label>
-						<select class="suffix-select"
-			      ng-model="item1Suffix.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in suffix">
-			      </select>
+						<select class="suffix-select" ng-model="item1Suffix.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in suffix">
+						</select>
 					</div>
 
 					<br>
 
 					<div class="comparison-page-grade-hold">
 						<label>Grade</label>
-						<select class="grade-select"
-			      ng-model="item1Grade.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in grade">
-			      </select>
+						<select class="grade-select" ng-model="item1Grade.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in grade">
+						</select>
 					</div>
 				</div>
 			</th>
 			<th></th>
 			<th class="compare-table-item-2">
 				<div class="compared-item-name">
-					<a ng-if="itsWeapon" href="#!/items/weapon/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
-					<a ng-if="itsArmor" href="#!/items/armor/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
-					<a ng-if="itsTrinket" href="#!/items/trinket/{{item2Stat.name}}?prefix={{item2Prefix.name}}&suffix={{item2Suffix.id}}"><span class="quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}">{{item2Stat.name}}</span></a>
+					<a href="#!/items/{{pageName}}/{{item2Stat.name}}?prefix={{item2Prefix.id}}&suffix={{item2Suffix.id}}">
+						<span class="quality-{{item2Stat.finalRarity}}">{{item2Stat.name}}</span>
+					</a>
 				</div>
 
-				<div class='comparison-page-item-image item-quality-{{item2Stat.rarity + item2SuffixNum + item2PrefixNum}}-bg'>
+				<div class='comparison-page-item-image item-quality-{{item2Stat.finalRarity}}-bg'>
 					<div ng-class="::item2Stat.image | imageToCssClass"></div>
 				</div>
 
 				<div class="comparison-adjustments-hold">
 					<div class="comparison-page-prefix-hold">
 						<label>Prefix</label>
-						<select class="prefix-select"
-		        ng-model="item2Prefix.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in prefix">
-		        </select>
+						<select class="prefix-select" ng-model="item2Prefix.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in prefix">
+						</select>
 					</div>
 
 					<div class="comparison-page-suffix-hold">
 						<label>Suffix</label>
-						<select class="suffix-select"
-		        ng-model="item2Suffix.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in suffix">
-		        </select>
+						<select class="suffix-select" ng-model="item2Suffix.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in suffix">
+						</select>
 					</div>
-					
+
 					<br>
-					
+
 					<div class="comparison-page-grade-hold">
 						<label>Grade</label>
-						<select class="grade-select"
-			      ng-model="item2Grade.id"
-			      ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
-					  ng-options="k as v.name for (k, v) in grade">
-			      </select>
+						<select class="grade-select" ng-model="item2Grade.id" ng-change="suffixPrefixChange(item1Prefix.id, item1Suffix.id, item1Grade.id, item2Prefix.id, item2Suffix.id, item2Grade.id)"
+						 ng-options="k as v.name for (k, v) in grade">
+						</select>
 					</div>
 				</div>
 			</th>
@@ -108,7 +100,9 @@
 	</thead>
 	<tfoot>
 		<tr>
-			<td colspan="4">Comparsion data for: <strong>{{item1Stat.name}}</strong> and <strong>{{item2Stat.name}}</strong>.
+			<td colspan="4">Comparsion data for:
+				<strong>{{item1Stat.name}}</strong> and
+				<strong>{{item2Stat.name}}</strong>.
 		</tr>
 	</tfoot>
 
@@ -136,305 +130,11 @@
 		<td>{{item2Stat.cost}}</td>
 	</tr>
 
-	<!--5.row: Atk -->
-	<tr ng-if="itsWeapon">
-		<th>Atk</th>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.atkBns[0]) * item1Grade.min
-					+ item1Prefix.stat.atkBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.atkBns[1]) * item1Grade.max
-					+ item1Prefix.stat.atkBns
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.atkBns[0]) * item2Grade.min
-					+ item2Prefix.stat.atkBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.atkBns[1]) * item2Grade.max
-					+ item2Prefix.stat.atkBns
-					| number:0}}
-		</td>
-	</tr>
-
-	<!--6.row: mAtk -->
-	<tr ng-if="itsWeapon">
-		<th>mAtk</th>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.matkBns[0]) * item1Grade.min
-					+ item1Prefix.stat.matkBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.matkBns[1]) * item1Grade.max
-					+ item1Prefix.stat.matkBns
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.matkBns[0]) * item2Grade.min
-					+ item2Prefix.stat.matkBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.matkBns[1]) * item2Grade.max
-					+ item2Prefix.stat.matkBns
-					| number:0}}
-		</td>
-	</tr>
-
-	<!--7.row: total Atk -->
-	<tr ng-if="itsWeapon">
-		<th>Total Attack</th>
-		<td>
-			{{(Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.atkBns[0]) * item1Grade.min
-					+ item1Prefix.stat.atkBns)
-						+
-				(Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.matkBns[0]) * item1Grade.min
-					+ item1Prefix.stat.matkBns)
-					| number:0}}
-			-
-			{{(Math.ceil(Math.ceil((formula[item1Stat.subType].atkBase + formula[item1Stat.subType].atkLvl * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.atkBns[1]) * item1Grade.max
-					+ item1Prefix.stat.atkBns)
-						+
-				(Math.ceil(Math.ceil((formula[item1Stat.subType].matkBase + formula[item1Stat.subType].matkLvl * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.matkBns[1]) * item1Grade.max
-					+ item1Prefix.stat.matkBns)
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{(Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.atkBns[0]) * item2Grade.min
-					+ item2Prefix.stat.atkBns)
-						+
-				(Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.matkBns[0]) * item2Grade.min
-					+ item2Prefix.stat.matkBns)
-					| number:0}}
-			-
-			{{(Math.ceil(Math.ceil((formula[item2Stat.subType].atkBase + formula[item2Stat.subType].atkLvl * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.atkBns[1]) * item2Grade.max
-					+ item2Prefix.stat.atkBns)
-						+
-				(Math.ceil(Math.ceil((formula[item2Stat.subType].matkBase + formula[item2Stat.subType].matkLvl * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.matkBns[1]) * item2Grade.max
-					+ item2Prefix.stat.matkBns)
-					| number:0}}
-		</td>
-	</tr>
-
-	<!--8.row: Acc -->
-	<tr ng-if="itsWeapon">
-		<th>Acc</th>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.accBns[0]) * item1Grade.min
-					+ item1Prefix.stat.accBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].accBase + formula[item1Stat.subType].accLvl * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.accBns[1]) * item1Grade.max
-					+ item1Prefix.stat.accBns
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.accBns[0]) * item2Grade.min
-					+ item2Prefix.stat.accBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].accBase + formula[item2Stat.subType].accLvl * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.accBns[1]) * item2Grade.max
-					+ item2Prefix.stat.accBns
-					| number:0}}
-		</td>
-	</tr>
-
-	<!--9.row: Def -->
-	<tr ng-if="itsArmor || item1Prefix.stat.defBns || item2Prefix.stat.defBns">
-		<th>Def</th>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.defBns[0]) * item1Grade.min
-					+ item1Prefix.stat.defBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].defBase + (formula[item1Stat.subType].defLvl + 0) * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.defBns[1]) * item1Grade.max
-					+ item1Prefix.stat.defBns
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.defBns[0]) * item2Grade.min
-					+ item2Prefix.stat.defBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].defBase + (formula[item2Stat.subType].defLvl + 0) * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.defBns[1]) * item1Grade.max
-					+ item2Prefix.stat.defBns
-					| number:0}}
-		</td>
-	</tr>
-
-	<!--10.row: mDef -->
-	<tr ng-if="itsArmor || item1Prefix.stat.mdefBns || item2Prefix.stat.mdefBns">
-		<th>mDef</th>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * item1Grade.min)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.mdefBns[0]) * item1Grade.min
-					+ item1Prefix.stat.mdefBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item1Stat.subType].mdefBase + (formula[item1Stat.subType].mdefLvl + 0) * item1Stat.itemLevel) * item1Grade.max)
-					* (1+item1Suffix.modif))
-					+ (+item1Stat.bonusStat.mdefBns[1]) * item1Grade.max
-					+ item1Prefix.stat.mdefBns
-					| number:0}}
-		</td>
-		<td class="compareThis high"></td>
-		<td>
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * item2Grade.min)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.mdefBns[0]) * item2Grade.min
-					+ item2Prefix.stat.mdefBns
-					| number:0}}
-			-
-			{{ Math.ceil(Math.ceil((formula[item2Stat.subType].mdefBase + (formula[item2Stat.subType].mdefLvl + 0) * item2Stat.itemLevel) * item2Grade.max)
-					* (1+item2Suffix.modif))
-					+ (+item2Stat.bonusStat.mdefBns[1]) * item2Grade.max
-					+ item2Prefix.stat.mdefBns
-					| number:0}}</td>
-	</tr>
-
-	<!--11.row: HP -->
-	<tr ng-if="item1Stat.bonusStat.hpBns || item2Stat.bonusStat.hpBns || item1Prefix.stat.hpBns || item2Prefix.stat.hpBns">
-		<th>HP</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.hpBns[0]) * item1Grade.min) + item1Prefix.stat.hpBns| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.hpBns[1]) * item1Grade.max) + item1Prefix.stat.hpBns| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.hpBns[0]) * item2Grade.min) + item2Prefix.stat.hpBns| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.hpBns[1]) * item2Grade.max) + item2Prefix.stat.hpBns| number:0}}</td>
-	</tr>
-
-	<!--12.row: Crit -->
-	<tr ng-if="item1Stat.bonusStat.critBns || item2Stat.bonusStat.critBns">
-		<th>Crit</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.critBns[0]) * item1Grade.min)| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.critBns[1]) * item1Grade.max)| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.critBns[0]) * item2Grade.min)| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.critBns[1]) * item2Grade.max)| number:0}}</td>
-	</tr>
-
-	<!--13.row: dex -->
-	<tr ng-if="item1Stat.bonusStat.dex || item2Stat.bonusStat.dex">
-		<th>Dex</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.dex[0]) * item1Grade.min)| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.dex[1]) * item1Grade.max)| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.dex[0]) * item2Grade.min)| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.dex[1]) * item2Grade.max)| number:0}}</td>
-	</tr>
-
-	<!--14.row: int -->
-	<tr ng-if="item1Stat.bonusStat.int || item2Stat.bonusStat.int">
-		<th>Int</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.int[0]) * item1Grade.min)| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.int[1]) * item1Grade.max)| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.int[0]) * item2Grade.min)| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.int[1]) * item2Grade.max)| number:0}}</td>
-	</tr>
-
-	<!--15.row: str -->
-	<tr ng-if="item1Stat.bonusStat.str || item2Stat.bonusStat.str">
-		<th>Str</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.str[0]) * item1Grade.min)| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.str[1]) * item1Grade.max)| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.str[0]) * item2Grade.min)| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.str[1]) * item2Grade.max)| number:0}}</td>
-	</tr>
-
-	<!--16.row: luck -->
-	<tr ng-if="item1Stat.bonusStat.lckMod || item2Stat.bonusStat.lckMod || item1Prefix.stat.lckMod || item2Prefix.stat.lckMod">
-		<th>Luck</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.lckMod[0]) * item1Grade.min) + item1Prefix.stat.lckMod| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.lckMod[1]) * item1Grade.max) + item1Prefix.stat.lckMod| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.lckMod[0]) * item2Grade.min) + item2Prefix.stat.lckMod| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.lckMod[1]) * item2Grade.max) + item2Prefix.stat.lckMod| number:0}}</td>
-	</tr>
-
-	<!--17.row: gold -->
-	<tr ng-if="item1Stat.bonusStat.gldMod || item2Stat.bonusStat.gldMod">
-		<th>Gold</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.gldMod[0]) * item1Grade.min)| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.gldMod[1]) * item1Grade.max)| number:0}}</td>
-		<td class="compareThis high"></td>
-		<td>{{Math.ceil((+item2Stat.bonusStat.gldMod[0]) * item2Grade.min)| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.gldMod[1]) * item2Grade.max)| number:0}}</td>
-	</tr>
-
-	<!--18.row: exp -->
-	<tr ng-if="item1Stat.bonusStat.expMod || item2Stat.bonusStat.expMod || item1Prefix.stat.expMod || item2Prefix.stat.expMod">
-		<th>Exp</th>
-		<td>{{Math.ceil((+item1Stat.bonusStat.expMod[0]) * item1Grade.min) + item1Prefix.stat.expMod| number:0}}-
-				{{Math.ceil((+item1Stat.bonusStat.expMod[1]) * item1Grade.max) + item1Prefix.stat.expMod| number:0}}</td>
-		<td class="compareThis high"></td>                                
-		<td>{{Math.ceil((+item2Stat.bonusStat.expMod[0]) * item2Grade.min) + item2Prefix.stat.expMod| number:0}}-
-				{{Math.ceil((+item2Stat.bonusStat.expMod[1]) * item2Grade.max) + item2Prefix.stat.expMod| number:0}}</td>
-	</tr>
-	
-	<!--19.row: speed -->
-	<tr ng-if="item1Prefix.stat.speed || item2Prefix.stat.speed">
-		<th>Speed</th>
-		<td>{{(+item1Prefix.stat.speed)| number:0}}-
-				{{(+item1Prefix.stat.speed)| number:0}}</td>
-		<td class="compareThis high"></td>                                
-		<td>{{(+item2Prefix.stat.speed)| number:0}}-
-				{{(+item2Prefix.stat.speed)| number:0}}</td>
+	<tr ng-repeat="statName in existingStats">
+		<th>{{statName | changeStat}}</th>
+		<td ng-class="getMinMaxClass(finalStats1[statName], finalStats2[statName])">{{finalStats1[statName].min | number:0}} - {{finalStats1[statName].max | number:0}}</td>
+		<td>{{getSign(finalStats1[statName], finalStats2[statName])}}</td>
+		<td ng-class="getMinMaxClass(finalStats2[statName], finalStats1[statName])">{{finalStats2[statName].min | number:0}} - {{finalStats2[statName].max | number:0}}</td>
 	</tr>
 </table>
 
