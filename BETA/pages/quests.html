@@ -1,74 +1,92 @@
 <div class='quest-image-holder'>
-	<img class='quest-image-background' src='img/tier-{{quest.region}}-background.png'>
+	<img class='quest-image-background' src='img/tier-{{::quest.region}}-background.png'>
 	<img class='quest-image-monster' ng-src="assets/{{quest.enemyImage}}">
 </div>
 
+<div class="quest-grade-luck-hold grade-adjustment-hold">
+	<label>Grade</label>
+	<select ng-options="k as v.name for (k, v) in listOfGrades" ng-model="grade" ng-change="gradeLuckChange()">
+	</select>
+</div>
+<div class="quest-grade-luck-hold grade-adjustment-hold">
+	<label>Luck</label>
+	<input type="number" min="0" max="100" ng-model="luck" ng-change="gradeLuckChange()" />
+</div>
+
 <table class='quest-table'>
-  <thead>
-  <tr>
-    <td colspan=4 class='quest-name'><h3>{{quest.name}}</h3></td>
-  </tr>
-  <tr ng-show="quest.other" ng-if="quest.type == 'a'">
-    <td colspan=4>10% chance to become <a href="#!/quests/{{quest.other}}">{{quest.other}}</a></td>
-  </tr>
-  <tr ng-show="quest.other" ng-if="quest.type == 'b'">
-    <td colspan=4>From <a href="#!/quests/{{quest.other}}">{{quest.other}}</a></td>
-  </tr>
-  <tr>
-    <td colspan=2 class='quest-type'>{{quest.title}}</td>
-    <td colspan=2 class='quest-cost'>
-      Cost: <img class='coin-img' src='img/coin.png'>
-      {{quest.gold}}
-    </td>
-  </tr>
-  <tr>
-    <td colspan=2 class='quest-level'>Level {{quest.levelReq}}</td>
-    <td colspan=2 class='quest-zone'><a href="#!/regios/{{quest.region2}}">{{quest.region2}}</a></td>
-  </tr>
-  <tr>
-    <td colspan=4>Max Party Size: {{quest.questSize}}</td>
-  </tr>
-  <tr class='quest-spacer'>
-    <td colspan=4>
-  </tr>
-  </thead>
+	<thead>
+		<tr>
+			<td colspan=4 class='quest-name'>
+				<h3>{{::quest.name}}</h3>
+			</td>
+		</tr>
+		<tr ng-show="quest.other" ng-if="quest.type == 'a'">
+			<td colspan=4>10% chance to become
+				<a href="#!/quests/{{::quest.other}}">{{::quest.other}}</a>
+			</td>
+		</tr>
+		<tr ng-show="quest.other" ng-if="quest.type == 'b'">
+			<td colspan=4>From
+				<a href="#!/quests/{{::quest.other}}">{{::quest.other}}</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2 class='quest-type'>{{::quest.title}}</td>
+			<td colspan=2 class='quest-cost'>
+				Cost:
+				<img class='coin-img' src='img/coin.png'> {{::quest.gold}}
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2 class='quest-level'>Level {{::quest.levelReq}}</td>
+			<td colspan=2 class='quest-zone'>
+				<a href="#!/regios/{{::quest.region2}}">{{::quest.region2}}</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=4>Max Party Size: {{::quest.questSize}}</td>
+		</tr>
+		<tr class='quest-spacer'>
+			<td colspan=4>
+		</tr>
+	</thead>
 	<tbody>
-	<tr class='quest-stat-label'>
-		<td>HP</td>
-		<td>EXP</td>
-		<td>Time</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>{{quest.enemyHp}}</td>
-		<td>{{quest.exp}}</td>
-		<td>{{quest.time}}</td>
-		<td></td>
-	</tr>
-	<tr class='quest-stat-label'>
-		<td>P.Atk</td>
-		<td>M.Atk</td>
-		<td>P.Def</td>
-		<td>M.Def</td>
-	</tr>
-	<tr>
-		<td>{{quest.enemyAtk}}</td>
-		<td>{{quest.enemyMatk}}</td>
-		<td>{{quest.enemyDef}}</td>
-		<td>{{quest.enemyMdef}}</td>
-	</tr>
-	<tr class='quest-stat-label'>
-		<td>Eva</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>{{quest.enemyEva}}</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+		<tr class='quest-stat-label'>
+			<td>HP</td>
+			<td>EXP</td>
+			<td>Time</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>{{::quest.enemyHp}}</td>
+			<td>{{::quest.exp}}</td>
+			<td>{{::quest.time}}</td>
+			<td></td>
+		</tr>
+		<tr class='quest-stat-label'>
+			<td>P.Atk</td>
+			<td>M.Atk</td>
+			<td>P.Def</td>
+			<td>M.Def</td>
+		</tr>
+		<tr>
+			<td>{{::quest.enemyAtk}}</td>
+			<td>{{::quest.enemyMatk}}</td>
+			<td>{{::quest.enemyDef}}</td>
+			<td>{{::quest.enemyMdef}}</td>
+		</tr>
+		<tr class='quest-stat-label'>
+			<td>Eva</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>{{::quest.enemyEva}}</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</tbody>
 </table>
 <div class='clear'></div>
@@ -85,15 +103,17 @@
 	<tfoot>
 		<tr>
 			<td colspan='3'>
-				Attack list information for {{quest.name}}.
+				Attack list information for {{::quest.name}}.
 			</td>
 		</tr>
 	</tfoot>
 	<tbody>
 		<tr ng-repeat="ability in quest.attackList track by $index">
-			<td><div ng-class="::jsonAbility[ability].image | imageToCssClass"></div></td>
-			<td>{{ability}}</td>
-			<td>{{jsonAbility[ability].desc1}} {{jsonAbility[ability].desc2}}</td>
+			<td>
+				<div ng-class="::jsonAbility[ability].image | imageToCssClass"></div>
+			</td>
+			<td>{{::ability}}</td>
+			<td>{{::jsonAbility[ability].desc1}} {{::jsonAbility[ability].desc2}}</td>
 		</tr>
 	</tbody>
 </table>
@@ -110,6 +130,11 @@
 		</tr>
 	</thead>
 	<tfoot>
+		<tr ng-if="luckCaps">
+			<td colspan='5'>
+				Luck cap for {{gradeForCap}} grade per slot: {{luckCaps}}
+			</td>
+		</tr>
 		<tr>
 			<td colspan='5'>
 				Item drops information for {{quest.name}}.
@@ -119,45 +144,105 @@
 	<tbody>
 		<tr ng-show="quest.reward1[0]">
 			<td>1.</td>
-			<td class="center"><div ng-class="::mats[quest.reward1[0]-1].image | imageToCssClass"></div></td>
-			<td><a class="quality-{{mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward1[0]-1].name}}">{{mats[quest.reward1[0]-1].name}}</a></td>
-			<td>{{quest.reward1[1]*0.8 | number:0}}<span ng-if="quest.reward1[2] > 1"> - {{quest.reward1[2]*1.3 | number:0}}</span></td>
+			<td class="center">
+				<div ng-class="::mats[quest.reward1[0]-1].image | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{::mats[quest.reward1[0]-1].rarity}}" href="#!/items/material/{{::mats[quest.reward1[0]-1].name}}">
+					{{::mats[quest.reward1[0]-1].name}}</a>
+			</td>
+			<td>
+				{{ Math.min(quest.reward1[1] * minGradeModifier + luck * 0.1, 5) | number:0}}
+				<span ng-if="quest.reward1[2] > quest.reward1[1]">
+					- {{Math.min(quest.reward1[2] * maxGradeModifier + luck * 0.1, 5) | number:0}}
+				</span>
+			</td>
 			<td>100%</td>
 		</tr>
 	</tbody>
 	<tbody>
 		<tr ng-show="quest.reward2[0]">
 			<td>2.</td>
-			<td class="center"><div ng-class="::mats[quest.reward2[0]-1].image | imageToCssClass"></div></td>
-			<td><a class="quality-{{mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{mats[quest.reward2[0]-1].name}}">{{mats[quest.reward2[0]-1].name}}</a></td>
+			<td class="center">
+				<div ng-class="::mats[quest.reward2[0]-1].image | imageToCssClass"></div>
+			</td>
 			<td>
-				{{quest.reward2[1]*0.8 | number:0}}
+				<a class="quality-{{::mats[quest.reward2[0]-1].rarity}}" href="#!/items/material/{{::mats[quest.reward2[0]-1].name}}">
+					{{::mats[quest.reward2[0]-1].name}}</a>
+			</td>
+			<td>
+				{{ Math.min(quest.reward2[1] * minGradeModifier + luck * 0.1, 5) | number:0}}
 				<span ng-if="quest.reward2[2] > 1 || quest.reward2[2] == 1 && quest.reward2[1] == 0">
-					 - {{quest.reward2[2]*1.3 | number:0}}
+					- {{Math.min(quest.reward2[2] * maxGradeModifier + luck * 0.1, 5) | number:0}}
 				</span>
 			</td>
 			<td>100%</td>
 		</tr>
 	</tbody>
-	<tbody ng-show="reward3">
-		<tr><td rowspan="{{reward3.items.length + 2}}">3.</td><td></td><td></td><td></td><td></td></tr>
+	<tbody ng-if="reward3">
+		<tr>
+			<td rowspan="{{reward3.items.length + 2}}">3.</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 		<tr ng-repeat="item in reward3.items">
-			<td class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
-			<td><a class="quality-{{item.rarity}}" href="#!/items/{{item.type}}/{{item.name}}">{{item.name}}</a></td>
-			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
-			<td>{{item.odd/(reward3.totalOdds+reward3.nilOdds*1.25)*100 |number:2 }}% - {{item.odd/(reward3.totalOdds+reward3.nilOdds*0.75)*100 |number:2 }}%</td>
+			<td class="center">
+				<div ng-class="::item.image | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{::item.rarity}}" href="#!/items/{{::item.type}}/{{::item.name}}">{{::item.name}}</a>
+			</td>
+			<td>
+				{{item.min |number:0}}
+				<span ng-if="item.max > 1">-{{item.max |number:0}}</span>
+			</td>
+			<td>
+				{{item.odd/(reward3.totalOdds + reward3NilMax)*100 |number:2 }}%
+				<span ng-if="reward3NilMax != reward3NilMin">
+					- {{item.odd/(reward3.totalOdds + reward3NilMin)*100 |number:2 }}%
+				</span>
+			</td>
 		</tr>
-		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</tbody>
-	<tbody ng-show="reward4">
-		<tr><td rowspan="{{reward4.items.length + 2}}">4.</td><td></td><td></td><td></td><td></td></tr>
-		<tr ng-repeat="item in reward4.items">
-			<td class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
-			<td><a class="quality-{{item.rarity}}" href="#!/items/{{item.type}}/{{item.name}}">{{item.name}}</a></td>
-			<td>{{item.min * 0.8 |number:0}}<span ng-if="item.max > 1">-{{item.max * 1.3 |number:0}}</span></td>
-			<td>{{item.odd/(reward4.totalOdds+reward4.nilOdds*1.25)*100 |number:2 }}% - {{item.odd/(reward4.totalOdds+reward4.nilOdds*0.75)*100 |number:2 }}%</td>
+	<tbody ng-if="reward4">
+		<tr>
+			<td rowspan="{{reward4.items.length + 2}}">4.</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
-		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr ng-repeat="item in reward4.items">
+			<td class="center">
+				<div ng-class="::item.image | imageToCssClass"></div>
+			</td>
+			<td>
+				<a class="quality-{{::item.rarity}}" href="#!/items/{{::item.type}}/{{::item.name}}">{{::item.name}}</a>
+			</td>
+			<td>{{item.min |number:0}}
+				<span ng-if="item.max > 1">-{{item.max |number:0}}</span>
+			</td>
+			<td>
+				{{item.odd / (reward4.totalOdds + reward4NilMax) * 100 | number:2 }}%
+				<span ng-if="reward4NilMin != reward4NilMax">
+					- {{item.odd / (reward4.totalOdds + reward4NilMin) * 100 | number:2 }}%
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</tbody>
 </table>
 

@@ -1,7 +1,7 @@
 .quest-image-holder {
   float: left;
   width: 35%;
-  max-width: 150px;
+  max-width: 128px;
   text-align: center;
   display: block;
   position: relative;
@@ -30,7 +30,6 @@
   max-width: 305px;
   border: 2px solid #bbb;
   font-size: .9em;
-  float: left;
   td {
     padding: 2px 5px 0px 5px;
   }
@@ -126,5 +125,21 @@ th {
     font-style: italic;
     font-size: .9em;
     padding: 8px;
+  }
+}
+
+.quest-grade-luck-hold.grade-adjustment-hold {
+  width: 35%;
+  max-width: 128px;
+
+  select {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input {
+    width:80%;
+    padding-left:2px;
   }
 }
