@@ -13,6 +13,4 @@ angular.module('mainApp')
 		$scope.droppedBy = getMonsterByMaterialId($scope.materialID);
 
 		$scope.craft = usedToCraftFromMaterial($scope.materialID);
-
-		$scope.getTierOfMaterial = getTierOfMaterial;
 	})
