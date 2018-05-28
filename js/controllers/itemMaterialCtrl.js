@@ -11,7 +11,7 @@ angular.module('mainApp')
 	  };
 
 	  $scope.showMaterialsByTier = function(item) {
-		  var tier = getTierOfMaterial(item);
+		  var tier = item.dbTier;
 		  return filtersService.isMatch(tier, $scope.TiersFilter);
 	  };
 	})

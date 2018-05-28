@@ -16,7 +16,6 @@ angular.module('mainApp')
 		};
 
 		$scope.showWeaponsByTier = function (item) {
-			var tier = lvToTier(item.itemLevel);
-			return filtersService.isMatch(tier, $scope.TiersFilter);
+			return filtersService.isMatch(item.dbTier, $scope.TiersFilter);
 		};
 	});
