@@ -14,6 +14,8 @@ angular.module('mainApp')
 		$scope.TiersFilter = filtersService.getTiers();
 		$scope.ArmorsmithFilter = filtersService.getArmorsmithTypes();
 		$scope.ClothWorkerFilter = filtersService.getClothWorkerTypes();
+		$scope.StatsFilter = filtersService.getStatsFilter();
+		$scope.ignoreStatsFilter = true
 
 		$scope.showArmorsByType = function (item) {
 			return filtersService.isMatch(item.subType, $scope.ArmorsmithFilter)
@@ -23,4 +25,13 @@ angular.module('mainApp')
 		$scope.showArmorsByTier = function (item) {
 			return filtersService.isMatch(item.dbTier, $scope.TiersFilter);
 		};
+
+		$scope.showArmorsByStat = function (item) {
+			return $scope.ignoreStatsFilter
+				|| filtersService.filterStats(item.bonusStat, $scope.StatsFilter)
+		}
+
+		$scope.setStatsFiter = function (countSelected, isAllSelected) {
+			$scope.ignoreStatsFilter = countSelected == 0 || isAllSelected
+		}
 	})

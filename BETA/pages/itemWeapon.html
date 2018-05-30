@@ -11,6 +11,8 @@
   <common-filter title="Blacksmith Subtype" css-class="weapons-subtype-options col-xs-12 col-sm-12" options="BlacksmithFilter"></common-filter>
   <common-filter title="Woodworker Subtype" css-class="weapons-subtype-options col-xs-12 col-sm-12" options="WoodworkerFilter"></common-filter>
   <common-filter title="Special Subtype" css-class="weapons-subtype-options col-xs-12 col-sm-12" options="SpecialFilter"></common-filter>
+  <common-filter title="Stats Filter" css-class="weapons-subtype-options col-xs-12 col-sm-12" break-count="4"
+       options="StatsFilter" on-filter-changed="setStatsFiter($countSelected, $isAllSelected)"></common-filter>
 </div>
 
 <table class="filtered-gear-table">
@@ -21,7 +23,7 @@
       <th class="center">Cost/<br>Level</th>
     </tr>
   </thead>
-  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType:true | filter:showWeaponsByTier">
+  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:1} | filter:showWeaponsByType | filter:showWeaponsByTier | filter:showWeaponByStat">
     <tr>
 		<td rowspan="3" class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/weapon/{{item.name}}">{{item.name}}</a></td>

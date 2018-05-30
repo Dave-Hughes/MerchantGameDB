@@ -5,6 +5,9 @@
 <div class="trinkets-page-filters row">
   <h2>Filtering Options</h2>
   <common-filter title="Tier" css-class="trinkets-tier-options col-xs-12 col-sm-12" options="TiersFilter"></common-filter>
+  <common-filter title="Subtype" css-class="trinkets-tier-options col-xs-12 col-sm-12" options="TypesFilter"></common-filter>
+  <common-filter title="Stats Filter" css-class="trinkets-tier-options col-xs-12 col-sm-12" break-count="4"
+        options="StatsFilter" on-filter-changed="setStatsFiter($countSelected, $isAllSelected)"></common-filter>
 </div>
 <table class="filtered-gear-table">
   <thead>
@@ -14,7 +17,7 @@
       <th class="center">Level</th>
     </tr>
   </thead>
-  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:6} | filter:showTrinketsByTier">
+  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:{itemSlot:6} | filter:showTrinketsByTier | filter:showTrinketsByType | filter:showTrinketByStat">
     <tr>
 		<td rowspan="2" class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/trinket/{{item.name}}">{{item.name}}</a><br>{{item.desc1}}</td>
