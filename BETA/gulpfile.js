@@ -56,27 +56,53 @@ gulp.task('regenerate-search', function (callback) {
     return "Armor";
   }
 
+  var presetMatTiers = {
+    "Grokage": 0
+  }
+  var presetItemsTiers = {
+    "Goblin Ring": 1, //have craft recipe with Grokage
+    "Grok's Amulet": 0,
+  }
+
+  function getMaterialTier(material) {
+    var presetTier = presetMatTiers[material.name]
+    if (presetTier !== undefined) {
+      return presetTier
+    }
+    var tier = Math.floor(material.itemLevel / 10) + 1
+    if (material.itemLevel % 10 == 0 && material.rarity > 2) {
+      //example: common lvl 20 material belong to t3, but rare and above belong to t2
+      tier -= 1;
+    }
+    return tier
+  }
+
+  function getMaterialTierFromRecipe(item) {
+    var presetTier = presetItemsTiers[item.name]
+    if (presetTier !== undefined) {
+      return presetTier
+    }
+    var ids = item.materialID
+    for (var i = 0; i < ids.length; i++) {
+      if (item.materialType == undefined || item.materialType[i] == undefined) {
+        if (newMats[ids[i] - 1] == undefined) {
+          console.log("wtf", item.name, ids[i] - 1, newMats.length)
+          return Math.floor((item.itemLevel - 0.1) / 10) + 1
+        }
+        return newMats[ids[i] - 1].dbTier
+      }
+    }
+    //console.log("warning: can't get tier for item", item.name)
+    return Math.floor((item.itemLevel - 0.1) / 10) + 1
+  }
+
   var toSave = [], newEquip = [], newMats = [], newPotions = [], newQuests = [];
 
-  for (var i = 0; i < equip.length; i++) {
-    var item = equip[i];
-    if (item.itemSlot && item.image) {
-      newEquip.push(item);
-      toSave.push({
-        name: item.name,
-        type: getItemType(item.itemSlot),
-        subType: item.subType,
-        rarity: item.rarity,
-        icon: item.image,
-      });
-    } else {
-      newEquip.push({ name: item.name });//clean not existing items
-    }
-  }
   for (var i = 0; i < mats.length; i++) {
     var item = mats[i];
     if (item.image && item.image.substr(-1) != "/" &&
       item.image != "Materials/Region_6/Chieftains_Blade.png") {
+      item.dbTier = getMaterialTier(item)
       newMats.push(item);
       toSave.push({
         name: item.name,
@@ -89,9 +115,28 @@ gulp.task('regenerate-search', function (callback) {
       newMats.push({ name: item.name });//clean not existing items
     }
   }
+  for (var i = 0; i < equip.length; i++) {
+    var item = equip[i];
+    if (item.itemSlot && item.image) {
+      item.dbTier = getMaterialTierFromRecipe(item)
+
+      newEquip.push(item);
+      toSave.push({
+        name: item.name,
+        type: getItemType(item.itemSlot),
+        subType: item.subType,
+        rarity: item.rarity,
+        icon: item.image,
+      });
+    } else {
+      newEquip.push({ name: item.name });//clean not existing items
+    }
+  }
   for (var i = 0; i < potions.length; i++) {
     var item = potions[i];
     if (item.image && item.image.substr(-1) != "/") {
+      item.dbTier = getMaterialTierFromRecipe(item)
+
       newPotions.push(item);
       toSave.push({
         name: item.name,
@@ -123,7 +168,7 @@ gulp.task('regenerate-search', function (callback) {
           subType: quest.titleB || "Rare",
           rarity: "1",
           icon: quest.image, //imageB is not used in the game currently
-        });        
+        });
       }
     } else {
       newQuests.push({ title: "Placeholder" });//clean not existing items

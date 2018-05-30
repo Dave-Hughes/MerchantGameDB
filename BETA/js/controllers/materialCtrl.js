@@ -1,6 +1,6 @@
 //Controller for Materials
 angular.module('mainApp')
-	.controller('materialCtrl', function ($scope, $routeParams) {
+	.controller('materialCtrl', function ($scope, $routeParams, questService) {
 		$scope.Math = Math;
 		$scope.materialID = getMaterialIdByName($routeParams.id);
 		$scope.material = jsonMaterials[$scope.materialID];
@@ -10,9 +10,7 @@ angular.module('mainApp')
 			$scope.craftTimeMin = jsonGrades["0"].craftTimeMin;
 			$scope.craftTimeMax = jsonGrades["0"].craftTimeMax;
 		}
-		$scope.droppedBy = getMonsterByMaterialId($scope.materialID);
+		$scope.droppedBy = questService.getMonsterByMaterialId($scope.materialID);
 
 		$scope.craft = usedToCraftFromMaterial($scope.materialID);
-
-		$scope.getTierOfMaterial = getTierOfMaterial;
 	})

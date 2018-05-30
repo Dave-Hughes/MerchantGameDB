@@ -1,10 +1,23 @@
 
 angular.module("mainApp").service("filtersService", function () {
     var self = this;
-    
+
     self.isMatch = function (value, currentFilters) {
         var filter = currentFilters[value];
         return filter && filter.selected;
+    }
+
+    self.filterStats = function (statsObj, currentFilters) {
+        for (var i = 0; i < self.statsCount; i++) {
+            var statKey = self.statsArr[i]
+            if (statsObj[statKey]) {
+                var filter = currentFilters[statKey]
+                if (filter && filter.selected) {
+                    return true;
+                }
+            }
+        }
+        return false
     }
 
     self.getTiers = function () {
@@ -76,6 +89,19 @@ angular.module("mainApp").service("filtersService", function () {
         }
     }
 
+    self.getTrinketsTypes = function () {
+        return {
+            "Amulet": { title: "Amulet" },
+            "Earring": { title: "Earring" },
+            "Medallion": { title: "Medallion" },
+            "Necklace": { title: "Necklace" },
+            "Pendant": { title: "Pendant" },
+            "Ring": { title: "Ring" },
+            "Trinket": { title: "Trinket" },
+            "None": { title: "None" },
+        }
+    }
+
     self.getPotionsTypes = function () {
         return {
             Health: { title: "Health" },
@@ -110,4 +136,49 @@ angular.module("mainApp").service("filtersService", function () {
         }
     }
 
+    self.statsNames = {
+        "atkBns": "Atk",
+        "atkPct": "Atk%",
+        "matkBns": "mAtk",
+        "matkPct": "mAtk%",
+        "defBns": "Def",
+        "defPct": "Def%",
+        "mdefBns": "mDef",
+        "mdefPct": "mDef%",
+        "accBns": "Acc",
+        "accPct": "Acc%",
+        "critBns": "Crit",
+        "critMod": "CDmg%",
+        "hpBns": "HP",
+        "hpPct": "HP%",
+        "lckMod": "Luck",
+        "expMod": "Exp",
+        "str": "Str",
+        "dex": "Dex",
+        "int": "Int",
+        "apMod": "AP",
+        "gldMod": "Gold",
+    }
+
+    self.hiddenStats = ["gldMod"]
+
+    self.statsArr = []
+    for (var key in self.statsNames) {
+        if (self.statsNames.hasOwnProperty(key)) {
+            self.statsArr.push(key)
+        }
+    }
+    self.statsCount = self.statsArr.length
+
+    self.getStatsFilter = function () {
+        var filterObject = {}
+
+        for (var i = 0; i < self.statsCount; i++) {
+            var statKey = self.statsArr[i]
+            if (self.hiddenStats.indexOf(statKey) < 0) {
+                filterObject[statKey] = { title: self.statsNames[statKey] }
+            }
+        }
+        return filterObject
+    }
 })

@@ -7,6 +7,8 @@
   <common-filter title="Tier" css-class="armors-tier-options col-xs-12 col-sm-12" options="TiersFilter"></common-filter>
   <common-filter title="Armorsmith Subtype" css-class="armors-subtype-options col-xs-12 col-sm-12" options="ArmorsmithFilter" break-count="4"></common-filter>
   <common-filter title="ClothWorker Subtype" css-class="armors-subtype-options col-xs-12 col-sm-12" options="ClothWorkerFilter" break-count="4"></common-filter>
+  <common-filter title="Stats Filter" css-class="armors-subtype-options col-xs-12 col-sm-12" break-count="4"
+        options="StatsFilter" on-filter-changed="setStatsFiter($countSelected, $isAllSelected)"></common-filter>
 </div>
 
 <table class="filtered-gear-table">
@@ -17,7 +19,7 @@
       <th class="center">Cost/<br>Level</th>
     </tr>
   </thead>
-  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:itemSlot | filter:showArmorsByType:true | filter:showArmorsByTier">
+  <tbody ng-repeat="item in equipment | orderBy : 'itemLevel' | filter:itemSlot | filter:showArmorsByType:true | filter:showArmorsByTier | filter:showArmorsByStat">
     <tr>
 		<td rowspan="3" class="center"><div ng-class="::item.image | imageToCssClass"></div></td>
 		<td><a class='quality-{{item.rarity}}' href="#!/items/armor/{{item.name}}">{{item.name}}</a></td>

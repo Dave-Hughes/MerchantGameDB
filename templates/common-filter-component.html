@@ -7,7 +7,7 @@
             </td>
             <td>
                 <ng-repeat ng-repeat="(key,data) in ::Filter.options">
-                    <input ng-attr-id="{{::Filter.getId(key)}}" type="checkbox" ng-model="data.selected" />
+                    <input ng-attr-id="{{::Filter.getId(key)}}" type="checkbox" ng-model="data.selected" ng-change="Filter.filterChanged(key)" />
                     <label ng-class="{'filter-selected': data.selected}" ng-attr-for="{{::Filter.getId(key)}}">{{::data.title}}</label>
                     <br ng-if="::Filter.needBreak($index, $last)" />
                 </ng-repeat>
