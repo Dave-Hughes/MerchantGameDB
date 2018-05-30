@@ -46,4 +46,116 @@ angular.module("mainApp").service("questService", function () {
         $scope.luckCaps = luckCaps
 
     }
+
+
+
+    self.getMonsterByMaterialId = function (id) {
+        var monsters = [];
+        var listDrops = [];
+        var listDropsName = [];
+
+        var gradeData = jsonGrades["0"]
+        var minGradeModifier = gradeData.lootModMin;
+        var maxGradeModifier = gradeData.lootModMax;
+
+        $.each(jsonParcel, function (i, val) {
+            var totalOdds = 0;
+            var min = "";
+            var max = "";
+            var odds = "";
+            $.each(val.itemList, function (j, val2) {
+                totalOdds += val2.odds;
+                if (val2.id - 1 == id) {
+                    if (val2.amount[5]) { min = val2.amount[0]; max = val2.amount[4] }
+                    else if (val2.amount[3]) { min = val2.amount[0]; max = val2.amount[2] }
+                    else { min = val2.amount[0]; max = val2.amount[0] }
+                    odds = val2.odds
+
+                    var indexOf = listDropsName.indexOf(i)
+                    if (indexOf < 0) { listDropsName.push(i); }
+                }
+            });
+
+            if (odds) {
+                var oddsMin = odds / (totalOdds + val.nilOdds * gradeData.nilOddsMax) * 100;
+                var oddsMax = odds / (totalOdds + val.nilOdds * gradeData.nilOddsMin) * 100;
+                var temp = { "name": i, "min": min, "max": max, "oddsMin": oddsMin, "oddsMax": oddsMax }
+                listDrops.push(temp);
+            }
+        });
+
+        function createMonsterFrom1_2Reward(val, reward, isB) {
+            return {
+                name: isB ? val.nameB : val.name,
+                rarity: isB ? val.titleB : val.title,
+                icon: val.image,
+                oddsMin: 100,
+                oddsMax: 100,
+                min: reward[1] * minGradeModifier, 
+                max: reward[2] * maxGradeModifier,
+                region: regionById(val.region)
+            }
+        }
+
+        function createMonsterFrom3_4Reward(val, indexOfReward, isB) {
+            return {
+                name: isB ? val.nameB : val.name,
+                rarity: isB ? val.titleB : val.title,
+                icon: val.image,
+                oddsMin: listDrops[indexOfReward].oddsMin, 
+                oddsMax: listDrops[indexOfReward].oddsMax,
+                min: listDrops[indexOfReward].min, 
+                max: listDrops[indexOfReward].max, 
+                region: regionById(val.region)
+            }
+        }
+
+        $.each(jsonQuests, function (index, val) {
+            if (val.title != "Placeholder") {
+                if (val.rewardA1[0] - 1 == id) {
+                    var monster = createMonsterFrom1_2Reward(val, val.rewardA1, false)
+                    monsters.push(monster)
+                }
+                else if (val.rewardA2[0] - 1 == id) {
+                    var monster = createMonsterFrom1_2Reward(val, val.rewardA2, false)
+                    monsters.push(monster)
+                }
+
+                var indexOf = listDropsName.indexOf(val.rewardA3)
+                if (indexOf > -1) {
+                    var monster = createMonsterFrom3_4Reward(val, indexOf, false)
+                    monsters.push(monster)
+                }
+
+                indexOf = listDropsName.indexOf(val.rewardA4)
+                if (indexOf > -1) {
+                    var monster = createMonsterFrom3_4Reward(val, indexOf, false)
+                    monsters.push(monster)
+                }
+
+                if (val.hasOwnProperty("nameB")) {
+                    if (val.rewardB1[0] - 1 == id) {
+                        var monster = createMonsterFrom1_2Reward(val, val.rewardB1, true)
+                        monsters.push(monster)
+                    }
+                    else if (val.rewardB2[0] - 1 == id) {
+                        var monster = createMonsterFrom1_2Reward(val, val.rewardB2, true)
+                        monsters.push(monster)
+                    }
+
+                    indexOf = listDropsName.indexOf(val.rewardB3)
+                    if (indexOf > -1) {
+                        var monster = createMonsterFrom3_4Reward(val, indexOf, true)
+                        monsters.push(monster)
+                    }
+                    indexOf = listDropsName.indexOf(val.rewardB4)
+                    if (indexOf > -1) {
+                        var monster = createMonsterFrom3_4Reward(val, indexOf, true)
+                        monsters.push(monster)
+                    }
+                }
+            }
+        })
+        return monsters;
+    }
 })
