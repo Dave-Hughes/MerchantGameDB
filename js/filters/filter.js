@@ -102,18 +102,11 @@ angular.module('mainApp')
 			return input;
 		}
 	})
-	.filter('grade', function($filter){
+	.filter('grade', function($filter, itemsService){
 		var numberFilter = $filter('number');
 		return function(input, gradeMultiplier){
-			var result;
-			if (input < 0){
-				result = input / gradeMultiplier; //negative stats handling
-			}else if (input < 1){
-				result = input * 100 - 1e-7; // percent stats handling. 1e-7 for rounding issues
-			}else{
-				result = input * gradeMultiplier;
-			}
-			return numberFilter(Math.ceil(result), 0);
+			var result = itemsService.getStatAfterGrade(input, gradeMultiplier)
+			return numberFilter(result, 0);
 		}
 	})
 	//filter fix % stats displaying

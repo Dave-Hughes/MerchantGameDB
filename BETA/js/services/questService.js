@@ -9,7 +9,7 @@ angular.module("mainApp").service("questService", function () {
         self.luck = luck || 0
     }
 
-    self.setupScope = function ($scope) {
+    self.setupQuestScope = function ($scope) {
         $scope.grade = self.grade;
         $scope.luck = Math.max(self.luck, 0);
 
@@ -47,14 +47,13 @@ angular.module("mainApp").service("questService", function () {
 
     }
 
-
-
     self.getMonsterByMaterialId = function (id) {
         var monsters = [];
         var listDrops = [];
         var listDropsName = [];
 
-        var gradeData = jsonGrades["0"]
+        var gradeData = jsonGrades[self.grade]
+        var luck = self.luck
         var minGradeModifier = gradeData.lootModMin;
         var maxGradeModifier = gradeData.lootModMax;
 
@@ -77,8 +76,8 @@ angular.module("mainApp").service("questService", function () {
             });
 
             if (odds) {
-                var oddsMin = odds / (totalOdds + val.nilOdds * gradeData.nilOddsMax) * 100;
-                var oddsMax = odds / (totalOdds + val.nilOdds * gradeData.nilOddsMin) * 100;
+                var oddsMin = odds / (totalOdds + Math.max(val.nilOdds * gradeData.nilOddsMax - self.luck, 1)) * 100;
+                var oddsMax = odds / (totalOdds + Math.max(val.nilOdds * gradeData.nilOddsMin - self.luck, 1)) * 100;
                 var temp = { "name": i, "min": min, "max": max, "oddsMin": oddsMin, "oddsMax": oddsMax }
                 listDrops.push(temp);
             }
@@ -91,8 +90,8 @@ angular.module("mainApp").service("questService", function () {
                 icon: val.image,
                 oddsMin: 100,
                 oddsMax: 100,
-                min: reward[1] * minGradeModifier, 
-                max: reward[2] * maxGradeModifier,
+                min: Math.min(reward[1] * minGradeModifier + luck * 0.1, 5), 
+                max: Math.min(reward[2] * maxGradeModifier + luck * 0.1, 5),
                 region: regionById(val.region)
             }
         }

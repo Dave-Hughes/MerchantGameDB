@@ -18,10 +18,10 @@ angular.module('mainApp')
 
 		$scope.listOfGrades = jsonGrades;
 		
-		questService.setupScope($scope)
+		questService.setupQuestScope($scope)
 
 		$scope.gradeLuckChange = function () {
 			questService.setValues($scope.grade, $scope.luck)
-			questService.setupScope($scope)
+			questService.setupQuestScope($scope)
 		}
 	})

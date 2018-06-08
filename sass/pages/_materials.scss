@@ -31,3 +31,22 @@
 .mats-tier {
   text-align: right;
 }
+
+.material-grade-luck-hold.grade-adjustment-hold {
+  width: 35%;
+  max-width: 128px;
+  display: inline-block;
+  float: none;
+  margin-top: 30px;
+
+  select {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input {
+    width:80%;
+    padding-left:2px;
+  }
+}

@@ -98,9 +98,19 @@
 	</tbody>
 </table>
 
+<div class="material-grade-luck-hold grade-adjustment-hold">
+	<label>Grade</label>
+	<select ng-options="k as v.name for (k, v) in listOfGrades" ng-model="grade" ng-change="gradeLuckChange()">
+	</select>
+</div>
 
+<div class="material-grade-luck-hold grade-adjustment-hold">
+	<label>Luck</label>
+	<input type="number" min="0" ng-model="luck" ng-change="gradeLuckChange()" />
+</div>
+	
 <!-- Table showing which monsters drop this item -->
-<table ng-show="{{droppedBy}}" class='crafting-reagents-table'>
+<table ng-if="droppedBy && droppedBy.length > 0" class='crafting-reagents-table'>
 	<caption>Dropped By</caption>
 	<thead>
 		<tr>

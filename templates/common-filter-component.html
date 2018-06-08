@@ -1,8 +1,10 @@
 <div class="" ng-class="::Filter.cssClass">
     <h3>{{::Filter.title}}</h3>
+          
+    <span class="selectButton select-button-xs visible-xs-inline-block" ng-click="Filter.selectAll()">!ALL!</span>    
     <table>
         <tr>
-            <td>
+            <td class="hidden-xs">
                 <span class="selectButton" ng-click="Filter.selectAll()">!ALL!</span>
             </td>
             <td>

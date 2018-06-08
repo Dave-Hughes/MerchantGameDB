@@ -56,4 +56,16 @@ angular.module("mainApp").service("itemsService", function () {
     self.initQuality = function ($scope) {
         $scope.finalRarity = self.getItemQuality($scope.item, $scope.hasPrefix, $scope.hasSuffix)
     }
+
+    self.getStatAfterGrade = function (input, gradeMultiplier) {
+        var result;
+        if (input < 0) {
+            result = input / gradeMultiplier; //negative stats handling
+        } else if (input < 1) {
+            result = input * 100 - 1e-7; // percent stats handling. 1e-7 for rounding issues
+        } else {
+            result = input * gradeMultiplier;
+        }
+        return Math.ceil(result)
+    }
 });

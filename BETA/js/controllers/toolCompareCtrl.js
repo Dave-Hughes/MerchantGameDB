@@ -1,5 +1,5 @@
 angular.module('mainApp')
-	.controller('toolCompareCtrl', function ($scope, $routeParams, $filter, itemsService) {
+	.controller('toolCompareCtrl', function ($scope, $routeParams, itemsService) {
 		$scope.Math = Math;
 		$scope.equipment = jsonEquipments;
 		$scope.formula = jsonFormulas;
@@ -36,7 +36,6 @@ angular.module('mainApp')
 			"mdefPct", "accPct", "hpPct", "apMod", "critMod"])
 
 		function prepareFinalStats(item, itemPrefix, itemSuffix, itemGrade) {
-			var gradeFilter = $filter("grade")
 			var finalObj = {}
 			var itemFormula = jsonFormulas[item.subType]
 
@@ -51,8 +50,8 @@ angular.module('mainApp')
 				}
 				var min = null, max = null, bnsStat = item.bonusStat[statName]
 				if (bnsStat) {
-					min = gradeFilter(bnsStat[0], itemGrade.min)
-					max = gradeFilter(bnsStat[1], itemGrade.max)
+					min = itemsService.getStatAfterGrade(bnsStat[0], itemGrade.min)
+					max = itemsService.getStatAfterGrade(bnsStat[1], itemGrade.max)
 				}
 				if (itemPrefix.stat && itemPrefix.stat[statName]) {
 					min = (min || 0) + itemPrefix.stat[statName]
